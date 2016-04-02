@@ -35,7 +35,7 @@ Those `__something__()` thingies might look scary for the uninitiated, but you w
 
 > If at all possible, this should look like a valid Python expression that could be used to recreate an object with the same value
 
-> -- [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#object.__repr__): 
+> -- [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#object.__repr__)
 
 In our simple simulation this is actually possible for all object, so why not do it? You can copy object representations from the log, for example, and recreate them in the REPL. If done right this works correctly when using inheritance as well (see `Stock` and `Waste`).
 
