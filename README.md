@@ -2,7 +2,7 @@
 
 Simple card game simulation to showcase a "real" Python application.
 
-This basic implementation is only using the basic rules of the game. [Mau Mau](https://goo.gl/r7D63W) can have a lot of special rules, which might be implemented in later versions.
+This implementation is only using the basic rules of the game. [Mau Mau](https://goo.gl/r7D63W) can have a lot of special rules, which might be implemented in later versions.
 
 The players have no strategies yet either, they just play the first playable card they find in their hand and play it.
 
