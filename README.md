@@ -23,6 +23,10 @@ The ability to write simple functions to test your code cannot be developed earl
 * **Find Action: default testrunner**: set to py.test 
 * accept offer to install it in your project virtualenv or do it yourself with pip install pytest
 
+### Use of custom [classes](https://docs.python.org/3.5/tutorial/classes.html)
+
+Yes I know, you basically just learned about functions and variables inside of modules, but by having learned that you know almost everything already to start writing your own classes. The modelling problem we have here is a good fit to create your own data structures (which classes are), so here they are and they don't bite. 
+
 ### Special attribute names
 
 those `__something__()` thingies might look scary for the uninitiated, but you will live them, once you got the principle. They are one of the things that make up some of the Python superpowers and it's never to early to learn about them. Some of them are used in the model classes to create pythonic behaviour and good representations.
