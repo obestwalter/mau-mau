@@ -54,7 +54,7 @@ In our simple simulation this is actually possible for all object, so why not do
 
 ### Parameter passing by object sharing
 
-The `play_turn` function could als be a method of `Game`. Vice versa the `next_turn` method could just as well be a function. This works without having to return the objects which are changed in the functions, because only their contents are modified. This way parameters work in Python is very specific in Python, so it is important, that you are aware of it and understand it. 
+The `play_turn` function could als be a method of `Game`. Vice versa the `next_turn` method could just as well be a function. This works without having to return the objects which are changed in the functions, because only their contents are modified. The way passing data to functions work in Python is [quite specific](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/), so it is important, that you are aware of it and understand it. Use the [tutor](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/) to visualize what is really happening, when you pass mutable objects (e.g. a list ) into functions and append elements there.
 
 Changing the state of an object that is not returned explicitly is called a [side effect](https://goo.gl/3n4nXW) it is not automatically a BadThing and the discussion around when and how to use them is a huge topic. For now I just want to make you aware here, that our functions have side effects, meaning that not all changes to the state of the program are done by returning values. Raising exceptions are als side effects and they are used a lot in Python.
 
