@@ -15,7 +15,7 @@ Python has a simple to use and convenient [logging module](https://docs.python.o
 We use a simple format and the [convenience function](https://docs.python.org/3.5/library/logging.html#logging.basicConfig) to initialize the logger to write to the terminal with a certain level.
 
 
-## Automatic tests with [py.test](http://pytest.org)
+### Automatic tests with [py.test](http://pytest.org)
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code.
 
