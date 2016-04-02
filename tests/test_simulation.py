@@ -3,7 +3,7 @@ import pytest
 from sim import simulate_game
 
 
-def test_simulation_with_too_many_players_fails_elegantly():
+def test_simulation_with_too_many_players_crashes_early():
     with pytest.raises(AssertionError):
         simulate_game(7)
 
