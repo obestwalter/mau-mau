@@ -20,8 +20,8 @@ We use a [simple format](https://docs.python.org/3.5/library/logging.html#logrec
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code.
 
 **Warning**: the default testrunner in PyCharm is Unittest. Switch to py.test like so: 
-* **Find Action: default testrunner**: set to py.test 
-* accept offer to install it in your project virtualenv or do it yourself with pip install pytest
+* **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test 
+* accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
 
 ### Use of custom [classes](https://docs.python.org/3.5/tutorial/classes.html)
 
