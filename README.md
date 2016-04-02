@@ -27,11 +27,12 @@ The ability to write simple functions to test your code cannot be developed earl
 
 Yes I know, you basically just learned about functions and variables inside of modules, but by having learned that you know almost everything already to start writing your own classes. The modelling problem we have here is a good fit to create your own data structures (which classes are), so here they are and they don't bite. 
 
-### Special attribute names
+### 'Magic' methods
 
-those `__something__()` thingies might look scary for the uninitiated, but you will live them, once you got the principle. They are one of the things that make up some of the Python superpowers and it's never to early to learn about them. Some of them are used in the model classes to create pythonic behaviour and good representations.
+Those `__something__()` thingies might look scary for the uninitiated, but you will love them, once you got the idea. These methods are a way to use the internal language mechanics of Python for your own classes. They make up some of the Python superpowers and it's never to early to learn about them (you should at least know that they exist and that they have special meaning). Some of them are used in the model classes to create pythonic behaviour of the objects (e.g. make them iterable and comparable) and good representations.
 
 * [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#special-method-names)
+* [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
 
 #### Object representation (`__repr__`)
 
