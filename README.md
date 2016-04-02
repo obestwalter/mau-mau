@@ -40,8 +40,8 @@ We use a simple format and the [convenience function](https://docs.python.org/3.
 
 `__name__` is an example for a special attribute of in this case the module. We use it for two purposes in the program:
 
-#. Set the name of the logger object to get information from where the log was written
-#. If a module is started directly it has the special name '__main__' - this we use to only execute certain code if the module was started directly. This is the [canonic way](https://docs.python.org/3/library/__main__.html) to do this. 
+1. Set the name of the logger object to get information from where the log was written
+1. If a module is started directly it has the special name '__main__' - this we use to only execute certain code if the module was started directly. This is the [canonic way](https://docs.python.org/3/library/__main__.html) to do this. 
 
 ## Tests
 
