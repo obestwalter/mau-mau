@@ -15,11 +15,13 @@ Python has a simple to use and convenient [logging module](https://docs.python.o
 We use a simple format and the [convenience function](https://docs.python.org/3.5/library/logging.html#logging.basicConfig) to initialize the logger to write to the terminal with a certain level.
 
 
-## Tests
+## Automatic tests with [py.test](http://pytest.org)
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code.
 
-We are using [py.test](http://pytest.org). The default testrunner in PyCharm is Unittest. **Find Action: default testrunner**: set to py.test and accept offer to install it
+**Warning**: the default testrunner in PyCharm is Unittest. Switch to py.test like so: 
+* **Find Action: default testrunner**: set to py.test 
+* accept offer to install it in your project virtualenv or do it yourself with pip install pytest
 
 ### Special attribute names
 
