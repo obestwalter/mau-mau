@@ -31,9 +31,6 @@ Yes I know, you basically just learned about functions and variables inside of m
 
 Those `__something__()` thingies might look scary for the uninitiated, but you will love them, once you got the idea. These methods are a way to use the internal language mechanics of Python for your own classes. They make up some of the Python superpowers and it's never to early to learn about them (you should at least know that they exist and that they have special meaning). Some of them are used in the model classes to create pythonic behaviour of the objects (e.g. make them iterable and comparable) and good representations.
 
-* [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#special-method-names)
-* [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
-
 #### Object representation (`__repr__`)
 
 > If at all possible, this should look like a valid Python expression that could be used to recreate an object with the same value
@@ -42,13 +39,17 @@ Those `__something__()` thingies might look scary for the uninitiated, but you w
 
 In our simple simulation this is actually possible for all object, so why not do it? You can copy object representations from the log, for example, and recreate them in the REPL. If done right this works correctly when using inheritance as well (see `Stock` and `Waste`).
 
+#### Special module attribute (`__name__`)
+
 `__name__` is an example for a special attribute of a module object. We use it for two purposes in the program:
 
 1. Set the name of the logger object to get information from where the log was written
 1. If a module is started directly it has the special name '__main__' - this we use to only execute certain code if the module was started directly. This is the [canonic way](https://docs.python.org/3/library/__main__.html) to do this. 
 
-**further information**
+##### Further information
 
+* [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#special-method-names)
+* [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
 * [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html)
 
 ### Parameter passing by object sharing
