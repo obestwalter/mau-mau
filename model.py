@@ -5,7 +5,7 @@ import random
 log = logging.getLogger(__name__)
 
 
-class Game:
+class CardRoom:
     def __init__(self, gamers, table):
         self.gamers = gamers
         self.table = table
