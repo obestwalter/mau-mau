@@ -1,6 +1,6 @@
 import logging
 
-from model import CardRoom, Table, Player, Stock, Waste, Card
+from model import Game, Table, Player, Stock, Waste, Card
 
 
 log = logging.getLogger(__name__)
@@ -23,7 +23,7 @@ def start_new_game(players, cardsPerPlayer):
     upcard = stock.fetch_card()
     waste = Waste()
     deal_cards(stock, players, cardsPerPlayer)
-    return CardRoom(players, Table(stock, waste, upcard))
+    return Game(players, Table(stock, waste, upcard))
 
 
 def play_turn(player, table):
