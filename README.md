@@ -37,7 +37,7 @@ Those `__something__()` thingies might look scary for the uninitiated, but you w
 
 > -- [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#object.__repr__)
 
-In our simple simulation this is actually possible for all object, so why not do it? You can copy object representations from the log, for example, and recreate them in the REPL. If done right this works correctly when using inheritance as well (see `Stock` and `Waste`).
+In our simple simulation this is actually possible for all objects, so why not do it? You can copy object representations from the log, for example, and recreate them in the REPL. If done right this works correctly when using inheritance as well (see `Stock` and `Waste`).
 
 #### Special module attribute (`__name__`)
 
