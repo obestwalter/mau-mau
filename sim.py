@@ -28,7 +28,7 @@ def start_new_game(players, cardsPerPlayer):
 
 def play_turn(player, table):
     log.debug("upcard: %s; hand: %s", table.upcard, player.hand)
-    playableCard = player.choose_playable_card(table.upcard)
+    playableCard = player.play_card(table.upcard)
     if playableCard:
         table.waste.put_card(table.upcard)
         table.upcard = playableCard

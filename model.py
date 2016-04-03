@@ -55,9 +55,10 @@ class Player:
     def hasWon(self):
         return len(self.hand) == 0
 
-    def choose_playable_card(self, gameCard):
+    def play_card(self, gameCard):
         for card in self.hand:
             if card.is_compatible_with(gameCard):
+
                 return self.hand.pop(self.hand.index(card))
 
     def draw_card(self, stock):
