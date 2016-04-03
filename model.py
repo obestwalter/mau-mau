@@ -56,15 +56,13 @@ class Player:
         return len(self.hand) == 0
 
     def choose_playable_card(self, gameCard):
-        idx = None
         for card in self.hand:
             if card.is_compatible_with(gameCard):
-                idx = self.hand.index(card)
-        if idx is not None:
-            return self.hand.pop(idx)
+                return self.hand.pop(self.hand.index(card))
 
     def draw_card(self, stock):
         self.hand.append(stock.fetch_card())
+        log.debug("%s drew %s", self.name, self.hand[-1])
 
 
 class Table:
