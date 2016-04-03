@@ -1,6 +1,6 @@
-import random
 import logging
 
+import random
 
 log = logging.getLogger(__name__)
 
@@ -58,7 +58,6 @@ class Player:
     def play_card(self, gameCard):
         for card in self.hand:
             if card.is_compatible_with(gameCard):
-
                 return self.hand.pop(self.hand.index(card))
 
     def draw_card(self, stock):
