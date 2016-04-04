@@ -2,6 +2,8 @@ import logging
 
 import random
 
+from rules import DEF
+
 
 log = logging.getLogger(__name__)
 
@@ -66,16 +68,22 @@ class Player:
         candidate = self.choose_best_candidate(candidates)
         card = self.hand.pop(self.hand.index(candidate))
         log.info("puts %s on %s", card, table.upcard)
+        table.upcard.post_play_action(self, table)
         table.waste.put_card(table.upcard)
         table.upcard = card
         return True
 
     def find_candidates(self, upcard):
-        return [c for c in self.hand if c.is_playable(upcard)]
+        rule = upcard.rule
+        return [c for c in self.hand if rule.cards_compatible(upcard, c)]
 
     # noinspection PyUnusedLocal,PyMethodMayBeStatic
     def choose_best_candidate(self, candidates, *args, **kwargs):
-        return candidates[0]
+        """Take first you can find. If it's a Jack ask for the same suit"""
+        candidate = candidates[0]
+        if candidate.value == DEF.JACK:
+            candidate.rule.wantedSuit = candidate.suit
+        return candidate
 
     def draw_card(self, stock):
         self.hand.append(stock.fetch_card())
@@ -139,13 +147,11 @@ class Waste(_Pile):
 
 
 class Card:
-    def __init__(self, value, suit):
+    def __init__(self, value, suit, rule=None):
         self.value = value
         self.suit = suit
+        self.rule = rule
 
     def __repr__(self):
         name = self.__class__.__name__
         return "%s('%s', '%s')" % (name, self.value, self.suit)
-
-    def is_playable(self, otherCard):
-        return self.suit == otherCard.suit or self.value == otherCard.value
