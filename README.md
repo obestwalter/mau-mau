@@ -69,6 +69,16 @@ With all this in mind, we can finally move on to look at the code.
 
 This simulation of a simple card game is optimized for being readable, easy to grasp and to demonstrate a whole range of concepts. It is not a toy example, but the nasty details that usually screw with our nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code and so it can be read like a nice little story. Even in this simple state it is already non-linear though and it came into live in a non-linear fashion.
 
+### Features of this implementation
+
+* Basic rules of Mau Mau (no special rules regarding 7, 8, or Jack)
+* Players "strategy" is to choose the first playable card in their hand
+* Functions to run multiple games and collect stats
+* Flexible [command line interface](cli.py) (add new functions without adjusting code)
+* [automatic tests](tests/) with py.test
+* Logging with the stdlib [logging module](https://docs.python.org/3/library/logging.html)
+* Use of [Python protocols](https://docs.python.org/2/reference/datamodel.html#special-method-names) to create custom classes which behave like inbuilt data types
+
 ### [`sim.py`](sim.py)
 
 The overall plot of the Mau Mau story can be found here. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way. You can read it as a series of commands given to the computer to simulate the game. The code looks like a series of instructions which are to be carried out in a specific order. The order can be influenced by loops (`for ... in` or `while`) conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
