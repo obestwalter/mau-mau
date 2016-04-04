@@ -166,6 +166,6 @@ spam([1, 2])
 
 The assert in the `spam` function makes sure, that the argument passed evaluates to `True` before moving on. As a non empty list evaluates to `True` everything is fine here.
 
-This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Like making sure there is a chair under your bottom, bfore you make an attempt to sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
+This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Like making sure there is a chair under your bottom before you make an attempt to sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
 
 Look for uses of the assert statement in the code to get an idea how it might be used.
