@@ -157,9 +157,9 @@ See also the Python programming FAQ:
 To assert something means "to state or express positively". Assertions are regarded as important enough in Python, that [`assert` is a statement](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) (since Python 3 even `print` is not important enough to be a statement). `assert` evaluates an expression and raises an [`AssertionError`](https://docs.python.org/3/library/exceptions.html?highlight=assert#AssertionError) if the result of the evaluation is `False` (with a customizable message to provide more information about the problem). This can be a very simple check like making sure that an object is [truthy](https://docs.python.org/3/library/stdtypes.html#truth) if evaluated as [`bool`](https://docs.python.org/3/library/stdtypes.html#truth). 
 
 ```Python
-def spam(l):
-    assert l
-    print(l)
+def spam(someObject):
+    assert someObject
+    print(someObject)
     
 spam([1, 2])
 ```
