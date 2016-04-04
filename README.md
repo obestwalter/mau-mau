@@ -146,9 +146,22 @@ Look for uses of the assert statement in the code to get an idea how it might be
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
 
+#### Testing in PyCharm
+
+##### Preparation
 **Warning**: the default testrunner in PyCharm is Unittest. Switch to py.test like so: 
 * **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test 
 * accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
+
+##### Running tests
+
+Depending on where you are, you can run all tests are part of them. The magic action is [`run context configuration`](https://www.jetbrains.com/help/pycharm/2016.1/creating-and-saving-temporary-run-debug-configurations.html). It runs what is sensible in the context. If your focus is in a normal script it runs the script and if the focus is in a module defining tests it will run the configured testrunner with the tests. Running the context configuration with ...
+
+* focus in the editor, inside a specific test
+* focus in the editor on the line defining a class containing tests
+* focus in the **Project Tool Window**, choose the `tests/` folder and 
+
+... all yields different results as which tests are run (and they are what you would intuitivey expect).
 
 ### Use of custom [classes](https://docs.python.org/3.5/tutorial/classes.html)
 
