@@ -130,13 +130,14 @@ To assert something means "to state or express positively". Assertions are regar
 
 ```Python
 def spam(someObject):
-    assert someObject
+    assert someObject, "Hey! %s is not what I want!" % (someObject)
     print(someObject)
     
 spam([1, 2])
+spam([])
 ```
 
-The assert in the `spam` function makes sure, that the argument passed evaluates to `True` before moving on. As a non empty list evaluates to `True` everything is fine here.
+The assert in the `spam` function makes sure, that the argument passed evaluates to `True` before moving on. The first call is o.k. but the second raises the exception and prints the message as part of the traceback.
 
 This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Like making sure there is a chair under your bottom before you make an attempt to sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
 
