@@ -19,7 +19,8 @@ def start_new_game(players, cardsPerPlayer):
     deck = fetch_fresh_deck_of_cards()
     make_sure_we_are_ok_to_play(players, cardsPerPlayer, deck)
     table = set_the_table(deck)
-    deal_cards(table.stock, players, cardsPerPlayer)
+    for player in players:
+        deal_cards(player, table.stock, cardsPerPlayer)
     return Game(players, table)
 
 
@@ -60,11 +61,10 @@ def set_the_table(deck):
     return Table(stock, waste, upcard)
 
 
-def deal_cards(stock, players, cardsPerPlayer):
-    for player in players:
-        deal = stock.fetch_cards(cardsPerPlayer)
-        player.hand = deal
-        log.debug(str(player))
+def deal_cards(player, stock, cardsPerPlayer):
+    deal = stock.fetch_cards(cardsPerPlayer)
+    player.hand = deal
+    log.debug(str(player))
 
 
 def play_turn(player, table):
