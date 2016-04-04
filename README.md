@@ -4,7 +4,9 @@
 
 This serves to showcase a complete Python application and explores an approach to development that could be called "programming as non-linear storytelling".
 
-## The rules of Mau Mau
+## OOOMMM (Obvious Object Oriented Mau Mau Modelling)
+
+### The rules of Mau Mau
 
 >  The game is played with a regular deck of playing cards. The players are dealt each a hand of cards (usually 5). The rest are placed face down as the drawing stack. At the beginning of the game the topmost card is revealed, then the players each get a turn to play cards.
 
@@ -12,7 +14,7 @@ This serves to showcase a complete Python application and explores an approach t
 
 > -- [Wikipedia - Mau Mau](https://goo.gl/r7D63W)
 
-## OOOMMM (Obvious Object Oriented Mau Mau Modelling)
+### How to turn that into a program?
 
 Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between clearly defined entities with certain attributes that preserve state and behaviours modifying their own state and those of other entities. If you call the entities objects and the behaviour methods you have a basic description of object oriented programming.
 
