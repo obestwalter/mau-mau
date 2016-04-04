@@ -6,7 +6,7 @@ This serves to showcase a complete Python application and explores an approach t
 
 ## OOOMMM (Obvious Object Oriented Mau Mau Modelling)
 
-Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between actors with adjustable, state preserving attributes and behaviours modifying their own attributes and initiating reactions and attribute changes in other actors. If you call the actors objects and the behaviour methods you have a basic description of object oriented programming.
+Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between actors with adjustable attributes and behaviours modifying their own attributes and initiating reactions and attribute changes in other actors. If you call the actors objects and the behaviour methods you have a basic description of object oriented programming.
 
 > Object-oriented design is, in its simplest form, based on a seemingly elementary idea. Computing systems perform certain actions on certain objects; to obtain flexible and reusable systems, it is better to base the structure of software on the objects than on the actions. 
 
