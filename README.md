@@ -12,7 +12,7 @@ Switching into egghead mode, you could say that a game of Mau Mau can be modelle
 
 > Bertrand Meyer - Object-Oriented Software Construction 
 
-That's all very ... abstract, isn't it? No it isn't and Meyer goes on:
+That's all very ... abstract, isn't it? Yes it is! Meyer goes on:
 
 > Once you have said this, you have not really provided a definition, but rather posed a set of problems: What precisely is an object? How do you find and describe the objects? How should programs manipulate objects? What are the possible relations between objects? How does one explore the commonalities that may exist between various kinds of objects? How do these ideas relate to classical software engineering concerns such as correctness, ease of use, efficiency?
 
