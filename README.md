@@ -42,7 +42,7 @@ Another hint that writing and reading software is not as linear and logical as i
 
 This is a very neat little project that is pretty optimized for being readable and easy to grasp. It is not a toy example, but the nasty details that usually screw with our nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code and so it can be read like a nice story. Even in this simple state it is already non-linear though and it came into live in a non-linear fashion.
 
-### [`game.py`](game.py)
+### [`sim.py`](sim.py)
 
 The overall plot of the Mau Mau story can be found here. It is described in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way. You can read it as a series of commands given to the computer to simulate the game. The code looks like a series of instructions which are to be carried out in a specific order. The order can be influenced by loops (`for ... in` or `while`) conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
 
