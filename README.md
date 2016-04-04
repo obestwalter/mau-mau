@@ -16,7 +16,7 @@ This serves to showcase a complete Python application and explores an approach t
 
 ### How to turn that into a program?
 
-Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between actors with adjustable, state preserving attributes and behaviours modifying their own state and initiating reactions in other actors. If you call the actors objects and the behaviour methods you have a basic description of object oriented programming.
+Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between actors with adjustable, state preserving attributes and behaviours modifying their own state and initiating reactions and state changes in other actors. If you call the actors objects and the behaviour methods you have a basic description of object oriented programming.
 
 One koan in the Zen of Python says: "If the implementation is easy to explain, it may be a good idea". Let's put this to the test and explain the implementation of our Mau Mau program by simply describing the conditions and rules of the game using a rough approximation of the programs' terminology and see if the objects and their interactions make the implementation look obvious. Objects used in the program are marked `like this` ; functions that describe interactions are marked like **this**).
 
