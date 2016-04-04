@@ -6,6 +6,20 @@ This serves to showcase a complete Python application and explores an approach t
 
 ## OOOMMM (Obvious Object Oriented Mau Mau Modelling)
 
+Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between actors with adjustable, state preserving attributes and behaviours modifying their own attributes and initiating reactions and attribute changes in other actors. If you call the actors objects and the behaviour methods you have a basic description of object oriented programming.
+
+> Object-oriented design is, in its simplest form, based on a seemingly elementary idea. Computing systems perform certain actions on certain objects; to obtain flexible and reusable systems, it is better to base the structure of software on the objects than on the actions. 
+
+> Bertrand Meyer - Object-Oriented Software Construction 
+
+That's all very ... abstract, isn't it? No it isn't and Meyer goes on:
+
+> Once you have said this, you have not really provided a definition, but rather posed a set of problems: What precisely is an object? How do you find and describe the objects? How should programs manipulate objects? What are the possible relations between objects? How does one explore the commonalities that may exist between various kinds of objects? How do these ideas relate to classical software engineering concerns such as correctness, ease of use, efficiency?
+
+What does that tell us? OO is just one of many ways of thinking about the problems you are trying to solve with software. Sometimes that way of thinking matches well with the problem you are trying to solve. There are also a lot of possibly very different answers to the questions posed by Meyer and they manifest in very different approaches to the implementation of OO in different programming languages.
+
+### What does that have to do with Mau Mau?
+
 ### The rules of Mau Mau
 
 >  The game is played with a regular deck of playing cards. The players are dealt each a hand of cards (usually 5). The rest are placed face down as the drawing stack. At the beginning of the game the topmost card is revealed, then the players each get a turn to play cards.
@@ -14,9 +28,6 @@ This serves to showcase a complete Python application and explores an approach t
 
 > -- [Wikipedia - Mau Mau](https://goo.gl/r7D63W)
 
-### How to turn that into a program?
-
-Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between actors with adjustable, state preserving attributes and behaviours modifying their own attributes and initiating reactions and attribute changes in other actors. If you call the actors objects and the behaviour methods you have a basic description of object oriented programming.
 
 One koan in the Zen of Python says: "If the implementation is easy to explain, it may be a good idea". Let's put this to the test and explain the implementation of our Mau Mau program by simply describing the conditions and rules of the game using a rough approximation of the programs' terminology and see if the objects and their interactions make the implementation look obvious. Objects used in the program are marked `like this` ; functions that describe (inter)actions are marked like **this**).
 
@@ -134,3 +145,12 @@ See also the Python programming FAQ:
 > Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se. You can achieve the desired effect in a number of ways.
 
 > -- [How do I write a function with output parameters (call by reference)?](https://docs.python.org/3.5/faq/programming.html#how-do-i-write-a-function-with-output-parameters-call-by-reference)
+
+### Assertions
+
+> What can be asserted without evidence can be dismissed without evidence.
+
+> -- Christopher Hitchens (Hitchens' razor)
+
+Assertions in programming are much less 
+Assertions are not only practical in tests, they are also a very good way to 
