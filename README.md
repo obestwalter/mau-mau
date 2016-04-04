@@ -24,6 +24,8 @@ What does that tell us? OO is just one of many ways of thinking about the proble
 
 ### What does that have to do with Mau Mau?
 
+Nothing - but please don't leave yet ...
+
 ### The rules of Mau Mau
 
 >  The game is played with a regular deck of playing cards. The players are dealt each a hand of cards (usually 5). The rest are placed face down as the drawing stack. At the beginning of the game the topmost card is revealed, then the players each get a turn to play cards.
