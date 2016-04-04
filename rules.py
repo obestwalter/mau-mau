@@ -1,3 +1,14 @@
+"""
+Maybe it is a better idea to only add a rule object to the upcard if
+the rule is special
+
+this rule object is then active in the next turn and removed from the upcard
+after it did it job. Adding a rule object with e.g. a suit wish as as part of
+the jack would then be part of the players strategy.
+
+Reacting to special rules like a seven which can be retaliated or not is also
+part of the players strategy.
+"""
 import logging
 
 
