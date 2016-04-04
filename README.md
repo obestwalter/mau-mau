@@ -10,7 +10,7 @@ Switching into egghead mode, you could say that a game of Mau Mau can be modelle
 
 > Object-oriented design is, in its simplest form, based on a seemingly elementary idea. Computing systems perform certain actions on certain objects; to obtain flexible and reusable systems, it is better to base the structure of software on the objects than on the actions. 
 
-> Bertrand Meyer - Object-Oriented Software Construction 
+> [Bertrand Meyer - Object-Oriented Software Construction](http://www.win.tue.nl/~wstomv/quotes/meyer.pdf) 
 
 That's all very ... abstract, isn't it? Yes it is! Meyer goes on:
 
