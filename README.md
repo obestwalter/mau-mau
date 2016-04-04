@@ -154,7 +154,7 @@ In our simple simulation this is actually possible for all objects, so why not d
 * [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
 * [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html)
 
-### Parameter passing by assignment
+### Python does argument passing by assignment
 
 The `play_turn` function could als be a method of `Game`. Vice versa the `next_turn` method could just as well be a function. This works without having to return the objects which are changed in the functions, because only their contents are modified. The way passing data to functions work in Python is [quite specific](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/), so it is important, that you are aware of it and understand it. Walk through this example in the [tutor](http://goo.gl/MeBNPV) to visualize what is really happening, when you pass mutable objects into functions and append elements there. In example it is a list but this holds true for any object that contains references to other objects.
 
