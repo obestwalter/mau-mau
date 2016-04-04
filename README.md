@@ -59,7 +59,7 @@ Another hint that writing and reading software is not as linear and logical as i
 
 ## Exploring / unraveling the Mau Mau code
 
-Writing a simulation of a simple card game is a very neat little project that is pretty optimized for being readable and easy to grasp. It is not a toy example, but the nasty details that usually screw with our nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code and so it can be read like a nice little story. Even in this simple state it is already non-linear though and it came into live in a non-linear fashion.
+This simulation of a simple card game is optimized for being readable, easy to grasp and to demonstrate a whole range of concepts. It is not a toy example, but the nasty details that usually screw with our nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code and so it can be read like a nice little story. Even in this simple state it is already non-linear though and it came into live in a non-linear fashion.
 
 ### [`sim.py`](sim.py)
 
