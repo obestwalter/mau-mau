@@ -17,7 +17,7 @@ def play_game(players=3, cardsPerPlayer=5):
 def start_new_game(players, cardsPerPlayer):
     players = invite_players(players)
     deck = fetch_fresh_deck_of_cards()
-    make_sure_we_are_ok_to_play(players, cardsPerPlayer, deck)
+    ensure_sure_we_are_ok_to_play(players, cardsPerPlayer, deck)
     table = set_the_table(deck)
     for player in players:
         deal_cards(player, table.stock, cardsPerPlayer)
@@ -48,7 +48,7 @@ def fetch_fresh_deck_of_cards():
     return deck
 
 
-def make_sure_we_are_ok_to_play(players, cardsPerPlayer, deck):
+def ensure_sure_we_are_ok_to_play(players, cardsPerPlayer, deck):
     assert len(players) > 1
     assert len(players) * cardsPerPlayer <= len(deck)
 
