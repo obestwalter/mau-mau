@@ -25,7 +25,7 @@ def start_new_game(players, cardsPerPlayer):
 
 
 def invite_players(players):
-    """Invite players to the game.
+    """Create a sequence of player objects from an amount or some names.
 
     :type players: int or list of str
     """
