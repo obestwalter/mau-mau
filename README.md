@@ -106,13 +106,13 @@ Contains some functions to run the game simulations and collect statistics.
 
 ### [`cli.py`](cli.py)
 
-This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`)the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
+This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
 
 ## Things to point out
 
 ### Python does argument passing by assignment
 
-> Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se. You can achieve the desired effect in a number of ways.
+> Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se.
 
 > -- [How do I write a function with output parameters (call by reference)?](https://docs.python.org/3.5/faq/programming.html#how-do-i-write-a-function-with-output-parameters-call-by-reference)
 
