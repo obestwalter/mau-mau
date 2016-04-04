@@ -56,9 +56,9 @@ class Player:
     def hasWon(self):
         return len(self.hand) == 0
 
-    def play_card(self, gameCard, table):
+    def play_card(self, table):
         for card in self.hand:
-            if card.is_playable(gameCard):
+            if card.is_playable(table.upcard):
                 freeCard = self.hand.pop(self.hand.index(card))
                 log.info("%s puts %s on %s", self.name, freeCard, table.upcard)
                 table.waste.put_card(table.upcard)
