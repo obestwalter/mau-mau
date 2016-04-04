@@ -56,10 +56,16 @@ class Player:
     def hasWon(self):
         return len(self.hand) == 0
 
-    def play_card(self, gameCard):
+    def play_card(self, gameCard, table):
         for card in self.hand:
             if card.is_playable(gameCard):
-                return self.hand.pop(self.hand.index(card))
+                freeCard = self.hand.pop(self.hand.index(card))
+                log.info("%s puts %s on %s", self.name, freeCard, table.upcard)
+                table.waste.put_card(table.upcard)
+                table.upcard = freeCard
+                return True
+
+        return False
 
     def draw_card(self, stock):
         self.hand.append(stock.fetch_card())

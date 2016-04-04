@@ -69,14 +69,18 @@ def deal_cards(player, stock, cardsPerPlayer):
 
 def play_turn(player, table):
     log.debug("upcard: %s; hand: %s", table.upcard, player.hand)
-    playableCard = player.play_card(table.upcard)
-    if playableCard:
-        table.waste.put_card(table.upcard)
-        table.upcard = playableCard
-        log.debug("played %s", playableCard)
-    else:
-        if table.stock.isEmpty:
-            table.stock = Stock(table.waste.cards)
-            table.waste = Waste()
-            table.stock.shuffle()
+    if not player.play_card(table.upcard, table):
+        ensure_stock_is_replenished(table)
+        # FIXME this could be more symmetric to what happens in play_card
+        # * draw_card returns boolean
+        # * if False (stock empty)
+        # * replenish stock
+        # * draw again
         player.draw_card(table.stock)
+
+
+def ensure_stock_is_replenished(table):
+    if table.stock.isEmpty:
+        table.stock = Stock(table.waste.cards)
+        table.waste = Waste()
+        table.stock.shuffle()
