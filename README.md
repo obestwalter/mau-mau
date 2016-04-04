@@ -57,7 +57,7 @@ Please don't try to think that you need the whole picture of how the program wor
 
 Another hint that writing and reading software is not as linear and logical as it might seem is that the alternative translation of my german job description ("Software Entwickler") is "Software Unraveller". How fitting. I unravel software -  I don't develop it :)
 
-## Exploring / unraveling the code
+## Exploring / unraveling the Mau Mau code
 
 This is a very neat little project that is pretty optimized for being readable and easy to grasp. It is not a toy example, but the nasty details that usually screw with our nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code and so it can be read like a nice story. Even in this simple state it is already non-linear though and it came into live in a non-linear fashion.
 
