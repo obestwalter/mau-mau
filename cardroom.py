@@ -24,7 +24,7 @@ class Game:
         except IndexError:
             self.player = self.gamers[0]
         log.debug("-" * 120)
-        log.debug("round %s - %s plays", self.turns, self.player.name)
+        log.debug("%s is up (turn %s)", self.player, self.turns)
 
     @property
     def over(self):
@@ -57,15 +57,24 @@ class Player:
         return len(self.hand) == 0
 
     def play_card(self, table):
-        for card in self.hand:
-            if card.is_playable(table.upcard):
-                freeCard = self.hand.pop(self.hand.index(card))
-                log.info("%s puts %s on %s", self.name, freeCard, table.upcard)
-                table.waste.put_card(table.upcard)
-                table.upcard = freeCard
-                return True
+        candidates = self.find_candidates(table.upcard)
+        if not candidates:
+            log.info("not putting anything on %s", table.upcard)
+            return False
 
-        return False
+        candidate = self.choose_best_candidate(candidates)
+        card = self.hand.pop(self.hand.index(candidate))
+        log.info("puts %s on %s", card, table.upcard)
+        table.waste.put_card(table.upcard)
+        table.upcard = card
+        return True
+
+    def find_candidates(self, upcard):
+        return [c for c in self.hand if c.is_playable(upcard)]
+
+    # noinspection PyUnusedLocal,PyMethodMayBeStatic
+    def choose_best_candidate(self, candidates, *args, **kwargs):
+        return candidates[0]
 
     def draw_card(self, stock):
         self.hand.append(stock.fetch_card())
