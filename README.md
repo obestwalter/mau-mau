@@ -36,7 +36,7 @@ Earlier on the term "programming as non-linear storytelling" was introduced. I h
 
 > [Reading, Writing, Remixing: Programming Non-Linear Stories with Scratch](http://scratched.gse.harvard.edu/stories/reading-writing-remixing-programming-non-linear-stories-scratch)
 
-Telling a story by starting in the middle and jumping back and forth on the timeline and switching between minute details and bird's eye views is a lot like how you go about creating software and also how you should go about exploring an existing code base that you want to use or adapt. Code is not linear. Creating sotware is a creative process. Period. 
+Telling a story by starting in the middle and jumping back and forth on the timeline and switching between minute details and bird's eye views is a lot like how you go about creating software and also how you should go about exploring an existing code base that you want to use or adapt. Code is not linear. Creating software is a creative process. Period. 
 
 Please don't try to think, you have to have the whole picture of how the program works when starting to develop. It is more like an exploration of ideas and a constant struggle to find the right structure, that tells the story in the right way. The same applies to reading code. If you try to read any non trivial piece of software from top to bottom, file by file you will not learn much and very likely give up pretty quickly. Calling it reading code is very misleading - it should be called "decoding code" or "exploring code". After all: there is a reason why it's called code. 
 
