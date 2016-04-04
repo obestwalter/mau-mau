@@ -1,5 +1,9 @@
 # Mau Mau 
 
+> The purpose of computing is insight, not numbers.
+
+> --Richard Hamming
+
 **Part of the [Python Exploration Toolkit](https://github.com/obestwalter/pet)**
 
 This serves to showcase a complete Python application and explores an approach to development that could be called "programming as non-linear storytelling".
