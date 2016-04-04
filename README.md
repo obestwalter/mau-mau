@@ -152,6 +152,6 @@ See also the Python programming FAQ:
 
 > What can be asserted without evidence can be dismissed without evidence.
 
-> -- Christopher Hitchens (Hitchens' razor)
+> -- Christopher Hitchens
 
 To assert something means "to state or express positively". Assertions are regarded as important enough in Python, that [`assert` is a keyword](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement). In programming an assertion is a statement that evaluates an expression and raises an [`AssertionError`](https://docs.python.org/3/library/exceptions.html?highlight=assert#AssertionError) if the result of the evaluation is `False`. This can a very simple check likemaking sure that a single object is [truthy](https://docs.python.org/3/library/stdtypes.html#truth) if evaluated as [`bool`](https://docs.python.org/3/library/stdtypes.html#truth). This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Look for uses of the assert statement in the code to get an idea how it might be used.
