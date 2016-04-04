@@ -63,11 +63,11 @@ This is the meat of the simulation. Here is where all the magic happens. if you 
 
 This looks pretty different from `sim.py` and it is. If `sim.py` contains the plot, `cardroom.py` contains the descriptions of the Actors and props of the story. It describes the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they interact. The order in which the classes are defined are from complex to simple.
 
-### `stats.py`
+### [`stats.py`](stats.py)
 
 Contains some functions to run the game simulations and collect statistics. 
 
-### `cli.py`
+### [`cli.py`](cli.py)
 
 Is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations.py`](stats.py)). If you call it with a command line argument (e.g. `./cli.py mean_turns`)the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](stats.py) and executes it. This is a very simple way to create a flexible command line interface, if you create more simulations. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
 
