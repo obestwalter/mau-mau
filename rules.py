@@ -7,7 +7,11 @@ after it did it job. Adding a rule object with e.g. a suit wish as as part of
 the jack would then be part of the players strategy.
 
 Reacting to special rules like a seven which can be retaliated or not is also
-part of the players strategy.
+part of the players strategy. The player checks the rule on the upcard to see
+what he has to do (not put a card town for the eight, draw two), there should
+also be a retaliation condition, which defines how to prevent having to stick
+to the rule (putting a 7 on another seven and then adding two to the cards
+that need to be drawn).
 """
 import logging
 
