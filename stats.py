@@ -2,8 +2,7 @@ import logging
 from statistics import mean
 from timeit import timeit
 
-from sim import simulate_game
-
+from sim import play_game
 
 log = logging.getLogger(__name__)
 
@@ -24,8 +23,8 @@ def winner_distribution(players=['Eric', 'Terry', 'John'], reps=10000):
 
 
 def time_durations(number=10000):
-    timing = timeit(stmt="simulate_game()",
-                    setup="from sim import simulate_game",
+    timing = timeit(stmt="play_game()",
+                    setup="from sim import play_game",
                     number=number)
     log.info("%s playing games take %0.3f seconds", number, timing)
 
@@ -34,6 +33,6 @@ def _simulate_games(players, reps):
     log.info("players: %s; %s reps", players, reps)
     games = []
     for i in range(reps):
-        game = simulate_game(players)
+        game = play_game(players)
         games.append(game)
     return games

@@ -1,4 +1,4 @@
-from model import Player
+from cardroom import Player
 
 
 def test_player_has_won_without_cards():

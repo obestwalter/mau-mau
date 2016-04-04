@@ -27,7 +27,8 @@ class Game:
         log.debug("round %s - %s plays", self.turns, self.player.name)
 
     @property
-    def over(self):  # should be `isOver`, but then it wouldn't be game.over :)
+    def over(self):
+        """should be named `isOver`. But then it wouldn't be game.over :)"""
         return self.winner is not None
 
     @property
@@ -57,7 +58,7 @@ class Player:
 
     def play_card(self, gameCard):
         for card in self.hand:
-            if card.is_compatible_with(gameCard):
+            if card.is_playable(gameCard):
                 return self.hand.pop(self.hand.index(card))
 
     def draw_card(self, stock):
@@ -93,11 +94,8 @@ class _Pile:
         return len(self.cards)
 
     def shuffle(self):
-        random.shuffle(self.cards)  # shuffles the list in place
-
-    @property
-    def isEmpty(self):
-        return not len(self.cards)
+        """Does not return anything: `random.shuffle` changes list in place"""
+        random.shuffle(self.cards)
 
 
 class Stock(_Pile):
@@ -114,6 +112,10 @@ class Stock(_Pile):
         except IndexError:
             raise self.StockEmpty()
 
+    @property
+    def isEmpty(self):
+        return not len(self.cards)
+
 
 class Waste(_Pile):
     def put_card(self, card):
@@ -129,5 +131,5 @@ class Card:
         name = self.__class__.__name__
         return "%s('%s', '%s')" % (name, self.value, self.suit)
 
-    def is_compatible_with(self, otherCard):
+    def is_playable(self, otherCard):
         return self.suit == otherCard.suit or self.value == otherCard.value
