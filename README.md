@@ -37,7 +37,7 @@ Easy enough to explain. This description of the rules and the gameplay can doubl
 
 ## Programming as non-linear storytelling
 
-Earlier on the term "programming as non-linear storytelling" was introduced. I have to admit that I just made that up when trying to find a way to explain how working code often develops in a very non-linear way. This also means that it should also be read - or better explored - in a non-linear way. 
+Earlier on the term "programming as non-linear storytelling" was introduced. I have to admit that I just made that up when trying to find a way to explain how working code often develops in a very non-linear way. 
 
 Most of the time when I think that I came up with a new term for something, I find out that somebody already wrote a paper about it in 1972. So, when I come up with a term or concept that I think could be original, I deflate my ego right away by [googling it](https://goo.gl/JGfXTL). I then usually find a whole bunch of blogs and articles that use that term already and most of the time explain it better than I could. With this one I drew **almost** a blank. The links referred to non-linear storytelling in computer games or maths topics that did nonlinear stuff with things (don't ask me - I am really not into maths). But not programming. The very first hit though was hitting the nail on the head. I was an article about Ji-Sun Ham who uses a visual programming language called [Scratch](https://scratch.mit.edu/) to teach kids programming. The following quotes resonated with me:
 
