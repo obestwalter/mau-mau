@@ -149,7 +149,8 @@ The ability to write simple functions to test your code cannot be developed earl
 #### Testing in PyCharm
 
 ##### Preparation
-**Warning**: the default testrunner in PyCharm is Unittest. Switch to py.test like so: 
+
+The default testrunner in PyCharm is Unittest. You have to switch to py.test like so: 
 * **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test 
 * accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
 
