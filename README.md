@@ -154,4 +154,18 @@ See also the Python programming FAQ:
 
 > -- Christopher Hitchens
 
-To assert something means "to state or express positively". Assertions are regarded as important enough in Python, that [`assert` is a statement](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) (since Python 3 even `print` is not important enough to be a statement). `assert` evaluates an expression and raises an [`AssertionError`](https://docs.python.org/3/library/exceptions.html?highlight=assert#AssertionError) if the result of the evaluation is `False` (with a customizable message to provide more information about the problem). This can a very simple check likemaking sure that a single object is [truthy](https://docs.python.org/3/library/stdtypes.html#truth) if evaluated as [`bool`](https://docs.python.org/3/library/stdtypes.html#truth). This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Look for uses of the assert statement in the code to get an idea how it might be used.
+To assert something means "to state or express positively". Assertions are regarded as important enough in Python, that [`assert` is a statement](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) (since Python 3 even `print` is not important enough to be a statement). `assert` evaluates an expression and raises an [`AssertionError`](https://docs.python.org/3/library/exceptions.html?highlight=assert#AssertionError) if the result of the evaluation is `False` (with a customizable message to provide more information about the problem). This can be a very simple check like making sure that an object is [truthy](https://docs.python.org/3/library/stdtypes.html#truth) if evaluated as [`bool`](https://docs.python.org/3/library/stdtypes.html#truth). 
+
+```Python
+def spam(l):
+    assert l
+    print(l)
+    
+spam([1, 2])
+```
+
+The assert in the `spam` function makes sure, that the argument passed evaluates to `True` before moving on. As a non empty list evaluates to `True` everything is fine here.
+
+This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Like making sure there is a chair under your bottom, bfore you make an attempt to sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
+
+Look for uses of the assert statement in the code to get an idea how it might be used.
