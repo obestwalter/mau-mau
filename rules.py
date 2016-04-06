@@ -1,4 +1,19 @@
 """
+* upcard is being fitted with extra rule objects dependent on special cards
+* different kind of rule objects expectinng different reactions
+* propagation conditions (e.g. out another 7 on and attach two more "draw conditions")
+* no-play-condition -> default is draw, but would be empty on 8
+* rules van be stacked ([draw, draw]),
+
+ vague ideas ...
+# rules and conditions as rule methods
+
+* take a player as argument and return a card?
+* the rule uses the strategy of the player and its hand to determine the action?
+
+
+#####
+
 Maybe it is a better idea to only add a rule object to the upcard if
 the rule is special
 
@@ -19,7 +34,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-class DEF:
+class DECK:
     SEVEN = 7
     EIGHT = 8
     JACK = 'Jack'
@@ -28,13 +43,13 @@ class DEF:
 
 
 def get_rule(value):
-    if value == DEF.SEVEN:
+    if value == DECK.SEVEN:
         return RuleForSeven()
 
-    if value == DEF.EIGHT:
+    if value == DECK.EIGHT:
         return RulesForEight()
 
-    if value == DEF.JACK:
+    if value == DECK.JACK:
         return RulesForJack()
 
     return Rule()
@@ -53,7 +68,7 @@ class Rule:
 
 class RuleForSeven(Rule):
     def post_play_action(self, player, table):
-        if table.upcard.value != DEF.SEVEN:
+        if table.upcard.value != DECK.SEVEN:
             player.draw_card()
             player.draw_card()
 
