@@ -12,8 +12,7 @@ def mean_turns(players=3, reps=10000):
     log.info("mean turns played: %s", mean([g.turns for g in games]))
 
 
-# Popular gotcha (no problem here though) ... can you spot it?
-def winner_distribution(players=['Eric', 'Terry', 'John'], reps=10000):
+def winner_distribution(players=('Eric', 'Terry', 'John'), reps=10000):
     games = _simulate_games(players, reps)
     wc = {}
     # not optimal but premature optimization os the course of all evil ...
