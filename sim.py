@@ -1,7 +1,7 @@
 import logging
 
 from cardroom import Game, Table, Player, Stock, Waste, Card
-from rules import DEF, get_rule
+from rules import DECK, get_rule
 
 log = logging.getLogger(__name__)
 
@@ -39,7 +39,7 @@ def invite_players(players):
 
 def fetch_fresh_deck_of_cards():
     """Magic a fresh deck of cards out of nothing from a definition"""
-    cards = [Card(v, s, get_rule(v)) for v in DEF.VALUES for s in DEF.SUITS]
+    cards = [Card(v, s, get_rule(v)) for v in DECK.VALUES for s in DECK.SUITS]
     deck = Stock(cards)
     log.debug(str(deck))
     return deck

@@ -2,7 +2,7 @@ import logging
 
 import random
 
-from rules import DEF
+from rules import DECK
 
 
 log = logging.getLogger(__name__)
@@ -81,7 +81,7 @@ class Player:
     def choose_best_candidate(self, candidates, *args, **kwargs):
         """Take first you can find. If it's a Jack ask for the same suit"""
         candidate = candidates[0]
-        if candidate.value == DEF.JACK:
+        if candidate.value == DECK.JACK:
             candidate.rule.wantedSuit = candidate.suit
         return candidate
 
