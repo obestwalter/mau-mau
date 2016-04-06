@@ -30,7 +30,7 @@ def get_function_from_name(name):
 
 if __name__ == '__main__':
     fmt = '%(name)s:%(funcName)s:%(lineno)s %(levelname)s: %(message)s'
-    logging.basicConfig(format=fmt)
+    logging.basicConfig(format=fmt, level=logging.WARNING)
     func = get_function_from_name(None if len(sys.argv) == 1 else sys.argv[1])
     log.info("%s() ...", func.__name__)
     func()
