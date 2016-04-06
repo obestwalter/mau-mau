@@ -66,11 +66,6 @@ def deal_cards(player, stock, cardsPerPlayer):
 
 def play_turn(player, table):
     if not player.play_card(table):
-        # FIXME this could be more symmetric to what happens in play_card
-        # - draw_card returns boolean
-        # - if False (stock empty)
-        # - replenish stock
-        # - draw again
         ensure_stock_is_replenished(table)
         player.draw_card(table.stock)
 
