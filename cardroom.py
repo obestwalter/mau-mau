@@ -46,7 +46,7 @@ class Game:
 class Player:
     def __init__(self, name):
         self.name = name
-        self.hand = []
+        self.hand = None
 
     def __repr__(self):
         name = self.__class__.__name__
@@ -72,18 +72,6 @@ class Player:
         table.waste.put_card(table.upcard)
         table.upcard = card
         return True
-
-    def find_candidates(self, upcard):
-        rule = upcard.rule
-        return [c for c in self.hand if rule.cards_compatible(upcard, c)]
-
-    # noinspection PyUnusedLocal,PyMethodMayBeStatic
-    def choose_best_candidate(self, candidates, *args, **kwargs):
-        """Take first you can find. If it's a Jack ask for the same suit"""
-        candidate = candidates[0]
-        if candidate.value == DECK.JACK:
-            candidate.rule.wantedSuit = candidate.suit
-        return candidate
 
     def draw_card(self, stock):
         self.hand.append(stock.fetch_card())
@@ -147,9 +135,8 @@ class Waste(_Pile):
 
 
 class Card:
-    def __init__(self, value, suit, rule=None):
-        self.value = value
-        self.suit = suit
+    def __init__(self, *args, rule=None):
+        self.value, self.suit = args
         self.rule = rule
 
     def __repr__(self):

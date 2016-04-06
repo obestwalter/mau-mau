@@ -1,7 +1,7 @@
 import logging
 
 from cardroom import Game, Table, Player, Stock, Waste, Card
-from rules import DECK, get_rule
+from rules import DECK, rule_class
 
 log = logging.getLogger(__name__)
 
@@ -20,7 +20,7 @@ def start_new_game(players, cardsPerPlayer):
     ensure_sure_we_are_ok_to_play(players, cardsPerPlayer, deck)
     table = set_the_table(deck)
     for player in players:
-        deal_cards(player, table.stock, cardsPerPlayer)
+        player.hand = table.stock.fetch_cards(cardsPerPlayer)
     return Game(players, table)
 
 
@@ -39,8 +39,8 @@ def invite_players(players):
 
 def fetch_fresh_deck_of_cards():
     """Magic a fresh deck of cards out of nothing from a definition"""
-    cards = [Card(v, s, get_rule(v)) for v in DECK.VALUES for s in DECK.SUITS]
-    deck = Stock(cards)
+    initializers = [(v, s) for v in DECK.VALUES for s in DECK.SUITS]
+    deck = Stock([Card(*i, rule=rule_class(i[0])(*i)) for i in initializers])
     log.debug(str(deck))
     return deck
 
@@ -56,12 +56,6 @@ def set_the_table(deck):
     upcard = stock.fetch_card()
     waste = Waste()
     return Table(stock, waste, upcard)
-
-
-def deal_cards(player, stock, cardsPerPlayer):
-    deal = stock.fetch_cards(cardsPerPlayer)
-    player.hand = deal
-    log.debug(str(player))
 
 
 def play_turn(player, table):
