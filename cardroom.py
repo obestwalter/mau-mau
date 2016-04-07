@@ -143,7 +143,6 @@ class Card:
     def __init__(self, *args, rule=None):
         self.value, self.suit = args
         self.rule = rule
-        """:type: DefaultRule"""
 
     def __repr__(self):
         name = self.__class__.__name__
