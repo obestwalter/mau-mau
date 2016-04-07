@@ -58,7 +58,7 @@ class Player:
 
     @property
     def hasWon(self):
-        return len(self.hand) == 0
+        return self.hand is not None and len(self.hand) == 0
 
     def play_turn(self, table):
         self.strategy.play(table)
