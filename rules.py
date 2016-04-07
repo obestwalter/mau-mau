@@ -83,7 +83,7 @@ class DefaultRule:
         :player Player: player that can't play
         :table Table: The game table
         """
-        player.draw_card(table.stock)
+        table.draw_from_stock(player)
 
     @property
     def propagates(self):
@@ -99,8 +99,7 @@ class DrawTwoCards(DefaultRule):
         return [c for c in cards if c.value == DECK.SEVEN]
 
     def execute_punishment(self, player, table):
-        player.draw_card(table.stock)
-        player.draw_card(table.stock)
+        table.draw_from_stock(player, amount=2)
 
     def no_play_action(self, player, table):
         """They do not have to draw because they already drew two"""
@@ -123,7 +122,13 @@ class BlockPLayerFromPLaying(DefaultRule):
 
 class DemandDifferentSuit(DefaultRule):
     def find_compatible_cards(self, cards):
-        return [c for c in cards if c.suit == self.strategy.wantedSuit and
+        try:
+            wantedSuit = self.strategy.wantedSuit
+        except AttributeError:
+            # No srategy attached -> First card in game
+            wantedSuit = self.suit
+
+        return [c for c in cards if c.suit == wantedSuit and
                 not c.value == DECK.JACK]
 
     @property

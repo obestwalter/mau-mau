@@ -2,7 +2,7 @@ import logging
 
 import collections
 
-from rules import NeedsNoAntidote
+from rules import NeedsNoAntidote, DefaultRule
 
 log = logging.getLogger(__name__)
 
@@ -10,13 +10,13 @@ log = logging.getLogger(__name__)
 class Strategy:
     def __init__(self, player):
         self.player = player
-        self.hand = self.player.hand
 
     def play(self, table):
         rule = table.upcard.rule
+        assert isinstance(rule, DefaultRule)
         candidate = None
         try:
-            antidotes = rule.find_antidotes(self.hand)
+            antidotes = rule.find_antidotes(self.player.hand)
             if antidotes:
                 candidate = self.choose_antidote(rule, antidotes)
             else:
@@ -25,19 +25,17 @@ class Strategy:
             pass
 
         if not candidate:
-            candidates = rule.find_compatible_cards(self.hand)
-            candidate = self.choose_best_candidate(candidates)
+            candidates = rule.find_compatible_cards(self.player.hand)
+            if candidates:
+                candidate = self.choose_best_candidate(candidates)
 
         if not candidate:
             log.info("not putting anything on %s", table.upcard)
-            table.ensure_stock_is_replenished()
-            self.player.draw_card()
+            table.draw_from_stock(self.player)
+            return
 
-        card = self.hand.pop(self.hand.index(candidate))
-        log.info("puts %s on %s", card, table.upcard)
-        table.waste.put_card(table.upcard)
-        card.rule.strategy = self
-        table.upcard = card
+        card = self.player.hand.pop(self.player.hand.index(candidate))
+        table.play_card(card, self)
 
     # noinspection PyUnusedLocal,PyMethodMayBeStatic
     def choose_best_candidate(self, candidates, *args, **kwargs):
@@ -48,7 +46,7 @@ class Strategy:
     @property
     def wantedSuit(self):
         """The suit where Player has the most of"""
-        counter = collections.Counter([c.suit for c in self.hand])
+        counter = collections.Counter([c.suit for c in self.player.hand])
         # returns list of tuples [(value, count), (value, count), ...]
         # this slice simply picks the most common value
         return counter.most_common(1)[0][0]

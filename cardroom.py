@@ -63,10 +63,6 @@ class Player:
     def play_turn(self, table):
         self.strategy.play(table)
 
-    def draw_card(self, stock):
-        self.hand.append(stock.fetch_card())
-        log.debug("%s drew %s", self.name, self.hand[-1])
-
 
 class Table:
     def __init__(self, stock, waste, upcard):
@@ -78,15 +74,24 @@ class Table:
         name = self.__class__.__name__
         return "%s(%s, %s, %s)" % (name, self.stock, self.waste, self.upcard)
 
+    def play_card(self, card, strategy):
+        log.info("play %s on %s", card, self.upcard)
+        self.waste.put_card(self.upcard)
+        card.rule.strategy = strategy
+        self.upcard = card
+
+    def draw_from_stock(self, player, amount=1):
+        for _ in range(amount):
+            self.ensure_stock_is_replenished()
+            card = self.stock.fetch_card()
+            player.hand.append(card)
+            log.debug("%s drew %s", player.name, card)
+
     def ensure_stock_is_replenished(self):
         if self.stock.isEmpty:
             self.stock = Stock(self.waste.cards)
             self.waste = Waste()
             self.stock.shuffle()
-
-    def play_card(self, card):
-        self.waste.append(self.upcard)
-        self.upcard = card
 
 
 class _Pile:
