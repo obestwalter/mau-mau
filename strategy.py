@@ -2,7 +2,6 @@ import logging
 
 import collections
 
-from cardroom import Stock, Waste
 from rules import NeedsNoAntidote
 
 log = logging.getLogger(__name__)
@@ -31,7 +30,7 @@ class Strategy:
 
         if not candidate:
             log.info("not putting anything on %s", table.upcard)
-            ensure_stock_is_replenished(table)
+            table.ensure_stock_is_replenished()
             self.player.draw_card()
 
         card = self.hand.pop(self.hand.index(candidate))
@@ -59,10 +58,3 @@ class Strategy:
         antidote = antidotes[0]
         log.debug("use %s against %s", antidote, rule)
         return antidote
-
-
-def ensure_stock_is_replenished(table):
-    if table.stock.isEmpty:
-        table.stock = Stock(table.waste.cards)
-        table.waste = Waste()
-        table.stock.shuffle()

@@ -78,6 +78,16 @@ class Table:
         name = self.__class__.__name__
         return "%s(%s, %s, %s)" % (name, self.stock, self.waste, self.upcard)
 
+    def ensure_stock_is_replenished(self):
+        if self.stock.isEmpty:
+            self.stock = Stock(self.waste.cards)
+            self.waste = Waste()
+            self.stock.shuffle()
+
+    def play_card(self, card):
+        self.waste.append(self.upcard)
+        self.upcard = card
+
 
 class _Pile:
     def __init__(self, seed=None):

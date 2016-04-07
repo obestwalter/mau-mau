@@ -14,13 +14,13 @@ class DECK:
 
 def rule_class(value):
     if value == DECK.SEVEN:
-        return DrawTwo
+        return DrawTwoCards
 
     if value == DECK.EIGHT:
-        return BlockFromPLaying
+        return BlockPLayerFromPLaying
 
     if value == DECK.JACK:
-        return ForceNewSuit
+        return DemandDifferentSuit
 
     return DefaultRule
 

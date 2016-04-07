@@ -3,6 +3,7 @@ import logging
 from cardroom import Game, Table, Player, Stock, Waste, Card
 from rules import DECK, rule_class
 
+
 log = logging.getLogger(__name__)
 
 
