@@ -33,6 +33,7 @@ class DefaultRule:
     def __init__(self, value, suit):
         self.value = value
         self.suit = suit
+        self.accumulation = 1
 
     def __repr__(self):
         name = self.__class__.__name__
@@ -52,11 +53,14 @@ class DefaultRule:
         :cards list of Card: The hand of the player looking for an antidote
         :rtype: list of Card
         """
-        raise NeedsNoAntidote()
+        raise NeedsNoAntidote(repr(self))
+
+    def execute_all_punishments(self, player, table):
+        for _ in range(self.accumulation):
+            self.execute_punishment(player, table)
 
     def execute_punishment(self, player, table):
-        """Defined as function call(s).
-
+        """
         If the player does not have an antidote or chooses not to use it, they
         have to call this function with themselves and the table as parameters
         and the punishment will be carried out *muhahahahaharrrr*
@@ -75,12 +79,13 @@ class DefaultRule:
                 c.value == self.value or c.suit == self.suit]
 
     def no_play_action(self, player, table):
-        """The action that happens if the player does not put down a card.
+        """What happens if the player does not put down a card.
 
         :player Player: player that can't play
         :table Table: The game table
         """
         table.draw_from_stock(player)
+        self.accumulation += 1
 
     @property
     def propagates(self):
@@ -100,7 +105,7 @@ class DrawTwoCards(DefaultRule):
 
     def no_play_action(self, player, table):
         """They do not have to draw because they already drew two"""
-        pass
+        self.accumulation += 1
 
     @property
     def propagates(self):
@@ -108,13 +113,11 @@ class DrawTwoCards(DefaultRule):
 
 
 class BlockPLayerFromPLaying(DefaultRule):
-    def no_play_action(self, player, table):
-        """They do not have to draw because they are skipped"""
-        pass
+    def find_compatible_cards(self, cards):
+        return []
 
-    @property
-    def propagates(self):
-        return False
+    def no_play_action(self, player, table):
+        """no drawing, no accumulation"""
 
 
 class DemandDifferentSuit(DefaultRule):
@@ -122,12 +125,7 @@ class DemandDifferentSuit(DefaultRule):
         try:
             wantedSuit = self.strategy.wantedSuit
         except AttributeError:
-            # No srategy attached -> First card in game
+            # No strategy attached -> First card in game
             wantedSuit = self.suit
-
         return [c for c in cards if c.suit == wantedSuit and
                 not c.value == DECK.JACK]
-
-    @property
-    def propagates(self):
-        return True

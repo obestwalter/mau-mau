@@ -13,18 +13,22 @@ class Strategy:
 
     def play(self, table):
         rule = table.upcard.rule
+        log.info("encountered rule %s", rule)
         assert isinstance(rule, DefaultRule)
         candidate = None
         try:
+            log.debug("look for antidote")
             antidotes = rule.find_antidotes(self.player.hand)
             if antidotes:
                 candidate = self.choose_antidote(rule, antidotes)
             else:
-                rule.execute_punishment(self.player, table)
+                log.debug("execute punishments")
+                rule.execute_all_punishments(self.player, table)
         except NeedsNoAntidote:
             pass
 
         if not candidate:
+            log.debug("no punishment necessary")
             candidates = rule.find_compatible_cards(self.player.hand)
             if candidates:
                 candidate = self.choose_best_candidate(candidates)
