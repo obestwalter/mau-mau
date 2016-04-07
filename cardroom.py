@@ -2,7 +2,7 @@ import logging
 
 import random
 
-from rules import DECK
+from strategy import Strategy
 
 
 log = logging.getLogger(__name__)
@@ -44,9 +44,10 @@ class Game:
 
 
 class Player:
-    def __init__(self, name):
+    def __init__(self, name, strategyClass=Strategy):
         self.name = name
         self.hand = None
+        self.strategy = strategyClass(self)
 
     def __repr__(self):
         name = self.__class__.__name__
@@ -59,19 +60,8 @@ class Player:
     def hasWon(self):
         return len(self.hand) == 0
 
-    def play_card(self, table):
-        candidates = self.find_candidates(table.upcard)
-        if not candidates:
-            log.info("not putting anything on %s", table.upcard)
-            return False
-
-        candidate = self.choose_best_candidate(candidates)
-        card = self.hand.pop(self.hand.index(candidate))
-        log.info("puts %s on %s", card, table.upcard)
-        table.upcard.post_play_action(self, table)
-        table.waste.put_card(table.upcard)
-        table.upcard = card
-        return True
+    def play_turn(self, table):
+        self.strategy.play(table)
 
     def draw_card(self, stock):
         self.hand.append(stock.fetch_card())
@@ -138,6 +128,7 @@ class Card:
     def __init__(self, *args, rule=None):
         self.value, self.suit = args
         self.rule = rule
+        """:type: DefaultRule"""
 
     def __repr__(self):
         name = self.__class__.__name__

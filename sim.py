@@ -10,7 +10,7 @@ def play_game(players=3, cardsPerPlayer=5):
     game = start_new_game(players, cardsPerPlayer)
     while not game.over:
         game.next_turn()
-        play_turn(game.player, game.table)
+        game.player.play_turn(game.table)
     return game
 
 
@@ -56,16 +56,3 @@ def set_the_table(deck):
     upcard = stock.fetch_card()
     waste = Waste()
     return Table(stock, waste, upcard)
-
-
-def play_turn(player, table):
-    if not player.play_card(table):
-        ensure_stock_is_replenished(table)
-        player.draw_card(table.stock)
-
-
-def ensure_stock_is_replenished(table):
-    if table.stock.isEmpty:
-        table.stock = Stock(table.waste.cards)
-        table.waste = Waste()
-        table.stock.shuffle()

@@ -22,17 +22,24 @@ def rule_class(value):
     if value == DECK.JACK:
         return ForceNewSuit
 
-    return Rule
+    return DefaultRule
 
 
-class Rule:
-    """Rules the player has to adhere to.
+class NeedsNoAntidote(Exception):
+    pass
 
-    Is attached to the upcard.
-    """
+
+class DefaultRule:
+    PUNISHMENT = None
+    ANTIDOTE = None
+
     def __init__(self, value, suit):
         self.value = value
         self.suit = suit
+
+    def __repr__(self):
+        name = self.__class__.__name__
+        return "%s('%s', %s)" % (name, self.value, self.suit)
 
     @property
     def strategy(self):
@@ -42,16 +49,15 @@ class Rule:
     def strategy(self, strategy):
         self._strategy = strategy
 
-    def find_compatible_cards(self, cards):
-        """Find all cards that could be played
+    def find_antidotes(self, cards):
+        """Find cards that can prevent the punishment (empty if there is none)
 
         :cards list of Card: The hand of the player looking for an antidote
         :rtype: list of Card
         """
-        return [c for c in cards if
-                c.value == self.value or c.suit == self.suit]
+        raise NeedsNoAntidote()
 
-    def punishment(self, player, table):
+    def execute_punishment(self, player, table):
         """Defined as function call(s).
 
         If the player does not have an antidote or chooses not to use it, they
@@ -62,13 +68,14 @@ class Rule:
         :table Table: The game table
         """
 
-    def find_antidotes(self, cards):
-        """Find cards that can prevent the punishment (empty if there is none)
+    def find_compatible_cards(self, cards):
+        """Find all cards that could be played
 
         :cards list of Card: The hand of the player looking for an antidote
         :rtype: list of Card
         """
-        return []
+        return [c for c in cards if
+                c.value == self.value or c.suit == self.suit]
 
     def no_play_action(self, player, table):
         """The action that happens if the player does not put down a card.
@@ -79,49 +86,46 @@ class Rule:
         player.draw_card(table.stock)
 
     @property
-    def accumulates(self):
-        """Does rule accumulate if player can't play?
+    def propagates(self):
+        """Does rule stay active if affected players can't play?
 
         :rtype: bool
         """
         return False
 
 
-class DrawTwo(Rule):
-    def punishment(self, player, table):
-        player.draw_card(table.stock)
-        player.draw_card(table.stock)
-
+class DrawTwoCards(DefaultRule):
     def find_antidotes(self, cards):
         return [c for c in cards if c.value == DECK.SEVEN]
 
-    @property
-    def accumulates(self):
-        return True
-
-
-class BlockFromPLaying(Rule):
-    def find_compatible_cards(self, cards):
-        return []
-
-    def find_antidotes(self, cards):
-        return []
+    def execute_punishment(self, player, table):
+        player.draw_card(table.stock)
+        player.draw_card(table.stock)
 
     def no_play_action(self, player, table):
+        """They do not have to draw because they already drew two"""
         pass
 
     @property
-    def accumulates(self):
+    def propagates(self):
+        return True
+
+
+class BlockPLayerFromPLaying(DefaultRule):
+    def no_play_action(self, player, table):
+        """They do not have to draw because they are skipped"""
+        pass
+
+    @property
+    def propagates(self):
         return False
 
 
-class ForceNewSuit(Rule):
+class DemandDifferentSuit(DefaultRule):
     def find_compatible_cards(self, cards):
-        return [c for c in cards if c.suit == self.strategy.wantedSuit]
-
-    def find_antidotes(self, cards):
-        return []
+        return [c for c in cards if c.suit == self.strategy.wantedSuit and
+                not c.value == DECK.JACK]
 
     @property
-    def accumulates(self):
+    def propagates(self):
         return True
