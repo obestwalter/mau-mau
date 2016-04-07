@@ -30,7 +30,7 @@ class Strategy:
                 candidate = self.choose_best_candidate(candidates)
 
         if not candidate:
-            log.info("not putting anything on %s", table.upcard)
+            log.debug("not putting anything on %s", table.upcard)
             table.draw_from_stock(self.player)
             return
 

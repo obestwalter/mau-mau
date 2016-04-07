@@ -12,6 +12,7 @@ import sys
 import sim
 import stats
 
+
 log = logging.getLogger()
 
 
@@ -30,7 +31,7 @@ def get_function_from_name(name):
 
 if __name__ == '__main__':
     fmt = '%(name)s:%(funcName)s:%(lineno)s %(levelname)s: %(message)s'
-    logging.basicConfig(format=fmt, level=logging.WARNING)
+    logging.basicConfig(format=fmt, level=logging.INFO)
     func = get_function_from_name(None if len(sys.argv) == 1 else sys.argv[1])
     log.info("%s() ...", func.__name__)
     func()

@@ -75,7 +75,7 @@ class Table:
         return "%s(%s, %s, %s)" % (name, self.stock, self.waste, self.upcard)
 
     def play_card(self, card, strategy):
-        log.info("play %s on %s", card, self.upcard)
+        log.debug("play %s on %s", card, self.upcard)
         self.waste.put_card(self.upcard)
         card.rule.strategy = strategy
         self.upcard = card
