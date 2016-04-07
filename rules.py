@@ -55,11 +55,7 @@ class DefaultRule:
         """
         raise NeedsNoAntidote(repr(self))
 
-    def execute_all_punishments(self, player, table):
-        for _ in range(self.accumulation):
-            self.execute_punishment(player, table)
-
-    def execute_punishment(self, player, table):
+    def punish(self, player, table):
         """
         If the player does not have an antidote or chooses not to use it, they
         have to call this function with themselves and the table as parameters
@@ -68,6 +64,12 @@ class DefaultRule:
         :player Player: The player who deserves to be punished
         :table Table: The game table
         """
+        for idx in range(self.accumulation):
+            log.debug("execute punishment %s", idx)
+            self._punish(player, table)
+
+    def _punish(self, player, table):
+        """one concrete punishment - override this"""
 
     def find_compatible_cards(self, cards):
         """Find all cards that could be played
@@ -85,31 +87,14 @@ class DefaultRule:
         :table Table: The game table
         """
         table.draw_from_stock(player)
-        self.accumulation += 1
-
-    @property
-    def propagates(self):
-        """Does rule stay active if affected players can't play?
-
-        :rtype: bool
-        """
-        return False
 
 
 class DrawTwoCards(DefaultRule):
     def find_antidotes(self, cards):
         return [c for c in cards if c.value == DECK.SEVEN]
 
-    def execute_punishment(self, player, table):
+    def _punish(self, player, table):
         table.draw_from_stock(player, amount=2)
-
-    def no_play_action(self, player, table):
-        """They do not have to draw because they already drew two"""
-        self.accumulation += 1
-
-    @property
-    def propagates(self):
-        return True
 
 
 class BlockPLayerFromPLaying(DefaultRule):

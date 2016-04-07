@@ -2,7 +2,7 @@ import logging
 
 import collections
 
-from rules import NeedsNoAntidote, DefaultRule
+from rules import NeedsNoAntidote, rule_class
 
 log = logging.getLogger(__name__)
 
@@ -13,33 +13,34 @@ class Strategy:
 
     def play(self, table):
         rule = table.upcard.rule
-        log.info("encountered rule %s", rule)
-        assert isinstance(rule, DefaultRule)
+        log.debug("encountered rule %s", rule)
         candidate = None
         try:
             log.debug("look for antidote")
             antidotes = rule.find_antidotes(self.player.hand)
             if antidotes:
                 candidate = self.choose_antidote(rule, antidotes)
+                log.debug("found antidote %s", candidate)
             else:
-                log.debug("execute punishments")
-                rule.execute_all_punishments(self.player, table)
+                rule.punish(self.player, table)
         except NeedsNoAntidote:
-            pass
+            log.debug("needs no antidote")
 
         if not candidate:
-            log.debug("no punishment necessary")
+            log.debug("find card to play")
             candidates = rule.find_compatible_cards(self.player.hand)
             if candidates:
                 candidate = self.choose_best_candidate(candidates)
 
         if not candidate:
-            log.debug("not putting anything on %s", table.upcard)
-            table.draw_from_stock(self.player)
+            log.debug("nothing to play")
+            rule.no_play_action(self.player, table)
+            value = table.upcard.value
+            suit = table.upcard.suit
+            table.upcard.rule = rule_class(value)(value, suit)
             return
 
-        card = self.player.hand.pop(self.player.hand.index(candidate))
-        table.play_card(card, self)
+        table.play_card(self.player, candidate, self)
 
     # noinspection PyUnusedLocal,PyMethodMayBeStatic
     def choose_best_candidate(self, candidates, *args, **kwargs):

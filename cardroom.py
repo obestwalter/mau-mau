@@ -74,10 +74,13 @@ class Table:
         name = self.__class__.__name__
         return "%s(%s, %s, %s)" % (name, self.stock, self.waste, self.upcard)
 
-    def play_card(self, card, strategy):
+    def play_card(self, player, card, strategy, accumulate=True):
         log.debug("play %s on %s", card, self.upcard)
+        card = player.hand.pop(player.hand.index(card))
         self.waste.put_card(self.upcard)
         card.rule.strategy = strategy
+        if accumulate:
+            card.rule.accumulation += 1
         self.upcard = card
 
     def draw_from_stock(self, player, amount=1):
@@ -85,7 +88,7 @@ class Table:
             self.ensure_stock_is_replenished()
             card = self.stock.fetch_card()
             player.hand.append(card)
-            log.debug("%s drew %s", player.name, card)
+            log.debug(card)
 
     def ensure_stock_is_replenished(self):
         if self.stock.isEmpty:
