@@ -30,9 +30,6 @@ class NeedsNoAntidote(Exception):
 
 
 class DefaultRule:
-    PUNISHMENT = None
-    ANTIDOTE = None
-
     def __init__(self, value, suit):
         self.value = value
         self.suit = suit
