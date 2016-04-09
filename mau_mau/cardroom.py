@@ -27,16 +27,7 @@ class Game:
     @property
     def over(self):
         """should be named `isOver`. But then it wouldn't be game.over :)"""
-        return self.winner is not None
-
-    # FIXME this knowledge belongs to the rules
-    @property
-    def winner(self):
-        try:
-            return [p for p in self.table.players if p.hasWon][0]
-
-        except IndexError:
-            return None
+        return self.table.winner is not None
 
 
 class Player:
@@ -52,10 +43,6 @@ class Player:
 
     def __eq__(self, other):
         return self.name == other.name
-
-    @property
-    def hasWon(self):
-        return self.hand is not None and len(self.hand) == 0
 
     def play_turn(self, table):
         self.strategy.play(table)
@@ -79,6 +66,14 @@ class Table:
         self.upcard = self.stock.fetch_card()
         self.rule = self.rules.get_rule(self.upcard)
         self.check_setup_sanity()
+
+    @property
+    def winner(self):
+        try:
+            return [p for p in self.players if self.rules.wins(p.hand)][0]
+
+        except IndexError:
+            return None
 
     def deal_fresh_hand(self):
         for player in self.players:
