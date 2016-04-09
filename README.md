@@ -165,7 +165,7 @@ output like:
 
 ### [`cli.py`](mau_mau/cli.py)
 
-This contains the code for the commandline interface. Its function `main` is configured in `setup.py` to act like a program called `sim` that is accessible on the package is installed. At them moment the following can be accessed from the commandline:
+This contains the code for the commandline interface. Its function `main` is configured in `setup.py` to act like a program called `sim` that is accessible where the package is installed. At them moment the following can be accessed from the commandline:
 
 * `sim`: If you do not pass anything a single game will be played with high verbosity settings in the logger
 * `sim <stats.function>`: e.g. `sim mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `stats.py` will automatically make it accessible through the command line interface.
