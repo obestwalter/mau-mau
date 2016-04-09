@@ -35,9 +35,13 @@ Nothing - but please don't leave yet ...
 > -- [Wikipedia - Mau Mau](https://goo.gl/r7D63W)
 
 
-One koan in the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) says: "If the implementation is easy to explain, it may be a good idea". Let's put this to the test and explain the implementation of our Mau Mau program by simply describing the conditions and rules of the game using a rough approximation of the programs' terminology and see if the objects and their interactions make the implementation look obvious. Objects used in the program are marked `like this` ; functions that describe (inter)actions are marked like **this**).
+One koan in the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) says: "If the implementation is easy to explain, it may be a good idea". Let's put this to the test and explain the implementation of our Mau Mau program by simply describing the conditions and rules of the game using a rough approximation of the programs' terminology and see if the objects and their interactions make the implementation look obvious. Objects used in the program are marked `like this`, functions that describe (inter)actions are marked like **this**). The game can also be described in two phases, we could call "setup" and "play". The image shows all the important elements of the simulation.
 
-The `players` in the `cardroom` are **invited** to a `game` at the `table`. A `deck` of `cards` is **shuffled**. The same amount of cards is **dealt** to the `players` to form their `hand`. One `card` - the `upcard` - is **drawn** from the `stock` and placed face up on the `table`. The remaining cards are `piled` face down on the `table` and form the `stock`. Now all is in place to **play** the `game`. The `players` play in `turns`. They choose a`card` that is **playable** with the `upcard` according to the rules (same `suit` or same `value`) and place it on the `table`. The played `card` ist the new  `upcard` and the old `upcard` is now part of the `waste`. Now the next `player` is up. If a player can't find a `card` to play, they have to draw one from the `stock` and the next `player` is up. If the `stock` `is empty`, the `waste` `cards` will be **shuffled** to form the new `stock`. The game is over and the `winner` is found as soon as one `player` plays the last card of their `hand`.
+![cardroom overview](docs/cardroom.png)
+
+**setup:** The `players` in the `cardroom` are **invited** to a `game` at the `table`. A `deck` of `cards` is **shuffled**. The same amount of cards is **dealt** to the `players` to form their `hand`. One `card` - the `upcard` - is **drawn** from the `stock` and placed face up on the `table`. The remaining cards are `piled` face down on the `table` and form the `stock`. Now all is in place to **play** the `game`. 
+
+**play:** The `players` play in `turns`. They choose a`card` that is **playable** with the `upcard` according to the rules (same `suit` or same `value`) and place it on the `table`. The played `card` ist the new  `upcard` and the old `upcard` is now part of the `waste`. Now the next `player` is up. If a player can't find a `card` to play, they have to draw one from the `stock` and the next `player` is up. If the `stock` `is empty`, the `waste` `cards` will be **shuffled** to form the new `stock`. The game is over and the `winner` is found as soon as one `player` plays the last card of their `hand`.
 
 Easy enough to explain. This description of the rules and the gameplay can double already as a high level explanation of the implementation. It can also be read as an abstract story about a game, where the concrete story would be the description of an actual game. The program code can be viewed as story shape or abstract plot, with different executions of it as concrete stories. If you have no idea what I mean just watch [Kurt Vonneguts short talk about the shape of stories](https://www.youtube.com/watch?v=oP3c1h8v2ZQ) and transfer your insights into thinking about abstract program code and its concrete execution :)
 
@@ -106,13 +110,13 @@ Contains some functions to run the game simulations and collect statistics.
 
 ### [`cli.py`](cli.py)
 
-This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`)the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
+This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
 
 ## Things to point out
 
 ### Python does argument passing by assignment
 
-> Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se. You can achieve the desired effect in a number of ways.
+> Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se.
 
 > -- [How do I write a function with output parameters (call by reference)?](https://docs.python.org/3.5/faq/programming.html#how-do-i-write-a-function-with-output-parameters-call-by-reference)
 
@@ -130,13 +134,14 @@ To assert something means "to state or express positively". Assertions are regar
 
 ```Python
 def spam(someObject):
-    assert someObject
+    assert someObject, "Hey! %s is not what I want!" % (someObject)
     print(someObject)
     
 spam([1, 2])
+spam([])
 ```
 
-The assert in the `spam` function makes sure, that the argument passed evaluates to `True` before moving on. As a non empty list evaluates to `True` everything is fine here.
+The assert in the `spam` function makes sure, that the argument passed evaluates to `True` before moving on. The first call is o.k. but the second raises the exception and prints the message as part of the traceback.
 
 This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Like making sure there is a chair under your bottom before you make an attempt to sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
 
@@ -149,7 +154,8 @@ The ability to write simple functions to test your code cannot be developed earl
 #### Testing in PyCharm
 
 ##### Preparation
-**Warning**: the default testrunner in PyCharm is Unittest. Switch to py.test like so: 
+
+The default testrunner in PyCharm is Unittest. You have to switch to py.test like so: 
 * **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test 
 * accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
 
