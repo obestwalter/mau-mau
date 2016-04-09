@@ -101,11 +101,11 @@ The overall plot of the Mau Mau story can be found here. It is written in an [im
 #### The central simulation function
 
 ```python
-def play_game(players=3, cardsPerPlayer=5):
-    game = start_new_game(players, cardsPerPlayer)
+def play_game(rulesOfTheGame, players):
+    game = setup_game(rulesOfTheGame, players)
     while not game.over:
         game.next_turn()
-        play_turn(game.player, game.table)
+        game.player.play_turn(game.table)
     return game
 ```
 
@@ -114,6 +114,14 @@ This is the meat of the simulation. Here is where all the magic happens. if you 
 ### [`cardroom.py`](mau_mau/cardroom.py)
 
 This looks pretty different from `sim.py` and it is. Here is where the OO part of the story kicks in. If `sim.py` contains the plot, `cardroom.py` contains the descriptions of the actors and props of the story. It describes the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact. The order in which the classes are defined are from compounded to simple.
+
+### [`rules.py`](mau_mau/rules.py)
+
+This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a seven, the number of draws have to accumulate). 
+
+### [`strategy.py`](mau_mau/strategy.py)
+
+For the moment this contains only a single, simple strategy. This can be extended later on. A player has a strategy, but the player also transfers the strategy to the played card, because in the case of a Jack, the decision which card the next player should play is part of the strategy.
 
 ### [`stats.py`](mau_mau/stats.py)
 
