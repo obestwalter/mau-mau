@@ -200,7 +200,7 @@ output like:
     mau_mau.cardroom    96  play_card        : play Card('Queen', '♠') on Card('9', '♠')
     root                20  play_simple_game : And the winner is Player 2
 
-Calls a stats function:
+Call a stats functions:
 
     $ sim mean_turns
     root                42  main             : mean_turns() ...
