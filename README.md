@@ -123,7 +123,7 @@ Contains some functions to run the game simulations and collect statistics.
 
 This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](mau_mau/cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](mau_mau/stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
 
-### [setup.py](setup.py) Installable package
+### [setup.py](setup.py) and [mau_mau/](mau_mau/): create and installable package
 
 To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access also installed.
 
