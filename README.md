@@ -360,7 +360,7 @@ In our simple simulation this is actually possible for all objects, so why not d
 
 ##### Book keeping
 
-Onky a few hudred line of Python code are currently necessary to do all this. You can count them with [sloccount](http://www.dwheeler.com/sloccount/).
+Only a few hudred line of Python code are currently necessary to do all this. You can count them with [sloccount](http://www.dwheeler.com/sloccount/).
     
     $ sloccount
     
