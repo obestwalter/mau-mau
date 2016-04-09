@@ -2,8 +2,13 @@ language: python
 cache: pip
 python:
  - "3.4"
+git:
+  depth: 3
+branches:
+  except:
+    - experimental
 install:
-  - pip install tox 
+  - pip install tox
 script:
   - tox
 env:
