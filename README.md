@@ -216,8 +216,8 @@ The ability to write simple functions to test your code cannot be developed earl
 
 **NOTE:** Make sure, you you installed the package as editable.
 
-    cd </path/to/your/clone>
-    py.test
+    $ cd </path/to/your/clone>
+    $ py.test
     
 output like:
 
