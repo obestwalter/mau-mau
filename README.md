@@ -96,52 +96,7 @@ This simulation of a simple card game is optimized for being readable, easy to g
 * Logging with the stdlib [logging module](https://docs.python.org/3/library/logging.html)
 * Use of [Python protocols](https://docs.python.org/2/reference/datamodel.html#special-method-names) to create custom classes which behave like inbuilt data types
 
-### [`sim.py`](mau_mau/sim.py)
-
-The overall plot of the Mau Mau story can be found here. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way (like a series of commands given to the computer). The code looks like a series of instructions which are to be carried out in a top down order, descending into the functions being called. The order can be influenced by loops (`for ... in` or `while`) and conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
-
-#### The central simulation function
-
-```python
-def play_game(rulesOfTheGame, players):
-    game = setup_game(rulesOfTheGame, players)
-    while not game.over:
-        player = game.next_turn()
-        player.play_turn(game.table)
-    return game
-```
-
-This is the meat of the simulation. Here is where all the magic happens. if you call this function a game of Mau Mau will be simulated and a winner is determined. **6 lines of code** including the function header and the return statement. You now have read the whole plot of the fascinating Mau Mau story. If you want to understand more, you can start digging deeper and visit the definitions of the functions used in the play function. Reading and understanding the functions (in whatever order you might prefer) in this file means that you get the picture how a simulation of a simple turn based card game works.
-
-### [`cardroom.py`](mau_mau/cardroom.py)
-
-This looks pretty different from `sim.py` and it is. Here is where the OO part of the story kicks in. If `sim.py` contains the plot, `cardroom.py` contains the descriptions of the actors and props of the story. It describes the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact. The order in which the classes are defined are from compounded to simple.
-
-### [`rules.py`](mau_mau/rules.py)
-
-This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a seven, the number of draws have to accumulate). 
-
-### [`strategy.py`](mau_mau/strategy.py)
-
-**Note:** A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
-
-#### `BasicStrategy` 
-
-just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. can be extended upon. This can be extended upon. 
-
-#### `HumanStrategy`
- 
-Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer.
-
-### [`stats.py`](mau_mau/stats.py)
-
-Contains some functions to run the game simulations and collect statistics. 
-
-### [`cli.py`](mau_mau/cli.py)
-
-This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](mau_mau/cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](mau_mau/stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
-
-### [setup.py](setup.py) and [mau_mau/](mau_mau/): create and installable package
+### [setup.py](setup.py) and [mau_mau/](mau_mau/): make code installable
 
 **NOTE:** Please replace `</path/to/your/clone>` with the actual path on your computer.
 
@@ -208,6 +163,53 @@ output like:
     mau_mau.cardroom    96  play_card        : play Card('Queen', '♠') on Card('9', '♠')
     root                20  play_simple_game : And the winner is Player 2
 
+### [`cli.py`](mau_mau/cli.py)
+
+This contains the code for the commandline interface. Its function `main` is configured in `setup.py` to act like a program called `sim` that is accessible on the package is installed. At them moment the following can be accessed from the commandline:
+
+* `sim`: If you do not pass anything a single game will be played with high verbosity settings in the logger
+* `sim <stats.function>`: e.g. `sim mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `stats.py` will automatically make it accessible through the command line interface.
+* `sim interactive` ... or any other argument that does not map to a function in stats: play a game against the computer
+
+See the different sections for more examples of commandline usage.
+
+### [`sim.py`](mau_mau/sim.py)
+
+The overall plot of the Mau Mau story can be found here. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way (like a series of commands given to the computer). The code looks like a series of instructions which are to be carried out in a top down order, descending into the functions being called. The order can be influenced by loops (`for ... in` or `while`) and conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
+
+#### The central simulation function
+
+```python
+def play_game(rulesOfTheGame, players):
+    game = setup_game(rulesOfTheGame, players)
+    while not game.over:
+        player = game.next_turn()
+        player.play_turn(game.table)
+    return game
+```
+
+This is the meat of the simulation. Here is where all the magic happens. if you call this function a game of Mau Mau will be simulated and a winner is determined. **6 lines of code** including the function header and the return statement. You now have read the whole plot of the fascinating Mau Mau story. If you want to understand more, you can start digging deeper and visit the definitions of the functions used in the play function. Reading and understanding the functions (in whatever order you might prefer) in this file means that you get the picture how a simulation of a simple turn based card game works.
+
+### [`cardroom.py`](mau_mau/cardroom.py)
+
+This looks pretty different from `sim.py` and it is. Here is where the OO part of the story kicks in. If `sim.py` contains the plot, `cardroom.py` contains the descriptions of the actors and props of the story. It describes the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact. The order in which the classes are defined are from compounded to simple.
+
+### [`rules.py`](mau_mau/rules.py)
+
+This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a seven, the number of draws have to accumulate). 
+
+### [`strategy.py`](mau_mau/strategy.py)
+
+**Note:** A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
+
+#### `BasicStrategy` 
+
+just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. can be extended upon. This can be extended upon. 
+
+#### `HumanStrategy`
+ 
+Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer.
+
 Play interactive game:
 
     $ sim interactive
@@ -253,23 +255,33 @@ output like:
     mau_mau.cardroom    87  play_card        : play Card('8', '♣')
     [...]
 
-Call stats functions:
+
+### [`stats.py`](mau_mau/stats.py)
+
+Contains some functions to run the game simulations and collect statistics. 
 
     $ sim mean_turns
+
+output like:
+
     root                42  main             : mean_turns() ...
     mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
     mau_mau.stats       12  mean_turns       : mean turns played: 34.097
 
-
     $ sim winner_distribution
+
+output like:
+
     root                52  main             : winner_distribution() ...
     mau_mau.stats       35  _simulate_games  : players: ('Eric', 'Terry', 'John'); 1000 reps
     mau_mau.stats       21  winner_distribution: winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
 
     $ sim time_durations
+
+output like:
+
     root                52  main             : time_durations() ...
     mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games
-
 
 
 ### Files for automatic testing and CI
