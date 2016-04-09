@@ -34,8 +34,8 @@ class BasicStrategy:
                 table.rule.punishments.pop()(self.player, table)
         return antidote
 
-    @staticmethod
-    def choose_antidote(find_antidotes, antidotes_strategy, cards):
+    @classmethod
+    def choose_antidote(cls, find_antidotes, antidotes_strategy, cards):
         log.debug("find antidote")
         antidotes = find_antidotes(cards)
         if antidotes:
@@ -65,8 +65,8 @@ class BasicStrategy:
         rule.no_play_action(self.player, table)
 
     # noinspection PyUnusedLocal
-    @staticmethod
-    def choose_best_candidate(cards, *args, **kwargs):
+    @classmethod
+    def choose_best_candidate(cls, cards, *args, **kwargs):
         """Not much of a strategy here :)"""
         return cards[0]
 
@@ -80,24 +80,18 @@ class BasicStrategy:
 
 
 class ExternalStrategy(BasicStrategy):
-    @staticmethod
-    def choose_antidote(find_antidotes, antidotes_strategy, cards):
+    @classmethod
+    def choose_antidote(cls, find_antidotes, antidotes_strategy, cards):
         allowedAntidotes = find_antidotes(cards)
         if not allowedAntidotes:
             log.info("no antidotes. Just take the punishment ...")
             return
 
-        while True:
-            antidoteIdx = input("choose antidote.\n%s | " %
-                                (visualize_choices(allowedAntidotes)))
-            return cards[int(antidoteIdx) - 1]
+        return cls.get_valid_choice(allowedAntidotes, "choose antidote")
 
-    @staticmethod
-    def choose_best_candidate(cards, *args, **kwargs):
-        while True:
-            bcIdx = input("choose card to play.\n%s | " %
-                          (visualize_choices(cards)))
-            return cards[int(bcIdx) - 1]
+    @classmethod
+    def choose_best_candidate(cls, cards, *args, **kwargs):
+        return cls.get_valid_choice(cards, "choose card to play")
 
     # fixme player is asked repeatedly if others can't play
     # add a buffer that saves the choice until the card is played
@@ -105,10 +99,17 @@ class ExternalStrategy(BasicStrategy):
     def wantedSuit(self):
         from mau_mau import cardroom
 
-        suits = cardroom.DECK.SUITS
-        suit = input("choose wanted suit.\n%s | " % (visualize_choices(suits)))
-        return suits[int(suit) - 1]
+        return self.get_valid_choice(cardroom.DECK.SUITS, "choose wanted suit")
 
+    @classmethod
+    def get_valid_choice(cls, choices, msg):
+        def visu(elems):
+            c = ["%s -> %s" % (i, c) for i, c in enumerate(elems, 1)]
+            return " | ".join(c)
 
-def visualize_choices(elems):
-    return " | ".join(["%s -> %s" % (i, c) for i, c in enumerate(elems, 1)])
+        while True:
+            antidoteIdx = input("%s.\n%s | " % (msg, visu(choices)))
+            try:
+                return choices[int(antidoteIdx) - 1]
+            except IndexError:
+                log.warning("'%s' is not a valid choice", antidoteIdx)
