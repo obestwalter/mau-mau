@@ -123,7 +123,15 @@ This contains the classes that implement the rules of Mau Mau. Start reading wit
 
 ### [`strategy.py`](mau_mau/strategy.py)
 
-For the moment this contains only a single, simple strategy. This can be extended later on. A player has a strategy, but the player also transfers the strategy to the played card, because in the case of a Jack, the decision which card the next player should play is part of the strategy.
+**Note:** A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
+
+#### `BasicStrategy` 
+
+just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. can be extended upon. This can be extended upon. 
+
+#### `HumanStrategy`
+ 
+Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer.
 
 ### [`stats.py`](mau_mau/stats.py)
 

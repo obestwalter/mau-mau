@@ -3,7 +3,7 @@ import logging
 import collections
 
 from mau_mau import cardroom
-from mau_mau.strategy import BasicStrategy, ExternalStrategy
+from mau_mau.strategy import BasicStrategy, HumanStrategy
 
 log = logging.getLogger(__name__)
 
@@ -36,7 +36,7 @@ def invite_players(players):
     invitedPlayers = []
     if isinstance(players, collections.Iterable):
         for player in players:
-            strategy = ExternalStrategy if player == 'human' else BasicStrategy
+            strategy = HumanStrategy if player == 'human' else BasicStrategy
             invitedPlayers.append(cardroom.Player(player, strategy))
     else:
         invitedPlayers = [cardroom.Player("Player %s" % (n))

@@ -79,7 +79,7 @@ class BasicStrategy:
         return counter.most_common(1)[0][0]
 
 
-class ExternalStrategy(BasicStrategy):
+class HumanStrategy(BasicStrategy):
     @classmethod
     def choose_antidote(cls, find_antidotes, antidotes_strategy, cards):
         allowedAntidotes = find_antidotes(cards)
