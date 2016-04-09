@@ -16,16 +16,25 @@ _rulesOfTheGame = rules.MauMau()
 
 
 def play_simple_game(players=3):
+    log.setLevel(level=logging.DEBUG)
     playedGame = sim.play_game(_rulesOfTheGame, players)
+    log.info("And the winner is %s", playedGame.table.winner.name)
+
+
+def play_interactive_game():
+    log.setLevel(level=logging.DEBUG)
+    playedGame = sim.play_game(_rulesOfTheGame, ['Eric', 'John', 'human'])
     log.info("And the winner is %s", playedGame.table.winner.name)
 
 
 def get_function_from_name(name):
     if not name:
-        log.setLevel(level=logging.DEBUG)
         return play_simple_game
 
-    return getattr(stats, name)
+    try:
+        return getattr(stats, name)
+    except AttributeError:
+        return play_interactive_game
 
 
 def simple_parse_args(argv):
@@ -35,13 +44,17 @@ def simple_parse_args(argv):
 
 
 def main():
-    fmt = '%(name)-20s%(lineno)-3s %(funcName)-17s: %(message)s'.format()
-    logging.basicConfig(format=fmt, level=logging.INFO)
-    functionName, args = simple_parse_args(sys.argv)
-    functionObject = get_function_from_name(functionName)
-    log.info("%s(%s) ...", functionObject.__name__, ", ".join(args))
-    functionObject(*args)
-    return 0
+    try:
+        fmt = '%(name)-20s%(lineno)-3s %(funcName)-17s: %(message)s'.format()
+        logging.basicConfig(format=fmt, level=logging.INFO)
+        functionName, args = simple_parse_args(sys.argv)
+        functionObject = get_function_from_name(functionName)
+        log.info("%s(%s) ...", functionObject.__name__, ", ".join(args))
+        functionObject(*args)
+        return 0
+    except KeyboardInterrupt:
+        print("\n... bye!")
+
 
 if __name__ == '__main__':
-    sys.exit(main())
+        sys.exit(main())

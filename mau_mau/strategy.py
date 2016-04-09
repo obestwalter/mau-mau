@@ -3,10 +3,11 @@ import logging
 import collections
 import random
 
+
 log = logging.getLogger(__name__)
 
 
-class Strategy:
+class BasicStrategy:
     def __init__(self, player):
         self.player = player
 
@@ -49,13 +50,14 @@ class Strategy:
 
     def _play(self, table, card=None):
         rule = table.rule
+        candidates = rule.find_playable_cards(self.player.hand)
         if not card:
             log.debug("find card to play")
-            candidates = rule.find_playable_cards(self.player.hand)
             if candidates:
                 card = self.choose_best_candidate(candidates)
 
         if card:
+            assert card in candidates, (card, candidates)
             table.play_card(card, self.player.hand, self)
             return
 
@@ -64,9 +66,9 @@ class Strategy:
 
     # noinspection PyUnusedLocal
     @staticmethod
-    def choose_best_candidate(candidates, *args, **kwargs):
-        """Not much of a stragegy here :)"""
-        return candidates[0]
+    def choose_best_candidate(cards, *args, **kwargs):
+        """Not much of a strategy here :)"""
+        return cards[0]
 
     @property
     def wantedSuit(self):
@@ -75,3 +77,38 @@ class Strategy:
         # returns list of tuples [(value, count), (value, count), ...]
         # this slice simply picks the most common value
         return counter.most_common(1)[0][0]
+
+
+class ExternalStrategy(BasicStrategy):
+    @staticmethod
+    def choose_antidote(find_antidotes, antidotes_strategy, cards):
+        allowedAntidotes = find_antidotes(cards)
+        if not allowedAntidotes:
+            log.info("no antidotes. Just take the punishment ...")
+            return
+
+        while True:
+            antidoteIdx = input("choose antidote.\n%s | " %
+                                (visualize_choices(allowedAntidotes)))
+            return cards[int(antidoteIdx) - 1]
+
+    @staticmethod
+    def choose_best_candidate(cards, *args, **kwargs):
+        while True:
+            bcIdx = input("choose card to play.\n%s | " %
+                          (visualize_choices(cards)))
+            return cards[int(bcIdx) - 1]
+
+    # fixme player is asked repeatedly if others can't play
+    # add a buffer that saves the choice until the card is played
+    @property
+    def wantedSuit(self):
+        from mau_mau import cardroom
+
+        suits = cardroom.DECK.SUITS
+        suit = input("choose wanted suit.\n%s | " % (visualize_choices(suits)))
+        return suits[int(suit) - 1]
+
+
+def visualize_choices(elems):
+    return " | ".join(["%s -> %s" % (i, c) for i, c in enumerate(elems, 1)])

@@ -87,7 +87,9 @@ This simulation of a simple card game is optimized for being readable, easy to g
 ### Features of this implementation
 
 * Complete rules of Mau Mau
-* Prepared for having players with different strategies (only one simple strategy implemented)
+* two different strategies:
+    * simple random strategy for a computer player
+    * strategy that adds interactivity so a human can play against the computer
 * Functions to run multiple games and collect stats
 * Flexible [command line interface](mau_mau/cli.py) (add new functions without adjusting code)
 * [automatic tests](tests/) with py.test, tox and Travis CI
@@ -357,26 +359,3 @@ In our simple simulation this is actually possible for all objects, so why not d
 * [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#special-method-names)
 * [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
 * [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html)
-
-##### Book keeping
-
-Only a few hundred lines of Python code are currently necessary to do all this. You can count them with [sloccount](http://www.dwheeler.com/sloccount/).
-    
-    $ sloccount
-    
-output like:
-
-    SLOC	Directory	SLOC-by-Language (Sorted)
-    361     mau_mau         python=361
-    55      tests           python=55
-    11      top_dir         python=11
-    Total Physical Source Lines of Code (SLOC)                = 427
-
-
-Thousands of words are desperately trying to explain all this in this README:
-
-    $ wc --words README.md
-    
-output like:
-
-    4620 README.md

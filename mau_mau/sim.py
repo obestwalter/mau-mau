@@ -1,6 +1,9 @@
 import logging
 
+import collections
+
 from mau_mau import cardroom
+from mau_mau.strategy import BasicStrategy, ExternalStrategy
 
 log = logging.getLogger(__name__)
 
@@ -25,19 +28,21 @@ def setup_game(rulesOfTheGame, players):
     return game
 
 
-# TODO add way to assign different strategies to players
 def invite_players(players):
     """Create a sequence of player objects from an amount or some names.
 
     :type players: int or list of str
     """
-    try:
-        players = [cardroom.Player(name) for name in players]
-    except TypeError:
-        players = [cardroom.Player("Player %s" % (n))
-                   for n in range(1, players + 1)]
-    log.debug("invited players are: %s", players)
-    return players
+    invitedPlayers = []
+    if isinstance(players, collections.Iterable):
+        for player in players:
+            strategy = ExternalStrategy if player == 'human' else BasicStrategy
+            invitedPlayers.append(cardroom.Player(player, strategy))
+    else:
+        invitedPlayers = [cardroom.Player("Player %s" % (n))
+                          for n in range(1, players + 1)]
+    log.debug("invited players are: %s", invitedPlayers)
+    return invitedPlayers
 
 
 def sit_down_players(players):

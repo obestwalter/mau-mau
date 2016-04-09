@@ -20,8 +20,9 @@ class Game:
     def next_turn(self):
         self.turns += 1
         self.player = self.player.nextPlayer
-        log.debug("---" * 30)
-        log.debug("%s is up (turn %s)", self.player, self.turns)
+        log.debug("%s turn: %s %s" % ("-" * 45, self.turns, "-" * 45))
+        log.debug("upcard: %s", self.table.upcard)
+        log.debug("%s is up", self.player)
         return self.player
 
     @property
@@ -31,7 +32,7 @@ class Game:
 
 
 class Player:
-    def __init__(self, name, strategyClass=strategy.Strategy):
+    def __init__(self, name, strategyClass=strategy.BasicStrategy):
         self.name = name
         self.hand = None
         self.strategy = strategyClass(self)
@@ -83,7 +84,7 @@ class Table:
             self.check_table_sanity()
 
     def play_card(self, card, hand, strategy):
-        log.debug("play %s on %s", card, self.upcard)
+        log.debug("play %s", card)
         card = hand.pop(hand.index(card))
         self.waste.put_card(self.upcard)
         self.upcard = card
