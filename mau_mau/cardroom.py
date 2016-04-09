@@ -17,15 +17,9 @@ class Game:
         name = self.__class__.__name__
         return "%s(%s)" % (name, self.table)
 
-    # fixme this knowledge belongs to the player (whosnext whosprevious)
     def next_turn(self):
-        players = self.table.players
         self.turns += 1
-        try:
-            currentPlayerIndex = players.index(self.player)
-            self.player = players[currentPlayerIndex + 1]
-        except IndexError:
-            self.player = players[0]
+        self.player = self.player.nextPlayer
         log.debug("---" * 30)
         log.debug("%s is up (turn %s)", self.player, self.turns)
         return self.player
@@ -50,6 +44,7 @@ class Player:
         self.name = name
         self.hand = None
         self.strategy = strategyClass(self)
+        self.nextPlayer = None
 
     def __repr__(self):
         name = self.__class__.__name__
