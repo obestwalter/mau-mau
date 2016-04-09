@@ -111,15 +111,15 @@ def play_game(players=3, cardsPerPlayer=5):
 
 This is the meat of the simulation. Here is where all the magic happens. if you call this function a game of Mau Mau will be simulated and a winner is determined. **6 lines of code** including the function header and the return statement. You now have read the whole plot of the fascinating Mau Mau story. If you want to understand more, you can start digging deeper and visit the definitions of the functions used in the play function. Reading and understanding the functions (in whatever order you might prefer) in this file means that you get the picture how a simulation of a simple turn based card game works.
 
-### [`cardroom.py`](cardroom.py)
+### [`cardroom.py`](mau_mau/cardroom.py)
 
 This looks pretty different from `sim.py` and it is. Here is where the OO part of the story kicks in. If `sim.py` contains the plot, `cardroom.py` contains the descriptions of the actors and props of the story. It describes the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact. The order in which the classes are defined are from compounded to simple.
 
-### [`stats.py`](stats.py)
+### [`stats.py`](mau_mau/stats.py)
 
 Contains some functions to run the game simulations and collect statistics. 
 
-### [`cli.py`](cli.py)
+### [`cli.py`](mau_mau/cli.py)
 
 This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](mau_mau/cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](mau_mau/stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
 
