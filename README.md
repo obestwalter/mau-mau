@@ -142,14 +142,14 @@ Install the package as editable with:
         $ cd </path/to/your/clone>
         $ pip install --editable .
       
+**NOTE:**The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
+
 output like:
 
     Obtaining file:///</path/to/your/clone>
     Installing collected packages: OOOMMM
       Running setup.py develop for OOOMMM
     Successfully installed OOOMMM
-
-The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
 
 You now have an additional command in your virtualenv: `sim`:
         
