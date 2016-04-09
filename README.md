@@ -41,7 +41,7 @@ We will model the game flow using [custom Python classes](https://docs.python.or
 We add the three most common additional rules:
 
 * If an eight is played the next player is skipped
-* If a seven is played, the next player has to draw two cards. The next player can put another seven down and the following player will have to draw for (and so on).
+* If a seven is played, the next player has to draw two cards. The next player can put another seven down and instead the following player will have to draw four cards (and so on).
 * The player who plays a Jack can ask for a different suite to be played
 
 #### High level view
