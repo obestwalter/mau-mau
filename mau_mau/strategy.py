@@ -111,5 +111,6 @@ class ExternalStrategy(BasicStrategy):
             antidoteIdx = input("%s.\n%s | " % (msg, visu(choices)))
             try:
                 return choices[int(antidoteIdx) - 1]
+
             except IndexError:
                 log.warning("'%s' is not a valid choice", antidoteIdx)
