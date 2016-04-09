@@ -17,7 +17,7 @@ def winner_distribution(players=('Eric', 'Terry', 'John'), reps=1000):
     wc = {}
     # not optimal but premature optimization os the course of all evil ...
     for name in players:
-        wc[name] = len([g for g in games if g.winner.name == name])
+        wc[name] = len([g for g in games if g.table.winner.name == name])
     log.info("winner distribution: %s", wc)
 
 

@@ -101,7 +101,6 @@ class MauMau:
         """
         table.draw_from_stock(player.hand)
 
-    # TODO move from game object
     @staticmethod
-    def find_winner(players):
-        pass
+    def wins(cards):
+        return cards is not None and len(cards) == 0

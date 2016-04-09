@@ -17,7 +17,7 @@ _rulesOfTheGame = rules.MauMau()
 
 def play_simple_game(players=3):
     playedGame = sim.play_game(_rulesOfTheGame, players)
-    log.info("And the winner is %s", playedGame.winner.name)
+    log.info("And the winner is %s", playedGame.table.winner.name)
 
 
 def get_function_from_name(name):
