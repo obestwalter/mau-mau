@@ -2,17 +2,17 @@ import logging
 from statistics import mean
 from timeit import timeit
 
-from sim import play_game
+from mau_mau import rules, sim
 
 log = logging.getLogger(__name__)
 
 
-def mean_turns(players=3, reps=10000):
+def mean_turns(players=3, reps=1000):
     games = _simulate_games(players, reps)
     log.info("mean turns played: %s", mean([g.turns for g in games]))
 
 
-def winner_distribution(players=('Eric', 'Terry', 'John'), reps=10000):
+def winner_distribution(players=('Eric', 'Terry', 'John'), reps=1000):
     games = _simulate_games(players, reps)
     wc = {}
     # not optimal but premature optimization os the course of all evil ...
@@ -21,17 +21,21 @@ def winner_distribution(players=('Eric', 'Terry', 'John'), reps=10000):
     log.info("winner distribution: %s", wc)
 
 
-def time_durations(number=10000):
-    timing = timeit(stmt="play_game()",
-                    setup="from sim import play_game",
-                    number=number)
-    log.info("%s playing games take %0.3f seconds", number, timing)
+def time_durations(number=1000):
+    timing = timeit(
+        stmt="play_game(mmRules, 3)",
+        setup="from mau_mau.sim import play_game;"
+              "from mau_mau.rules import MauMau;"
+              "mmRules = MauMau()",
+        number=number)
+    log.info("it takes %0.3f seconds to play %s games", timing, number)
 
 
 def _simulate_games(players, reps):
     log.info("players: %s; %s reps", players, reps)
+    mmRules = rules.MauMau()
     games = []
     for i in range(reps):
-        game = play_game(players)
+        game = sim.play_game(mmRules, players)
         games.append(game)
     return games

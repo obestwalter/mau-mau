@@ -1,4 +1,4 @@
-from cardroom import Player
+from mau_mau.cardroom import Player
 
 
 def test_player_has_not_won_immediately_after_creation():

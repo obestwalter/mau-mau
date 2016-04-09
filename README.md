@@ -37,6 +37,9 @@ Nothing - but please don't leave yet ...
 
 One koan in the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) says: "If the implementation is easy to explain, it may be a good idea". Let's put this to the test and explain the implementation of our Mau Mau program by simply describing the conditions and rules of the game using a rough approximation of the programs' terminology and see if the objects and their interactions make the implementation look obvious. Objects used in the program are marked `like this`, functions that describe (inter)actions are marked like **this**). The game can also be described in two phases, we could call "setup" and "play". The image shows all the important elements of the simulation.
 
+
+# TODO update graphics
+
 ![cardroom overview](docs/cardroom.png)
 
 **setup:** The `players` in the `cardroom` are **invited** to a `game` at the `table`. A `deck` of `cards` is **shuffled**. The same amount of cards is **dealt** to the `players` to form their `hand`. One `card` - the `upcard` - is **drawn** from the `stock` and placed face up on the `table`. The remaining cards are `piled` face down on the `table` and form the `stock`. Now all is in place to **play** the `game`. 
@@ -78,7 +81,7 @@ This simulation of a simple card game is optimized for being readable, easy to g
 * Basic rules of Mau Mau (no special rules regarding 7, 8, or Jack)
 * Players "strategy" is to choose the first playable card in their hand
 * Functions to run multiple games and collect stats
-* Flexible [command line interface](cli.py) (add new functions without adjusting code)
+* Flexible [command line interface](mau_mau/cli.py) (add new functions without adjusting code)
 * [automatic tests](tests/) with py.test
 * Logging with the stdlib [logging module](https://docs.python.org/3/library/logging.html)
 * Use of [Python protocols](https://docs.python.org/2/reference/datamodel.html#special-method-names) to create custom classes which behave like inbuilt data types
@@ -110,7 +113,7 @@ Contains some functions to run the game simulations and collect statistics.
 
 ### [`cli.py`](cli.py)
 
-This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
+This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](mau_mau/cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](mau_mau/stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
 
 ## Things to point out
 
