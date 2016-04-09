@@ -142,6 +142,52 @@ Install the package as editable with
         
 The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
 
+You now have an additional command in your virtualenv: `sim`:
+        
+        cd </path/to/your/clone>
+        sim
+
+output like:
+
+    root                42  main             : play_simple_game() ...
+    mau_mau.sim         38  invite_players   : invited players are: [Player('Player 1', None), Player('Player 2', None), Player('Player 3', None)]
+    mau_mau.cardroom    92  deal_fresh_hand  : Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')])
+    mau_mau.cardroom    92  deal_fresh_hand  : Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')])
+    mau_mau.cardroom    92  deal_fresh_hand  : Player('Player 3', [Card('King', '♣'), Card('Ace', '♦'), Card('7', '♠'), Card('Ace', '♥'), Card('9', '♦')])
+    mau_mau.sim         23  setup_game       : Start new game: Game(Table(<mau_mau.rules.MauMau object at 0x7f420c04b7f0>, [Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')]), Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')]), Player('Player 3', [Card('King', '♣'), Card('Ace', '♦'), Card('7', '♠'), Card('Ace', '♥'), Card('9', '♦')])]))
+    mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
+    mau_mau.cardroom    30  next_turn        : Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')]) is up (turn 1)
+    mau_mau.strategy    15  play             : encountered rule BasicRule on Card('Queen', '♣')
+    mau_mau.strategy    53  _play            : find card to play
+    mau_mau.cardroom    96  play_card        : play Card('Jack', '♣') on Card('Queen', '♣')
+    mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
+    mau_mau.cardroom    30  next_turn        : Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')]) is up (turn 2)
+    mau_mau.strategy    15  play             : encountered rule DemandWantedSuit on Card('Jack', '♣')
+    mau_mau.strategy    53  _play            : find card to play
+    mau_mau.strategy    62  _play            : nothing to play
+    mau_mau.cardroom    111 draw_from_stock  : Card('10', '♣')
+    mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
+    \[SNIP\]
+    --------
+    mau_mau.cardroom    30  next_turn        : Player('Player 3', [Card('7', '♠'), Card('9', '♦'), Card('Jack', '♦')]) is up (turn 30)
+    mau_mau.strategy    15  play             : encountered rule BasicRule on Card('King', '♠')
+    mau_mau.strategy    53  _play            : find card to play
+    mau_mau.cardroom    96  play_card        : play Card('7', '♠') on Card('King', '♠')
+    mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
+    mau_mau.cardroom    30  next_turn        : Player('Player 1', [Card('9', '♠'), Card('8', '♠'), Card('Jack', '♠'), Card('10', '♠'), Card('Ace', '♠'), Card('Ace', '♣'), Card('10', '♦'), Card('Jack', '♥'), Card('Queen', '♦')]) is up (turn 31)
+    mau_mau.strategy    15  play             : encountered rule MakePlayerDrawTwoCards on Card('7', '♠')
+    mau_mau.strategy    38  choose_antidote  : find antidote
+    mau_mau.cardroom    111 draw_from_stock  : Card('King', '♥')
+    mau_mau.cardroom    111 draw_from_stock  : Card('Jack', '♣')
+    mau_mau.strategy    53  _play            : find card to play
+    mau_mau.cardroom    96  play_card        : play Card('9', '♠') on Card('7', '♠')
+    mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
+    mau_mau.cardroom    30  next_turn        : Player('Player 2', [Card('Queen', '♠')]) is up (turn 32)
+    mau_mau.strategy    15  play             : encountered rule BasicRule on Card('9', '♠')
+    mau_mau.strategy    53  _play            : find card to play
+    mau_mau.cardroom    96  play_card        : play Card('Queen', '♠') on Card('9', '♠')
+    root                20  play_simple_game : And the winner is Player 2
+
 ### Files for automatic testing and CI
 
 #### [tests/](tests/): testing with [py.test](http://pytest.org)
