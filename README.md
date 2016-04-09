@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau)
+
 # Mau Mau 
 
 > The purpose of computing is insight, not numbers.
