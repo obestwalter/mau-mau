@@ -55,9 +55,6 @@ class SkipNextPlayer(BasicRule):
 
 
 class DemandWantedSuit(BasicRule):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
     def find_playable_cards(self, cards):
         try:
             wantedSuit = self.strategy.wantedSuit
