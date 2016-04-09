@@ -108,9 +108,9 @@ class HumanStrategy(BasicStrategy):
             return " | ".join(c)
 
         while True:
-            antidoteIdx = input("%s.\n%s | " % (msg, visu(choices)))
+            idx = input("%s.\n%s | " % (msg, visu(choices)))
             try:
-                return choices[int(antidoteIdx) - 1]
+                return choices[int(idx) - 1]
 
             except IndexError:
-                log.warning("'%s' is not a valid choice", antidoteIdx)
+                log.warning("'%s' is not a valid choice", idx)
