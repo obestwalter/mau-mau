@@ -142,7 +142,7 @@ Install the package as editable with:
         $ cd </path/to/your/clone>
         $ pip install --editable .
       
-**NOTE:**The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
+**NOTE:**The dot at the end of the command is **not a typo or a spot on your screen you can't wipe away**! It means: install the contents of the folder that I am currently in as an editable package.
 
 output like:
 
