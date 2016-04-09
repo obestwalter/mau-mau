@@ -203,7 +203,9 @@ output like:
 Play interactive game:
 
     $ sim interactive
-    
+ 
+output like:
+
     root                52  main             : play_interactive_game() ...
     mau_mau.sim         44  invite_players   : invited players are: [Player('Eric', None), Player('John', None), Player('human', None)]
     mau_mau.cardroom    83  deal_fresh_hand  : Player('Eric', [Card('King', '♦'), Card('Queen', '♠'), Card('9', '♣'), Card('7', '♥'), Card('Ace', '♠')])
