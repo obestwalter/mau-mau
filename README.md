@@ -158,9 +158,42 @@ This is a good way to make sure that your program crashes early if the precondit
 
 Look for uses of the assert statement in the code to get an idea how it might be used.
 
-### Automatic tests with [py.test](http://pytest.org)
+### [setup.py](setup.py) Installable package
+
+To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access also installed.
+
+Install the package as editable with 
+
+        cd </path/to/your/clone>
+        pip install --editable .
+        
+The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
+
+### Automatic testing and CI
+
+#### [py.test](http://pytest.org)
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
+
+#### Testing on the command line
+
+Make sure, you you installed the package as editable.
+
+    cd </path/to/your/clone>
+    py.test
+    
+output like:
+
+    ============================= test session starts =============================
+    platform linux -- Python 3.4.3, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
+    rootdir: /path/to/your/clone/mau-mau, inifile: tox.ini
+    collected 13 items 
+    
+    tests/test_pile.py .....
+    tests/test_player.py ...
+    tests/test_sim.py .....
+    
+    ========================== 13 passed in 0.03 seconds ==========================
 
 #### Testing in PyCharm
 
@@ -179,6 +212,48 @@ Depending on where you are, you can run all tests are part of them. The magic ac
 * focus in the **Project Tool Window**, choose the `tests/` folder and 
 
 ... all yields different results as which tests are run (and they are what you would intuitively expect).
+
+#### Testing with tox [tox](tox.readthedocs.org)
+
+tox is one level up from py.test and can serve as an easy testrunner for different kinds of local tests and also acts a a frontend for external test runners as part of [CI](https://en.wikipedia.org/wiki/Continuous_integration). It automatically creates an environment for the tests, install the dependencies and the package under tests and outputs thee results.
+
+command line usage:
+
+    cd </path/to/your/clone>
+    tox
+    
+output like: 
+
+    flake8 develop-inst-nodeps: </path/to/your/clone>/mau-mau
+    flake8 installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
+    flake8 runtests: PYTHONHASHSEED='2381292392'
+    flake8 runtests: commands[0] | flake8 </path/to/your/clone>/mau-mau/mau_mau </path/to/your/clone>/mau-mau/tests --show-source
+    unittests develop-inst-nodeps: </path/to/your/clone>/mau-mau
+    unittests installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
+    unittests runtests: PYTHONHASHSEED='2381292392'
+    unittests runtests: commands[0] | py.test </path/to/your/clone>/mau-mau/tests
+    ============================= test session starts =============================
+    platform linux -- Python 3.4.3, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
+    rootdir: </path/to/your/clone>/mau-mau/tests, inifile: tox.ini
+    collected 13 items 
+    
+    tests/test_pile.py .....
+    tests/test_player.py ...
+    tests/test_sim.py .....
+    
+    ========================== 13 passed in 0.03 seconds ==========================
+    ___________________________________ summary ___________________________________
+      flake8: commands succeeded
+      unittests: commands succeeded
+      congratulations :)
+
+This is a very simple setup There are many more [configuration options](https://tox.readthedocs.org/en/latest/config.html)
+
+#### [.travis.yml](.travis.yml) integrate with [Travis CI](https://travis-ci.org/)
+
+The badge on top of this readme show the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
+
+This is a very simple setup. There are many more [configuration options](https://docs.travis-ci.com/user/customizing-the-build/).
 
 ### Use of custom [classes](https://docs.python.org/3.5/tutorial/classes.html)
 
