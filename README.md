@@ -137,15 +137,22 @@ To develop or explore the code it is best if you install the [package as editabl
 
 Install the package as editable with 
 
-        cd </path/to/your/clone>
-        pip install --editable .
-        
+        $ cd </path/to/your/clone>
+        $ pip install --editable .
+      
+output like:
+
+    Obtaining file:///</path/to/your/clone>
+    Installing collected packages: OOOMMM
+      Running setup.py develop for OOOMMM
+    Successfully installed OOOMMM
+
 The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
 
 You now have an additional command in your virtualenv: `sim`:
         
-        cd </path/to/your/clone>
-        sim
+        $ cd </path/to/your/clone>
+        $ sim
 
 output like:
 
@@ -191,7 +198,7 @@ output like:
 
 Calls a stats function:
 
-    sim mean_turns
+    $ sim mean_turns
     root                42  main             : mean_turns() ...
     mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
     mau_mau.stats       12  mean_turns       : mean turns played: 34.097
@@ -245,24 +252,24 @@ Depending on where you are, you can run all tests are part of them. The magic ac
 
 Tox is one level up from py.test and can serve as an easy testrunner for different kinds of local tests and also acts a a frontend for external test runners as part of [CI](https://en.wikipedia.org/wiki/Continuous_integration). It automatically creates an environment for the tests, installs the dependencies and the package under tests and outputs the results.
 
-command line usage:
+command line usage (please replace `</path/to/your/clone>` with the actual path on your computer):
 
     cd </path/to/your/clone>
     tox
     
 output like: 
 
-    flake8 develop-inst-nodeps: </path/to/your/clone>/mau-mau
+    flake8 develop-inst-nodeps: </path/to/your/clone>
     flake8 installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
     flake8 runtests: PYTHONHASHSEED='2381292392'
-    flake8 runtests: commands[0] | flake8 </path/to/your/clone>/mau-mau/mau_mau </path/to/your/clone>/mau-mau/tests --show-source
-    unittests develop-inst-nodeps: </path/to/your/clone>/mau-mau
+    flake8 runtests: commands[0] | flake8 </path/to/your/clone>/mau_mau </path/to/your/clone>/tests --show-source
+    unittests develop-inst-nodeps: </path/to/your/clone>
     unittests installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
     unittests runtests: PYTHONHASHSEED='2381292392'
-    unittests runtests: commands[0] | py.test </path/to/your/clone>/mau-mau/tests
+    unittests runtests: commands[0] | py.test </path/to/your/clone>/tests
     ============================= test session starts =============================
     platform linux -- Python 3.4.3, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
-    rootdir: </path/to/your/clone>/mau-mau/tests, inifile: tox.ini
+    rootdir: </path/to/your/clone>/tests, inifile: tox.ini
     collected 13 items 
     
     tests/test_pile.py .....
