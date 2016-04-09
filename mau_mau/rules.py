@@ -19,7 +19,7 @@ class BasicRule:
         """one or several functions that execute punishments for the rule.
 
         If punishments are not prevented with an antidote or executed, they
-        are propagated to the next player.
+        are propagated to the next rule.
         """
 
     def __repr__(self):
