@@ -26,7 +26,7 @@ What does that tell us? OO is just one of many ways of thinking about the proble
 
 ### Implementation
 
-We will model the game flow using [custom Python classes](https://docs.python.org/3/tutorial/classes.html#classes) and see where we get.
+The modelling problem we have here is a good fit to create your own data structures (which classes are), so we will model the game flow using [custom Python classes](https://docs.python.org/3/tutorial/classes.html#classes) and see where we get.
 
 #### The basic rules of Mau Mau
 
@@ -219,11 +219,6 @@ This is a very simple setup There are many more [configuration options](https://
 The badge on top of this readme show the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
 
 This is a very simple setup. There are many more [configuration options](https://docs.travis-ci.com/user/customizing-the-build/).
-
-### Use of custom [classes](https://docs.python.org/3.5/tutorial/classes.html)
-
-Yes I know, you basically just learned about functions and variables inside of modules, but by having learned that you know almost everything already to start writing your own classes. The modelling problem we have here is a good fit to create your own data structures (which classes are), so here they are and they don't bite. 
-
 
 ## Things to point out
 
