@@ -167,8 +167,9 @@ output like:
     mau_mau.strategy    62  _play            : nothing to play
     mau_mau.cardroom    111 draw_from_stock  : Card('10', '♣')
     mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
+
     \[SNIP\]
-    --------
+
     mau_mau.cardroom    30  next_turn        : Player('Player 3', [Card('7', '♠'), Card('9', '♦'), Card('Jack', '♦')]) is up (turn 30)
     mau_mau.strategy    15  play             : encountered rule BasicRule on Card('King', '♠')
     mau_mau.strategy    53  _play            : find card to play
