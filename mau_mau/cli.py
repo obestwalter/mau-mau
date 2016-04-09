@@ -35,7 +35,7 @@ def simple_parse_args(argv):
 
 
 def main():
-    fmt = '%(name)-10s%(lineno)-3s %(funcName)-17s: %(message)s'.format()
+    fmt = '%(name)-20s%(lineno)-3s %(funcName)-17s: %(message)s'.format()
     logging.basicConfig(format=fmt, level=logging.INFO)
     functionName, args = simple_parse_args(sys.argv)
     functionObject = get_function_from_name(functionName)
