@@ -189,6 +189,14 @@ output like:
     mau_mau.cardroom    96  play_card        : play Card('Queen', '♠') on Card('9', '♠')
     root                20  play_simple_game : And the winner is Player 2
 
+Calls a stats function:
+
+    sim mean_turns
+    root                42  main             : mean_turns() ...
+    mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
+    mau_mau.stats       12  mean_turns       : mean turns played: 34.097
+
+
 ### Files for automatic testing and CI
 
 #### [tests/](tests/): testing with [py.test](http://pytest.org)
