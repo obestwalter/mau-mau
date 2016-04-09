@@ -9,8 +9,5 @@ branches:
     - experimental
 install:
   - pip install tox
-env:
-  - TOXENV=flake8
-  - TOXENV=unittests
 script:
-  - tox -e $TOX_ENV
+  - tox

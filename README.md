@@ -374,7 +374,7 @@ This is a very simple setup There are many more [configuration options](https://
 
 The badge on top of this `README` shows the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
 
-This is a very simple setup. There are many more [configuration options](https://docs.travis-ci.com/user/customizing-the-build/).
+This is a very simple setup. There are many more [configuration options](https://docs.travis-ci.com/user/languages/python).
 
 ## Things to point out
 
