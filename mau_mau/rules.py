@@ -33,7 +33,7 @@ class BasicRule:
         return self.rules.no_play_action(player, table)
 
 
-class NormaleRule(BasicRule):
+class NormalRule(BasicRule):
     pass
 
 
