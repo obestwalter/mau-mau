@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau)
-
-# Mau Mau 
+# Mau Mau   [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau)
 
 > The purpose of computing is insight, not numbers.
 
@@ -374,7 +372,7 @@ This is a very simple setup There are many more [configuration options](https://
 
 #### [.travis.yml](.travis.yml): integrate with [Travis CI](https://travis-ci.org/)
 
-The badge on top of this readme show the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
+The badge on top of this `README` shows the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
 
 This is a very simple setup. There are many more [configuration options](https://docs.travis-ci.com/user/customizing-the-build/).
 
