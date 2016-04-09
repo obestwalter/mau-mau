@@ -206,7 +206,9 @@ This contains the classes that implement the rules of Mau Mau. Start reading wit
 
 #### `BasicStrategy` 
 
-just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. can be extended upon. This can be extended upon. 
+just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. 
+
+This can be extended upon to implement "real" strategies.
 
 #### `HumanStrategy`
  
