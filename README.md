@@ -123,6 +123,108 @@ Contains some functions to run the game simulations and collect statistics.
 
 This is the entry point and can be executed from the command line. `python ./cli.py` or simply [`./cli.py`](mau_mau/cli.py) executes the standard function that runs simulations and creates statistics from the results ([`stats.time_durations`](mau_mau/stats.py#L25)). If you call it with a command line argument (e.g. `./cli.py mean_turns`) the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`sim.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `sim.py` will automatically make it accessible through the command line interface.
 
+### [setup.py](setup.py) Installable package
+
+To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access also installed.
+
+Install the package as editable with 
+
+        cd </path/to/your/clone>
+        pip install --editable .
+        
+The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
+
+### Files for automatic testing and CI
+
+#### [tests/](tests/): testing with [py.test](http://pytest.org)
+
+The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
+
+##### Testing on the command line
+
+Make sure, you you installed the package as editable.
+
+    cd </path/to/your/clone>
+    py.test
+    
+output like:
+
+    ============================= test session starts =============================
+    platform linux -- Python 3.4.3, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
+    rootdir: /path/to/your/clone/mau-mau, inifile: tox.ini
+    collected 13 items 
+    
+    tests/test_pile.py .....
+    tests/test_player.py ...
+    tests/test_sim.py .....
+    
+    ========================== 13 passed in 0.03 seconds ==========================
+
+##### Testing in PyCharm
+
+###### Preparation
+
+The default testrunner in PyCharm is Unittest. You have to switch to py.test like so: 
+* **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test 
+* accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
+
+###### Running tests
+
+Depending on where you are, you can run all tests are part of them. The magic action is [`run context configuration`](https://www.jetbrains.com/help/pycharm/2016.1/creating-and-saving-temporary-run-debug-configurations.html). It runs what is sensible in the context. If your focus is in a normal script it runs the script and if the focus is in a module defining tests it will run the configured testrunner with the tests. Running the context configuration with ...
+
+* focus in the editor, inside a specific test
+* focus in the editor on the line defining a class containing tests
+* focus in the **Project Tool Window**, choose the `tests/` folder and 
+
+... all yields different results as which tests are run (and they are what you would intuitively expect).
+
+#### [tox.ini](tox.ini): testing with tox [tox](tox.readthedocs.org)
+
+Tox is one level up from py.test and can serve as an easy testrunner for different kinds of local tests and also acts a a frontend for external test runners as part of [CI](https://en.wikipedia.org/wiki/Continuous_integration). It automatically creates an environment for the tests, installs the dependencies and the package under tests and outputs the results.
+
+command line usage:
+
+    cd </path/to/your/clone>
+    tox
+    
+output like: 
+
+    flake8 develop-inst-nodeps: </path/to/your/clone>/mau-mau
+    flake8 installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
+    flake8 runtests: PYTHONHASHSEED='2381292392'
+    flake8 runtests: commands[0] | flake8 </path/to/your/clone>/mau-mau/mau_mau </path/to/your/clone>/mau-mau/tests --show-source
+    unittests develop-inst-nodeps: </path/to/your/clone>/mau-mau
+    unittests installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
+    unittests runtests: PYTHONHASHSEED='2381292392'
+    unittests runtests: commands[0] | py.test </path/to/your/clone>/mau-mau/tests
+    ============================= test session starts =============================
+    platform linux -- Python 3.4.3, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
+    rootdir: </path/to/your/clone>/mau-mau/tests, inifile: tox.ini
+    collected 13 items 
+    
+    tests/test_pile.py .....
+    tests/test_player.py ...
+    tests/test_sim.py .....
+    
+    ========================== 13 passed in 0.03 seconds ==========================
+    ___________________________________ summary ___________________________________
+      flake8: commands succeeded
+      unittests: commands succeeded
+      congratulations :)
+
+This is a very simple setup There are many more [configuration options](https://tox.readthedocs.org/en/latest/config.html)
+
+#### [.travis.yml](.travis.yml): integrate with [Travis CI](https://travis-ci.org/)
+
+The badge on top of this readme show the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
+
+This is a very simple setup. There are many more [configuration options](https://docs.travis-ci.com/user/customizing-the-build/).
+
+### Use of custom [classes](https://docs.python.org/3.5/tutorial/classes.html)
+
+Yes I know, you basically just learned about functions and variables inside of modules, but by having learned that you know almost everything already to start writing your own classes. The modelling problem we have here is a good fit to create your own data structures (which classes are), so here they are and they don't bite. 
+
+
 ## Things to point out
 
 ### Python does argument passing by assignment
@@ -157,107 +259,6 @@ The assert in the `spam` function makes sure, that the argument passed evaluates
 This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Like making sure there is a chair under your bottom before you make an attempt to sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
 
 Look for uses of the assert statement in the code to get an idea how it might be used.
-
-### [setup.py](setup.py) Installable package
-
-To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access also installed.
-
-Install the package as editable with 
-
-        cd </path/to/your/clone>
-        pip install --editable .
-        
-The dot at the end of the command is **not a typo**! It means: install the contents of the folder that I am currently in as an editable package.
-
-### Automatic testing and CI
-
-#### [py.test](http://pytest.org)
-
-The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
-
-#### Testing on the command line
-
-Make sure, you you installed the package as editable.
-
-    cd </path/to/your/clone>
-    py.test
-    
-output like:
-
-    ============================= test session starts =============================
-    platform linux -- Python 3.4.3, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
-    rootdir: /path/to/your/clone/mau-mau, inifile: tox.ini
-    collected 13 items 
-    
-    tests/test_pile.py .....
-    tests/test_player.py ...
-    tests/test_sim.py .....
-    
-    ========================== 13 passed in 0.03 seconds ==========================
-
-#### Testing in PyCharm
-
-##### Preparation
-
-The default testrunner in PyCharm is Unittest. You have to switch to py.test like so: 
-* **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test 
-* accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
-
-##### Running tests
-
-Depending on where you are, you can run all tests are part of them. The magic action is [`run context configuration`](https://www.jetbrains.com/help/pycharm/2016.1/creating-and-saving-temporary-run-debug-configurations.html). It runs what is sensible in the context. If your focus is in a normal script it runs the script and if the focus is in a module defining tests it will run the configured testrunner with the tests. Running the context configuration with ...
-
-* focus in the editor, inside a specific test
-* focus in the editor on the line defining a class containing tests
-* focus in the **Project Tool Window**, choose the `tests/` folder and 
-
-... all yields different results as which tests are run (and they are what you would intuitively expect).
-
-#### Testing with tox [tox](tox.readthedocs.org)
-
-tox is one level up from py.test and can serve as an easy testrunner for different kinds of local tests and also acts a a frontend for external test runners as part of [CI](https://en.wikipedia.org/wiki/Continuous_integration). It automatically creates an environment for the tests, install the dependencies and the package under tests and outputs thee results.
-
-command line usage:
-
-    cd </path/to/your/clone>
-    tox
-    
-output like: 
-
-    flake8 develop-inst-nodeps: </path/to/your/clone>/mau-mau
-    flake8 installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
-    flake8 runtests: PYTHONHASHSEED='2381292392'
-    flake8 runtests: commands[0] | flake8 </path/to/your/clone>/mau-mau/mau_mau </path/to/your/clone>/mau-mau/tests --show-source
-    unittests develop-inst-nodeps: </path/to/your/clone>/mau-mau
-    unittests installed: flake8==2.5.4,mccabe==0.4.0,-e git+git@github.com:obestwalter/mau-mau.git@ba0af5660852415dc8cd44a499ad0a67958119be#egg=OOOMMM-master,pep8==1.7.0,py==1.4.31,pyflakes==1.0.0,pytest==2.9.1,wheel==0.24.0
-    unittests runtests: PYTHONHASHSEED='2381292392'
-    unittests runtests: commands[0] | py.test </path/to/your/clone>/mau-mau/tests
-    ============================= test session starts =============================
-    platform linux -- Python 3.4.3, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
-    rootdir: </path/to/your/clone>/mau-mau/tests, inifile: tox.ini
-    collected 13 items 
-    
-    tests/test_pile.py .....
-    tests/test_player.py ...
-    tests/test_sim.py .....
-    
-    ========================== 13 passed in 0.03 seconds ==========================
-    ___________________________________ summary ___________________________________
-      flake8: commands succeeded
-      unittests: commands succeeded
-      congratulations :)
-
-This is a very simple setup There are many more [configuration options](https://tox.readthedocs.org/en/latest/config.html)
-
-#### [.travis.yml](.travis.yml) integrate with [Travis CI](https://travis-ci.org/)
-
-The badge on top of this readme show the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
-
-This is a very simple setup. There are many more [configuration options](https://docs.travis-ci.com/user/customizing-the-build/).
-
-### Use of custom [classes](https://docs.python.org/3.5/tutorial/classes.html)
-
-Yes I know, you basically just learned about functions and variables inside of modules, but by having learned that you know almost everything already to start writing your own classes. The modelling problem we have here is a good fit to create your own data structures (which classes are), so here they are and they don't bite. 
 
 ### Logging
 
