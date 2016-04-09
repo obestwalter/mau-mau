@@ -86,11 +86,11 @@ This simulation of a simple card game is optimized for being readable, easy to g
 
 ### Features of this implementation
 
-* Basic rules of Mau Mau (no special rules regarding 7, 8, or Jack)
-* Players "strategy" is to choose the first playable card in their hand
+* Complete rules of Mau Mau
+* Prepared for having players with different strategies (only one simple strategy implemented)
 * Functions to run multiple games and collect stats
 * Flexible [command line interface](mau_mau/cli.py) (add new functions without adjusting code)
-* [automatic tests](tests/) with py.test
+* [automatic tests](tests/) with py.test, tox and Travis CI
 * Logging with the stdlib [logging module](https://docs.python.org/3/library/logging.html)
 * Use of [Python protocols](https://docs.python.org/2/reference/datamodel.html#special-method-names) to create custom classes which behave like inbuilt data types
 
