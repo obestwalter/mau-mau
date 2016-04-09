@@ -116,7 +116,7 @@ output like:
       Running setup.py develop for OOOMMM
     Successfully installed OOOMMM
 
-You now have an additional command in your virtualenv: `sim`:
+You now have an additional command in your virtualenv: `sim`.
         
         $ cd </path/to/your/clone>
         $ sim
