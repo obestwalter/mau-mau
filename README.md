@@ -200,12 +200,66 @@ output like:
     mau_mau.cardroom    96  play_card        : play Card('Queen', '♠') on Card('9', '♠')
     root                20  play_simple_game : And the winner is Player 2
 
-Call a stats functions:
+Play interactive game:
+
+    $ sim interactive
+    
+    root                52  main             : play_interactive_game() ...
+    mau_mau.sim         44  invite_players   : invited players are: [Player('Eric', None), Player('John', None), Player('human', None)]
+    mau_mau.cardroom    83  deal_fresh_hand  : Player('Eric', [Card('King', '♦'), Card('Queen', '♠'), Card('9', '♣'), Card('7', '♥'), Card('Ace', '♠')])
+    mau_mau.cardroom    83  deal_fresh_hand  : Player('John', [Card('Queen', '♦'), Card('Ace', '♦'), Card('8', '♦'), Card('7', '♦'), Card('9', '♥')])
+    mau_mau.cardroom    83  deal_fresh_hand  : Player('human', [Card('8', '♥'), Card('10', '♥'), Card('King', '♥'), Card('7', '♠'), Card('8', '♠')])
+    [...]
+    mau_mau.cardroom    24  next_turn        : upcard: Card('Ace', '♠')
+    mau_mau.cardroom    25  next_turn        : Player('human', [Card('8', '♥'), Card('10', '♥'), Card('King', '♥'), Card('7', '♠'), Card('8', '♠'), Card('King', '♠'), Card('Ace', '♥')]) is up
+    mau_mau.strategy    16  play             : encountered rule BasicRule on Card('Ace', '♠')
+    mau_mau.strategy    55  _play            : find card to play
+    choose card to play.
+    1 -> Card('7', '♠') | 2 -> Card('8', '♠') | 3 -> Card('King', '♠') | 4 -> Card('Ace', '♥') | 1
+    mau_mau.cardroom    87  play_card        : play Card('7', '♠')
+    mau_mau.cardroom    23  next_turn        : --------------------------------------------- turn: 10 ---------------------------------------------
+    mau_mau.cardroom    24  next_turn        : upcard: Card('7', '♠')
+    mau_mau.cardroom    25  next_turn        : Player('Eric', [Card('9', '♣'), Card('7', '♥')]) is up
+    mau_mau.strategy    16  play             : encountered rule MakePlayerDrawTwoCards on Card('7', '♠')
+    mau_mau.strategy    39  choose_antidote  : find antidote
+    mau_mau.strategy    43  choose_antidote  : found antidote Card('7', '♥')
+    mau_mau.cardroom    87  play_card        : play Card('7', '♥')
+    [...]
+    mau_mau.cardroom    23  next_turn        : --------------------------------------------- turn: 18 ---------------------------------------------
+    mau_mau.cardroom    24  next_turn        : upcard: Card('Ace', '♥')
+    mau_mau.cardroom    25  next_turn        : Player('human', [Card('8', '♥'), Card('10', '♥'), Card('King', '♥'), Card('8', '♠'), Card('King', '♠'), Card('King', '♣'), Card('Jack', '♥'), Card('Jack', '♠'), Card('9', '♠'), Card('Queen', '♣')]) is up
+    mau_mau.strategy    16  play             : encountered rule BasicRule on Card('Ace', '♥')
+    mau_mau.strategy    55  _play            : find card to play
+    choose card to play.
+    1 -> Card('8', '♥') | 2 -> Card('10', '♥') | 3 -> Card('King', '♥') | 4 -> Card('Jack', '♥') | 4
+    mau_mau.cardroom    87  play_card        : play Card('Jack', '♥')
+    mau_mau.cardroom    23  next_turn        : --------------------------------------------- turn: 19 ---------------------------------------------
+    mau_mau.cardroom    24  next_turn        : upcard: Card('Jack', '♥')
+    mau_mau.cardroom    25  next_turn        : Player('Eric', [Card('Jack', '♣'), Card('8', '♣'), Card('9', '♦')]) is up
+    mau_mau.strategy    16  play             : encountered rule DemandWantedSuit on Card('Jack', '♥')
+    choose wanted suit.
+    1 -> ♦ | 2 -> ♥ | 3 -> ♠ | 4 -> ♣ | 4
+    mau_mau.strategy    55  _play            : find card to play
+    mau_mau.cardroom    87  play_card        : play Card('8', '♣')
+    [...]
+
+Call stats functions:
 
     $ sim mean_turns
     root                42  main             : mean_turns() ...
     mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
     mau_mau.stats       12  mean_turns       : mean turns played: 34.097
+
+
+    $ sim winner_distribution
+    root                52  main             : winner_distribution() ...
+    mau_mau.stats       35  _simulate_games  : players: ('Eric', 'Terry', 'John'); 1000 reps
+    mau_mau.stats       21  winner_distribution: winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
+
+    $ sim time_durations
+    root                52  main             : time_durations() ...
+    mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games
+
 
 
 ### Files for automatic testing and CI
