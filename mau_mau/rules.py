@@ -33,10 +33,6 @@ class BasicRule:
         return self.rules.no_play_action(player, table)
 
 
-class NormalRule(BasicRule):
-    pass
-
-
 class MakePlayerDrawTwoCards(BasicRule):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
