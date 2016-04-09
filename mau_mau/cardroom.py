@@ -28,6 +28,7 @@ class Game:
             self.player = players[0]
         log.debug("---" * 30)
         log.debug("%s is up (turn %s)", self.player, self.turns)
+        return self.player
 
     @property
     def over(self):

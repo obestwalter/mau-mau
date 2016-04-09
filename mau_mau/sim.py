@@ -8,8 +8,8 @@ log = logging.getLogger(__name__)
 def play_game(rulesOfTheGame, players):
     game = setup_game(rulesOfTheGame, players)
     while not game.over:
-        game.next_turn()
-        game.player.play_turn(game.table)
+        player = game.next_turn()
+        player.play_turn(game.table)
     return game
 
 
