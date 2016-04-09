@@ -272,6 +272,8 @@ output like:
     mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
     mau_mau.stats       12  mean_turns       : mean turns played: 34.097
 
+input:
+
     $ sim winner_distribution
 
 output like:
@@ -279,6 +281,8 @@ output like:
     root                52  main             : winner_distribution() ...
     mau_mau.stats       35  _simulate_games  : players: ('Eric', 'Terry', 'John'); 1000 reps
     mau_mau.stats       21  winner_distribution: winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
+
+input:
 
     $ sim time_durations
 
