@@ -154,7 +154,7 @@ output like:
     mau_mau.cardroom    92  deal_fresh_hand  : Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')])
     mau_mau.cardroom    92  deal_fresh_hand  : Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')])
     mau_mau.cardroom    92  deal_fresh_hand  : Player('Player 3', [Card('King', '♣'), Card('Ace', '♦'), Card('7', '♠'), Card('Ace', '♥'), Card('9', '♦')])
-    mau_mau.sim         23  setup_game       : Start new game: Game(Table(<mau_mau.rules.MauMau object at 0x7f420c04b7f0>, [Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')]), Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')]), Player('Player 3', [Card('King', '♣'), Card('Ace', '♦'), Card('7', '♠'), Card('Ace', '♥'), Card('9', '♦')])]))
+    mau_mau.sim         23  setup_game       : Start new game: Game(Table(MauMau(5), [Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')]), Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')]), Player('Player 3', [Card('King', '♣'), Card('Ace', '♦'), Card('7', '♠'), Card('Ace', '♥'), Card('9', '♦')])]))
     mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
     mau_mau.cardroom    30  next_turn        : Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')]) is up (turn 1)
     mau_mau.strategy    15  play             : encountered rule BasicRule on Card('Queen', '♣')

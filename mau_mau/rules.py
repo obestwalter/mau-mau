@@ -77,6 +77,10 @@ class MauMau:
     def __init__(self, cardsPerPlayer=5):
         self.cardsPerPlayer = cardsPerPlayer
 
+    def __repr__(self):
+        name = self.__class__.__name__
+        return "%s(%s)" % (name, self.cardsPerPlayer)
+
     @classmethod
     def get_rule(cls, card):
         RuleClass = cls.RULES.get(card.value, BasicRule)
