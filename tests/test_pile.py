@@ -1,6 +1,6 @@
 import pytest
 
-from cardroom import Stock, Card, Waste
+from mau_mau.cardroom import Stock, Card, Waste
 
 
 def test_fetch_card_from_empty_stock_raises():
