@@ -135,7 +135,7 @@ This is the entry point and can be executed from the command line. `python ./cli
 
 **NOTE:** Please replace `</path/to/your/clone>` with the actual path on your computer.
 
-To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access also installed.
+To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access `sim` is also installed.
 
 Install the package as editable with:
 
@@ -214,7 +214,7 @@ The ability to write simple functions to test your code cannot be developed earl
 
 ##### Testing on the command line
 
-**NOTE:** Make sure, you you installed the package as editable.
+**NOTE:** Make sure, you installed the package as editable.
 
     $ cd </path/to/your/clone>
     $ py.test
