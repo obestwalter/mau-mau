@@ -1,14 +1,17 @@
 import logging
 
-from mau_mau.concepts import _Pile
+from mau_mau.concepts import _CardCollection
 
 log = logging.getLogger(__name__)
 
 
 class Table:
     def __init__(self):
-        self.rules = None
+        self.stock = None
+        self.waste = None
+        self.upcard = None
         self.players = None
+        self.rules = None
         self.rule = None
         """active rule"""
 
@@ -28,33 +31,15 @@ class Table:
             except IndexError:
                 player.nextPlayer = players[0]
 
-    def play_card(self, card, hand, strategy):
-        log.debug("play %s", card)
-        card = hand.pop(hand.index(card))
-        self.waste.put_card(self.upcard)
-        self.upcard = card
-        oldRule = self.rule
-        self.rule = self.rules.get_rule(card)
-        self.rule.strategy = strategy
-        self.transfer_punishments(oldRule, self.rule)
-
-    def draw_from_stock(self, hand, amount=1):
-        for _ in range(amount):
-            self.ensure_stock_is_replenished()
-            card = self.stock.fetch_card()
-            hand.append(card)
-            log.debug(card)
-
     @staticmethod
     def transfer_punishments(sourceRule, destinationRule):
         for punishment in sourceRule.punishments:
             destinationRule.punishments.append(punishment)
 
-    def ensure_stock_is_replenished(self):
-        if self.stock.isEmpty:
-            self.stock = Stock(self.waste.cards)
-            self.waste = Waste()
-            self.stock.shuffle()
+    def replenish_stock(self):
+        self.stock = Stock(self.waste)
+        self.waste = Waste()
+        self.stock.shuffle()
 
     @property
     def winner(self):
@@ -65,28 +50,19 @@ class Table:
             return None
 
 
-class Stock(_Pile):
-    class StockEmpty(Exception):
-        """Raised when trying to draw from empty pile"""
-
-    def fetch_cards(self, amount):
-        return [self.fetch_card() for _ in range(amount)]
-
-    def fetch_card(self):
-        try:
-            return self.cards.pop(len(self.cards) - 1)
-
-        except IndexError:
-            raise self.StockEmpty()
-
-    @property
-    def isEmpty(self):
-        return not len(self.cards)
+class Stock(_CardCollection):
+    """technically not necessary but then it's clear what this represents"""
+    pass
 
 
-class Waste(_Pile):
-    def put_card(self, card):
-        self.cards.append(card)
+class Waste(_CardCollection):
+    """technically not necessary but then it's clear what this represents"""
+    pass
+
+
+class Hand(_CardCollection):
+    """technically not necessary but then it's clear what this represents"""
+    pass
 
 
 class Card:

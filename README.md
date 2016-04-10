@@ -309,6 +309,9 @@ output like:
     root                52  main             : time_durations() ...
     mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games
 
+### Executable documentation with doctests
+
+# TODO see [concepts.py](mau_mau/concepts.py)
 
 ### Files for automatic testing and CI
 
@@ -335,6 +338,14 @@ output like:
     tests/test_sim.py .....
     
     ========================== 13 passed in 0.03 seconds ==========================
+
+If you want to take this one step further and have the tests being run automatically every time the code changes, you can:
+
+    $ pip install pytest-watch
+    $ cd </path/to/your/clone>
+    $ ptw --onfail 'notify-send --urgency=critical "FAIL"' --onpass 'notify-send "PASSED"'
+    
+`notify-send` is the way how I can send Desktop notifications from the commandline in my os ([Linux](https://wiki.archlinux.org/index.php/Desktop_notifications)). There are lots of ways to do this on every os - even [Windows](https://github.com/nels-o/toaster) and [Mac](https://github.com/julienXX/terminal-notifier)
 
 ##### Testing in PyCharm
 

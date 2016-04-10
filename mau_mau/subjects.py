@@ -3,16 +3,15 @@ import logging
 import collections
 
 from mau_mau.config import DECK
-from mau_mau.objects import Stock, Waste, Card
+from mau_mau.objects import Stock, Waste, Hand, Card
 from mau_mau.strategy import HumanStrategy, BasicStrategy
 
 log = logging.getLogger(__name__)
 
 
 class Croupier:
-    """Coordinates the game flow.
+    """Prepares everything to get the game going
 
-    * knows the rules and preconditions needed to play a game
     * can summon, manipulate and coordinate all needed subjects and objects
     """
     def __init__(self):
@@ -53,11 +52,6 @@ class Croupier:
             except IndexError:
                 player.nextPlayer = players[0]
 
-    @staticmethod
-    def deal_fresh_hand(player, stock, amount):
-        player.hand = stock.fetch_cards(amount)
-        log.debug("%s", player)
-
     def check_setup(self, players, cardsPerPlayer):
         assert len(players) > 1, "not enough players"
         neededCards = len(players) * cardsPerPlayer
@@ -70,32 +64,20 @@ class Croupier:
         assert tableCardsLen + handsLen == self._deckSize, \
             (tableCardsLen, handsLen, self._deckSize)
 
-    @staticmethod
-    def is_valid(value=None, suit=None):
-        if not any([value, suit]):
-            return False
-
-        if value and value not in DECK.VALUES:
-            return False
-
-        if suit and suit not in DECK.VALUES:
-            return False
-
-        return True
-
     def set_table(self, table, rules):
-        table.rules = rules  # FIXME questionable if they belong there ...
+        table.rules = rules
         table.stock = Stock(self._deck)
         table.stock.shuffle()
         table.waste = Waste()
-        table.upcard = table.stock.fetch_card()
+        table.upcard = table.stock.fetch()
         table.rule = rules.get_rule(table.upcard)
 
 
 class Player:
     def __init__(self, name, strategyClass=BasicStrategy):
         self.name = name
-        self.hand = None
+        self.hand = Hand()
+        """:type: Hand"""
         self.strategy = strategyClass(self)
         self.nextPlayer = None
 
@@ -106,5 +88,23 @@ class Player:
     def __eq__(self, other):
         return self.name == other.name
 
-    def play_turn(self, table):
+    def play(self, table):
         self.strategy.play(table)
+
+    def draw(self, table, amount=1):
+        for _ in range(amount):
+            if not table.stock:
+                table.replenish_stock()
+            card = table.stock.fetch()
+            self.hand.put(card)
+            log.debug(card)
+
+    def put(self, table, card, strategy):
+        log.debug("play %s", card)
+        card = self.hand.fetch(card)
+        table.waste.put(table.upcard)
+        table.upcard = card
+        oldRule = table.rule
+        table.rule = table.rules.get_rule(card)
+        table.rule.strategy = strategy
+        table.transfer_punishments(oldRule, table.rule)
