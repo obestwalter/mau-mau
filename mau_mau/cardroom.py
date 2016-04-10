@@ -30,15 +30,27 @@ class Game:
 
 
 class Table:
-    def __init__(self, rulesOfTheGame, players):
-        self.rules = rulesOfTheGame
-        self.players = players
+    def __init__(self):
+        self.rules = None
+        self.players = None
         self.rule = None
         """active rule"""
 
     def __repr__(self):
         name = self.__class__.__name__
         return "%s(%s, %s)" % (name, self.rules, self.players)
+
+    def join(self, players):
+        """Players join at the table and therefore learn who comes next
+
+        ... in a different program this would have a very different meaning
+        """
+        self.players = players
+        for idx, player in enumerate(self.players):
+            try:
+                player.nextPlayer = players[idx + 1]
+            except IndexError:
+                player.nextPlayer = players[0]
 
     def play_card(self, card, hand, strategy):
         log.debug("play %s", card)

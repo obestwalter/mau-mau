@@ -5,10 +5,12 @@ TODO do sanity check after every round?
 """
 import logging
 
+import collections
+
 from mau_mau import strategy
 from mau_mau.cardroom import Card, Stock, Waste
 from mau_mau.config import DECK
-
+from mau_mau.strategy import HumanStrategy, BasicStrategy
 
 log = logging.getLogger(__name__)
 
@@ -21,6 +23,36 @@ class Croupier:
     def fetch_fresh_deck_of_cards(self):
         self._deck = [Card(v, s) for v in DECK.VALUES for s in DECK.SUITS]
         self._deckSize = len(self._deck)
+
+    @classmethod
+    def invite(cls, seed, table):
+        realPlayers = cls._create_real_players(seed)
+        log.debug("invite %s to: %s", realPlayers, table)
+        table.join(realPlayers)
+
+    @classmethod
+    def _create_real_players(cls, seed):
+        """given an amount or some names magic some players out of thin air.
+
+        :type seed: int or list of str
+        """
+        if not isinstance(seed, collections.Iterable):
+            return [Player("Player %s" % (n)) for n in range(1, seed + 1)]
+
+        rps = []
+        for player in seed:
+            s = HumanStrategy if player == 'human' else BasicStrategy
+            rps.append(Player(player, s))
+        return rps
+
+    @classmethod
+    def _tell_players_where_to_sit(cls, players):
+        """So that plyers know who's next"""
+        for idx, player in enumerate(players):
+            try:
+                player.nextPlayer = players[idx + 1]
+            except IndexError:
+                player.nextPlayer = players[0]
 
     @staticmethod
     def deal_fresh_hand(player, stock, amount):
@@ -53,6 +85,7 @@ class Croupier:
         return True
 
     def set_table(self, table, rules):
+        table.rules = rules  # FIXME questionable if they belon there ...
         table.stock = Stock(self._deck)
         table.stock.shuffle()
         table.waste = Waste()
