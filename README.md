@@ -452,4 +452,4 @@ Code is under MIT license and content is CC BY-NC-SA 4.0
 
 ### Acknowledgements
 
-A visual profile is handy to demonstrate execution behaviour and timing. [PyVmMonitor](http://pyvmmonitor.com) is being used for that.
+A visual profiler is handy to demonstrate execution behaviour and timing. [PyVmMonitor](http://pyvmmonitor.com) is being used for that.
