@@ -23,10 +23,10 @@ class Croupier:
         log.debug("%s", player)
 
     @staticmethod
-    def ensure_setup_ok(players, cardsPerPlayer):
-        assert len(players) > 1
+    def check_setup(players, cardsPerPlayer):
+        assert len(players) > 1, "not enough players"
         neededCards = len(players) * cardsPerPlayer
-        assert neededCards <= len(DECK())
+        assert neededCards <= len(DECK()), "too many players"
 
     @staticmethod
     def check_table(table):

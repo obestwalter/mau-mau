@@ -21,7 +21,7 @@ def play_game(rulesOfTheGame, players):
 def setup_game(rules, players):
     croupier = Croupier()
     players = invite_players(players)
-    croupier.ensure_setup_ok(players, rules.cardsPerPlayer)
+    croupier.check_setup(players, rules.cardsPerPlayer)
     sit_down_players(players)
     deckOfCards = DECK.create()
     table = cardroom.Table(rules, players)
