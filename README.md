@@ -188,6 +188,26 @@ def play_game(rulesOfTheGame, players):
 
 This is the meat of the simulation. Here is where all the magic happens. if you call this function a game of Mau Mau will be simulated and a winner is determined. **6 lines of code** including the function header and the return statement. You now have read the whole plot of the fascinating Mau Mau story. If you want to understand more, you can start digging deeper and visit the definitions of the functions used in the `play_game` function. Reading and understanding the functions (in whatever order you might prefer) in this file means that you get the picture how a simulation of a simple turn based card game works.
 
+### config.py
+
+#### FIXME modify according to new structure
+
+### subjects.py
+
+#### FIXME modify according to new structure
+
+### concepts.py
+
+#### FIXME modify according to new structure
+
+### objects.py
+
+I know .. in Python everything is an object, so this would be meaningless.
+In the context of the
+program but they are objects in the level of abstractio we care about, when
+crating the software, which is: they are objects of the game which are
+manipulated by the subjects of the game.
+
 ### [`cardroom.py`](mau_mau/cardroom.py)
 
 To dig deeper and get a more detailed understanding of the program, you should start to explore the classes, their attributes and behaviour and how they interact. The best place to start is the cardroom.
@@ -289,6 +309,9 @@ output like:
     root                52  main             : time_durations() ...
     mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games
 
+### Executable documentation with doctests
+
+# TODO see [concepts.py](mau_mau/concepts.py)
 
 ### Files for automatic testing and CI
 
@@ -315,6 +338,14 @@ output like:
     tests/test_sim.py .....
     
     ========================== 13 passed in 0.03 seconds ==========================
+
+If you want to take this one step further and have the tests being run automatically every time the code changes, you can:
+
+    $ pip install pytest-watch
+    $ cd </path/to/your/clone>
+    $ ptw --onfail 'notify-send --urgency=critical "FAIL"' --onpass 'notify-send "PASSED"'
+    
+`notify-send` is the way how I can send Desktop notifications from the commandline in my os ([Linux](https://wiki.archlinux.org/index.php/Desktop_notifications)). There are lots of ways to do this on every os - even [Windows](https://github.com/nels-o/toaster) and [Mac](https://github.com/julienXX/terminal-notifier)
 
 ##### Testing in PyCharm
 

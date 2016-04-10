@@ -3,6 +3,7 @@ import logging
 import collections
 import random
 
+from mau_mau.config import DECK
 
 log = logging.getLogger(__name__)
 
@@ -58,7 +59,7 @@ class BasicStrategy:
 
         if card:
             assert card in candidates, (card, candidates)
-            table.play_card(card, self.player.hand, self)
+            self.player.put(table, card, self)
             return
 
         log.debug("nothing to play")
@@ -97,9 +98,7 @@ class HumanStrategy(BasicStrategy):
     # add a buffer that saves the choice until the card is played
     @property
     def wantedSuit(self):
-        from mau_mau import cardroom
-
-        return self.get_valid_choice(cardroom.DECK.SUITS, "choose wanted suit")
+        return self.get_valid_choice(DECK.SUITS, "choose wanted suit")
 
     @classmethod
     def get_valid_choice(cls, choices, msg):

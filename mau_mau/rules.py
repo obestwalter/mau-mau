@@ -1,6 +1,6 @@
 import logging
 
-from mau_mau.cardroom import DECK
+from mau_mau import config
 
 log = logging.getLogger(__name__)
 
@@ -41,11 +41,11 @@ class MakePlayerDrawTwoCards(BasicRule):
 
     @staticmethod
     def _find_antidotes(cards):
-        return [c for c in cards if c.value == DECK.SEVEN]
+        return [c for c in cards if c.value == config.DECK.SEVEN]
 
     @staticmethod
     def _punishment(player, table):
-        table.draw_from_stock(player.hand, amount=2)
+        player.draw(table, amount=2)
 
 
 class SkipNextPlayer(BasicRule):
@@ -62,14 +62,14 @@ class DemandWantedSuit(BasicRule):
             # No strategy attached -> First card in game
             wantedSuit = self.card.suit
         return [c for c in cards if
-                c.suit == wantedSuit and not c.value == DECK.JACK]
+                c.suit == wantedSuit and not c.value == config.DECK.JACK]
 
 
 class MauMau:
     RULES = {
-        DECK.SEVEN: MakePlayerDrawTwoCards,
-        DECK.EIGHT: SkipNextPlayer,
-        DECK.JACK: DemandWantedSuit}
+        config.DECK.SEVEN: MakePlayerDrawTwoCards,
+        config.DECK.EIGHT: SkipNextPlayer,
+        config.DECK.JACK: DemandWantedSuit}
 
     def __init__(self, cardsPerPlayer=5):
         self.cardsPerPlayer = cardsPerPlayer
@@ -96,7 +96,7 @@ class MauMau:
         :player Player: player that can't play
         :table Table: The game table
         """
-        table.draw_from_stock(player.hand)
+        player.draw(table)
 
     @staticmethod
     def wins(cards):
