@@ -97,7 +97,7 @@ class Player:
                 table.replenish_stock()
             card = table.stock.fetch()
             self.hand.put(card)
-            log.debug(card)
+            log.debug("%s <- %s" % (self.name, card))
 
     def put(self, table, card, strategy):
         log.debug("play %s", card)
