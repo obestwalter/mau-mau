@@ -5,8 +5,8 @@ from mau_mau import concepts, subjects, objects
 log = logging.getLogger(__name__)
 
 
-def play_game(rulesOfTheGame, players):
-    game = setup_game(rulesOfTheGame, players)
+def play_game(gameRules, playerSeed):
+    game = setup_game(gameRules, playerSeed)
     while not game.over:
         player = game.next_turn()
         player.play(game.table)
