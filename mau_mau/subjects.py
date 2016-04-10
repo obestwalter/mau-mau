@@ -28,10 +28,11 @@ class Croupier:
         neededCards = len(players) * cardsPerPlayer
         assert neededCards <= len(DECK())
 
-    def check_table_sanity(self, table):
+    @staticmethod
+    def check_table(table):
         assert table.upcard
-        tableCardsLen = len(self.stock) + len(self.waste) + 1
-        handsLen = sum(len(p.hand) for p in self.players if p.hand)
+        tableCardsLen = len(table.stock) + len(table.waste) + 1
+        handsLen = sum(len(p.hand) for p in table.players if p.hand)
         assert tableCardsLen + handsLen == len(DECK()), \
             (tableCardsLen, handsLen, len(DECK()))
 

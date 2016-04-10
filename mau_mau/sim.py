@@ -28,6 +28,7 @@ def setup_game(rules, players):
     table.set(deckOfCards)
     for player in table.players:
         croupier.deal_fresh_hand(player, table.stock, rules.cardsPerPlayer)
+    croupier.check_table(table)
     game = cardroom.Game(table)
     log.debug("Start new game: %s", game)
     return game
