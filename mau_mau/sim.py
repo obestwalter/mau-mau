@@ -3,6 +3,7 @@ import logging
 import collections
 
 from mau_mau import cardroom
+from mau_mau.config import DECK
 from mau_mau.strategy import BasicStrategy, HumanStrategy
 from mau_mau.subjects import Croupier
 
@@ -22,7 +23,7 @@ def setup_game(rules, players):
     players = invite_players(players)
     croupier.ensure_setup_ok(players, rules.cardsPerPlayer)
     sit_down_players(players)
-    deckOfCards = cardroom.DECK.create()
+    deckOfCards = DECK.create()
     table = cardroom.Table(rules, players)
     table.set(deckOfCards)
     for player in table.players:

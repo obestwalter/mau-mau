@@ -157,25 +157,3 @@ class Card:
     def __repr__(self):
         name = self.__class__.__name__
         return "%s('%s', '%s')" % (name, self.value, self.suit)
-
-
-class DECK:
-    SEVEN = 7
-    EIGHT = 8
-    JACK = 'Jack'
-    VALUES = [SEVEN, EIGHT, 9, 10, JACK, 'Queen', 'King', 'Ace']
-    SUITS = ['♦', '♥', '♠', '♣']
-
-    def __init__(self):
-        self.len = len(self.make_initializers())
-
-    @classmethod
-    def make_initializers(cls):
-        return [(v, s) for v in cls.VALUES for s in cls.SUITS]
-
-    @classmethod
-    def create(cls):
-        return [Card(*i) for i in cls.make_initializers()]
-
-    def __len__(self):
-        return self.len
