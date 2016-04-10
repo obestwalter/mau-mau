@@ -1,11 +1,11 @@
-from mau_mau.cardroom import Player
+from mau_mau.subjects import Player
 
 
-def player_inequality():
+def test_player_inequality():
     assert Player('John') != Player('Eric')
 
 
-def player_equality():
+def test_player_equality():
     assert Player('Terry') == Player('Terry')
 
 
