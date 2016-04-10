@@ -66,22 +66,6 @@ class Table:
         self.waste = Waste()
         self.upcard = self.stock.fetch_card()
         self.rule = self.rules.get_rule(self.upcard)
-        self.check_setup_sanity()
-
-    @property
-    def winner(self):
-        try:
-            return [p for p in self.players if self.rules.wins(p.hand)][0]
-
-        except IndexError:
-            return None
-
-    def deal_fresh_hand(self):
-        for player in self.players:
-            cards = self.stock.fetch_cards(self.rules.cardsPerPlayer)
-            player.hand = cards
-            log.debug("%s", player)
-            self.check_table_sanity()
 
     def play_card(self, card, hand, strategy):
         log.debug("play %s", card)
@@ -92,7 +76,6 @@ class Table:
         self.rule = self.rules.get_rule(card)
         self.rule.strategy = strategy
         self.transfer_punishments(oldRule, self.rule)
-        self.check_table_sanity()
 
     def draw_from_stock(self, hand, amount=1):
         for _ in range(amount):
@@ -111,19 +94,14 @@ class Table:
             self.stock = Stock(self.waste.cards)
             self.waste = Waste()
             self.stock.shuffle()
-            self.check_table_sanity()
 
-    def check_setup_sanity(self):
-        assert len(self.players) > 1
-        neededCards = len(self.players) * self.rules.cardsPerPlayer
-        assert neededCards <= len(DECK())
+    @property
+    def winner(self):
+        try:
+            return [p for p in self.players if self.rules.wins(p.hand)][0]
 
-    def check_table_sanity(self):
-        assert self.upcard
-        tableCardsLen = len(self.stock) + len(self.waste) + 1
-        handsLen = sum(len(p.hand) for p in self.players if p.hand)
-        assert tableCardsLen + handsLen == len(DECK()), \
-            (tableCardsLen, handsLen, len(DECK()))
+        except IndexError:
+            return None
 
 
 class _Pile:

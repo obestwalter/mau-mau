@@ -4,6 +4,7 @@ import collections
 
 from mau_mau import cardroom
 from mau_mau.strategy import BasicStrategy, HumanStrategy
+from mau_mau.subjects import Croupier
 
 log = logging.getLogger(__name__)
 
@@ -16,13 +17,16 @@ def play_game(rulesOfTheGame, players):
     return game
 
 
-def setup_game(rulesOfTheGame, players):
+def setup_game(rules, players):
+    croupier = Croupier()
     players = invite_players(players)
+    croupier.ensure_setup_ok(players, rules.cardsPerPlayer)
     sit_down_players(players)
     deckOfCards = cardroom.DECK.create()
-    table = cardroom.Table(rulesOfTheGame, players)
+    table = cardroom.Table(rules, players)
     table.set(deckOfCards)
-    table.deal_fresh_hand()
+    for player in table.players:
+        croupier.deal_fresh_hand(player, table.stock, rules.cardsPerPlayer)
     game = cardroom.Game(table)
     log.debug("Start new game: %s", game)
     return game

@@ -3,7 +3,6 @@ import logging
 import collections
 import random
 
-
 log = logging.getLogger(__name__)
 
 
@@ -97,9 +96,10 @@ class HumanStrategy(BasicStrategy):
     # add a buffer that saves the choice until the card is played
     @property
     def wantedSuit(self):
-        from mau_mau import cardroom
+        # FIXME circular import -> design smell!1!!
+        from mau_mau.config import DECK
 
-        return self.get_valid_choice(cardroom.DECK.SUITS, "choose wanted suit")
+        return self.get_valid_choice(DECK.SUITS, "choose wanted suit")
 
     @classmethod
     def get_valid_choice(cls, choices, msg):
