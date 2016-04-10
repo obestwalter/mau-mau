@@ -1,21 +1,20 @@
-"""
-TODO do sanity check after every round?
-
-# ??? has the means to give to determine the winner
-"""
 import logging
 
 import collections
 
-from mau_mau import strategy
-from mau_mau.cardroom import Card, Stock, Waste
 from mau_mau.config import DECK
+from mau_mau.objects import Stock, Waste, Card
 from mau_mau.strategy import HumanStrategy, BasicStrategy
 
 log = logging.getLogger(__name__)
 
 
 class Croupier:
+    """Coordinates the game flow.
+
+    * knows the rules and preconditions needed to play a game
+    * can summon, manipulate and coordinate all needed subjects and objects
+    """
     def __init__(self):
         self._deck = None
         self._deckSize = 0
@@ -47,7 +46,7 @@ class Croupier:
 
     @classmethod
     def _tell_players_where_to_sit(cls, players):
-        """So that plyers know who's next"""
+        """So that players know who's next"""
         for idx, player in enumerate(players):
             try:
                 player.nextPlayer = players[idx + 1]
@@ -85,7 +84,7 @@ class Croupier:
         return True
 
     def set_table(self, table, rules):
-        table.rules = rules  # FIXME questionable if they belon there ...
+        table.rules = rules  # FIXME questionable if they belong there ...
         table.stock = Stock(self._deck)
         table.stock.shuffle()
         table.waste = Waste()
@@ -94,7 +93,7 @@ class Croupier:
 
 
 class Player:
-    def __init__(self, name, strategyClass=strategy.BasicStrategy):
+    def __init__(self, name, strategyClass=BasicStrategy):
         self.name = name
         self.hand = None
         self.strategy = strategyClass(self)
