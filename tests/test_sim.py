@@ -7,7 +7,8 @@ mmRules = rules.MauMau()
 
 
 def test_game_with_too_many_players_crashes_early():
-    tooManyPlayers = len(DECK()) // mmRules.cardsPerPlayer + 2
+    deckSize = len([(v, s) for v in DECK.VALUES for s in DECK.SUITS])
+    tooManyPlayers = deckSize // mmRules.cardsPerPlayer + 2
     with pytest.raises(AssertionError):
         sim.play_game(mmRules, tooManyPlayers)
 

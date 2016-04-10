@@ -2,8 +2,6 @@ import logging
 
 import random
 
-from mau_mau import strategy
-
 log = logging.getLogger(__name__)
 
 
@@ -31,24 +29,6 @@ class Game:
         return self.table.winner is not None
 
 
-class Player:
-    def __init__(self, name, strategyClass=strategy.BasicStrategy):
-        self.name = name
-        self.hand = None
-        self.strategy = strategyClass(self)
-        self.nextPlayer = None
-
-    def __repr__(self):
-        name = self.__class__.__name__
-        return "%s('%s', %s)" % (name, self.name, self.hand)
-
-    def __eq__(self, other):
-        return self.name == other.name
-
-    def play_turn(self, table):
-        self.strategy.play(table)
-
-
 class Table:
     def __init__(self, rulesOfTheGame, players):
         self.rules = rulesOfTheGame
@@ -59,13 +39,6 @@ class Table:
     def __repr__(self):
         name = self.__class__.__name__
         return "%s(%s, %s)" % (name, self.rules, self.players)
-
-    def set(self, deck):
-        self.stock = Stock(deck)
-        self.stock.shuffle()
-        self.waste = Waste()
-        self.upcard = self.stock.fetch_card()
-        self.rule = self.rules.get_rule(self.upcard)
 
     def play_card(self, card, hand, strategy):
         log.debug("play %s", card)

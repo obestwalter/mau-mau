@@ -3,9 +3,8 @@ import logging
 import collections
 
 from mau_mau import cardroom
-from mau_mau.config import DECK
 from mau_mau.strategy import BasicStrategy, HumanStrategy
-from mau_mau.subjects import Croupier
+from mau_mau.subjects import Croupier, Player
 
 log = logging.getLogger(__name__)
 
@@ -20,12 +19,12 @@ def play_game(rulesOfTheGame, players):
 
 def setup_game(rules, players):
     croupier = Croupier()
+    croupier.fetch_fresh_deck_of_cards()
     players = invite_players(players)
     croupier.check_setup(players, rules.cardsPerPlayer)
     sit_down_players(players)
-    deckOfCards = DECK.create()
     table = cardroom.Table(rules, players)
-    table.set(deckOfCards)
+    croupier.set_table(table, rules)
     for player in table.players:
         croupier.deal_fresh_hand(player, table.stock, rules.cardsPerPlayer)
     croupier.check_table(table)
@@ -39,16 +38,15 @@ def invite_players(players):
 
     :type players: int or list of str
     """
-    invitedPlayers = []
     if isinstance(players, collections.Iterable):
+        ips = []
         for player in players:
             strategy = HumanStrategy if player == 'human' else BasicStrategy
-            invitedPlayers.append(cardroom.Player(player, strategy))
+            ips.append(Player(player, strategy))
     else:
-        invitedPlayers = [cardroom.Player("Player %s" % (n))
-                          for n in range(1, players + 1)]
-    log.debug("invited players are: %s", invitedPlayers)
-    return invitedPlayers
+        ips = [Player("Player %s" % (n)) for n in range(1, players + 1)]
+    log.debug("invited players are: %s", ips)
+    return ips
 
 
 def sit_down_players(players):
