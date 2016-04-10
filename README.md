@@ -188,6 +188,26 @@ def play_game(rulesOfTheGame, players):
 
 This is the meat of the simulation. Here is where all the magic happens. if you call this function a game of Mau Mau will be simulated and a winner is determined. **6 lines of code** including the function header and the return statement. You now have read the whole plot of the fascinating Mau Mau story. If you want to understand more, you can start digging deeper and visit the definitions of the functions used in the `play_game` function. Reading and understanding the functions (in whatever order you might prefer) in this file means that you get the picture how a simulation of a simple turn based card game works.
 
+### config.py
+
+#### FIXME modify according to new structure
+
+### subjects.py
+
+#### FIXME modify according to new structure
+
+### concepts.py
+
+#### FIXME modify according to new structure
+
+### objects.py
+
+I know .. in Python everything is an object, so this would be meaningless.
+In the context of the
+program but they are objects in the level of abstractio we care about, when
+crating the software, which is: they are objects of the game which are
+manipulated by the subjects of the game.
+
 ### [`cardroom.py`](mau_mau/cardroom.py)
 
 To dig deeper and get a more detailed understanding of the program, you should start to explore the classes, their attributes and behaviour and how they interact. The best place to start is the cardroom.
