@@ -441,3 +441,15 @@ In our simple simulation this is actually possible for all objects, so why not d
 * [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#special-method-names)
 * [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
 * [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html)
+
+## Licenses and Acknowledgements
+
+### Licenses
+
+Code is under MIT license and content is CC BY-NC-SA 4.0
+
+[![code license](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/License_icon-mit-2.svg/32px-License_icon-mit-2.svg.png)](http://opensource.org/licenses/mit-license.php) [![content license](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+### Acknowledgements
+
+A visual profile is handy to demonstrate execution behaviour and timing. [PyVmMonitor](http://pyvmmonitor.com) is being used for that.
