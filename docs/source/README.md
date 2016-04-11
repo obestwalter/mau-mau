@@ -1,14 +1,16 @@
 # Mau Mau   [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
 
-> The purpose of computing is insight, not numbers.
+> PLay is the highest form of research
 
-> --Richard Hamming
+> -- [Probably not Albert Einstein](http://quoteinvestigator.com/2014/08/21/play-research/)
 
 **Part of the [Python Exploration Toolkit](https://github.com/obestwalter/pet)**
 
 This serves to showcase a complete Python application and explores an approach to development that could be called "programming as non-linear storytelling".
 
-## OOOMMM (Obvious Object Oriented Mau Mau Modelling)
+## OOOMMM 
+
+**Obvious Object Oriented Mau Mau Modelling**
 
 Switching into egghead mode, you could say that a game of Mau Mau can be modelled as a series of interactions between actors with adjustable attributes and behaviours modifying their own attributes and initiating reactions and attribute changes in other actors. If you call the actors objects and the behaviour methods you have a basic description of object oriented programming.
 
@@ -311,7 +313,7 @@ output like:
 
 ### Executable documentation with doctests
 
-# TODO see [concepts.py](mau_mau/concepts.py)
+#### TODO see [concepts.py](mau_mau/concepts.py)
 
 ### Files for automatic testing and CI
 
