@@ -1,6 +1,6 @@
 # Mau Mau   [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
 
-> PLay is the highest form of research
+> Play is the highest form of research
 
 > -- [Probably not Albert Einstein](http://quoteinvestigator.com/2014/08/21/play-research/)
 
