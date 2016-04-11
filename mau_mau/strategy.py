@@ -82,7 +82,7 @@ class BasicStrategy:
 
 class HumanStrategy(BasicStrategy):
     @classmethod
-    def choose_antidote(cls, find_antidotes, antidotes_strategy, cards):
+    def choose_antidote(cls, find_antidotes, _, cards):
         allowedAntidotes = find_antidotes(cards)
         if not allowedAntidotes:
             log.info("no antidotes. Just take the punishment ...")
