@@ -87,7 +87,8 @@ class MauMau:
     def find_playable_cards(upcard, cards):
         """Determines when a card is playable on the upcard"""
         return [c for c in cards if
-                upcard.value == c.value or upcard.suit == c.suit]
+                upcard.value == c.value or upcard.suit == c.suit or
+                c.value == config.DECK.JACK]
 
     @staticmethod
     def no_play_action(player, table):
