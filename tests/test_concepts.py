@@ -3,24 +3,24 @@ import pytest
 from mau_mau import exc
 from mau_mau.concepts import _CardCollection
 
-protocolTestData = [
-    ([], False),
-    ([None], True),
-    ([1], True),
-    (['hello', 3], True),
-    ([1, 2, 3], True),
-]
 
-
-@pytest.mark.parametrize("data, expectation", protocolTestData)
+@pytest.mark.parametrize(
+    "data, expectation", [
+        ([], False),
+        ([None], True),
+        ([1], True),
+        (['hello', 3], True),
+        ([1, 2, 3], True),
+    ]
+)
 def test_len_and_bool_depending_on_len(data, expectation):
     assert len(_CardCollection(data)) == len(data)
     assert bool(_CardCollection(data)) == expectation
 
 
 # noinspection PyUnusedLocal
-@pytest.mark.parametrize("data, expectation", protocolTestData)
-def test_iter(data, expectation):
+@pytest.mark.parametrize("data", [[], [None], [1], ['hello', 3], [1, 2, 3]])
+def test_iter(data):
     assert [e for e in _CardCollection(data)] == data
 
 
