@@ -311,6 +311,20 @@ output like:
     root                52  main             : time_durations() ...
     mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games
 
+## Quality assurance
+
+### Static code analysis
+
+#### Flake8
+
+TODO
+
+#### Quantified Code
+
+TODO
+
+### Automatic tests
+
 ### Executable documentation with doctests
 
 #### TODO see [concepts.py](mau_mau/concepts.py)
