@@ -33,6 +33,7 @@ def get_function_from_name(name):
 
     try:
         return getattr(stats, name)
+
     except AttributeError:
         return play_interactive_game
 
