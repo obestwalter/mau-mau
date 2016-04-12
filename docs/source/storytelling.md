@@ -1,4 +1,4 @@
-## Programming as non-linear storytelling
+# Programming as non-linear storytelling
 
 Earlier on the term "programming as non-linear storytelling" was introduced. I have to admit that I just made that up when trying to find a way to explain how working code often develops in a very non-linear way. 
 

@@ -1,28 +1,28 @@
-## Quality assurance
+# Quality assurance
 
-### Static code analysis
+## Static code analysis
 
-#### Flake8
-
-TODO
-
-#### Quantified Code
+### Flake8
 
 TODO
 
-### Automatic tests
+### Quantified Code
 
-### Executable documentation with doctests
+TODO
 
-#### TODO see [concepts.py](mau_mau/concepts.py)
+## Automatic tests
 
-### Files for automatic testing and CI
+## Executable documentation with doctests
 
-#### [tests/](tests/): testing with [py.test](http://pytest.org)
+### TODO see [concepts.py](mau_mau/concepts.py)
+
+## Files for automatic testing and CI
+
+### [tests/](tests/): testing with [py.test](http://pytest.org)
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
 
-##### Testing on the command line
+#### Testing on the command line
 
 **NOTE:** Make sure, you installed the package as editable.
 
@@ -50,15 +50,15 @@ If you want to take this one step further and have the tests being run automatic
     
 `notify-send` is the way how I can send Desktop notifications from the commandline in my os ([Linux](https://wiki.archlinux.org/index.php/Desktop_notifications)). There are lots of ways to do this on every os - even [Windows](https://github.com/nels-o/toaster) and [Mac](https://github.com/julienXX/terminal-notifier)
 
-##### Testing in PyCharm
+#### Testing in PyCharm
 
-###### Preparation
+##### Preparation
 
 The default testrunner in PyCharm is Unittest. You have to switch to py.test like so: 
 * **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test 
 * accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
 
-###### Running tests
+##### Running tests
 
 Depending on where you are, you can run all tests are part of them. The magic action is [`run context configuration`](https://www.jetbrains.com/help/pycharm/2016.1/creating-and-saving-temporary-run-debug-configurations.html). It runs what is sensible in the context. If your focus is in a normal script it runs the script and if the focus is in a module defining tests it will run the configured testrunner with the tests. Running the context configuration with ...
 
@@ -68,7 +68,7 @@ Depending on where you are, you can run all tests are part of them. The magic ac
 
 ... all yields different results as which tests are run (and they are what you would intuitively expect).
 
-#### [tox.ini](tox.ini): testing with tox [tox](tox.readthedocs.org)
+### [tox.ini](tox.ini): testing with tox [tox](tox.readthedocs.org)
 
 Tox is one level up from py.test and can serve as an easy testrunner for different kinds of local tests and also acts a a frontend for external test runners as part of [CI](https://en.wikipedia.org/wiki/Continuous_integration). It automatically creates an environment for the tests, installs the dependencies and the package under tests and outputs the results.
 
@@ -104,7 +104,7 @@ output like:
 
 This is a very simple setup There are many more [configuration options](https://tox.readthedocs.org/en/latest/config.html)
 
-#### [.travis.yml](.travis.yml): integrate with [Travis CI](https://travis-ci.org/)
+### [.travis.yml](.travis.yml): integrate with [Travis CI](https://travis-ci.org/)
 
 The badge on top of this `README` shows the [build status from Travis CI](https://travis-ci.org/obestwalter/mau-mau). 
 
