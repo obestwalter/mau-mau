@@ -7,6 +7,12 @@ setup(
     author='Oliver Bestwalter',
     license='MIT',
     install_requires=[
+        'pytest',
+        'pytest-watch',
+        'tox',
+        'sphinx',
+        'sphinx-autobuild',
+        # version pinned: https://github.com/rtfd/recommonmark/issues/24
         'commonmark==0.5.4',
         'recommonmark',
     ],

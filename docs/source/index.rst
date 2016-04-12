@@ -1,8 +1,6 @@
 OOOMauMauM
 ==========
 
-Contents:
-
 .. toctree::
     :maxdepth: 1
 
@@ -12,18 +10,9 @@ Contents:
     qa
     storytelling
     remarks
-
-The Code
-========
-
-mau_mau
-=======
-
-.. toctree::
-   :maxdepth: 2
-
-   code/mau_mau
-
+    code/mau_mau
+    development
+    
 Indices and tables
 ==================
 
