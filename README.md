@@ -1,4 +1,4 @@
-# Mau Mau   [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
+# Mau Mau [![Documentation Status](https://readthedocs.org/projects/mau-mau/badge/?version=latest)](http://mau-mau.readthedocs.org/en/latest/?badge=latest) [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
 
 **Part of the [Python Exploration Toolkit](https://github.com/obestwalter/pet)**
 
