@@ -6,13 +6,7 @@ OOOMauMauM
 
     intro
     code/mau_mau
-    #ooommm
-    #explore
-    #qa
-    #storytelling
-    #remarks
-    #development
-    
+
 Indices and tables
 ==================
 
