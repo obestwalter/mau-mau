@@ -16,7 +16,8 @@ def main():
         packages=['mau_mau'],
         license='MIT',
         entry_points={'console_scripts': ['sim = mau_mau.cli:main']},
-        # install_requires=[
+        install_requires=[
+            # 'cloud_sptheme',
         #     'pytest',
         #     'pytest-watch',
         #     'tox',
@@ -25,7 +26,7 @@ def main():
         #     # version pinned: https://github.com/rtfd/recommonmark/issues/24
         #     'commonmark==0.5.4',
         #     'recommonmark',
-        # ],
+        ],
     )
 
 
