@@ -5,13 +5,13 @@ OOOMauMauM
     :maxdepth: 1
 
     intro
-    ooommm
-    explore
-    qa
-    storytelling
-    remarks
     code/mau_mau
-    development
+    #ooommm
+    #explore
+    #qa
+    #storytelling
+    #remarks
+    #development
     
 Indices and tables
 ==================

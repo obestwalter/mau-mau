@@ -1,40 +1,41 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# import os
-# import sys
+from datetime import datetime
+
 import mau_mau
 
-# for p in ['mau_mau', 'tests']:
-#     sys.path.insert(0, os.path.abspath(p))
-#
-
 project = 'Mau Mau'
-copyright = '2016, Oliver Bestwalter'
 author = 'Oliver Bestwalter'
-version = mau_mau.__version__[:-2]
-release = mau_mau.__version__
 language = 'en'
 
-###############################################################################
+_started = 2016
+_cur = datetime.now().year
+_range = '%s%s' % (_started, '' if _started == _cur else _cur)
+copyright = '%s, Oliver Bestwalter' % (_range)
+
+version = mau_mau.__version__[:-2]
+release = mau_mau.__version__
+
+# DEBUG SETTINGS ##############################################################
 keep_warnings = True
 todo_include_todos = True
-###############################################################################
+# BASIC SETTINGS ##############################################################
 
 needs_sphinx = '1.3'
+master_doc = 'index'
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
-    'sphinx.ext.autosummary',
-    # 'sphinx.ext.githubpages',
 ]
 templates_path = ['_templates']
-source_parsers = {
-    '.md': 'recommonmark.parser.CommonMarkParser',
-}
-source_suffix = ['.rst', '.md']
-master_doc = 'index'
+# Using Markdown (additionally) is possible already but very limited
+# source_parsers = {'.md': 'recommonmark.parser.CommonMarkParser'}
+# source_suffix = ['.rst', '.md']
+
+source_suffix = ['.rst']
 # today_fmt = '%B %d, %Y'
 exclude_patterns = ['_drafts']
 # default_role = None
@@ -42,69 +43,13 @@ exclude_patterns = ['_drafts']
 add_module_names = False
 # modindex_common_prefix = []
 
-###############################################################################
+# HTML SPECIFIC SETTINGD ######################################################
 
-# import cloud_sptheme as csp
-# html_theme = "redcloud"
-# html_theme_path = [csp.get_theme_dir()]
-
+# html_theme = "alabaster"
 # html_theme_options = {}
-
 html_title = 'Mau Mau %s' % (version)
 html_short_title = 'Mau Mau'
-
-html_logo = '_static/logo_small.jpg'
-# html_favicon = None
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
-# Add any extra paths that contain custom files (such as robots.txt or
-# .htaccess) here, relative to this directory. These files are copied
-# directly to the root of the documentation.
-# html_extra_path = []
-
-# If not None, a 'Last updated on:' timestamp is inserted at every page
-# bottom, using the given strftime format.
-# The empty string is equivalent to '%b %d, %Y'.
+html_logo = '_static/logo_small.jpg'
 html_last_updated_fmt = ''
-
-# html_use_smartypants = True
-# html_sidebars = {}
-# html_additional_pages = {}
-
-# If false, no module index is generated.
-# html_domain_indices = True
-
-# If false, no index is generated.
-# html_use_index = True
-
-# If true, the index is split into individual pages for each letter.
-# html_split_index = False
-
-# If true, links to the reST sources are added to the pages.
-# html_show_sourcelink = True
-
-# If true, an OpenSearch description file will be output, and all pages will
-# contain a <link> tag referring to it.  The value of this option must be the
-# base URL from which the finished HTML is served.
-# html_use_opensearch = ''
-
-# This is the file name suffix for HTML files (e.g. ".xhtml").
-# html_file_suffix = None
-
-# Output file base name for HTML help builder.
-htmlhelp_basename = 'MauMaudoc'
-
-# ############################### MANPAGES ####################################
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'maumau', 'Mau Mau Documentation',
-     [author], 1)
-]
-
-# man_show_urls = False
+htmlhelp_basename = 'Mau_Mau_doc'
