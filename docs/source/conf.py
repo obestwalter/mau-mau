@@ -6,27 +6,21 @@ import sys
 for p in ['mau_mau', 'tests']:
     sys.path.insert(0, os.path.abspath(p))
 
+import mau_mau
 
 project = 'Mau Mau'
 copyright = '2016, Oliver Bestwalter'
 author = 'Oliver Bestwalter'
-version = '1.1'
-release = '1.1.0'
+version = mau_mau.__version__[:-2]
+release = mau_mau.__version__
 language = 'en'
 
 ###############################################################################
-
-# If true, keep warnings as "system message" paragraphs in the built documents.
 keep_warnings = True
-
-# If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
-
 ###############################################################################
 
-# If your documentation needs a minimal Sphinx version, state it here.
 needs_sphinx = '1.4'
-
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
@@ -35,47 +29,26 @@ extensions = [
     'sphinx.ext.autosummary',
     # 'sphinx.ext.githubpages',
 ]
-
 templates_path = ['_templates']
 source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }
 source_suffix = ['.rst', '.md']
-
 master_doc = 'index'
-
-
-# either, you set today to some non-false value
-# today = ''
-# or today_fmt is used as the format for a strftime call.
 # today_fmt = '%B %d, %Y'
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = ['_drafts']
-
-# The reST default role (used for this markup: `text`) to use for all
-# documents.
 # default_role = None
-
-# If true, '()' will be appended to :func: etc. cross-reference text.
 # add_function_parentheses = True
-
 add_module_names = False
-
-pygments_style = 'sphinx'
-
-# A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
 
 ###############################################################################
 
-html_theme = 'alabaster'
+import cloud_sptheme as csp
+html_theme = "cloud"
+html_theme_path = [csp.get_theme_dir()]
 
 # html_theme_options = {}
-
-# html_theme_path = []
 
 # html_title = 'Mau Mau v1.1.0'
 html_short_title = 'Mau Mau'
