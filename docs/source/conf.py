@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
-import sys
-
-for p in ['mau_mau', 'tests']:
-    sys.path.insert(0, os.path.abspath(p))
-
+# import os
+# import sys
 import mau_mau
+
+# for p in ['mau_mau', 'tests']:
+#     sys.path.insert(0, os.path.abspath(p))
+#
 
 project = 'Mau Mau'
 copyright = '2016, Oliver Bestwalter'
@@ -44,16 +44,16 @@ add_module_names = False
 
 ###############################################################################
 
-import cloud_sptheme as csp
-html_theme = "redcloud"
-html_theme_path = [csp.get_theme_dir()]
+# import cloud_sptheme as csp
+# html_theme = "redcloud"
+# html_theme_path = [csp.get_theme_dir()]
 
 # html_theme_options = {}
 
-# html_title = 'Mau Mau v1.1.0'
+html_title = 'Mau Mau %s' % (version)
 html_short_title = 'Mau Mau'
 
-html_logo = 'logo_small.jpg'
+html_logo = '_static/logo_small.jpg'
 # html_favicon = None
 
 # Add any paths that contain custom static files (such as style sheets) here,
