@@ -15,6 +15,14 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
     $ sim winner_distribution
     $ sim human  # Control+C to stop
 
+## Development
+
+### install local clone as editable for development
+
+    $ git clone <url of your fork>
+    $ cd mau-mau
+    $ pip install -e '.[all]'
+
 ### Run the tests:
 
     cd </path/to/your/clone>
@@ -27,12 +35,6 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
     $ make autohtml
 
 Can be accessed in your browser at ([http://localhost:8000](http://localhost:8000)).
-
-## Development
-
-    $ git clone <url of your fork>
-    $ cd mau-mau
-    $ pip install -e '.[all]'
 
     
 ## Licenses and Acknowledgements
