@@ -24,7 +24,7 @@ run tests:
     cd </path/to/your/clone>
     $ tox
     
-autobuild and serve docs on http://localhost:8000:
+autobuild and serve docs lcally ([http://localhost:8000](http://localhost:8000)):
 
     $ cd </path/to/your/clone>
     $ cd docs
