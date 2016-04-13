@@ -22,9 +22,8 @@ Features of this implementation
 -  `automatic tests <tests/>`__ with py.test, tox and Travis CI
 -  Logging with the stdlib `logging
    module <https://docs.python.org/3/library/logging.html>`__
--  Use of `Python
-   protocols <https://docs.python.org/2/reference/datamodel.html#special-method-names>`__
-   to create custom classes which behave like inbuilt data types
+-  Use of `Python magic methods <https://docs.python.org/2/reference/datamodel
+   .html#special-method-names>`__ to make our classes behave like inbuilt data types
 
 Implementation
 ~~~~~~~~~~~~~~
@@ -81,9 +80,10 @@ in two phases, we could call "setup" and "play". The image shows all the
 important elements of the simulation.
 
 .. figure:: _static/cardroom.png
-   :alt: cardroom overview
+:alt: cardroom overview
 
    cardroom overview
+
 **setup:** The ``players`` in the ``cardroom`` are **invited** to a
 ``game`` at the ``table``. A ``deck`` of ``cards`` is **shuffled**. The
 same amount of cards is **dealt** to the ``players`` to form their
