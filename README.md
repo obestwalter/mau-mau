@@ -7,11 +7,26 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
 **[Documentation on Readthedocs](http://mau-mau.readthedocs.org/en/latest/)**
 
 ## Try it
- 
+
+### Examples for command line use
+
     $ pip install https://github.com/obestwalter/mau-mau/zipball/master
     $ sim
     $ sim winner_distribution
     $ sim human  # Control+C to stop
+
+### Run the tests:
+
+    cd </path/to/your/clone>
+    $ tox
+    
+### Autobuild and serve the documentation lcally 
+
+    $ cd </path/to/your/clone>
+    $ cd docs
+    $ make autohtml
+
+Can be accessed in your browser at ([http://localhost:8000](http://localhost:8000)).
 
 ## Development
 
@@ -19,16 +34,6 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
     $ cd mau-mau
     $ pip install -e '.[all]'
 
-run tests:
-
-    cd </path/to/your/clone>
-    $ tox
-    
-autobuild and serve docs lcally ([http://localhost:8000](http://localhost:8000)):
-
-    $ cd </path/to/your/clone>
-    $ cd docs
-    $ make autohtml
     
 ## Licenses and Acknowledgements
 
