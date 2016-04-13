@@ -2,7 +2,7 @@
 
 **Part of the [Python Exploration Toolkit](https://github.com/obestwalter/pet)**
 
-A simple application that uses all the bells and whistles of the OSS/Python ecosystem.
+A simple application that uses all my favorite bells and whistles of the OSS/Python ecosystem.
 
 **[Documentation on Readthedocs](http://mau-mau.readthedocs.org/en/latest/)**
 
