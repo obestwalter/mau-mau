@@ -4,7 +4,7 @@
 
 A simple application that uses all the bells and whistles of the OSS/Python ecosystem.
 
-**[Documentation](http://mau-mau.readthedocs.org/en/latest/README/)**
+**[Documentation on Readthedocs](http://mau-mau.readthedocs.org/en/latest/README/)**
 
 ## Try it
  
