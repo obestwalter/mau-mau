@@ -44,9 +44,9 @@ add_module_names = False
 
 ###############################################################################
 
-import cloud_sptheme as csp
-html_theme = "cloud"
-html_theme_path = [csp.get_theme_dir()]
+# import cloud_sptheme as csp
+# html_theme = "cloud"
+# html_theme_path = [csp.get_theme_dir()]
 
 # html_theme_options = {}
 
