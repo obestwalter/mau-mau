@@ -20,7 +20,7 @@ keep_warnings = True
 todo_include_todos = True
 ###############################################################################
 
-needs_sphinx = '1.4'
+needs_sphinx = '1.3'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
