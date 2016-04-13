@@ -1,7 +1,0 @@
-site_name: Mau Mau
-pages:
-  - Home: index.md
-  - About: intro.md
-#theme: readthedocs
-docs_dir: .
-repo_url: https://github.com/obestwalter/mau-mau

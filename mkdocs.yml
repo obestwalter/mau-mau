@@ -1,0 +1,9 @@
+site_name: Mau Mau
+#pages:
+#  - About: index.md
+#  - Development: development.md
+#theme: readthedocs
+docs_dir: docs
+site_dir: docs/_build
+repo_url: https://github.com/obestwalter/mau-mau
+strict: True

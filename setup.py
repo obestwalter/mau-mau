@@ -1,4 +1,5 @@
 import itertools
+
 from setuptools import setup
 
 
@@ -18,7 +19,7 @@ def get_extra_dependencies():
 
 def main():
     setup(
-        name='OOOMMM',
+        name='mau-mau',
         version=get_version(),
         author='Oliver Bestwalter',
         url='https://github.com/obestwalter/mau-mau',
