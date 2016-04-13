@@ -30,13 +30,12 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
     cd </path/to/your/clone>
     $ tox
     
-### Autobuild and serve the documentation lcally 
+### Autobuild and serve the documentation locally 
 
     $ cd </path/to/your/clone>
-    $ tox -e docs  # Control+C to stop autobuild process
+    $ tox -e docs-auto  # Control+C to stop autobuild process
 
 Can be accessed in your browser at ([http://localhost:8000](http://localhost:8000)).
-
     
 ## Licenses and Acknowledgements
 
