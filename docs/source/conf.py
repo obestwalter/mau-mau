@@ -11,7 +11,7 @@ language = 'en'
 
 _started = 2016
 _cur = datetime.now().year
-_range = '%s%s' % (_started, '' if _started == _cur else _cur)
+_range = '%s%s' % (_started, '' if _started == _cur else "-%s" % (_cur))
 copyright = '%s, Oliver Bestwalter' % (_range)
 
 version = mau_mau.__version__[:-2]
