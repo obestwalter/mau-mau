@@ -1,5 +1,7 @@
 # Mau Mau [![Documentation Status](https://readthedocs.org/projects/mau-mau/badge/?version=latest)](http://mau-mau.readthedocs.org/en/latest/?badge=latest) [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
 
+Command line implementation of a german card game called [Mau Mau](https://goo.gl/Am29SF).
+
 **Part of the [Python Exploration Toolkit](https://github.com/obestwalter/pet)**
 
 A simple application that uses all my favorite bells and whistles of the OSS/Python ecosystem.
