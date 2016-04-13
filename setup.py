@@ -11,8 +11,7 @@ def get_version():
 def get_extra_dependencies():
     extras = {
         'tests': ['tox', 'pytest', 'pytest-watch'],
-        'docs': ['sphinx', 'sphinx_rtd_theme', 'sphinx-autobuild',
-                 'commonmark==0.5.4', 'recommonmark']}
+        'docs': ['mkdocs']}
     extras.update(dict(all=list(itertools.chain(*extras.values()))))
     return extras
 
@@ -27,8 +26,7 @@ def main():
         license='MIT',
         install_requires=[],
         extras_require=get_extra_dependencies(),
-        entry_points={
-            'console_scripts': ['sim = mau_mau.cli:main']},
+        entry_points={'console_scripts': ['sim = mau_mau.cli:main']},
     )
 
 
