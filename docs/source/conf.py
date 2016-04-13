@@ -32,13 +32,13 @@ extensions = [
 ]
 templates_path = ['_templates']
 # Using Markdown (additionally) is possible already but very limited
+# version pinned: https://github.com/rtfd/recommonmark/issues/24
+# pip install 'commonmark==0.5.4' recommonmark
 # source_parsers = {'.md': 'recommonmark.parser.CommonMarkParser'}
 # source_suffix = ['.rst', '.md']
-
 source_suffix = ['.rst']
 # today_fmt = '%B %d, %Y'
 exclude_patterns = ['_drafts']
-# default_role = None
 # add_function_parentheses = True
 add_module_names = False
 # modindex_common_prefix = []
