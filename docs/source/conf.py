@@ -44,16 +44,16 @@ add_module_names = False
 
 ###############################################################################
 
-# import cloud_sptheme as csp
-# html_theme = "cloud"
-# html_theme_path = [csp.get_theme_dir()]
+import cloud_sptheme as csp
+html_theme = "cloud"
+html_theme_path = [csp.get_theme_dir()]
 
 # html_theme_options = {}
 
 # html_title = 'Mau Mau v1.1.0'
 html_short_title = 'Mau Mau'
 
-html_logo = 'logo.jpg'
+html_logo = 'logo_small.jpg'
 # html_favicon = None
 
 # Add any paths that contain custom static files (such as style sheets) here,
