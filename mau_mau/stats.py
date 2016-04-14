@@ -2,7 +2,7 @@ import logging
 from statistics import mean
 from timeit import timeit
 
-from mau_mau import rules, sim
+from mau_mau import rules, play
 
 log = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ def winner_distribution(players=('Eric', 'Terry', 'John'), reps=1000):
 def time_durations(number=1000):
     timing = timeit(
         stmt="play_game(mmRules, 3)",
-        setup="from mau_mau.sim import play_game;"
+        setup="from mau_mau.main import play_game;"
               "from mau_mau.rules import MauMau;"
               "mmRules = MauMau()",
         number=number)
@@ -36,6 +36,6 @@ def _simulate_games(players, reps):
     mmRules = rules.MauMau()
     games = []
     for i in range(reps):
-        game = sim.play_game(mmRules, players)
+        game = play.play_game(mmRules, players)
         games.append(game)
     return games

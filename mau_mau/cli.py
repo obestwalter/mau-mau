@@ -9,7 +9,7 @@ Start it with one of the functions in stat.py to run simulations and get stats.
 import logging
 import sys
 
-from mau_mau import rules, sim, stats
+from mau_mau import rules, play, stats
 
 log = logging.getLogger()
 _rulesOfTheGame = rules.MauMau()
@@ -17,13 +17,13 @@ _rulesOfTheGame = rules.MauMau()
 
 def play_simple_game(players=3):
     log.setLevel(level=logging.DEBUG)
-    playedGame = sim.play_game(_rulesOfTheGame, players)
+    playedGame = play.play_game(_rulesOfTheGame, players)
     log.info("And the winner is %s", playedGame.table.winner.name)
 
 
 def play_interactive_game():
     log.setLevel(level=logging.DEBUG)
-    playedGame = sim.play_game(_rulesOfTheGame, ['Eric', 'John', 'human'])
+    playedGame = play.play_game(_rulesOfTheGame, ['Eric', 'John', 'human'])
     log.info("And the winner is %s", playedGame.table.winner.name)
 
 
