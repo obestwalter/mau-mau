@@ -1,4 +1,6 @@
+#theme: readthedocs
 site_name: Mau Mau
+
 pages:
   - Home: index.md
   - User Guide:
@@ -8,7 +10,14 @@ pages:
     - Implementation: dev/implementation.md
     - Explore the code: dev/explore.md
     - Remarks: dev/remarks.md
-#theme: readthedocs
+
+
 site_dir: docs/_build
+
 repo_url: https://github.com/obestwalter/mau-mau
+
 strict: True
+
+markdown_extensions:
+    - toc:
+        permalink: 

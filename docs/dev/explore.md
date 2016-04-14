@@ -1,4 +1,4 @@
-## [setup.py](setup.py): make installable
+## [setup.py](https://github.com/obestwalter/mau-mau/blob/master/setup.py): make installable
 
 The code of the actual software lives in[mau_mau/](https://github.com/obestwalter/mau-mau/tree/master/mau_mau/)
 
@@ -42,28 +42,28 @@ These look pretty different from `game.py` and they are. Here is where the objec
 
 I know .. in Python everything is an object, so this would be meaningless. This is also not [subject oriented programming](https://en.wikipedia.org/wiki/Subject-oriented_programming). These are just good terms for what those classes describe in the context of the program: there are objects in the game which are manipulated by the subjects.
 
-## [rules.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/rules.py)
+### [rules.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/rules.py)
 
 This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a seven, the number of draws have to accumulate). 
 
-## [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py)
+### [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py)
 
 **Note:** A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
 
-### `BasicStrategy` 
+#### `BasicStrategy` 
 
 just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. 
 
 This can be extended upon to implement "real" strategies.
 
-### `HumanStrategy`
+#### `HumanStrategy`
  
 Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer (`mau-mau human`).
 
-## [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
+## Command line access: [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py)
 
 This contains the code for the commandline interface. Its function `main` is configured in `setup.py` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
 
-## [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py)
+## Statistics: [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py)
 
 Contains some functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)

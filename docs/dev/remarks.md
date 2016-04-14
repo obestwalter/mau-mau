@@ -1,6 +1,6 @@
 # Things to point out
 
-## Python does argument passing by assignment
+## Argument passing by assignment
 
 > Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se.
 
@@ -39,7 +39,7 @@ Python has a simple to use and convenient [logging module](https://docs.python.o
 
 We use a [simple format](https://docs.python.org/3.5/library/logging.html#logrecord-attributes) and the [convenience function](https://docs.python.org/3.5/library/logging.html#logging.basicConfig) to initialize the logger to write to the terminal with a certain level.
 
-## 'Magic' methods (protocols)
+## Magic methods (protocols)
 
 Those `__something__()` thingies might look scary for the uninitiated, but you will love them, once you got the idea. These methods are a way to use the internal language mechanics of Python for your own classes. They make up an important part of the Python superpowers and it's never too early to learn about them (you should at least know that they exist and that they have special meaning). Some of them are used in the model classes to create pythonic behaviour of the objects (e.g. make them iterable and comparable) and good representations.
 
