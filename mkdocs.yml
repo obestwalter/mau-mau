@@ -23,7 +23,7 @@ site_dir: docs/_build
 
 repo_url: https://github.com/obestwalter/mau-mau
 
-strict: True
+strict: False
 
 markdown_extensions:
     - toc:
