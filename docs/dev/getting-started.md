@@ -1,4 +1,4 @@
-# Development
+# Get the sources
 
 To work on the code:
 

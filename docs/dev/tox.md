@@ -1,4 +1,4 @@
-# Tox - the frontend for developers
+# Tox - a developer frontend
 
 [Tox](https://pypi.python.org/pypi/tox) is one abstraction level up from py.test and serves as a command line frontend for different kinds of tests and also acts a a frontend for external test runners as part of [CI](https://en.wikipedia.org/wiki/Continuous_integration). It automatically creates an environment for the tests, installs dependencies, does whatever else is needed for test preparation and outputs the results.
 
