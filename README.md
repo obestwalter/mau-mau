@@ -6,7 +6,7 @@ Command line implementation of a german card game called [Mau Mau](https://goo.g
 
 A simple application that uses all my favorite bells and whistles of the OSS/Python ecosystem.
 
-**[Documentation on Readthedocs](http://mau-mau.readthedocs.org/en/latest/)**
+**[Current documentation](http://obestwalter.github.io/mau-mau/)** ([sphinx experiment on readthedocs](http://mau-mau.readthedocs.org/en/doc-with-sphinx/))
 
 ## Try it
 
