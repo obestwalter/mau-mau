@@ -50,13 +50,21 @@ This contains the classes that implement the rules of Mau Mau. Start reading wit
 
 ### BasicStrategy
 
-just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. 
+Player plays according to the rules and always chooses random antidotes if they have any (e.g. 7 on 7 to prevent having to draw) or normal cards. If playing a Jack it always asks for the suit it has the most of. 
 
 This can be extended upon to implement "real" strategies.
 
 ### HumanStrategy
  
 Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer (`mau-mau human`).
+
+The impact of this is very likely to be zero on a planetary basis, as this is just a teaching tool, but in general one should be very wary of implementing something just because it's easy:
+
+> I call it my billion-dollar mistake. It was the invention of the null reference in 1965. At that time, I was designing the first comprehensive type system for references in an object oriented language (ALGOL W). My goal was to ensure that all use of references should be absolutely safe, with checking performed automatically by the compiler. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement. This has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years.
+
+> -- Tony Hoare
+
+... you have been warned.
 
 # [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
 
