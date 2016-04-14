@@ -11,7 +11,7 @@ def get_version():
 
 def get_extra_dependencies():
     extras = {
-        'tests': ['tox', 'pytest', 'pytest-watch'],
+        'tests': ['tox', 'flake8', 'pytest', 'pytest-watch'],
         'docs': ['mkdocs']}
     extras.update(dict(all=list(itertools.chain(*extras.values()))))
     return extras

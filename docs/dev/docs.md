@@ -4,7 +4,7 @@ The documentation is generated with [MkDocs](http://www.mkdocs.org/) and it live
 
 [Markdown](https://en.wikipedia.org/wiki/Markdown) is an easy to learn format that is the default on [Github]()https://guides.github.com/features/mastering-markdown/ and [Stack Overflow](http://stackoverflow.com/editing-help). It is much easier on the eye than restructuredText - the established standard in the Python world. But it is also not as powerful. For more complex documentation [Sphinx](http://www.sphinx-doc.org) and [restructuredText](http://www.sphinx-doc.org/en/stable/rest.html) might be better suited.
 
-## Building the documentation
+# Building the documentation
 
 When you work on the documentation you can start a local server:
 
@@ -17,7 +17,7 @@ Tidy up the build in case of big changes or problems:
 
     $ tox -e docs-clean
     
-## Deplyoing the documentation
+# Deploying the documentation
 
 If you have push rights for the repository you can deploy the current documentation with:
 
