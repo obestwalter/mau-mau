@@ -1,4 +1,4 @@
-# Prerequisites
+# Prepare a virtualenv
 
 You need [Python3](https://www.python.org/downloads/) and you should really install this in a [virtualenv](https://docs.python.org/3/library/venv.html). This should work out of the box. If not, you might be on Linux and are bitten by [this](https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847). `sudo apt-get install python3-pip` should solve the problem - otherwise have a look at the [pip documentation](https://pip.pypa.io/en/stable/installing/).
 
