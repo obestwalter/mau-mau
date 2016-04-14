@@ -4,7 +4,7 @@
 
  It can also be (ab)used to act as a frontend for other tasks developers have to do as part of their work. In this project we also use it for building and developing the documentation.
 
-## Run static code analysis
+Run static code analysis:
 
     $ cd </path/to/your/clone>
     $ tox -e static
