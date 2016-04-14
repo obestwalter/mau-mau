@@ -7,10 +7,17 @@ pages:
     - Installation: guide/installation.md
     - Command line usage: guide/usage.md
     - Rules of the game: guide/rules.md
-  - Development:
-    - Implementation: dev/implementation.md
-    - Explore the code: dev/explore.md
-    - Things to point out: dev/remarks.md
+  - Implemenation:
+    - OOOMMM: implementation/ooommm.md
+    - Implementation: implementation/remarks.md
+    - Explore the code: implementation/explore.md
+  - Developer Guide:
+    - Getting started: dev/tests.md
+    - Static code analysis: dev/static-analysis.md
+    - Automatic tests: dev/tests.md
+    - Tox (developer frontend): dev/tox.md
+    - Continuous intergration: dev/travis-ci.md
+    - Work on the documentation: dev/docs.md
 
 site_dir: docs/_build
 

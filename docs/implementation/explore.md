@@ -11,7 +11,7 @@ Install the package and all dependencies necessary for development as editable w
         $ cd </path/to/your/clone>
         $ pip install --editable '.[all]'
       
-# [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py): The 'story'
+# [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py): the 'story'
 
 The overall plot of the Mau Mau story can be found here. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way (like a series of commands given to the computer). The code looks like a series of instructions which are to be carried out in a top down order, descending into the functions being called. The order can be influenced by loops (`for ... in` or `while`) and conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
 
@@ -30,7 +30,7 @@ This is the meat of the simulation. Here is where all the magic happens. if you 
 
 To dig deeper and get a more detailed understanding of the program, you can start to explore the classes, their attributes, behaviour and how they interact. 
 
-# [concepts.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/concepts.py): Abstract stuff
+# [concepts.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/concepts.py): abstract stuff
 
 The general concepts used in the game as classes.
 
@@ -46,7 +46,7 @@ I know .. in Python everything is an object, so this would be meaningless. This 
 
 This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a seven, the number of draws have to accumulate). 
 
-## [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py)
+## [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py): how to play
 
 **Note:** A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
 
@@ -60,10 +60,10 @@ This can be extended upon to implement "real" strategies.
  
 Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer (`mau-mau human`).
 
-# Command line access: [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py)
+# [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
 
 This contains the code for the commandline interface. Its function `main` is configured in `setup.py` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
 
-# Statistics: [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py)
+# [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): create statistics
 
 Contains some functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
