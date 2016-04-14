@@ -68,8 +68,7 @@ output like:
     mau_mau.subjects    103 put              : play Card('King', '♣')
     root                21  play_simple_game : And the winner is Player 2
 
-## PLay a game against the computer
-
+## Play a game against the computer
 
 Play interactive game (and know and see everything ...):
 
@@ -129,3 +128,32 @@ output like:
     1 -> Card('King', '♥') | 1
     mau_mau.subjects    103 put              : play Card('King', '♥')
     root                27  play_interactive_game: And the winner is human
+
+# Collect statistics
+
+    $ mau-mau mean_turns
+
+output like:
+
+    root                42  main             : mean_turns() ...
+    mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
+    mau_mau.stats       12  mean_turns       : mean turns played: 34.097
+
+input:
+
+    $ mau-mau winner_distribution
+
+output like:
+
+    root                52  main             : winner_distribution() ...
+    mau_mau.stats       35  _simulate_games  : players: ('Eric', 'Terry', 'John'); 1000 reps
+    mau_mau.stats       21  winner_distribution: winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
+
+input:
+
+    $ mau-mau time_durations
+
+output like:
+
+    root                52  main             : time_durations() ...
+    mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games
