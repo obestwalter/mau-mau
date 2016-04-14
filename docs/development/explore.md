@@ -1,7 +1,3 @@
-# Unravel the code
-
-This simulation of a simple card game is optimized for being readable, easy to grasp and to demonstrate a whole range of concepts. It is not a toy example, ~~but the nasty details that usually screw with our nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code~~ but it can still be read like a nice little completely non-linear story (hopefully). It came into live in a non-linear fashion and should also be read that way.
-
 ## [setup.py](setup.py): make installable
 
 The code of the actual software lives in[mau_mau/](mau_mau/)
@@ -38,20 +34,13 @@ output like:
     mau_mau.cardroom    92  deal_fresh_hand  : Player('Player 3', [Card('King', '♣'), Card('Ace', '♦'), Card('7', '♠'), Card('Ace', '♥'), Card('9', '♦')])
     mau_mau.sim         23  setup_game       : Start new game: Game(Table(MauMau(5), [Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')]), Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')]), Player('Player 3', [Card('King', '♣'), Card('Ace', '♦'), Card('7', '♠'), Card('Ace', '♥'), Card('9', '♦')])]))
     mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
-    mau_mau.cardroom    30  next_turn        : Player('Player 1', [Card('9', '♥'), Card('Jack', '♣'), Card('9', '♣'), Card('8', '♣'), Card('8', '♦')]) is up (turn 1)
-    mau_mau.strategy    15  play             : encountered rule BasicRule on Card('Queen', '♣')
-    mau_mau.strategy    53  _play            : find card to play
-    mau_mau.cardroom    96  play_card        : play Card('Jack', '♣') on Card('Queen', '♣')
-    mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
     mau_mau.cardroom    30  next_turn        : Player('Player 2', [Card('8', '♥'), Card('Queen', '♠'), Card('King', '♠'), Card('10', '♥'), Card('Queen', '♥')]) is up (turn 2)
     mau_mau.strategy    15  play             : encountered rule DemandWantedSuit on Card('Jack', '♣')
     mau_mau.strategy    53  _play            : find card to play
     mau_mau.strategy    62  _play            : nothing to play
     mau_mau.cardroom    111 draw_from_stock  : Card('10', '♣')
     mau_mau.cardroom    29  next_turn        : ------------------------------------------------------------------------------------------
-
     [-...SNIPPING LOTS OF OUTPUT...]
-
     mau_mau.cardroom    30  next_turn        : Player('Player 3', [Card('7', '♠'), Card('9', '♦'), Card('Jack', '♦')]) is up (turn 30)
     mau_mau.strategy    15  play             : encountered rule BasicRule on Card('King', '♠')
     mau_mau.strategy    53  _play            : find card to play
