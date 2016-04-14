@@ -26,9 +26,7 @@ def play_game(rulesOfTheGame, players):
     return game
 ```
 
-This is the meat of the simulation. Here is where all the magic happens. if you call this function a game of Mau Mau will be simulated and a winner is determined. **6 lines of code** including the function header and the return statement. You now have read the whole plot of the fascinating Mau Mau story. If you want to understand more, you can start digging deeper and visit the definitions of the functions used in the `play_game` function. Reading and understanding the functions (in whatever order you might prefer) in this file means that you get the picture how a simulation of a simple turn based card game works.
-
-To dig deeper and get a more detailed understanding of the program, you can start to explore the classes, their attributes, behaviour and how they interact. 
+This is the meat of the simulation. Here is where all the magic happens. if you call this function a game of Mau Mau will be simulated and a winner is determined. **6 lines of code** including the function header and the return statement. You now have read the whole plot of the fascinating Mau Mau story. If you want to understand more, you can start digging deeper and visit the definitions of the [functions](https://docs.python.org/3/glossary.html#term-function) and [classes](https://docs.python.org/3/tutorial/classes.html) used in the `play_game` function. Just start to explore the code and how the objects interact in whatever non-linear way you might prefer. This gives you an idea of how a simulation of a simple turn based card game can be implemented as a program.
 
 # [concepts.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/concepts.py): abstract stuff
 
