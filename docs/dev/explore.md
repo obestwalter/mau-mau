@@ -50,13 +50,13 @@ This contains the classes that implement the rules of Mau Mau. Start reading wit
 
 **Note:** A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
 
-#### `BasicStrategy` 
+#### BasicStrategy
 
 just plays according to the rules and always chooses random antidotes and cards. If playing a Jack it always asks for the suit it has the most of. 
 
 This can be extended upon to implement "real" strategies.
 
-#### `HumanStrategy`
+#### HumanStrategy
  
 Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer (`mau-mau human`).
 
