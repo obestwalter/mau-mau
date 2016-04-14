@@ -8,7 +8,14 @@ To work on the code
     $ <activate your virtualenv>
     $ cd <path/to/your/clone>
     $ pip install -e '.[all]'
-    
+
+output like:
+
+    Obtaining file:///</path/to/your/clone>
+    Installing collected packages: mau-mau
+      Running setup.py develop for mau-mau
+    Successfully installed mau-mau
+
 ## Testing, testing, testing 
 
 ### Static code analysis
