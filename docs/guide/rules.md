@@ -1,6 +1,4 @@
-# The rules
-
-## The basic rules of Mau Mau
+# The basic rules of Mau Mau
 
 >  The game is played with a regular deck of playing cards. The players are dealt each a hand of cards (usually 5). The rest are placed face down as the drawing stack. At the beginning of the game the topmost card is revealed, then the players each get a turn to play cards.
 
@@ -8,7 +6,7 @@
 
 > -- [Wikipedia - Mau Mau](https://goo.gl/r7D63W)
 
-## Special rules
+# Special rules
 
 We add the three most common additional rules:
 

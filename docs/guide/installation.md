@@ -1,6 +1,4 @@
-# Installation
-
-## Prerequisites
+# Prerequisites
 
 You need [Python3](https://www.python.org/downloads/) and you should really install this in a [virtualenv](https://docs.python.org/3/library/venv.html). This should work out of the box. If not you might be on Linux and are bitten by [this](https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847). `sudo apt-get install python3-pip` should solve the problem - otherwise have a look here: [pip](https://pip.pypa.io/en/stable/installing/).
 
@@ -15,7 +13,7 @@ Deactivate with:
 
     $ deactivate
 
-## Install from Github
+# Install from Github
 
 Install the latest code directly from github:
 
@@ -23,13 +21,13 @@ Install the latest code directly from github:
     
 To install a specific version just replace `master` with the version you want to install (e.g. `1.1.0`). The different versions can be seen in the [release section](https://github.com/obestwalter/mau-mau/releases) of a Github project.
 
-## Install from a downloaded archive
+# Install from a downloaded archive
 
 On the [releases page](https://github.com/obestwalter/mau-mau/releases/) you can download zip archives and install them like:
 
 
     $ pip install </path/to/downloaded/zip/archive>
 
-## Install directly with pip
+# Install directly with pip
 
 ... coming soon?

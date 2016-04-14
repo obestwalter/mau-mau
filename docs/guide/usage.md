@@ -1,12 +1,4 @@
-# Installation
-
-Install the latest code directly from github:
-
-    $ pip install https://github.com/obestwalter/mau-mau/zipball/master
-    
-To install a specific version just replace `master` with the version you want to install (e.g. `1.1.0`). The different versions can be seen in the [release section](https://github.com/obestwalter/mau-mau/releases) of a Github project.
-
-## Usage
+# Command line access
 
 After installation you have an additional command in your virtualenv: `mau-mau`. The default behaviour if you call it without parameters is to simulate a simple game of Mau Mau between three computer players (and you can see the hands of all the players and every step of the game).
 
@@ -14,7 +6,7 @@ After installation you have an additional command in your virtualenv: `mau-mau`.
 * `mau-mau <stats.function>`: e.g. `mau-mau mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `stats.py` will automatically make it accessible through the command line interface.
 * `mau-mau human` ... or any other argument that does not map to a function in stats: play a game against the computer
 
-### Run a simple simulation
+# Run a simple simulation
         
         $ cd </path/to/your/clone>
         $ mau-mau
@@ -68,7 +60,7 @@ output like:
     mau_mau.subjects    103 put              : play Card('King', '♣')
     root                21  play_simple_game : And the winner is Player 2
 
-## Play a game against the computer
+# Play a game against the computer
 
 Play interactive game (and know and see everything ...):
 
