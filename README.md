@@ -6,7 +6,12 @@ Command line implementation of a german card game called [Mau Mau](https://goo.g
 
 A simple application that uses all my favorite bells and whistles of the OSS/Python ecosystem.
 
-**[Current documentation](http://obestwalter.github.io/mau-mau/)** ([sphinx experiment on readthedocs](http://mau-mau.readthedocs.org/en/doc-with-sphinx/))
+## Documentation
+
+... is still in the experimentation phase. Looks like mkdocs is winning atm.
+
+* **[Generated with MkDocs, hosted on github.io](http://obestwalter.github.io/mau-mau/)** 
+* ([Generated with sphinx, hosted on readthedocs](http://mau-mau.readthedocs.org/en/doc-with-sphinx/)) (killer feature (source links) not working atm - see [issue 2139](https://github.com/rtfd/readthedocs.org/issues/2139))
 
 ## Try it
 
