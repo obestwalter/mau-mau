@@ -1,4 +1,4 @@
-# [Mau Mau](https://github.com/obestwalter/mau-mau)
+# Mau Mau
 
 > Play is the highest form of research
 
