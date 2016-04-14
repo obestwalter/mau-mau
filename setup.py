@@ -32,5 +32,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(get_extra_dependencies())
     main()
