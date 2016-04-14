@@ -36,7 +36,7 @@ The general concepts used in the game as classes.
 
 These look pretty different from `game.py` and they are. Here is where the object oriented part of the story kicks in. If `game.py` contains the plot, these modules contain the descriptions of the actors and props of the story. They describe the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact.
 
-## [subjects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/subjects.py) and [objects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/objects.py)
+## [objects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/objects.py) and [subjects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/subjects.py)
 
 I know .. in Python everything is an object, so this would be meaningless. This is also not [subject oriented programming](https://en.wikipedia.org/wiki/Subject-oriented_programming). These are just good terms for what those classes describe in the context of the program: there are objects in the game which are manipulated by the subjects.
 
