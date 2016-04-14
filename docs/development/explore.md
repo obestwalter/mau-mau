@@ -1,7 +1,5 @@
 # Unravel the code
 
-With all this in mind, we can finally move on to look at the code.
-
 This simulation of a simple card game is optimized for being readable, easy to grasp and to demonstrate a whole range of concepts. It is not a toy example, ~~but the nasty details that usually screw with our nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code~~ but it can still be read like a nice little completely non-linear story (hopefully). It came into live in a non-linear fashion and should also be read that way.
 
 ## [setup.py](setup.py): make installable

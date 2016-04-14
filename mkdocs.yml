@@ -1,7 +1,14 @@
 site_name: Mau Mau
-#pages:
-#  - About: index.md
-#  - Development: development.md
+pages:
+  - Home: index.md
+  - User Guide:
+    - Rules: user-guide/rules.md
+  - Development:
+    - Explore the code: explore.md
+    - Remarks: remarks.md
+    - Testing: testing.md
+    - Updating documentation: documentation.md
+  - Rules: rules.md
 #theme: readthedocs
 docs_dir: docs
 site_dir: docs/_build
