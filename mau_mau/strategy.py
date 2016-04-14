@@ -30,7 +30,7 @@ class BasicStrategy:
             self.player.hand)
 
         if not antidote:
-            while len(table.rule.punishments):
+            while table.rule.punishments:
                 table.rule.punishments.pop()(self.player, table)
         return antidote
 
