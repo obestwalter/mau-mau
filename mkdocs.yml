@@ -1,4 +1,4 @@
-#theme: readthedocs
+theme: amelia
 site_name: Mau Mau
 
 pages:
@@ -17,7 +17,7 @@ pages:
     - Automatic tests: dev/tests.md
     - Tox (developer frontend): dev/tox.md
     - Continuous intergration: dev/travis-ci.md
-    - Work on the documentation: dev/docs.md
+    - Working on documentation: dev/docs.md
 
 site_dir: docs/_build
 

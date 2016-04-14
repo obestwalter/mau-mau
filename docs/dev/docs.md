@@ -1,4 +1,4 @@
-# Working on the documentation
+# Working on documentation
 
 The documentation is generated with [MkDocs](http://www.mkdocs.org/) and it lives in [docs/](https://github.com/obestwalter/mau-mau/tree/master/docs/). The configuration is in [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml) ([YAML](https://en.wikipedia.org/wiki/YAML) format).
 
