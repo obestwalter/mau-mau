@@ -10,8 +10,8 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
 
 ... is still in the experimentation phase. Looks like mkdocs is winning atm.
 
-* **[Generated with MkDocs, hosted on github.io](http://obestwalter.github.io/mau-mau/)** 
-* ([Generated with sphinx, hosted on readthedocs](http://mau-mau.readthedocs.org/en/doc-with-sphinx/)) (killer feature (source links) not working atm - see [issue 2139](https://github.com/rtfd/readthedocs.org/issues/2139))
+* [Generated with MkDocs, hosted on github.io](http://obestwalter.github.io/mau-mau/)
+* [Generated with sphinx, hosted on readthedocs](http://mau-mau.readthedocs.org/en/doc-with-sphinx/) (killer feature (source links) not working atm - see [issue 2139](https://github.com/rtfd/readthedocs.org/issues/2139))
 
 ## Try it
 
