@@ -4,13 +4,13 @@ site_name: Mau Mau
 pages:
   - Home: index.md
   - User Guide:
-    - Rules of the game: guide/rules.md
+    - Installation: guide/installation.md
     - Command line usage: guide/usage.md
+    - Rules of the game: guide/rules.md
   - Development:
     - Implementation: dev/implementation.md
     - Explore the code: dev/explore.md
     - Things to point out: dev/remarks.md
-
 
 site_dir: docs/_build
 
