@@ -8,7 +8,7 @@ The code of the actual software lives in[mau_mau/](mau_mau/)
 
 **NOTE:** Please replace `</path/to/your/clone>` with the actual path on your computer.
 
-To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access `sim` is also installed.
+To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access `mau-mau` is also installed.
 
 Install the package as editable with:
 
@@ -24,10 +24,10 @@ output like:
       Running setup.py develop for mau-mau
     Successfully installed mau-mau
 
-You now have an additional command in your virtualenv: `sim`.
+You now have an additional command in your virtualenv: `mau-mau`.
         
         $ cd </path/to/your/clone>
-        $ sim
+        $ mau-mau
 
 output like:
 
@@ -73,15 +73,15 @@ output like:
 
 ## [`cli.py`](mau_mau/cli.py): command line access
 
-This contains the code for the commandline interface. Its function `main` is configured in `setup.py` to act like a program called `sim` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
+This contains the code for the commandline interface. Its function `main` is configured in `setup.py` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
 
-* `sim`: If you do not pass anything a single game will be played with high verbosity settings in the logger
-* `sim <stats.function>`: e.g. `sim mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `stats.py` will automatically make it accessible through the command line interface.
-* `sim interactive` ... or any other argument that does not map to a function in stats: play a game against the computer
+* `mau-mau`: If you do not pass anything a single game will be played with high verbosity settings in the logger
+* `mau-mau <stats.function>`: e.g. `mau-mau mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `stats.py` will automatically make it accessible through the command line interface.
+* `mau-mau interactive` ... or any other argument that does not map to a function in stats: play a game against the computer
 
 See the different sections for more examples of commandline usage.
 
-## [`sim.py`](mau_mau/sim.py): the 'story'
+## [`mau-mau.py`](mau_mau/mau-mau.py): the 'story'
 
 The overall plot of the Mau Mau story can be found here. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way (like a series of commands given to the computer). The code looks like a series of instructions which are to be carried out in a top down order, descending into the functions being called. The order can be influenced by loops (`for ... in` or `while`) and conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
 
@@ -122,7 +122,7 @@ manipulated by the subjects of the game.
 
 To dig deeper and get a more detailed understanding of the program, you should start to explore the classes, their attributes and behaviour and how they interact. The best place to start is the cardroom.
 
-This looks pretty different from `sim.py` and it is. Here is where the OO part of the story kicks in. If `sim.py` contains the plot, `cardroom.py` contains the descriptions of the actors and props of the story. It describes the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact. The order in which the classes are defined are from compounded to simple.
+This looks pretty different from `mau-mau.py` and it is. Here is where the OO part of the story kicks in. If `mau-mau.py` contains the plot, `cardroom.py` contains the descriptions of the actors and props of the story. It describes the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact. The order in which the classes are defined are from compounded to simple.
 
 ## [`rules.py`](mau_mau/rules.py)
 
@@ -144,7 +144,7 @@ Mainly to show that the existing design makes it very easy to even add interacti
 
 Play interactive game:
 
-    $ sim interactive
+    $ mau-mau interactive
  
 output like:
 
@@ -192,7 +192,7 @@ output like:
 
 Contains some functions to run the game simulations and collect statistics. 
 
-    $ sim mean_turns
+    $ mau-mau mean_turns
 
 output like:
 
@@ -202,7 +202,7 @@ output like:
 
 input:
 
-    $ sim winner_distribution
+    $ mau-mau winner_distribution
 
 output like:
 
@@ -212,7 +212,7 @@ output like:
 
 input:
 
-    $ sim time_durations
+    $ mau-mau time_durations
 
 output like:
 

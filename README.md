@@ -13,9 +13,9 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
 ### Examples for command line use
 
     $ pip install https://github.com/obestwalter/mau-mau/zipball/master
-    $ sim
-    $ sim winner_distribution
-    $ sim human  # Control+C to stop
+    $ mau-mau
+    $ mau-mau winner_distribution
+    $ mau-mau human  # Control+C to stop
 
 ## Development
 
