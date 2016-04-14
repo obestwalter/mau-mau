@@ -47,27 +47,25 @@ Those `__something__()` thingies might look scary for the uninitiated, but you w
 
 > -- [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#object.__repr__)
 
-In our simple simulation this is actually possible for all objects, so why not do it? You can copy object representations from the log, for example, and recreate them in the REPL. If done right this works correctly when using inheritance as well (see `Stock` and `Waste`).
+In this simple simulation this is actually possible for all objects, so why not do it? This makes it possible to copy object representations from the output and recreate them in the REPL to experiment with them. If done right this works correctly when using inheritance as well (see `Stock` and `Waste`).
 
-## Let object have a length (`__len__`)
+This could also be useful: [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html).
 
-... and a concept of being `True` or `False` depending on having a length > 0 or not
+## Make your own objects behave like built in data types
 
-**TODO**
+* let an object have a [length (`__len__`)](https://docs.python.org/2/reference/datamodel.html#object.__len__) and a concept of being `True` or `False` depending on having a length > 0 or not.
+* make an object [iterable (`__iter__`)](https://docs.python.org/2/reference/datamodel.html#object.__iter__).
 
-## Make object iterable (`__iter__`)
+## Other uses of special object attributes
 
-**TODO**
+All objects have a [name (`__name__`)](https://docs.python.org/2/library/stdtypes.html?highlight=__name__#class.__name__)
 
-## Modules have (dynamic) name (`__name__`)
-
-`__name__` is an example for a special attribute of a module object. We use it for two purposes in the program:
+The name attribute of module objects are set dynamically depending on the context in which the module is loaded. If the module is run like a script it has a different name than when it is imported by another module. The names of modules are used for two purposes in this program:
 
 1. Set the name of the logger object to get information from where the log was written
-1. If a module is started directly it has the special name `__main__` - we use this to only execute certain code if the module was started directly (as opposed to being imported as a module). This is the [canonic way](https://docs.python.org/3/library/__main__.html) to do this. 
+1. If a module is started directly it has the special name `__main__` - this can be used to only execute certain code if it is meant to behave like a script (as opposed to being imported as a module). This is the [canonic way](https://docs.python.org/3/library/__main__.html) to do this. 
 
-**see also:**
+**More resources about magic methods**
 
 * [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#special-method-names)
 * [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
-* [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html)
