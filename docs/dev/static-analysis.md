@@ -4,10 +4,10 @@
 
 ## Flake8
 
-run flake8:
+run the static analysis:
     
     $ cd <path/to/your/clone>
-    $ tox -e flake8
+    $ tox -e static
     
 
 ## Quantified Code

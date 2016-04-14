@@ -12,7 +12,7 @@ pages:
     - Implementation: implementation/remarks.md
     - Explore the code: implementation/explore.md
   - Developer Guide:
-    - Getting started: dev/tests.md
+    - Getting started: dev/getting-started.md
     - Static code analysis: dev/static-analysis.md
     - Automatic tests: dev/tests.md
     - Tox (developer frontend): dev/tox.md

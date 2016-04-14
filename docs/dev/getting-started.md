@@ -1,9 +1,11 @@
 # Development
 
-To work on the code 
+To work on the code:
+
 * [fork](https://guides.github.com/activities/forking/) the code 
 * [clone](http://rogerdudler.github.io/git-guide/) the repository to `<path/to/your/clone>` (wherever that is).
-* install the code as editable in a [virtualenv](https://docs.python.org/3/tutorial/venv.html)
+
+... and install the code as editable in a [virtualenv](https://docs.python.org/3/tutorial/venv.html):
 
     $ <activate your virtualenv>
     $ cd <path/to/your/clone>
