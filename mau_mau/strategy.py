@@ -1,9 +1,8 @@
-import logging
-
 import collections
+import logging
 import random
 
-from mau_mau.config import DECK
+from mau_mau.const import DECK
 
 log = logging.getLogger(__name__)
 

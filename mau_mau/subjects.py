@@ -1,8 +1,7 @@
+import collections
 import logging
 
-import collections
-
-from mau_mau.config import DECK
+from mau_mau.const import DECK
 from mau_mau.objects import Stock, Waste, Hand, Card
 from mau_mau.strategy import HumanStrategy, BasicStrategy
 

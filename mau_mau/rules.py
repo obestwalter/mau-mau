@@ -1,6 +1,6 @@
 import logging
 
-from mau_mau import config
+from mau_mau import const
 
 log = logging.getLogger(__name__)
 
@@ -41,7 +41,7 @@ class MakePlayerDrawTwoCards(BasicRule):
 
     @staticmethod
     def _find_antidotes(cards):
-        return [c for c in cards if c.value == config.DECK.SEVEN]
+        return [c for c in cards if c.value == const.DECK.SEVEN]
 
     @staticmethod
     def _punishment(player, table):
@@ -62,14 +62,14 @@ class DemandWantedSuit(BasicRule):
             # No strategy attached -> First card in game
             wantedSuit = self.card.suit
         return [c for c in cards if
-                c.suit == wantedSuit and not c.value == config.DECK.JACK]
+                c.suit == wantedSuit and not c.value == const.DECK.JACK]
 
 
 class MauMau:
     RULES = {
-        config.DECK.SEVEN: MakePlayerDrawTwoCards,
-        config.DECK.EIGHT: SkipNextPlayer,
-        config.DECK.JACK: DemandWantedSuit}
+        const.DECK.SEVEN: MakePlayerDrawTwoCards,
+        const.DECK.EIGHT: SkipNextPlayer,
+        const.DECK.JACK: DemandWantedSuit}
 
     def __init__(self, cardsPerPlayer=5):
         self.cardsPerPlayer = cardsPerPlayer
@@ -88,7 +88,7 @@ class MauMau:
         """Determines when a card is playable on the upcard"""
         return [c for c in cards if
                 upcard.value == c.value or upcard.suit == c.suit or
-                c.value == config.DECK.JACK]
+                c.value == const.DECK.JACK]
 
     @staticmethod
     def no_play_action(player, table):
