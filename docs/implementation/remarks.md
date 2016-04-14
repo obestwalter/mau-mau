@@ -51,7 +51,6 @@ In our simple simulation this is actually possible for all objects, so why not d
 
 ## Let object have a length (`__len__`)
 
-
 ... and a concept of being `True` or `False` depending on having a length > 0 or not
 
 **TODO**
@@ -60,7 +59,7 @@ In our simple simulation this is actually possible for all objects, so why not d
 
 **TODO**
 
-## Special module attribute (`__name__`)
+## Modules have (dynamic) name (`__name__`)
 
 `__name__` is an example for a special attribute of a module object. We use it for two purposes in the program:
 
