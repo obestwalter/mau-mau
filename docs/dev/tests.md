@@ -1,6 +1,6 @@
 # Automatic tests
 
-[py.test](http://pytest.org) is my tool of choice. There is aso a [standard library solution](https://docs.python.org/3/library/unittest.html), which has to much API overhead for my taste. py.test does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and get much better failure reports. This makes for much cleaner test code and less painful testing. 
+[py.test](http://pytest.org) is my tool of choice. There is aso a [standard library solution](https://docs.python.org/3/library/unittest.html), which has to much API overhead for my taste. py.test does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and you get much better failure reports. This makes for much cleaner test code and less painful testing. 
 
 **Note**: test modules are here: [tests/](https://github.com/obestwalter/mau-mau/tree/master/tests)
 
