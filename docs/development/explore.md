@@ -20,9 +20,9 @@ Install the package as editable with:
 output like:
 
     Obtaining file:///</path/to/your/clone>
-    Installing collected packages: OOOMMM
-      Running setup.py develop for OOOMMM
-    Successfully installed OOOMMM
+    Installing collected packages: mau-mau
+      Running setup.py develop for mau-mau
+    Successfully installed mau-mau
 
 You now have an additional command in your virtualenv: `sim`.
         
