@@ -27,7 +27,7 @@ def main():
         license='MIT',
         install_requires=[],
         extras_require=get_extra_dependencies(),
-        entry_points={'console_scripts': ['sim = mau_mau.cli:main']},
+        entry_points={'console_scripts': ['mau-mau = mau_mau.cli:main']},
     )
 
 
