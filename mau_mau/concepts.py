@@ -87,7 +87,7 @@ class _CardCollection:
         self.cards.append(card)
 
     def fetch(self, criterion=None):
-        """Fetch one ore several cards from the collection.
+        """Fetch one or several cards from the collection.
 
         * Given (None, 0, 1): fetch first card from the collection
         * Given a specific card: fetch that specific card
