@@ -9,7 +9,7 @@ pages:
   - Development:
     - Implementation: dev/implementation.md
     - Explore the code: dev/explore.md
-    - Remarks: dev/remarks.md
+    - Things to point out: dev/remarks.md
 
 
 site_dir: docs/_build

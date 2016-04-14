@@ -1,4 +1,4 @@
-# Things to point out
+# Remarks
 
 ## Argument passing by assignment
 
