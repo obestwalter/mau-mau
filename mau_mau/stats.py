@@ -24,7 +24,7 @@ def winner_distribution(players=('Eric', 'Terry', 'John'), reps=1000):
 def time_durations(number=1000):
     timing = timeit(
         stmt="play_game(mmRules, 3)",
-        setup="from mau_mau.main import play_game;"
+        setup="from mau_mau.play import play_game;"
               "from mau_mau.rules import MauMau;"
               "mmRules = MauMau()",
         number=number)
