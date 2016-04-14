@@ -27,4 +27,4 @@ strict: False
 
 markdown_extensions:
     - toc:
-        permalink: 
+        permalink: ¶
