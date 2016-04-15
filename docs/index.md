@@ -4,7 +4,6 @@
 
 > -- [Probably not Albert Einstein](http://quoteinvestigator.com/2014/08/21/play-research/)
 
-
 The goal of this project is to have a real Python application with good documentation about the internal workings and the tools being used.
 
 # Features of the implementation
