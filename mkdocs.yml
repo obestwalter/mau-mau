@@ -9,7 +9,7 @@ pages:
     - Rules of Mau Mau: guide/rules.md
   - Implemenation:
     - OOOMMM: implementation/ooommm.md
-    - Implementation: implementation/remarks.md
+    - Remarks: implementation/remarks.md
     - Explore the code: implementation/explore.md
   - Developer Guide:
     - Getting started: dev/getting-started.md
@@ -27,5 +27,5 @@ strict: False
 
 markdown_extensions:
     - toc:
-        anchorlink: True
+        anchorlink: False
         permalink: True #¶

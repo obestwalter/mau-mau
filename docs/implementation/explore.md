@@ -1,15 +1,12 @@
+# Introduction
+
+To develop or explore the code it is best if you install the [sources as editable](../dev/getting-started.md#installation-from-source). This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access `mau-mau` is also installed.
+
+The code is aiming to be readable and to demonstrate a whole range of concepts and [pythonic](https://gist.github.com/JeffPaine/6213790) ways to write software. It is not a toy example, but the nasty details that usually screw with the nice and simple design and make the code grow tentacles and other cruft is not (yet) part of the code, so it can still be read like a nice little completely non-linear story (hopefully). It came into live in a non-linear fashion and should also be read that way.
+
 # [setup.py](https://github.com/obestwalter/mau-mau/blob/master/setup.py): make installable
 
-The code of the actual software lives in[mau_mau/](https://github.com/obestwalter/mau-mau/tree/master/mau_mau/)
-
-**NOTE:** Please replace `</path/to/your/clone>` with the actual path on your computer.
-
-To develop or explore the code it is best if you install the [package as editable](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) into a virtualenv. This way all the paths are working correct for all use cases (e.g. running the tests) and the command line access `mau-mau` is also installed.
-
-Install the package and all dependencies necessary for development as editable with:
-
-        $ cd </path/to/your/clone>
-        $ pip install --editable '.[all]'
+This module is what is being called, when the package is installed via pip. This way of doing it is part of the Python ecosystem and documented [here](https://docs.python.org/3.5/distutils/setupscript.html). 
       
 # [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py): the 'story'
 

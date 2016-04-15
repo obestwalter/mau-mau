@@ -1,4 +1,6 @@
-# Get the sources
+# Installation from source
+
+**NOTE:** Please replace `</path/to/your/clone>` with the actual path on your computer.
 
 To work on the code:
 
