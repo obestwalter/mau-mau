@@ -22,7 +22,7 @@ Infrastructure:
 
 * Use of [magic methods (protocols)](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
 * Installable as command line tool
-* Automatic generation and deploy of documentation with MkDocs
+* Automatic generation and deployment of documentation with MkDocs
 * Quality Assurance: flake8, QuantifiedCode, py.test, doctests, Travis CI
 * Logging with stdlib [logging module](https://docs.python.org/3/library/logging.html)
 * Task automation: tox
