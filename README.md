@@ -1,4 +1,4 @@
-# Mau Mau [![Documentation Status](https://readthedocs.org/projects/mau-mau/badge/?version=latest)](http://mau-mau.readthedocs.org/en/latest/?badge=latest) [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
+# Mau Mau [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
 
 Command line implementation of a german card game called [Mau Mau](https://goo.gl/Am29SF).
 
@@ -8,10 +8,9 @@ A simple application that uses all my favorite bells and whistles of the OSS/Pyt
 
 ## Documentation
 
-... is still in the experimentation phase. Looks like mkdocs is winning atm.
+This project is intended to be a learning tool with comprehensive documentation.
 
-* [Generated with MkDocs, hosted on github.io](http://obestwalter.github.io/mau-mau/)
-* [Generated with sphinx, hosted on readthedocs](http://mau-mau.readthedocs.org/en/doc-with-sphinx/) (killer feature (source links) not working atm - see [issue 2139](https://github.com/rtfd/readthedocs.org/issues/2139))
+**[Read the documentation](http://oliver.bestwalter.de/mau-mau/)**.
 
 ## Try it
 
