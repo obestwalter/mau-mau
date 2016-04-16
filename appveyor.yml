@@ -1,0 +1,20 @@
+branches:
+  except:
+    - gh-pages
+
+environment:
+  matrix:
+    - PYTHON: "C:\\Python34"
+    - PYTHON: "C:\\Python35"
+      DISTUTILS_USE_SDK: "1"
+    - PYTHON: "C:\\Python34-x64"
+      DISTUTILS_USE_SDK: "1"
+    - PYTHON: "C:\\Python35-x64"
+
+install:
+  - "%PYTHON%\\python.exe -m pip install tox"
+
+build: off
+
+test_script:
+  - "%PYTHON%\\python.exe tox"
