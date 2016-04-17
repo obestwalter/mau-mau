@@ -15,14 +15,14 @@ game:
     * simple random strategy for a computer player
     * strategy that adds interactivity so a human can play against the computer
 * Functions to run multiple games and collect stats
-* Flexible [command line interface](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py) (add new functions without adjusting code)
-* [automatic tests](https://github.com/obestwalter/mau-mau/blob/master/tests/) with py.test, tox and Travis CI
-
-Infrastructure:
-
-* Use of [magic methods (protocols)](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
 * Installable as command line tool
+
+Implementation and tools:
+
+* [automatic tests](https://github.com/obestwalter/mau-mau/blob/master/tests/) with py.test, tox and Travis CI
+* Use of [magic methods (protocols)](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
+* Flexible [command line interface](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py) (add new functions without adjusting code)
 * Automatic generation and deployment of documentation with MkDocs
 * Quality Assurance: flake8, QuantifiedCode, py.test, doctests, Travis CI
 * Logging with stdlib [logging module](https://docs.python.org/3/library/logging.html)
-* Task automation: tox
+* Task automation (like building and deploying docs): tox
