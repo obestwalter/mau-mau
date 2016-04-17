@@ -63,10 +63,10 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 This module is what is being called, when the package is installed via pip or with `python3 setup.py`. This is the standard way of doing it in the Python ecosystem and it is documented [here](https://docs.python.org/3.5/distutils/setupscript.html). 
       
-## [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
+### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
 
 This contains the code for the commandline interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
 
-## [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): create statistics
+### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
