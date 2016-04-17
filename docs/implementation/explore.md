@@ -1,6 +1,6 @@
-# Explore the Repository
+# Explore the repository
 
-To explore this application it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application just like as if it would be installed normally but change the code and experiment.
+To explore the code repository it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application just like as if it would be installed normally but change the code and experiment.
 
 ## [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py): the most important module
 
