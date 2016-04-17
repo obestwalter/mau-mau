@@ -15,7 +15,7 @@ def mean_turns(players=3, reps=1000):
 def winner_distribution(players=('Eric', 'Terry', 'John'), reps=1000):
     games = _simulate_games(players, reps)
     wc = {}
-    # not optimal but premature optimization os the course of all evil ...
+    # not optimal but premature optimization is the course of all evil ...
     for name in players:
         wc[name] = len([g for g in games if g.table.winner.name == name])
     log.info("winner distribution: %s", wc)
