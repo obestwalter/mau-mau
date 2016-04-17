@@ -17,11 +17,10 @@ pages:
     - Working on documentation: dev/docs.md
 
 include_404: True
-theme: united
-site_name: Mau Mau
-repo_url: https://github.com/obestwalter/mau-mau
-strict: False
 markdown_extensions:
     - toc:
-        anchorlink: False
         permalink: True #¶
+repo_url: https://github.com/obestwalter/mau-mau
+site_name: Mau Mau
+strict: True
+theme: united
