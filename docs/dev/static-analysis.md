@@ -19,6 +19,6 @@ If flake8 is happy it won't produce any output. If not, it looks ike this:
     def simple_parse_args(argv):
     ^
     
-## Quantified Code
+## Quantified Code [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
 
 Quantified Code offers static code analysis as a webservice that connects to your Github repository. It is an interesting new approach and can teach you a lot about the code you write. It is not just pointing out problems it tries to educate about the reasoning behind the warnings and even helps to fix the problems. Definitely [worth a look](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4).
