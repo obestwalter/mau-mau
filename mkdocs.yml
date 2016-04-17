@@ -16,11 +16,11 @@ pages:
     - Continuous intergration: dev/travis-ci.md
     - Working on documentation: dev/docs.md
 
-include_404: True
+#include_404: True
 markdown_extensions:
     - toc:
         permalink: True #¶
 repo_url: https://github.com/obestwalter/mau-mau
 site_name: Mau Mau
-strict: True
+#strict: True
 theme: united
