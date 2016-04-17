@@ -15,9 +15,8 @@ def play_game(gameRules, playerSeed):
 
 def setup_game(rules, playerSeed):
     croupier = subjects.Croupier()
-    table = objects.Table()
-
     croupier.fetch_fresh_deck_of_cards()
+    table = objects.Table()
     croupier.invite(playerSeed, table)
     croupier.check_setup(table.players, rules.cardsPerPlayer)
     croupier.set_table(table, rules)
