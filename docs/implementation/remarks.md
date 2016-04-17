@@ -2,7 +2,9 @@
 
 ## Code block separation by indentation
 
-Python is a language where space matters ... meaning  units of code (blocks, function bodies, etc.) are separated by ending a line with a colon (:) and pressing `Enter` - a good editor that is language aware already guesses what you want to do then and [indents](http://www.diveintopython.net/getting_to_know_python/indenting_code.html) the new line for you (manually you can indent with the `Tab` key (this also works if you have selected several lines)). The indented code belongs to that block. The block is closed by [outdenting](https://www.jetbrains.com/pycharm/webhelp/changing-indentation.html?) (with `Shift + Tab`) the first line that should not be part of that block anymore - a.k.a. [significant whitespace](https://www.python.org/dev/peps/pep-0008/#code-lay-out).
+Python is a language where space matters ... meaning  units of code (blocks, function bodies, etc.) are delimited by a colon (`:`) and indentation (4 spaces by convention) of all the following lines that belong to that block. A good editor that is language aware will help with that. It [indents](http://www.diveintopython.net/getting_to_know_python/indenting_code.html) the code automatically after ending a line with a colon . It also lets you indent and dedent entire blocks of code that are marked by pressing `Tab` key and [outdents](https://www.jetbrains.com/pycharm/webhelp/changing-indentation.html?) them when prseeing `Shift + Tab`. 
+
+See also: [code layout](https://www.python.org/dev/peps/pep-0008/#code-lay-out) in PEP8.
 
 Example:
 
