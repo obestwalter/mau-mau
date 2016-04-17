@@ -1,4 +1,6 @@
-# Argument passing by assignment
+# Remarks
+
+## Argument passing by assignment
 
 > Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se.
 
@@ -8,7 +10,7 @@ The way passing data to functions work in Python is [quite specific](https://jef
 
 Changing the state of an object that is not returned explicitly is called a [side effect](https://goo.gl/3n4nXW). Purists of certain programming paradigms would tell you that this style is messy and error prone. I won't argue with them, because I might loose. For now that's how we do it here, because than you really understand how it works. Real world programs have lots of side effects anyway so better just get used to it :) The discussion around when and how to use side effects is a huge topic. For now I just want to make you aware, that some of our functions and methods have side effects, meaning that not all changes to the state of the program are communicated purely by returning values. BTW: raising exceptions are also considered side effects and they are used a lot in Python.
 
-# Assertions
+## Assertions
 
 > What can be asserted without evidence can be dismissed without evidence.
 
@@ -31,17 +33,17 @@ This is a good way to make sure that your program crashes early if the precondit
 
 Look for uses of the assert statement in the code to get an idea how it might be used.
 
-# Logging
+## Logging
 
 Python has a simple to use and convenient [logging module](https://docs.python.org/3.5/library/logging.html) included. There is no reason why beginners shouldn't learn using that right away in their programs instead of cluttering the code with calls to `print`. One immediate advantage is the possibility to use different [log levels](https://docs.python.org/3.5/library/logging.html) in the program and adjust the output when debugging problems (e.g. `logging.DEBUG` to see the full story while debugging and `logging.WARNING` when running thousands of simulations, where logging would slow us down).
 
 We use a [simple format](https://docs.python.org/3.5/library/logging.html#logrecord-attributes) and the [convenience function](https://docs.python.org/3.5/library/logging.html#logging.basicConfig) to initialize the logger to write to the terminal with a certain level.
 
-# Magic methods (protocols)
+## Magic methods (protocols)
 
 Those `__something__()` thingies might look scary for the uninitiated, but you will love them, once you got the idea. These methods are a way to use the internal language mechanics of Python for your own classes. They make up an important part of the Python superpowers and it's never too early to learn about them (you should at least know that they exist and that they have special meaning). Some of them are used in the model classes to create pythonic behaviour of the objects (e.g. make them iterable and comparable) and good representations.
 
-## Object representation (`__repr__`)
+### Object representation (`__repr__`)
 
 > If at all possible, this should look like a valid Python expression that could be used to recreate an object with the same value
 
@@ -51,12 +53,12 @@ In this simple simulation this is actually possible for all objects, so why not 
 
 This could also be useful: [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html).
 
-## Make your own objects behave like built in data types
+### Make your own objects behave like built in data types
 
 * let an object have a [length (`__len__`)](https://docs.python.org/2/reference/datamodel.html#object.__len__) and a concept of being `True` or `False` depending on having a length > 0 or not.
 * make an object [iterable (`__iter__`)](https://docs.python.org/2/reference/datamodel.html#object.__iter__).
 
-## Other uses of special object attributes
+### Other uses of special object attributes
 
 All objects have a [name (`__name__`)](https://docs.python.org/2/library/stdtypes.html?highlight=__name__#class.__name__)
 

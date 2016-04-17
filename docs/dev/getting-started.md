@@ -1,4 +1,4 @@
-# Installation from source
+# Getting started
 
 **NOTE:** Please replace `</path/to/your/clone>` with the actual path on your computer.
 
