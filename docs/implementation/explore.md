@@ -75,13 +75,9 @@ This module is what is being called, when the package is installed via pip or wi
 
 This [INI](https://en.wikipedia.org/wiki/INI_file) file configures tasks that can run with the tox commands. The primary goal of tox is to automate testing and act as a frontend for CI, but it can be used for automating other developer tasks as well. See also [the developer documentation](../dev/tox.md) for this tox.ini.
 
-### [.travis.yml](https://github.com/obestwalter/mau-mau/blob/master/.travis.yml): CI configuration for Linux
+### [.travis.yml](https://github.com/obestwalter/mau-mau/blob/master/.travis.yml) and [appveyor.yml](https://github.com/obestwalter/mau-mau/blob/master/appveyor.yml): CI for different versions and osses
 
-See [documentation about CI](../dev/ci.md#travis-ci)
-
-### [appveyor.yml](https://github.com/obestwalter/mau-mau/blob/master/appveyor.yml): CI configuration for Windows
-
-See [documentation about CI](../dev/ci.md#appveyor)
+See [documentation about CI](../dev/ci.md)
 
 ### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): developer task automation
 
