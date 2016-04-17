@@ -22,7 +22,7 @@ print("I don't belong to the loop block anymore")
 
 ## **Everything** in Python is an object
 
-Everything (even functions and classes).
+Everything. Even functions, classes, modules and files. Everything.
 
 In this [Python Online Tutor example](http://goo.gl/Yqt7hL) you can see how really, really everything in a running Python program is an object.
 
