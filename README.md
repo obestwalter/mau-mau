@@ -1,16 +1,14 @@
-# Mau Mau [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
+# Mau Mau [![Build Status](https://travis-ci.org/obestwalter/mau-mau.svg?branch=master)](https://travis-ci.org/obestwalter/mau-mau) [![Build status](https://ci.appveyor.com/api/projects/status/mkcjgkpkimk1ayeb/branch/master?svg=true)](https://ci.appveyor.com/project/obestwalter/mau-mau/branch/master) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/663c550f107844aa842b4ce5e02883c4/badge.svg)](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4)
 
-Command line implementation of a german card game called [Mau Mau](https://goo.gl/Am29SF).
+Command line implementation of a german card game called [Mau Mau](https://goo.gl/Am29SF). 
 
-**Part of the [Python Exploration Toolkit](https://github.com/obestwalter/pet)**
+## Why?
 
-A simple application that uses all my favorite bells and whistles of the OSS/Python ecosystem.
+This project is intended to be a learning tool with comprehensive documentation. It is not only for learning about Python as a programming language it is meant to demonstrate how the language is part of a vast Open Source ecosystem. This simple application uses all my (current) favorite bells and whistles of this ecosystem.
 
-## Documentation
+This prject is also part of the **[Python Exploration Toolkit](https://github.com/obestwalter/pet)**.
 
-This project is intended to be a learning tool with comprehensive documentation.
-
-**[Read the documentation](http://oliver.bestwalter.de/mau-mau/)**.
+**[Read the documentation.](http://oliver.bestwalter.de/mau-mau/)**
 
 ## Try it
 
@@ -20,26 +18,6 @@ This project is intended to be a learning tool with comprehensive documentation.
     $ mau-mau
     $ mau-mau winner_distribution
     $ mau-mau human  # Control+C to stop
-
-## Development
-
-### install local clone as editable for development
-
-    $ git clone <url of your fork>
-    $ cd mau-mau
-    $ pip install -e '.[all]'
-
-### Run the tests:
-
-    cd </path/to/your/clone>
-    $ tox
-    
-### Autobuild and serve the documentation locally 
-
-    $ cd </path/to/your/clone>
-    $ tox -e docs-auto  # Control+C to stop autobuild process
-
-Can be accessed in your browser at ([http://localhost:8000](http://localhost:8000)).
     
 ## Licenses and Acknowledgements
 

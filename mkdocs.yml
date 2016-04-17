@@ -13,7 +13,7 @@ pages:
     - Static code analysis: dev/static-analysis.md
     - Automatic tests: dev/tests.md
     - Using Tox: dev/tox.md
-    - Continuous intergration: dev/travis-ci.md
+    - Continuous intergration: dev/ci.md
     - Working on documentation: dev/docs.md
 
 #include_404: True

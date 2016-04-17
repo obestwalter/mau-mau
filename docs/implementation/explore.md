@@ -57,16 +57,32 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-## modules necessary for general functionality
+### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): create statistics
+
+Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
+
+### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
+
+This contains the code for the commandline interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
+
+## Modules and configuration files for general functionality
 
 ### [setup.py](https://github.com/obestwalter/mau-mau/blob/master/setup.py): make installable
 
 This module is what is being called, when the package is installed via pip or with `python3 setup.py`. This is the standard way of doing it in the Python ecosystem and it is documented [here](https://docs.python.org/3.5/distutils/setupscript.html). 
       
-### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
+### [tox.ini](https://github.com/obestwalter/mau-mau/blob/master/tox.ini): developer task automation
 
-This contains the code for the commandline interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
+This [INI](https://en.wikipedia.org/wiki/INI_file) file configures tasks that can run with the tox commands. The primary goal of tox is to automate testing and act as a frontend for CI, but it can be used for automating other developer tasks as well. See also [the developer documentation](../dev/tox.md) for this tox.ini.
 
-### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): create statistics
+### [.travis.yml](https://github.com/obestwalter/mau-mau/blob/master/.travis.yml): CI configuration for Linux
 
-Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
+See [documentation about CI](../dev/ci.md#travis-ci)
+
+### [appveyor.yml](https://github.com/obestwalter/mau-mau/blob/master/appveyor.yml): CI configuration for Windows
+
+See [documentation about CI](../dev/ci.md#appveyor)
+
+### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): developer task automation
+
+See the [documentation for the documentation](../dev/docs.md) (I'm not kidding ...).
