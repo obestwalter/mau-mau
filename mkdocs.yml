@@ -17,9 +17,8 @@ pages:
     - Working on documentation: dev/docs.md
 
 include_404: True
-theme: readthedocs
+theme: united
 site_name: Mau Mau
-site_dir: docs/_build
 repo_url: https://github.com/obestwalter/mau-mau
 strict: False
 markdown_extensions:
