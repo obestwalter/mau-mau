@@ -1,5 +1,23 @@
 # Remarks
 
+## Code block separation by indentation
+
+Python is a language where space matters ... meaning  units of code (blocks, function bodies, etc.) are separated by ending a line with a colon (:) and pressing `Enter` - PyCharm already guesses what you want to do then and [indents](http://www.diveintopython.net/getting_to_know_python/indenting_code.html) the new line for you (manually you can indent with the `Tab` key (this also works if you have selected several lines)). The indented code belongs to that block. The block is closed by [outdenting](https://www.jetbrains.com/pycharm/webhelp/changing-indentation.html?) (with `Shift + Tab`) the first line that should not be part of that block anymore - a.k.a. [significant whitespace](https://www.python.org/dev/peps/pep-0008/#code-lay-out).
+
+Example:
+
+```python
+def my_super_function():
+    print("I am indented with 4 spaces")
+    print("Me too! I belong to the function")
+print("I am not inside the function block anymore :(")
+
+for currentElement in range(5):
+    print(currentElement)
+    print("I also belong to the loop block")
+print("I don't belong to the loop block anymore")
+```
+
 ## Argument passing by assignment
 
 > Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se.
