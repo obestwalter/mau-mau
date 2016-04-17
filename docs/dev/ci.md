@@ -14,6 +14,6 @@ This is a very simple setup. There are many more [configuration options](https:/
 
 [Appveyor](https://www.appveyor.com/) is the pendant to run tests on Windows osses.
 
-The same as for Travis Ci applies to appveyor. The configuration is slightly different but the principle is the same.
+The same as for Travis Ci applies to appveyor. The configuration is slightly different but the principle is the same: [.appveyor.yml](https://github.com/obestwalter/mau-mau/tree/master/.appveyor.yml) ([YAML](https://en.wikipedia.org/wiki/YAML) format)
 
 The badge on top of the projects [README.md](https://github.com/obestwalter/mau-mau/blob/master/README.md) shows the [build status from Travis CI](https://ci.appveyor.com/project/obestwalter/mau-mau).
