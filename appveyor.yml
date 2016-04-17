@@ -17,4 +17,4 @@ install:
 build: off
 
 test_script:
-  - "%PYTHON%\\Scripts\tox.exe"
+  - "%PYTHON%\\Scripts\\tox.exe"
