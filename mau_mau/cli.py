@@ -7,6 +7,7 @@ Start it without parameters to run a simple game.
 Start it with one of the functions in stat.py to run simulations and get stats.
 """
 import logging
+import os
 import sys
 
 from mau_mau import rules, play, stats
@@ -46,6 +47,9 @@ def simple_parse_args(argv):
 
 def main():
     try:
+        if os.name == 'nt':
+            import win_unicode_console
+            win_unicode_console.enable()
         fmt = '%(name)-20s%(lineno)-3s %(funcName)-17s: %(message)s'.format()
         logging.basicConfig(format=fmt, level=logging.INFO)
         functionName, args = simple_parse_args(sys.argv)
