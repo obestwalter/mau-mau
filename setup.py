@@ -25,7 +25,7 @@ def main():
         url='https://github.com/obestwalter/mau-mau',
         packages=['mau_mau'],
         license='MIT',
-        install_requires=[],
+        install_requires=['win_unicode_console'],
         extras_require=get_extra_dependencies(),
         entry_points={'console_scripts': ['mau-mau = mau_mau.cli:main']},
     )

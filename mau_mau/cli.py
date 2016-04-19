@@ -10,6 +10,8 @@ import logging
 import os
 import sys
 
+import win_unicode_console
+
 from mau_mau import rules, play, stats
 
 log = logging.getLogger()
@@ -48,7 +50,6 @@ def simple_parse_args(argv):
 def main():
     try:
         if os.name == 'nt':
-            import win_unicode_console
             win_unicode_console.enable()
         fmt = '%(name)-20s%(lineno)-3s %(funcName)-17s: %(message)s'.format()
         logging.basicConfig(format=fmt, level=logging.INFO)
