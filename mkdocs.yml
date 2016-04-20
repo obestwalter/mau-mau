@@ -16,6 +16,9 @@ pages:
     - Continuous intergration: dev/ci.md
     - Working on documentation: dev/docs.md
 
+extra:
+  logo: '_static/logo.png'
+
 #include_404: True
 markdown_extensions:
     - admonition
@@ -23,6 +26,5 @@ markdown_extensions:
         permalink: True #¶
 repo_url: https://github.com/obestwalter/mau-mau
 site_name: Mau Mau
-#strict: True
-#theme: united
+strict: True
 theme: material
