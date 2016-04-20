@@ -1,11 +1,23 @@
 # Installation
 
+## **Python 3** (not 2)
+
+> Short version: Python 2.x is legacy, Python 3.x is the present and future of the language
+
+-- [Should I use Python 2 or Python 3 for my development activity?](https://wiki.python.org/moin/Python2orPython3)
+
+
+... nuff said. 
+
+!!! note
+    It might already be installed. Try typing `python3` on the commandline and see if a Python [REPL](https://docs.python.org/3/tutorial/interpreter.html) opens. If not get it here: [Python3](https://www.python.org/downloads/).
+
 ## [In a virtualenv]
 
 !!! note
     The installation of this package in a virtualenv is is not necessary but recommended. It is worth learning to work with virtualenvs as early as possible anyway.
 
-You need [Python3](https://www.python.org/downloads/) and you should really install this in a [virtualenv](https://docs.python.org/3/library/venv.html). This should work out of the box. If not, you might be on Linux and are bitten by [this](https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847). `sudo apt-get install python3-pip` should solve the problem - otherwise have a look at the [pip documentation](https://pip.pypa.io/en/stable/installing/).
+You should really install this in a [virtualenv](https://docs.python.org/3/library/venv.html). This should work out of the box. If not, you might be on Linux and are bitten by [this](https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847). `sudo apt-get install python3-pip` should solve the problem - otherwise have a look at the [pip documentation](https://pip.pypa.io/en/stable/installing/).
 
     $ python3 -m venv mau-mau-env
         
