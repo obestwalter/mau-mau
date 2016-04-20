@@ -84,6 +84,6 @@ This [INI](https://en.wikipedia.org/wiki/INI_file) file configures tasks that ca
 
 See [documentation about CI](../dev/ci.md)
 
-### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): developer task automation
+### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): documentation configuration
 
 See the [documentation for the documentation](../dev/docs.md) (I'm not kidding ...).
