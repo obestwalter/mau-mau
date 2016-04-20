@@ -20,13 +20,13 @@ for currentElement in range(5):
 print("I don't belong to the loop block anymore")
 ```
 
-## **Everything** in Python is an object
+## **Everything** is an object
 
 Everything. Even functions, classes, modules and files. Everything.
 
 In this [Python Online Tutor example](http://goo.gl/Yqt7hL) you can see how really, really everything in a running Python program is an object.
 
-## Argument passing by assignment
+## Passing by assignment
 
 > Remember that arguments are passed by assignment in Python. Since assignment just creates references to objects, there’s no alias between an argument name in the caller and callee, and so no call-by-reference per se.
 

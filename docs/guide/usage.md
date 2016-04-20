@@ -62,7 +62,7 @@ output like:
     mau_mau.subjects    103 put              : play Card('King', '♣')
     root                21  play_simple_game : And the winner is Player 2
 
-## Play a game against the computer
+## Play against the computer
 
 Play interactive game (and know and see everything ...):
 

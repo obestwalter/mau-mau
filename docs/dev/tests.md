@@ -6,7 +6,7 @@
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
 
-## Running py.test from the command line
+## py.test (command line)
 
 py.test looks for modules with the pattern `test_*.py` downwards from your [cwd](https://en.wikipedia.org/wiki/Working_directory). In those modules it looks for `def test_*` and `class Test*`. After collecting everything fitting those patterns it execute all test functions and reports back.
 
@@ -52,7 +52,7 @@ Example for a not so successful run:
 
 This test failed not because the code is broken, but because I made a wrong assertion about the behaviour of the `Stock` class. If you pass a list when you create the class you should not expect is to be empty afterwards.
 
-## Automatically run tests on changes:
+### Automatically run tests on changes:
 
 If you want to take this one step further and have the tests being run automatically every time the code changes, you can:
 
@@ -62,7 +62,7 @@ If you want to take this one step further and have the tests being run automatic
     
 `notify-send` is the way how I can send desktop notifications from the commandline in my os ([Linux](https://wiki.archlinux.org/index.php/Desktop_notifications)). There are lots of ways to do this on every os - even [Windows](https://github.com/nels-o/toaster) and [Mac](https://github.com/julienXX/terminal-notifier).
 
-## Run py.test from PyCharm
+## py.test (PyCharm)
 
 ### Preparation
 
@@ -80,7 +80,7 @@ Depending on where you are, you can run all tests are part of them. The magic ac
 
 ... all yields different results as which tests are run (and they are what you would intuitively expect).
 
-## Executable documentation with doctests
+## doctests
 
 You can write simple examples that can double as tests directly in documentation strings. They are called [doctests](https://docs.python.org/3.5/library/doctest.html). You can [run them directly from PyCharm](https://www.jetbrains.com/help/pycharm/2016.1/run-debug-configuration-doctest.html) as well.
 

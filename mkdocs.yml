@@ -18,9 +18,11 @@ pages:
 
 #include_404: True
 markdown_extensions:
+    - admonition
     - toc:
         permalink: True #¶
 repo_url: https://github.com/obestwalter/mau-mau
 site_name: Mau Mau
 #strict: True
-theme: united
+#theme: united
+theme: material

@@ -2,7 +2,9 @@
 
 To explore the code repository it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application just like as if it would be installed normally but change the code and experiment.
 
-## [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py): the most important module
+## [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py)
+
+!!! note "Start exploring here"
 
 The overall plot of the Mau Mau story can be found here. This is the entry point to start exploring the actual application. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way (like a series of commands given to the computer). The code looks like a series of instructions which are to be carried out in a top down order, descending into the functions being called. The order can be influenced by loops (`for ... in` or `while`) and conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
 
@@ -65,7 +67,10 @@ Contains functions to run the game simulations and collect statistics. See [usag
 
 This contains the code for the commandline interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
 
-## Modules and configuration files for general functionality
+## Peripherals
+
+!!! note
+    These files are not part of the actual software but are still vital for helping with development, installation, testing, etc. -- this makes all that tedious stuff you need when writing software less ... tedious.
 
 ### [setup.py](https://github.com/obestwalter/mau-mau/blob/master/setup.py): make installable
 

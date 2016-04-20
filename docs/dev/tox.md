@@ -47,4 +47,5 @@ output like:
 
 This is a very simple setup. There are many more [configuration options](https://tox.readthedocs.org/en/latest/config.html)
 
-**BTW:** just running `tox` without parameters runs all the environments defined in envlist.
+!!! note 
+    Just running `tox` without parameters runs all the environments defined in envlist.
