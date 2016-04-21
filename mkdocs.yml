@@ -18,10 +18,12 @@ pages:
 #  - Acknowlegements: about.md
 
 extra:
-  logo: '_static/logo.png'
+  logo: _static/logo.png
   author:
     github: obestwalter
     twitter: obestwalter
+extra_css:
+  - _static/extra.css
 #include_404: True
 markdown_extensions:
     - admonition
