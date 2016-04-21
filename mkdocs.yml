@@ -15,10 +15,13 @@ pages:
     - Using Tox: dev/tox.md
     - Continuous intergration: dev/ci.md
     - Working on documentation: dev/docs.md
+#  - Acknowlegements: about.md
 
 extra:
   logo: '_static/logo.png'
-
+  author:
+    github: obestwalter
+    twitter: obestwalter
 #include_404: True
 markdown_extensions:
     - admonition

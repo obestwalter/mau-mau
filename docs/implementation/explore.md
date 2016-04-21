@@ -39,7 +39,10 @@ This contains the classes that implement the rules of Mau Mau. Start reading wit
 
 ### [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py): how to play
 
-**Note:** A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
+Classes that implement different player behaviours.
+
+!!! note 
+    A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
 
 #### BasicStrategy
 

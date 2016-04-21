@@ -1,13 +1,14 @@
 # Getting started
 
-**NOTE:** Please replace `</path/to/your/clone>` with the actual path on your computer.
+!!! note 
+    Please replace `</path/to/your/clone>` with the actual path of your mau-mau repository clone on your computer.
 
 To work on the code:
 
 * [fork](https://guides.github.com/activities/forking/) the code 
 * [clone](http://rogerdudler.github.io/git-guide/) the repository to `<path/to/your/clone>` (wherever that is).
 
-... and install the code as editable in a [virtualenv](../guide/installation.md#prepare-a-virtualenv):
+... and install the code as editable in a [virtualenv](../guide/installation.md#in-a-virtualenv):
 
     $ <activate your virtualenv>
     $ cd <path/to/your/clone>

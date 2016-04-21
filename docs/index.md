@@ -13,14 +13,14 @@ I will try to keep it that way even if it has to grow some tentacles like fixing
 ### The game
 
 * Complete [rules of Mau Mau](guide/rules.md)
-* two different strategies:
+* two different [strategies](implementation/explore.md#strategypy-how-to-play):
     * simple random strategy for a computer player
     * strategy that adds interactivity so a human can play against the computer
-* Functions to run multiple games and collect stats
-* Installable as command line tool
 
 ### Implementation and tools
 
+* Installable as command line tool
+* Functions to run multiple games and collect stats
 * [automatic tests](https://github.com/obestwalter/mau-mau/blob/master/tests/) with py.test, tox and Travis CI
 * Flexible [command line interface](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py) (add new functions without adjusting code)
 * Use of [magic methods](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types

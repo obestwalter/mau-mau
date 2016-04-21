@@ -2,7 +2,8 @@
 
 [py.test](http://pytest.org) is my tool of choice. There is aso a [standard library solution](https://docs.python.org/3/library/unittest.html), which has to much API overhead for my taste. py.test does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and you get much better failure reports. This makes for much cleaner test code and less painful testing. 
 
-**Note**: test modules are here: [tests/](https://github.com/obestwalter/mau-mau/tree/master/tests)
+!!! note 
+    The sources of the test modules are here: [tests/](https://github.com/obestwalter/mau-mau/tree/master/tests)
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
 
@@ -50,7 +51,7 @@ Example for a not so successful run:
     tests/test_objects.py:17: AssertionError
     ==================== 1 failed, 34 passed in 0.21 seconds ================
 
-This test failed not because the code is broken, but because I made a wrong assertion about the behaviour of the `Stock` class. If you pass a list when you create the class you should not expect is to be empty afterwards.
+This test failed not because the code is broken, but because I made a wrong assertion about the behaviour of the `Stock` class. If you pass a list when you create the class you should not expect it to be empty afterwards.
 
 ### Automatically run tests on changes:
 
