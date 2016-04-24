@@ -81,7 +81,7 @@ Depending on where you are, you can run all tests or a part of them. The magic a
 
 ... all yields different results as which tests are run (and they are what you would intuitively expect).
 
-## doctests
+## Doctests
 
 You can write simple examples that can double as tests directly in documentation strings. They are called [doctests](https://docs.python.org/3.5/library/doctest.html). You can [run them directly from PyCharm](https://www.jetbrains.com/help/pycharm/2016.1/run-debug-configuration-doctest.html) as well.
 
