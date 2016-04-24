@@ -27,7 +27,7 @@ These look pretty different from `game.py` and they are. Here is where the objec
 
 ### [concepts.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/concepts.py)
 
-Classes that stand somehow stand conceptually above the objects and subjects.
+Classes that stand conceptually above the objects and subjects.
 
 ### [objects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/objects.py) and [subjects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/subjects.py)
 
@@ -35,9 +35,9 @@ I know .. in Python everything is an object, so this would be meaningless. This 
 
 ### [rules.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/rules.py)
 
-This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a seven, the number of draws have to accumulate). 
+This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a 7, the number of draws have to accumulate). 
 
-### [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py): how to play
+### [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py): How to play
 
 Classes that implement different player behaviours.
 
@@ -62,24 +62,24 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): create statistics
+### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): Create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
 
-### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): command line access
+### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): Command line access
 
-This contains the code for the commandline interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the commandline:
+This contains the code for the command line interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the command line:
 
 ## Peripherals
 
 !!! note
     These files are not part of the actual software but are still vital for helping with development, installation, testing, etc. -- this makes all that tedious stuff you need when writing software less ... tedious.
 
-### [setup.py](https://github.com/obestwalter/mau-mau/blob/master/setup.py): make installable
+### [setup.py](https://github.com/obestwalter/mau-mau/blob/master/setup.py): Make program installable
 
 This module is what is being called, when the package is installed via pip or with `python3 setup.py`. This is the standard way of doing it in the Python ecosystem and it is documented [here](https://docs.python.org/3.5/distutils/setupscript.html). 
       
-### [tox.ini](https://github.com/obestwalter/mau-mau/blob/master/tox.ini): developer task automation
+### [tox.ini](https://github.com/obestwalter/mau-mau/blob/master/tox.ini): Developer task automation
 
 This [INI](https://en.wikipedia.org/wiki/INI_file) file configures tasks that can run with the tox commands. The primary goal of tox is to automate testing and act as a frontend for CI, but it can be used for automating other developer tasks as well. See also [the developer documentation](../dev/tox.md) for this tox.ini.
 
@@ -87,6 +87,6 @@ This [INI](https://en.wikipedia.org/wiki/INI_file) file configures tasks that ca
 
 See [documentation about CI](../dev/ci.md)
 
-### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): documentation configuration
+### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): Documentation configuration
 
 See the [documentation for the documentation](../dev/docs.md) (I'm not kidding ...).
