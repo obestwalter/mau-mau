@@ -38,7 +38,7 @@ Changing the state of an object that is not returned explicitly is called a [sid
 
 ## Magic methods (protocols)
 
-Those `__something__()` thingies might look scary for the uninitiated, but you will love them, once you got the idea. These methods are a way to use the internal language mechanics of Python for your own classes. They make up an important part of the Python superpowers and it's never too early to learn about them (you should at least know that they exist and that they have special meaning). Some of them are used in the model classes to create pythonic behaviour of the objects (e.g. make them iterable and comparable) and good representations.
+Those `__something__()` thingies might look scary for the uninitiated, but you will love them, once you have grasped the idea. These methods are a way to use the internal language mechanics of Python for your own classes. They make up an important part of the Python superpowers and it's never too early to learn about them (you should at least know that they exist and that they have special meaning). Some of them are used in the model classes to create pythonic behaviour of the objects (e.g. make them iterable and comparable) and good representations.
 
 ### Object representation (`__repr__`)
 
