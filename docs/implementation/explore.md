@@ -1,12 +1,12 @@
 # Explore the repository
 
-To explore the code repository it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application just like as if it would be installed normally but change the code and experiment.
+To explore the code repository it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application as if it were installed normally but you can change the code and experiment.
 
 ## [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py)
 
 !!! note "Start exploring here"
 
-The overall plot of the Mau Mau story can be found here. This is the entry point to start exploring the actual application. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way (like a series of commands given to the computer). The code looks like a series of instructions which are to be carried out in a top down order, descending into the functions being called. The order can be influenced by loops (`for ... in` or `while`) and conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
+The overall plot of the Mau Mau story can be found here. This is the entry point for starting to explore the actual application. It is written in an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) way (like a series of commands given to the computer). The code looks like a series of instructions which are to be carried out in a top down order, descending into the functions being called. The order can be influenced by loops (`for ... in` or `while`) and conditioned branches (`if ... then ... else`). These are the basic control flow constructs Python has. There are a few more, but not many.
 
 **Behold! The whole program in 6 lines!**
 

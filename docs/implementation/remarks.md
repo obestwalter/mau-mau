@@ -52,8 +52,8 @@ This could also be useful: [reprlib helps making better representations](https:/
 
 ### Make your own objects behave like built in data types
 
-* let an object have a [length (`__len__`)](https://docs.python.org/2/reference/datamodel.html#object.__len__) and a concept of being `True` or `False` depending on having a length > 0 or not.
-* make an object [iterable (`__iter__`)](https://docs.python.org/2/reference/datamodel.html#object.__iter__).
+* Let an object have a [length (`__len__`)](https://docs.python.org/2/reference/datamodel.html#object.__len__) and a concept of being `True` or `False` depending on having a length > 0 or not.
+* Make an object [iterable (`__iter__`)](https://docs.python.org/2/reference/datamodel.html#object.__iter__).
 
 ### Other uses of special object attributes
 
@@ -88,12 +88,12 @@ spam([])
 
 The assert in the `spam` function makes sure that the argument passed evaluates to `True` before moving on. The first call is o.k. but the second raises the exception and prints the message as part of the traceback.
 
-This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. Like making sure there is a chair under your bottom before you make an attempt to sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
+This is a good way to make sure that your program crashes early if the preconditions are not what you expect them. It's like making sure there is a chair there before you sit down. Used with good measure this can safe you a lot of trouble - finding the good measure for usage of the assert statement in your code is an art and not a science.
 
 Look for uses of the assert statement in the code to get an idea how it might be used.
 
 ## Logging
 
-Python has a simple to use and convenient [logging module](https://docs.python.org/3.5/library/logging.html) included. There is no reason why beginners shouldn't learn using that right away in their programs instead of cluttering the code with calls to `print`. One immediate advantage is the possibility to use different [log levels](https://docs.python.org/3.5/library/logging.html) in the program and adjust the output when debugging problems (e.g. `logging.DEBUG` to see the full story while debugging and `logging.WARNING` when running thousands of simulations, where logging would slow us down).
+Python has an easy-to-use and convenient [logging module](https://docs.python.org/3.5/library/logging.html) included. There is no reason why beginners shouldn't learn to use that right away. This is better than cluttering the code with calls to `print`. With logging you have the possibility to use different [log levels](https://docs.python.org/3.5/library/logging.html) and adjust the output when debugging problems. You can set the level to `logging.DEBUG` to see the full story or even [disable](https://docs.python.org/2/library/logging.html#logging.disable) it when running thousands of simulations, where logging would slow the program down.
 
 We use a [simple format](https://docs.python.org/3.5/library/logging.html#logrecord-attributes) and the [convenience function](https://docs.python.org/3.5/library/logging.html#logging.basicConfig) to initialize the logger to write to the terminal with a certain level.
