@@ -21,7 +21,7 @@ You should really install this in a [virtualenv](https://docs.python.org/3/libra
 
     $ python3 -m venv mau-mau-env
         
-Activation of virtualenvs is sadly still one of the things that is not os independent, so you will hve to look [here](https://docs.python.org/3/library/venv.html#creating-virtual-environments) how to do that in your os. The most common cases are:
+Activation of virtualenvs is sadly still one of the things that is not os independent, so you will have to look [here](https://docs.python.org/3/library/venv.html#creating-virtual-environments) how to do that in your os. The most common cases are:
 
     $ source mau-mau-env/bin/activate  # most linux shells
     $ mau-mau-env\Scripts\activate.bat  # Windows cmd.exe
