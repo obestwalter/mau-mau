@@ -1,6 +1,6 @@
 # Automatic tests
 
-[py.test](http://pytest.org) is my tool of choice. There is aso a [standard library solution](https://docs.python.org/3/library/unittest.html), which has to much API overhead for my taste. py.test does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and you get much better failure reports. This makes for much cleaner test code and less painful testing. 
+[py.test](http://pytest.org) is my tool of choice. There is aso a [standard library solution](https://docs.python.org/3/library/unittest.html), which has too much API overhead for my taste. py.test does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and you get much better failure reports. This makes for much cleaner test code and less painful testing. 
 
 !!! note 
     The sources of the test modules are here: [tests/](https://github.com/obestwalter/mau-mau/tree/master/tests)
@@ -51,7 +51,7 @@ Example for a not so successful run:
     tests/test_objects.py:17: AssertionError
     ==================== 1 failed, 34 passed in 0.21 seconds ================
 
-This test failed not because the code is broken, but because I made a wrong assertion about the behaviour of the `Stock` class. If you pass a list when you create the class you should not expect it to be empty afterwards.
+This test failed not because the code is broken, but because I made a wrong assertion about the behaviour of the `Stock` class. If you pass a list (like `Stock([Card('Queen', '♠'), Card('10', '♠')])`)when you create the class, you should not expect it to be empty afterwards.
 
 ### Automatically run tests on changes:
 
@@ -61,7 +61,7 @@ If you want to take this one step further and have the tests being run automatic
     $ cd </path/to/your/clone>
     $ ptw --onfail 'notify-send --urgency=critical "FAIL"' --onpass 'notify-send "PASSED"'
     
-`notify-send` is the way how I can send desktop notifications from the commandline in my os ([Linux](https://wiki.archlinux.org/index.php/Desktop_notifications)). There are lots of ways to do this on every os - even [Windows](https://github.com/nels-o/toaster) and [Mac](https://github.com/julienXX/terminal-notifier).
+`notify-send` is how I can send desktop notifications from the commandline in my os ([Linux](https://wiki.archlinux.org/index.php/Desktop_notifications)). There are lots of ways to do this on every os - even [Windows](https://github.com/nels-o/toaster) and [Mac](https://github.com/julienXX/terminal-notifier).
 
 ## py.test (PyCharm)
 
@@ -73,11 +73,11 @@ The default testrunner in PyCharm is Unittest. You have to switch to py.test lik
 
 ### Running tests
 
-Depending on where you are, you can run all tests are part of them. The magic action is [`run context configuration`](https://www.jetbrains.com/help/pycharm/2016.1/creating-and-saving-temporary-run-debug-configurations.html). It runs what is sensible in the context. If your focus is in a normal script it runs the script and if the focus is in a module defining tests it will run the configured testrunner with the tests. Running the context configuration with ...
+Depending on where you are, you can run all tests or a part of them. The magic action is [`run context configuration`](https://www.jetbrains.com/help/pycharm/2016.1/creating-and-saving-temporary-run-debug-configurations.html). It runs what is sensible in the context. If your focus is in a normal script it runs the script and if the focus is in a module defining tests it will run the configured testrunner with the tests. Running the context configuration with ...
 
-* focus in the editor, inside a specific test
-* focus in the editor on the line defining a class containing tests
-* focus in the **Project Tool Window**, choose the `tests/` folder and 
+* Focus in the editor, inside a specific test
+* Focus in the editor on the line defining a class containing tests
+* Focus in the **Project Tool Window**, choose the `tests/` folder and 
 
 ... all yields different results as which tests are run (and they are what you would intuitively expect).
 
