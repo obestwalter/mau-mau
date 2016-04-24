@@ -5,8 +5,8 @@
 
 To work on the code:
 
-* [fork](https://guides.github.com/activities/forking/) the code 
-* [clone](http://rogerdudler.github.io/git-guide/) the repository to `<path/to/your/clone>` (wherever that is).
+* [Fork](https://guides.github.com/activities/forking/) the code 
+* [Clone](http://rogerdudler.github.io/git-guide/) the repository to `<path/to/your/clone>` (wherever that is).
 
 ... and install the code as editable in a [virtualenv](../guide/installation.md#in-a-virtualenv):
 
@@ -14,7 +14,7 @@ To work on the code:
     $ cd <path/to/your/clone>
     $ pip install -e '.[all]'
 
-output like:
+The output looks like:
 
     Obtaining file:///</path/to/your/clone>
     Installing collected packages: mau-mau
