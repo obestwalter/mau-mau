@@ -46,7 +46,7 @@ Those `__something__()` thingies might look scary for the uninitiated, but you w
 
 > -- [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#object.__repr__)
 
-In this simple simulation this is actually possible for all objects, so why not do it? This makes it possible to copy object representations from the output and recreate them in the REPL to experiment with them. If done right this works correctly when using inheritance as well (see `Stock` and `Waste`).
+In this simple simulation this is actually possible for all objects, so why not do it? This makes it possible to copy object representations from the output and recreate them in the REPL to experiment with them. If done correctly, this also works when using inheritance (see `Stock` and `Waste`).
 
 This could also be useful: [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html).
 
