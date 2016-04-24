@@ -2,7 +2,7 @@
 
 ## Significant whitespace
 
-Python is a language where space matters ... meaning  units of code (blocks, function bodies, etc.) are delimited by a colon (`:`) and indentation (4 spaces by convention) of all the following lines that belong to that block. A good editor that is language aware will help with that. It [indents](http://www.diveintopython.net/getting_to_know_python/indenting_code.html) the code automatically after ending a line with a colon . It also lets you indent and dedent entire blocks of code that are marked by pressing the `Tab` key and [outdents](https://www.jetbrains.com/pycharm/webhelp/changing-indentation.html?) them when pressing `Shift + Tab`. 
+Python is a language where space matters ... meaning  units of code (blocks, function bodies, etc.) are delimited by a colon (`:`) and indentation (4 spaces by convention) of all the following lines that belong to that block. A good editor that is language aware will help with that. It [indents](http://www.diveintopython.net/getting_to_know_python/indenting_code.html) the code automatically after ending a line with a colon. It also lets you indent and dedent entire blocks of code that are marked by pressing the `Tab` key and [outdents](https://www.jetbrains.com/pycharm/webhelp/changing-indentation.html?) them when pressing `Shift + Tab`. 
 
 See also: [code layout](https://www.python.org/dev/peps/pep-0008/#code-lay-out) in PEP8.
 
