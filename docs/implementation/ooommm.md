@@ -20,14 +20,16 @@ One koan in the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) says:
 
 ![overview](../_static/overview.png)
 
+The image shows all the important elements of the simulation.
+
 !!! note 
     Objects used in the program are marked `like this`, functions that describe (inter)actions are marked like **this**). 
     
-The game comprises two phases. We could call them "setup" and "play". The image shows all the important elements of the simulation.
+The game comprises two phases. We could call them "setup" and "play". 
 
 **Setup:** The `players` are **invited** to a `game` at the `table`. A `deck` of `cards` is **shuffled**. The same amount of cards is **dealt** to the `players` to form their `hand`. One `card` - the `upcard` - is **drawn** from the `stock` and placed face up on the `table`. The remaining cards are `piled` face down on the `table` and form the `stock`. Now all is in place to **play** the `game`. 
 
-**Play:** The `players` play in `turns`. They choose a `card` that is **playable** with the `upcard` according to the rules (same `suit` or same `value` and [special rules](../guide/rules.md#common-additions) and place it on the `table`. The played `card` is the new  `upcard` and the old `upcard` is now part of the `waste`. Now the next `player` is up. If a player can't find a `card` to play, they have to draw one from the `stock` and the next `player` is up. If the `stock` `is empty`, the `waste` `cards` are **shuffled** to form the new `stock`. The game is over and the `winner` is found as soon as one `player` plays the last card of their `hand`.
+**Play:** The `players` play in `turns`. They choose a `card` that is **playable** with the `upcard` according to the rules (same `suit` or same `value` and [special rules](../guide/rules.md#common-additions)) and place it on the `table`. The played `card` is the new  `upcard` and the old `upcard` is now part of the `waste`. Now the next `player` is up. If a player can't find a `card` to play, they have to draw one from the `stock` and the next `player` is up. If the `stock` `is empty`, the `waste` `cards` are **shuffled** to form the new `stock`. The game is over and the `winner` is found as soon as one `player` plays the last card of their `hand`.
 
 Easy enough to explain. This description of the rules and the gameplay can double already as a high level explanation of the implementation. It can also be read as an abstract story about a game, where the concrete story would be the description of an actual game. The program code can be viewed as story shape or abstract plot, with different executions of it as concrete stories. If you have no idea what I mean just watch [Kurt Vonneguts short talk about the shape of stories](https://www.youtube.com/watch?v=oP3c1h8v2ZQ) and transfer your insights into thinking about abstract program code and its concrete execution :)
 
