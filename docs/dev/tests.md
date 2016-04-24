@@ -51,7 +51,7 @@ Example for a not so successful run:
     tests/test_objects.py:17: AssertionError
     ==================== 1 failed, 34 passed in 0.21 seconds ================
 
-This test failed not because the code is broken, but because I made a wrong assertion about the behaviour of the `Stock` class. If you pass a list (like `Stock([Card('Queen', '♠'), Card('10', '♠')])`)when you create the class, you should not expect it to be empty afterwards.
+This test failed not because the code is broken, but because I made a wrong assertion about the behaviour of the `Stock` class. If you pass a list when you create the class (like `Stock([Card('Queen', '♠'), Card('10', '♠')])`), you should not expect it to be empty afterwards.
 
 ### Automatically run tests on changes:
 

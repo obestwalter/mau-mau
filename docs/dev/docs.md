@@ -10,7 +10,7 @@ The documentation is generated with [MkDocs](http://www.mkdocs.org/) and it live
 
 ### Github pages
 
-Github offers to host the project documentation on [Github Pages](https://pages.github.com/). MkDocs has an inbuilt deploy functionality do push the documentation there. The pages are hosted as project homepage on [github.io](http://obestwalter.github.io/mau-mau/).
+Github offers the option to host the project documentation on [Github Pages](https://pages.github.com/). MkDocs has an inbuilt deploy functionality to push the documentation there. The pages are hosted as project homepage on [github.io](http://obestwalter.github.io/mau-mau/).
 
 ## Working on the documentation
 
@@ -29,7 +29,7 @@ Tidy up the build in case of big changes or problems:
     
 ### Deploying the documentation
 
-If you have push rights for the repository you can deploy the current documentation with:
+If you have push rights for the repository, you can deploy the current documentation with:
 
     $ cd <path/to/your/clone>
     $ tox -e docs-deploy
