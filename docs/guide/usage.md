@@ -6,14 +6,14 @@ After installation you have an additional command in your virtualenv: `mau-mau`.
 
 * `mau-mau`: Play single game with high verbosity settings in the logger
 * `mau-mau <stats.function>`: e.g. `mau-mau mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `stats.py` will automatically make it accessible through the command line interface.
-* `mau-mau human` ... or any other argument that does not map to a function in stats: play a game against the computer
+* `mau-mau human` ... or any other argument that does not map to a function in stats: play a game against the computer.
 
 ## Run a simple simulation
         
         $ cd </path/to/your/clone>
         $ mau-mau
 
-output like:
+The output could be:
 
     root                53  main             : play_simple_game() ...
     mau_mau.subjects    28  invite           : invite [Player('Player 1', Hand([])), Player('Player 2', Hand([])), Player('Player 3', Hand([]))] to: Table(None, None)
@@ -68,7 +68,7 @@ Play interactive game (and know and see everything ...):
 
     $ mau-mau human
  
-output like:
+The output could be:
 
     root                53  main             : play_interactive_game() ...
     mau_mau.subjects    28  invite           : invite [Player('Eric', Hand([])), Player('John', Hand([])), Player('human', Hand([]))] to: Table(None, None)
@@ -127,27 +127,27 @@ output like:
 
     $ mau-mau mean_turns
 
-output like:
+The output could be:
 
     root                42  main             : mean_turns() ...
     mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
     mau_mau.stats       12  mean_turns       : mean turns played: 34.097
 
-input:
+Input:
 
     $ mau-mau winner_distribution
 
-output like:
+The output could be:
 
     root                52  main             : winner_distribution() ...
     mau_mau.stats       35  _simulate_games  : players: ('Eric', 'Terry', 'John'); 1000 reps
     mau_mau.stats       21  winner_distribution: winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
 
-input:
+Input:
 
     $ mau-mau time_durations
 
-output like:
+The output could be:
 
     root                52  main             : time_durations() ...
     mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games

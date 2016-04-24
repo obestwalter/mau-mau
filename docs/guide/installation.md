@@ -32,7 +32,7 @@ Deactivate with:
 
 ## ... from Github
 
-Install the latest code directly from github:
+Install the latest code directly from github by typing on the command line:
 
     $ pip install https://github.com/obestwalter/mau-mau/zipball/master
     
@@ -40,7 +40,7 @@ To install a specific version just replace `master` with the version you want to
 
 ## ... from .zip file
 
-On the [releases page](https://github.com/obestwalter/mau-mau/releases/) you can download zip archives and install them like:
+On the [releases page](https://github.com/obestwalter/mau-mau/releases/) you can download zip archives and install them by typing on the command line:
 
     $ pip install </path/to/downloaded/zip/archive>
 
@@ -49,7 +49,6 @@ On the [releases page](https://github.com/obestwalter/mau-mau/releases/) you can
 !!! warning "This is not implemented"
     This would mean uploading the package to the official Python Package Index (PyPI -- formerly known as the cheese shop -- documented [here](https://docs.python.org/3/distutils/packageindex.html)) ... it's not hard to do but not necessary for a learning tool like this, so I just mention it here, because that is the official way for "real" software. 
     
-If mau-mau would be uploaded to PyPI, it could be installed by simply typing:
+If `mau-mau` would be uploaded to PyPI, it could be installed by simply typing:
 
     $ pip install mau-mau
-
