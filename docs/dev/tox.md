@@ -9,7 +9,7 @@ Run static code analysis:
     $ cd </path/to/your/clone>
     $ tox -e static
 
-output like: 
+The output is like: 
 
     static create: </path/to/your/clone>/.tox/static
     static installdeps: flake8
@@ -18,12 +18,12 @@ output like:
     static runtests: PYTHONHASHSEED='3703953266'
     static runtests: commands[0] | flake8 </path/to/your/clone>/mau_mau </path/to/your/clone>/tests --show-source
 
-command line usage:
+Command line usage:
 
     $ cd </path/to/your/clone>
     $ tox -e tests
     
-output like: 
+The output is like: 
 
     tests develop-inst-nodeps: </path/to/your/clone>
     tests installed: -e git+git@github.com:obestwalter/mau-mau.git@46669a6073d233b8a27eee4995c63f03a4aec7a3#egg=mau_mau,py==1.4.31,pytest==2.9.1
