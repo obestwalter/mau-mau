@@ -20,8 +20,8 @@ pages:
 extra:
   logo: _static/logo.png
   author:
-    github: obestwalter
-    twitter: obestwalter
+    github: &user obestwalter
+    twitter: *user
 extra_css:
   - _static/extra.css
 #include_404: True
@@ -29,7 +29,7 @@ markdown_extensions:
     - admonition
     - toc:
         permalink: True #¶
-repo_url: https://github.com/obestwalter/mau-mau
+repo_url: https://github.com/*user/mau-mau
 site_name: Mau Mau
 strict: True
 theme: material
