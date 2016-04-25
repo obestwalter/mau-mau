@@ -16,10 +16,8 @@ def main():
         name='mau-mau',
         author='Oliver Bestwalter',
         url='https://github.com/obestwalter/mau-mau',
-        # FIXME upload this to Pypi after all ...
-        # use_scm_version=True,
-        # setup_requires=['setuptools_scm'],
-        version='4.0.1',  # tmp fix scm and github don't play together
+        use_scm_version=True,
+        setup_requires=['setuptools_scm'],
         packages=['mau_mau'],
         license='MIT',
         install_requires=['win_unicode_console'],

@@ -14,7 +14,7 @@ This project is also part of the **[Python Exploration Toolkit](https://github.c
 
 ### Examples for command line use
 
-    $ pip install https://github.com/obestwalter/mau-mau/zipball/master
+    $ pip install "git+https://github.com/obestwalter/mau-mau.git#egg=mau-mau"
     $ mau-mau
     $ mau-mau winner_distribution
     $ mau-mau human  # Control+C to stop
