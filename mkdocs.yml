@@ -1,3 +1,5 @@
+myname: &myname obestwalter
+
 pages:
   - Home: index.md
   - User Guide:
@@ -20,8 +22,8 @@ pages:
 extra:
   logo: _static/logo.png
   author:
-    github: &user obestwalter
-    twitter: *user
+    github: *myname
+    twitter: *myname
 extra_css:
   - _static/extra.css
 #include_404: True
@@ -29,7 +31,7 @@ markdown_extensions:
     - admonition
     - toc:
         permalink: True #¶
-repo_url: https://github.com/*user/mau-mau
+repo_url: https://github.com/obestwalter/mau-mau
 site_name: Mau Mau
 strict: True
 theme: material
