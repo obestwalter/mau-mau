@@ -1,5 +1,3 @@
-myname: &myname obestwalter
-
 pages:
   - Home: index.md
   - User Guide:
@@ -22,8 +20,8 @@ pages:
 extra:
   logo: _static/logo.png
   author:
-    github: *myname
-    twitter: *myname
+    github: obestwalter
+    twitter: obestwalter
 extra_css:
   - _static/extra.css
 #include_404: True
