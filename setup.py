@@ -6,7 +6,7 @@ from setuptools import setup
 def get_extra_dependencies():
     extras = {
         'tests': ['tox', 'flake8', 'pytest', 'pytest-watch'],
-        'docs': ['mkdocs']}
+        'docs': ['mkdocs', 'mkdocs-material']}
     extras.update(dict(all=list(itertools.chain(*extras.values()))))
     return extras
 

@@ -2,7 +2,7 @@
 
 To explore the code repository it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application as if it were installed normally but you can change the code and experiment.
 
-## [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py)
+## [play.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/play.py)
 
 !!! note "Start exploring here"
 
@@ -25,19 +25,19 @@ This is the meat of the simulation. Here is where all the magic happens. if you 
 
 These look pretty different from `game.py` and they are. Here is where the object oriented part of the story kicks in. If `game.py` contains the plot, these modules contain the descriptions of the actors and props of the story. They describe the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact.
 
-### [concepts.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/concepts.py)
+### [concepts.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/concepts.py)
 
 Classes that stand conceptually above the objects and subjects.
 
-### [objects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/objects.py) and [subjects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/subjects.py)
+### [objects.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/objects.py) and [subjects.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/subjects.py)
 
 I know .. in Python everything is an object, so this would be meaningless. This is also not [subject oriented programming](https://en.wikipedia.org/wiki/Subject-oriented_programming). These are just good terms for what those classes describe in the context of the program: there are objects in the game which are manipulated by the subjects.
 
-### [rules.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/rules.py)
+### [rules.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/rules.py)
 
 This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a 7, the number of draws have to accumulate). 
 
-### [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategy.py): How to play
+### [strategy.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/strategy.py): How to play
 
 Classes that implement different player behaviours.
 
@@ -62,11 +62,11 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/stats.py): Create statistics
+### [stats.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/stats.py): Create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
 
-### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): Command line access
+### [cli.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/cli.py): Command line access
 
 This contains the code for the command line interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the command line:
 
@@ -75,18 +75,18 @@ This contains the code for the command line interface. Its function `main` is co
 !!! note
     These files are not part of the actual software but are still vital for helping with development, installation, testing, etc. -- this makes all that tedious stuff you need when writing software less ... tedious.
 
-### [setup.py](https://github.com/obestwalter/mau-mau/blob/master/setup.py): Make program installable
+### [setup.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/setup.py): Make program installable
 
 This module is what is being called, when the package is installed via pip or with `python3 setup.py`. This is the standard way of doing it in the Python ecosystem and it is documented [here](https://docs.python.org/3.5/distutils/setupscript.html). 
       
-### [tox.ini](https://github.com/obestwalter/mau-mau/blob/master/tox.ini): Developer task automation
+### [tox.ini](https://github.com/obestwalter/mau-mau/blob/4.0.0/tox.ini): Developer task automation
 
 This [INI](https://en.wikipedia.org/wiki/INI_file) file configures tasks that can run with the tox commands. The primary goal of tox is to automate testing and act as a frontend for CI, but it can be used for automating other developer tasks as well. See also [the developer documentation](../dev/tox.md) for this tox.ini.
 
-### [.travis.yml](https://github.com/obestwalter/mau-mau/blob/master/.travis.yml) and [appveyor.yml](https://github.com/obestwalter/mau-mau/blob/master/appveyor.yml): CI for different versions and osses
+### [.travis.yml](https://github.com/obestwalter/mau-mau/blob/4.0.0/.travis.yml) and [appveyor.yml](https://github.com/obestwalter/mau-mau/blob/4.0.0/appveyor.yml): CI for different versions and osses
 
 See [documentation about CI](../dev/ci.md)
 
-### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): Documentation configuration
+### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/4.0.0/mkdocs.yml): Documentation configuration
 
 See the [documentation for the documentation](../dev/docs.md) (I'm not kidding ...).

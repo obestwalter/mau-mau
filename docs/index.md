@@ -19,12 +19,12 @@ Emphasis is put on [pythonic](https://gist.github.com/JeffPaine/6213790) ways to
 
 ### Implementation and tools
 
-* Installable as command line tool
-* Functions to run multiple games and collect stats
-* [Automatic tests](https://github.com/obestwalter/mau-mau/blob/master/tests/) with py.test, tox and Travis CI
-* Flexible [command line interface](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py) (add new functions without adjusting code)
+* Installable as [command line tool](https://github.com/obestwalter/mau-mau/blob/4.0.0/setup.py#L30)
+* [Functions](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/stats.py) to run multiple games and collect stats
 * Use of [magic methods](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
-* Quality Assurance: flake8, QuantifiedCode, py.test, doctests, Travis CI
-* Automatic generation and deployment of documentation with MkDocs
 * Logging with stdlib [logging module](https://docs.python.org/3/library/logging.html)
-* Developer task automation with tox (building and deploying docs, running tests)
+* Flexible [command line interface](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/cli.py) (add new functions without adjusting code)
+* [Automatic tests](https://github.com/obestwalter/mau-mau/blob/4.0.0/tests/) with py.test, tox and Travis CI
+* [Static code analysis](https://en.wikipedia.org/wiki/Static_program_analysis): flake8, [QuantifiedCode](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4), py.test, Travis CI and Appveyor
+* Automatic generation and deployment of documentation with [MkDocs](https://github.com/obestwalter/mau-mau/blob/4.0.0/mkdocs.yml)
+* Developer task automation with [tox](https://github.com/obestwalter/mau-mau/blob/4.0.0/tox.ini) (run tests, build and deploy documentation)
