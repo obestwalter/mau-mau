@@ -3,7 +3,7 @@
 [py.test](http://pytest.org) is my tool of choice. There is also a [standard library solution](https://docs.python.org/3/library/unittest.html), which has too much API overhead for my taste. py.test does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and you get much better failure reports. This makes for much cleaner test code and less painful testing. 
 
 !!! note 
-    The sources of the test modules are here: [tests/](https://github.com/obestwalter/mau-mau/tree/4.0.0/tests)
+    The sources of the test modules are here: [tests/](https://github.com/obestwalter/mau-mau/tree/4.0.1/tests)
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
 
@@ -85,4 +85,4 @@ Depending on where you are, you can run all tests or a part of them. The magic a
 
 You can write simple examples that can double as tests directly in documentation strings. They are called [doctests](https://docs.python.org/3.5/library/doctest.html). You can [run them directly from PyCharm](https://www.jetbrains.com/help/pycharm/2016.1/run-debug-configuration-doctest.html) as well.
 
-For an example in the code see [concepts.py](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/concepts.py)
+For an example in the code see [concepts.py](https://github.com/obestwalter/mau-mau/blob/4.0.1/mau_mau/concepts.py)
