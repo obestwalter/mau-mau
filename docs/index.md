@@ -19,7 +19,7 @@ Emphasis is put on [pythonic](https://gist.github.com/JeffPaine/6213790) ways to
 
 ### Implementation and tools
 
-* Installable as [command line tool](https://github.com/obestwalter/mau-mau/blob/4.0.0/setup.py#L30)
+* [Installable](guide/installation.md#installation) as [command line tool](https://github.com/obestwalter/mau-mau/blob/4.0.0/setup.py#L30)
 * [Functions](https://github.com/obestwalter/mau-mau/blob/4.0.0/mau_mau/stats.py) to run multiple games and collect stats
 * Use of [magic methods](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
 * Logging with stdlib [logging module](https://docs.python.org/3/library/logging.html)
