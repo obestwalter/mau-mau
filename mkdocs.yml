@@ -15,7 +15,7 @@ pages:
     - Using Tox: dev/tox.md
     - Continuous intergration: dev/ci.md
     - Working on documentation: dev/docs.md
-#  - Acknowlegements: about.md
+  - Acknowlegements: acknowledgements.md
 
 extra:
   logo: _static/logo.png
