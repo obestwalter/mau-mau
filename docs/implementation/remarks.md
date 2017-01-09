@@ -10,8 +10,8 @@ Example:
 
 ```python
 def my_super_function():
-    print("I am indented with 4 spaces")
-    print("Me too! I belong to the function")
+    print("I am indented with 4 spaces.")
+    print("Me too! We both belong to the function!")
 print("I am not inside the function block anymore :(")
 
 for currentElement in range(5):
