@@ -67,7 +67,7 @@ The name attribute of module objects are set dynamically depending on the contex
 **More resources about magic methods**
 
 * [Python docs](https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#special-method-names)
-* [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
+* [A Guide to Python's Magic Methods](https://web.archive.org/web/20161022174026/http://www.rafekettler.com/magicmethods.html) (original site went down sadly)
 
 ## Assertions
 
