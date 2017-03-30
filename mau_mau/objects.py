@@ -51,17 +51,14 @@ class Table:
 
 class Stock(_CardCollection):
     """technically not necessary but then it's clear what this represents"""
-    pass
 
 
 class Waste(_CardCollection):
     """technically not necessary but then it's clear what this represents"""
-    pass
 
 
 class Hand(_CardCollection):
     """technically not necessary but then it's clear what this represents"""
-    pass
 
 
 class Card:
