@@ -1,8 +1,7 @@
-import logging
-from numbers import Integral
-
 import collections
+import logging
 import random
+from numbers import Integral
 
 from mau_mau import exc
 
