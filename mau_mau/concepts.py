@@ -35,7 +35,7 @@ class Game:
 class _CardCollection:
     """A sequence of cards, used for all groups of cards used in the game."""
     def __init__(self, seed=None):
-        """Pile can be initialized with different seed kinds"""
+        """Can be initialized with different seed kinds"""
         if not seed:
             self.cards = []
         elif isinstance(seed, _CardCollection):
