@@ -11,11 +11,11 @@ The overall plot of the Mau Mau story can be found here. This is the entry point
 **Behold! The whole program in 6 lines!**
 
 ```python
-def play_game(rulesOfTheGame, players):
-    game = setup_game(rulesOfTheGame, players)
+def play_game(gameRules, playerSeed):
+    game = setup_game(gameRules, playerSeed)
     while not game.over:
         player = game.next_turn()
-        player.play_turn(game.table)
+        player.play(game.table)
     return game
 ```
 
@@ -35,23 +35,23 @@ I know .. in Python everything is an object, so this would be meaningless. This 
 
 ### [rules.py](https://github.com/obestwalter/mau-mau/blob/4.0.1/mau_mau/rules.py)
 
-This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a 7, the number of draws have to accumulate). 
+This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a 7, the number of draws have to accumulate).
 
 ### [strategy.py](https://github.com/obestwalter/mau-mau/blob/4.0.1/mau_mau/strategy.py): How to play
 
 Classes that implement different player behaviours.
 
-!!! note 
+!!! note
     A player has a strategy, but the player also attaches it to the active rule, so that it can be queried for the wanted suit if a Jack is on the table.
 
 #### BasicStrategy
 
-Player plays according to the rules and always chooses random antidotes if they have any (e.g. 7 on 7 to prevent having to draw) or normal cards. If playing a Jack it always asks for the suit it has the most of. 
+Player plays according to the rules and always chooses random antidotes if they have any (e.g. 7 on 7 to prevent having to draw) or normal cards. If playing a Jack it always asks for the suit it has the most of.
 
 This can be extended upon to implement "real" strategies.
 
 #### HumanStrategy
- 
+
 Mainly to show that the existing design makes it very easy to even add interactivity to let a human play against a computer (`mau-mau human`).
 
 The impact of this is very likely to be zero on a planetary basis, as this is just a learning tool, but in general one should be very wary of implementing something just because it's easy:
@@ -79,8 +79,8 @@ This contains the code for the command line interface. Its function `main` is co
 
 ### [setup.py](https://github.com/obestwalter/mau-mau/blob/4.0.1/setup.py): Make program installable
 
-This module is what is being called, when the package is installed via pip or with `python3 setup.py`. This is the standard way of doing it in the Python ecosystem and it is documented [here](https://docs.python.org/3.5/distutils/setupscript.html). 
-      
+This module is what is being called, when the package is installed via pip or with `python3 setup.py`. This is the standard way of doing it in the Python ecosystem and it is documented [here](https://docs.python.org/3.5/distutils/setupscript.html).
+
 ### [tox.ini](https://github.com/obestwalter/mau-mau/blob/4.0.1/tox.ini): Developer task automation
 
 This [INI](https://en.wikipedia.org/wiki/INI_file) file configures tasks that can run with the tox commands. The primary goal of tox is to automate testing and act as a frontend for CI, but it can be used for automating other developer tasks as well. See also [the developer documentation](../dev/tox.md) for this tox.ini.
