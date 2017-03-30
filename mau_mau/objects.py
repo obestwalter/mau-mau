@@ -33,8 +33,7 @@ class Table:
 
     @staticmethod
     def transfer_punishments(sourceRule, destinationRule):
-        for punishment in sourceRule.punishments:
-            destinationRule.punishments.append(punishment)
+        destinationRule.punishments.extend(sourceRule.punishments)
 
     def replenish_stock(self):
         self.stock = Stock(self.waste)
