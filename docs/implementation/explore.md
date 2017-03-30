@@ -70,6 +70,8 @@ Contains functions to run the game simulations and collect statistics. See [usag
 
 This contains the code for the command line interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the command line:
 
+**FIXME** missing enumeration
+
 ## Peripherals
 
 !!! note
