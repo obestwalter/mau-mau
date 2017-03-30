@@ -1,6 +1,6 @@
 import itertools
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def get_extra_dependencies():
@@ -19,7 +19,7 @@ def main():
         use_scm_version=True,
         setup_requires=['setuptools_scm', 'pytest-runner'],
         tests_require=['pytest'],
-        packages=['mau_mau'],
+        packages=find_packages(),
         license='MIT',
         install_requires=['win_unicode_console'],
         extras_require=get_extra_dependencies(),
