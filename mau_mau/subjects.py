@@ -42,15 +42,6 @@ class Croupier:
             rps.append(Player(player, s))
         return rps
 
-    @classmethod
-    def _tell_players_where_to_sit(cls, players):
-        """So that players know who's next"""
-        for idx, player in enumerate(players):
-            try:
-                player.nextPlayer = players[idx + 1]
-            except IndexError:
-                player.nextPlayer = players[0]
-
     def check_setup(self, players, cardsPerPlayer):
         assert len(players) > 1, "not enough players"
         neededCards = len(players) * cardsPerPlayer

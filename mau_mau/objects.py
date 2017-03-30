@@ -20,9 +20,9 @@ class Table:
         return "%s(%s, %s)" % (name, self.rules, self.players)
 
     def join(self, players):
-        """Players join at the table and therefore learn who comes next
+        """Players join the table and therefore learn who comes next
 
-        ... in a different program this would have a very different meaning
+        ... not to be confused with joining tables in a database :)
         """
         self.players = players
         for idx, player in enumerate(self.players):
