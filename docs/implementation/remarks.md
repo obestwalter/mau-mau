@@ -48,16 +48,16 @@ Those `__something__()` thingies might look scary for the uninitiated, but you w
 
 In this simple simulation this is actually possible for all objects, so why not do it? This makes it possible to copy object representations from the output and recreate them in the REPL to experiment with them. If done correctly, this also works when using inheritance (see `Stock` and `Waste`).
 
-This could also be useful: [reprlib helps making better representations](https://docs.python.org/3.5/library/reprlib.html).
+This could also be useful: [reprlib helps making better representations](https://docs.python.org/3/library/reprlib.html).
 
 ### Make your own objects behave like built in data types
 
-* Let an object have a [length (`__len__`)](https://docs.python.org/2/reference/datamodel.html#object.__len__) and a concept of being `True` or `False` depending on having a length > 0 or not.
-* Make an object [iterable (`__iter__`)](https://docs.python.org/2/reference/datamodel.html#object.__iter__).
+* Let an object have a [length (`__len__`)](https://docs.python.org/3/reference/datamodel.html#object.__len__) and a concept of being `True` or `False` depending on having a length > 0 or not.
+* Make an object [iterable (`__iter__`)](https://docs.python.org/3/reference/datamodel.html#object.__iter__).
 
 ### Other uses of special object attributes
 
-All objects have a [name (`__name__`)](https://docs.python.org/2/library/stdtypes.html?highlight=__name__#class.__name__)
+All objects have a [name (`__name__`)](https://docs.python.org/3/library/stdtypes.html?highlight=__name__#class.__name__)
 
 The name attribute of module objects are set dynamically depending on the context in which the module is loaded. If the module is run like a script it has a different name than when it is imported by another module. The names of modules are used for two purposes in this program:
 
@@ -94,6 +94,6 @@ Look for uses of the assert statement in the code to get an idea how it might be
 
 ## Logging
 
-Python has an easy-to-use and convenient [logging module](https://docs.python.org/3.5/library/logging.html) included. There is no reason why beginners shouldn't learn to use that right away. This is better than cluttering the code with calls to `print`. With logging you have the possibility to use different [log levels](https://docs.python.org/3.5/library/logging.html) and adjust the output when debugging problems. You can set the level to `logging.DEBUG` to see the full story or even [disable](https://docs.python.org/2/library/logging.html#logging.disable) it when running thousands of simulations, where logging would slow the program down.
+Python has an easy-to-use and convenient [logging module](https://docs.python.org/3/library/logging.html) included. There is no reason why beginners shouldn't learn to use that right away. This is better than cluttering the code with calls to `print`. With logging you have the possibility to use different [log levels](https://docs.python.org/3/library/logging.html#levels) and adjust the output when debugging problems. You can set the level to `logging.DEBUG` to see the full story or even [disable](https://docs.python.org/3/library/logging.html#logging.disable) it when running thousands of simulations, where logging would slow the program down.
 
-We use a [simple format](https://docs.python.org/3.5/library/logging.html#logrecord-attributes) and the [convenience function](https://docs.python.org/3.5/library/logging.html#logging.basicConfig) to initialise the logger to write to the terminal with a certain level.
+We use a [simple format](https://docs.python.org/3/library/logging.html#logrecord-attributes) and the [convenience function](https://docs.python.org/3/library/logging.html#logging.basicConfig) to initialise the logger to write to the terminal with a certain level.
