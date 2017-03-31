@@ -18,7 +18,6 @@ def test_len_and_bool_depending_on_len(data, expectation):
     assert bool(_CardCollection(data)) == expectation
 
 
-# noinspection PyUnusedLocal
 @pytest.mark.parametrize("data", [[], [None], [1], ['hello', 3], [1, 2, 3]])
 def test_iter(data):
     assert [e for e in _CardCollection(data)] == data
