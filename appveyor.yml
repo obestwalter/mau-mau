@@ -4,12 +4,10 @@ branches:
 
 environment:
   matrix:
-    - PYTHON: "C:\\Python34"
-    - PYTHON: "C:\\Python35"
-      DISTUTILS_USE_SDK: "1"
-    - PYTHON: "C:\\Python34-x64"
-      DISTUTILS_USE_SDK: "1"
-    - PYTHON: "C:\\Python35-x64"
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERSION: "3.6.0"
+      PYTHON_ARCH: "64"
+      PIP: "C:\\Python36-x64\\Scripts\\pip"
 
 install:
   - "%PYTHON%\\python.exe -m pip install tox"
