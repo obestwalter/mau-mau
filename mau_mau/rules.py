@@ -1,14 +1,14 @@
 import logging
 
-from mau_mau import const
+from mau_mau.constants import DECK
 
 log = logging.getLogger(__name__)
 
 
 class BasicRule:
-    def __init__(self, card, ruleKlass):
+    def __init__(self, card, ruleClass):
         self.card = card
-        self.rules = ruleKlass
+        self.rules = ruleClass
         self.strategy = None
         """If a player plays a card, they attach a strategy to their rule"""
         self.skipPlayer = False
@@ -41,7 +41,7 @@ class MakePlayerDrawTwoCards(BasicRule):
 
     @staticmethod
     def _find_antidotes(cards):
-        return [c for c in cards if c.value == const.DECK.SEVEN]
+        return [c for c in cards if c.value == DECK.SEVEN]
 
     @staticmethod
     def _punishment(player, table):
@@ -62,14 +62,14 @@ class DemandWantedSuit(BasicRule):
             # No strategy attached -> First card in game
             wantedSuit = self.card.suit
         return [c for c in cards if
-                c.suit == wantedSuit and not c.value == const.DECK.JACK]
+                c.suit == wantedSuit and not c.value == DECK.JACK]
 
 
 class MauMau:
     RULES = {
-        const.DECK.SEVEN: MakePlayerDrawTwoCards,
-        const.DECK.EIGHT: SkipNextPlayer,
-        const.DECK.JACK: DemandWantedSuit}
+        DECK.SEVEN: MakePlayerDrawTwoCards,
+        DECK.EIGHT: SkipNextPlayer,
+        DECK.JACK: DemandWantedSuit}
 
     def __init__(self, cardsPerPlayer=5):
         self.cardsPerPlayer = cardsPerPlayer
@@ -88,7 +88,7 @@ class MauMau:
         """Determines when a card is playable on the upcard"""
         return [c for c in cards if
                 upcard.value == c.value or upcard.suit == c.suit or
-                c.value == const.DECK.JACK]
+                c.value == DECK.JACK]
 
     @staticmethod
     def no_play_action(player, table):

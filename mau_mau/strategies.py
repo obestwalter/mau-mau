@@ -2,7 +2,7 @@ import collections
 import logging
 import random
 
-from mau_mau.const import DECK
+from mau_mau.constants import DECK
 
 log = logging.getLogger(__name__)
 
