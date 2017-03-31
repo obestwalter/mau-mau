@@ -1,7 +1,7 @@
 language: python
 cache: pip
 python:
- - "3.4"
+ - "3.6"
 git:
   depth: 3
 branches:
