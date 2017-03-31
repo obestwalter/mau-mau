@@ -36,11 +36,8 @@ class Croupier:
         if not isinstance(seed, collections.Iterable):
             return [Player("Player %s" % (n)) for n in range(1, seed + 1)]
 
-        rps = []
-        for player in seed:
-            s = HumanStrategy if player == 'human' else BasicStrategy
-            rps.append(Player(player, s))
-        return rps
+        return [Player(p, HumanStrategy if p == 'human' else BasicStrategy)
+                for p in seed]
 
     def check_setup(self, players, cardsPerPlayer):
         assert len(players) > 1, "not enough players"
@@ -70,6 +67,7 @@ class Player:
         """:type: Hand"""
         self.strategy = strategyClass(self)
         self.nextPlayer = None
+        """Will point to next player when players have joined a table"""
 
     def __repr__(self):
         name = self.__class__.__name__
