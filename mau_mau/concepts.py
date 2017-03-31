@@ -16,14 +16,14 @@ class Game:
 
     def __repr__(self):
         name = self.__class__.__name__
-        return "%s(%s)" % (name, self.table)
+        return f"{name}({self.table})"
 
     def next_turn(self):
         self.turns += 1
         self.player = self.player.nextPlayer
-        log.debug("%s turn %s %s" % ("-" * 20, self.turns, "-" * 20))
+        log.debug(f"{'-' * 20 } turn {self.turns} {'-' * 20 }")
         log.debug("upcard: %s", self.table.upcard)
-        log.debug("%s is up", self.player)
+        log.debug(f"{self.player} is up")
         return self.player
 
     @property
@@ -54,7 +54,7 @@ class _CardCollection:
         'Stock([1, 2, 3])'
         """
         name = self.__class__.__name__
-        return "%s(%s)" % (name, self.cards)
+        return f"{name}({self.cards})"
 
     def __len__(self):
         """Object has a length that is the number of cards contained in it.

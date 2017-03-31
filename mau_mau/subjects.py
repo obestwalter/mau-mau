@@ -34,7 +34,7 @@ class Croupier:
         :type seed: int or list of str
         """
         if not isinstance(seed, collections.Iterable):
-            return [Player("Player %s" % (n)) for n in range(1, seed + 1)]
+            return [Player(f"Player {n}") for n in range(1, seed + 1)]
 
         return [Player(p, HumanStrategy if p == 'human' else BasicStrategy)
                 for p in seed]
@@ -71,7 +71,7 @@ class Player:
 
     def __repr__(self):
         name = self.__class__.__name__
-        return "%s('%s', %s)" % (name, self.name, self.hand)
+        return f"{name}('self.name', {self.hand})"
 
     def __eq__(self, other):
         return self.name == other.name
@@ -85,7 +85,7 @@ class Player:
                 table.replenish_stock()
             card = table.stock.fetch()
             self.hand.put(card)
-            log.debug("%s <- %s" % (self.name, card))
+            log.debug(f"{self.name} <- {card}")
 
     def put(self, table, card, strategy):
         log.debug("play %s", card)

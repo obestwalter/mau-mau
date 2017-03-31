@@ -17,7 +17,7 @@ class Table:
 
     def __repr__(self):
         name = self.__class__.__name__
-        return "%s(%s, %s)" % (name, self.rules, self.players)
+        return f"{name}({self.rules}, {self.players})"
 
     def join(self, players):
         """Players join the table and therefore learn who comes next
@@ -68,4 +68,4 @@ class Card:
 
     def __repr__(self):
         name = self.__class__.__name__
-        return "%s('%s', '%s')" % (name, self.value, self.suit)
+        return f"{name}('{self.value}', '{self.suit}')"

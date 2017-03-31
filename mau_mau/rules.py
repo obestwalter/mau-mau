@@ -24,7 +24,7 @@ class BasicRule:
 
     def __repr__(self):
         name = self.__class__.__name__
-        return "%s on %s" % (name, self.card)
+        return f"{name} on {self.card}"
 
     def find_playable_cards(self, cards):
         return self.rules.find_playable_cards(self.card, cards)
@@ -76,7 +76,7 @@ class MauMau:
 
     def __repr__(self):
         name = self.__class__.__name__
-        return "%s(%s)" % (name, self.cardsPerPlayer)
+        return f"{name}({self.cardsPerPlayer})"
 
     @classmethod
     def get_rule(cls, card):

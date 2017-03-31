@@ -102,13 +102,13 @@ class HumanStrategy(BasicStrategy):
     @classmethod
     def get_valid_choice(cls, choices, msg):
         def visualize(elems):
-            c = ["%s -> %s" % (i, c) for i, c in enumerate(elems, 1)]
+            c = [f"{i} -> {c}" for i, c in enumerate(elems, 1)]
             return " | ".join(c)
 
         while True:
-            idx = input("%s.\n%s | " % (msg, visualize(choices)))
+            idx = input(f"{msg}.\n{visualize(choices)} | ")
             try:
                 return choices[int(idx) - 1]
 
             except (IndexError, ValueError):
-                log.warning("'%s' is not a valid choice", idx)
+                log.warning(f"'{idx}' is not a valid choice")
