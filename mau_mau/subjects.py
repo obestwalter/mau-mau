@@ -3,7 +3,7 @@ import logging
 
 from mau_mau.const import DECK
 from mau_mau.objects import Stock, Waste, Hand, Card
-from mau_mau.strategy import HumanStrategy, BasicStrategy
+from mau_mau.strategies import HumanStrategy, BasicStrategy
 
 log = logging.getLogger(__name__)
 
