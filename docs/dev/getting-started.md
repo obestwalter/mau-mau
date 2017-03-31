@@ -1,11 +1,11 @@
 # Getting started
 
-!!! note 
+!!! note
     Please replace `</path/to/your/clone>` with the actual path of your mau-mau repository clone on your computer.
 
 To work on the code:
 
-* [Fork](https://guides.github.com/activities/forking/) the repository 
+* [Fork](https://guides.github.com/activities/forking/) the repository
 * [Clone](http://rogerdudler.github.io/git-guide/) the repository to `<path/to/your/clone>` (wherever that is).
 
 ... and install the code as editable in a [virtualenv](../guide/installation.md#in-a-virtualenv):
@@ -24,7 +24,7 @@ The output looks like:
 Make sure it is installed as editable:
 
     $ pip freeze
-    
+
 The output looks like (most packages removed from list):
 
     [...]
@@ -33,3 +33,8 @@ The output looks like (most packages removed from list):
     win-unicode-console==0.4
 
 The line starting with the `-e` indicates that mau-mau is installed as editable from github.
+
+# Using vagrant
+
+!!! TODO!
+    Write about use of vagrant

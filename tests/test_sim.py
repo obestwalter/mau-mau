@@ -1,7 +1,7 @@
 import pytest
 
 from mau_mau import rules, play
-from mau_mau.const import DECK
+from mau_mau.constants import DECK
 from mau_mau.subjects import Croupier
 
 mmRules = rules.MauMau()

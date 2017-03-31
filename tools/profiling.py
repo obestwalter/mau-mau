@@ -2,7 +2,7 @@ import sys
 
 import os
 
-from mau_mau.stats import winner_distribution
+from mau_mau.statistics import winner_distribution
 
 userPath = os.path.expanduser('~')
 pmPath = os.path.join(userPath, '.opt/pyvmmonitor/public_api')

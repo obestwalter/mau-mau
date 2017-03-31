@@ -9,7 +9,7 @@ Start it with one of the functions in stat.py to run simulations and get stats.
 import logging
 import sys
 
-from mau_mau import rules, play, stats
+from mau_mau import rules, play, statistics
 
 try:
     import win_unicode_console
@@ -39,7 +39,7 @@ def get_function_from_name(name):
         return play_simple_game
 
     try:
-        return getattr(stats, name)
+        return getattr(statistics, name)
 
     except AttributeError:
         return play_interactive_game

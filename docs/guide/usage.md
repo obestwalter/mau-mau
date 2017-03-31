@@ -5,11 +5,11 @@
 After installation you have an additional command in your virtualenv: `mau-mau`. The default behaviour if you call it without parameters is to simulate a simple game of Mau Mau between three computer players (and you can see the hands of all the players and every step of the game).
 
 * `mau-mau`: Play single game with high verbosity settings in the logger
-* `mau-mau <stats.function>`: e.g. `mau-mau mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](https://github.com/obestwalter/mau-mau/blob/4.0.1/mau_mau/stats.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `stats.py`. Adding a new function to `stats.py` will automatically make it accessible through the command line interface.
+* `mau-mau <stats.function>`: e.g. `mau-mau mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `statistics.py`. Adding a new function to `statistics.py` will automatically make it accessible through the command line interface.
 * `mau-mau human` ... or any other argument that does not map to a function in stats: play a game against the computer.
 
 ## Run a simple simulation
-        
+
         $ cd </path/to/your/clone>
         $ mau-mau
 
@@ -67,7 +67,7 @@ The output could be:
 Play interactive game (and know and see everything ...):
 
     $ mau-mau human
- 
+
 The output could be:
 
     root                53  main             : play_interactive_game() ...
