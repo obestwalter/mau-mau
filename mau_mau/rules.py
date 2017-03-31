@@ -10,13 +10,13 @@ class BasicRule:
         self.card = card
         self.rules = ruleKlass
         self.strategy = None
-        """if a player plays a card, he attaches his strategy to the rule"""
+        """If a player plays a card, they attach a strategy to their rule"""
         self.skipPlayer = False
-        """is active if a rule leads to a player being skipped"""
+        """Is active if a rule leads to a player being skipped"""
         self.find_antidotes = None
-        """contains a function to find an antidote if rules offers it"""
+        """Contains a function to find an antidote if rules offers it"""
         self.punishments = []
-        """one or several functions that execute punishments for the rule.
+        """One or several functions that execute punishments for the rule.
 
         If punishments are not prevented with an antidote or executed, they
         are propagated to the next rule.
