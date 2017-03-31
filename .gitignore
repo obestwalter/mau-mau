@@ -1,1 +1,6 @@
+.cache
+.eggs
+.vagrant
+*.egg-info
+
 site
