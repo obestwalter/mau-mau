@@ -37,7 +37,7 @@ I know .. in Python everything is an object, so this would be meaningless. This 
 
 This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a 7, the number of draws have to accumulate).
 
-### [strategy.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategies.py): How to play
+### [strategies.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategies.py): How to play
 
 Classes that implement different player behaviours.
 
@@ -62,15 +62,13 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py): Create statistics
+### [statistics.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py): Create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
 
 ### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): Command line access
 
-This contains the code for the command line interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed. At the moment the following can be accessed from the command line:
-
-**FIXME** missing enumeration
+This contains the code for the command line interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed.
 
 ## Peripherals
 
