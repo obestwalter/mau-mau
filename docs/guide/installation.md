@@ -8,9 +8,9 @@
 
 ... nuff said.
 
-## To be more exact: **Python 3.6**
+### To be more exact: **Python 3.6**
 
-There are a lot of great additions in Python 3.6 - most of them backward compatible, but the one backwards incompatible feature I will be using in this project: [f-strings](https://www.python.org/dev/peps/pep-0498/) - because I waited for them for years now and in this project I can just use Python 3.6, because nobody can stop me :D
+There are a lot of great additions in [Python 3.6](https://www.python.org/downloads/release/python-361/) - most of them backwards compatible, but I will use at least one backwards incompatible feature in this project: [f-strings](https://www.python.org/dev/peps/pep-0498/) - because I can :D
 
 !!! note
     It might already be installed. Type `python` on the commandline and see if a Python [REPL](https://docs.python.org/3/tutorial/interpreter.html) opens and which version it reports. If the standard python interpreter is still Python2 on your system, try typing `python3` instead and see if you are lucky. If not get it here: [Python3](https://www.python.org/downloads/).

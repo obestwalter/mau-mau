@@ -2,7 +2,7 @@
 
 ## Significant whitespace
 
-Python is a language where space matters ... meaning  units of code (blocks, function bodies, etc.) are delimited by a colon (`:`) and indentation (4 spaces by convention) of all the following lines that belong to that block. A good editor that is language aware will help with that. It [indents](http://www.diveintopython.net/getting_to_know_python/indenting_code.html) the code automatically after ending a line with a colon. It also lets you indent and dedent entire blocks of code that are marked by pressing the `Tab` key and [outdents](https://www.jetbrains.com/pycharm/webhelp/changing-indentation.html?) them when pressing `Shift + Tab`. 
+Python is a language where space matters ... meaning  units of code (blocks, function bodies, etc.) are delimited by a colon (`:`) and indentation (4 spaces by convention) of all the following lines that belong to that block. A good editor that is language aware will help with that. It [indents](http://www.diveintopython.net/getting_to_know_python/indenting_code.html) the code automatically after ending a line with a colon. It also lets you indent and dedent entire blocks of code that are marked by pressing the `Tab` key and [outdents](https://www.jetbrains.com/pycharm/webhelp/changing-indentation.html?) them when pressing `Shift + Tab`.
 
 See also: [code layout](https://www.python.org/dev/peps/pep-0008/#code-lay-out) in PEP8.
 
@@ -62,7 +62,7 @@ All objects have a [name (`__name__`)](https://docs.python.org/3/library/stdtype
 The name attribute of module objects are set dynamically depending on the context in which the module is loaded. If the module is run like a script it has a different name than when it is imported by another module. The names of modules are used for two purposes in this program:
 
 1. Set the name of the logger object to get information from where the log was written
-1. If a module is started directly it has the special name `__main__` - this can be used to only execute certain code if it is meant to behave like a script (as opposed to being imported as a module). This is the [canonic way](https://docs.python.org/3/library/__main__.html) to do this. 
+1. If a module is started directly it has the special name `__main__` - this can be used to only execute certain code if it is meant to behave like a script (as opposed to being imported as a module). This is the [canonic way](https://docs.python.org/3/library/__main__.html) to do this.
 
 **More resources about magic methods**
 
@@ -75,11 +75,11 @@ The name attribute of module objects are set dynamically depending on the contex
 
 > -- Christopher Hitchens
 
-To assert something means "to state or express positively". Assertions are regarded as important enough in Python that [`assert` is a statement](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) (since Python 3 even `print` is not important enough to be a statement). `assert` evaluates an expression and raises an [`AssertionError`](https://docs.python.org/3/library/exceptions.html?highlight=assert#AssertionError) if the result of the evaluation is `False` (with a customizable message to provide more information about the problem). This can be a very simple check like making sure that an object is [truthy](https://docs.python.org/3/library/stdtypes.html#truth) if evaluated as [`bool`](https://docs.python.org/3/library/functions.html#bool). 
+To assert something means "to state or express positively". Assertions are regarded as important enough in Python that [`assert` is a statement](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) (since Python 3 even `print` is not important enough to be a statement). `assert` evaluates an expression and raises an [`AssertionError`](https://docs.python.org/3/library/exceptions.html?highlight=assert#AssertionError) if the result of the evaluation is `False` (with a customizable message to provide more information about the problem). This can be a very simple check like making sure that an object is [truthy](https://docs.python.org/3/library/stdtypes.html#truth) if evaluated as [`bool`](https://docs.python.org/3/library/functions.html#bool).
 
 ```Python
 def spam(someObject):
-    assert someObject, "Hey! %s is not what I want!" % (someObject)
+    assert someObject, f"Hey! {someObject} is not what I want!"
     print(someObject)
     
 spam([1, 2])

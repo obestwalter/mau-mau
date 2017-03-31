@@ -4,18 +4,19 @@
 
 After installation you have an additional command in your virtualenv: `mau-mau`. The default behaviour if you call it without parameters is to simulate a simple game of Mau Mau between three computer players (and you can see the hands of all the players and every step of the game).
 
+
+**FIXME** I use fire now ... adapt
 * `mau-mau`: Play single game with high verbosity settings in the logger
-* `mau-mau <stats.function>`: e.g. `mau-mau mean_turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `statistics.py`. Adding a new function to `statistics.py` will automatically make it accessible through the command line interface.
+* `mau-mau <stats.function>`: e.g. `mau-mau turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `statistics.py`. Adding a new function to `statistics.py` will automatically make it accessible through the command line interface.
 * `mau-mau human` ... or any other argument that does not map to a function in stats: play a game against the computer.
 
 ## Run a simple simulation
 
         $ cd </path/to/your/clone>
-        $ mau-mau
+        $ mau-mau sim
 
 The output could be:
 
-    root                53  main             : play_simple_game() ...
     mau_mau.subjects    28  invite           : invite [Player('Player 1', Hand([])), Player('Player 2', Hand([])), Player('Player 3', Hand([]))] to: Table(None, None)
     mau_mau.subjects    100 draw             : Player 1 <- Card('10', '♣')
     mau_mau.subjects    100 draw             : Player 1 <- Card('8', '♣')
@@ -66,11 +67,10 @@ The output could be:
 
 Play interactive game (and know and see everything ...):
 
-    $ mau-mau human
+    $ mau-mau play
 
 The output could be:
 
-    root                53  main             : play_interactive_game() ...
     mau_mau.subjects    28  invite           : invite [Player('Eric', Hand([])), Player('John', Hand([])), Player('human', Hand([]))] to: Table(None, None)
     mau_mau.subjects    100 draw             : Eric <- Card('Queen', '♠')
     mau_mau.subjects    100 draw             : Eric <- Card('10', '♠')
@@ -125,29 +125,26 @@ The output could be:
 
 ## Collect statistics
 
-    $ mau-mau mean_turns
+    $ mau-mau turns
 
 The output could be:
 
-    root                42  main             : mean_turns() ...
     mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
-    mau_mau.stats       12  mean_turns       : mean turns played: 34.097
+    mau_mau.stats       12  turns            : mean turns played: 34.097
 
 Input:
 
-    $ mau-mau winner_distribution
+    $ mau-mau winners
 
 The output could be:
 
-    root                52  main             : winner_distribution() ...
     mau_mau.stats       35  _simulate_games  : players: ('Eric', 'Terry', 'John'); 1000 reps
-    mau_mau.stats       21  winner_distribution: winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
+    mau_mau.stats       21  distribution     : winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
 
 Input:
 
-    $ mau-mau time_durations
+    $ mau-mau durations
 
 The output could be:
 
-    root                52  main             : time_durations() ...
     mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games
