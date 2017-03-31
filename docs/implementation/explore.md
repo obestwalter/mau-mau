@@ -90,3 +90,7 @@ See [documentation about CI](../dev/ci.md)
 ### [mkdocs.yml](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml): Documentation configuration
 
 See the [documentation for the documentation](../dev/docs.md) (I'm not kidding ...).
+
+### [Vagrantfile](https://github.com/obestwalter/mau-mau/blob/master/Vagrantfile)
+
+To start a VirtualBox with Linux or Windows prepared for development.
