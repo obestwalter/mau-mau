@@ -1,6 +1,10 @@
 import itertools
-
+import sys
 from setuptools import setup, find_packages
+
+if sys.version_info < (3, 6):
+    print("ERROR: At least Python 3.6 needed. You use Python %s" % sys.version)
+    sys.exit(1)
 
 
 def main():
@@ -13,14 +17,18 @@ def main():
         tests_require=['pytest'],
         packages=find_packages(),
         license='MIT',
+        install_requires=['fire'],
         extras_require=generate_extras_require(),
-        entry_points={'console_scripts': ['mau-mau = mau_mau.cli:main']},
+        entry_points={'console_scripts': [
+            'mau-mau = mau_mau.cli:main',
+            'mau-mau-statistics = mau_mau.statistics:main',
+        ]},
         classifiers=[
-            'Programming Language :: Python',
+            'Programming Language :: Python :: 3.6',
             'Development Status :: 5 - Mature',
             'Environment :: Console',
-            'Intended Audience :: End Users/Desktop',
             'Intended Audience :: Developers',
+            'Intended Audience :: End Users/Desktop',
             'Operating System :: POSIX',
             'Operating System :: Microsoft :: Windows',
             'License :: OSI Approved :: MIT License',
