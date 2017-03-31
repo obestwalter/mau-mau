@@ -3,7 +3,7 @@ import logging
 import random
 from numbers import Integral
 
-from mau_mau import exc
+from mau_mau import exceptions
 
 log = logging.getLogger(__name__)
 
@@ -94,7 +94,7 @@ class _CardCollection:
         :rtype: Card or list of Card
         """
         if not self.cards:
-            raise exc.NoCardsLeft()
+            raise exceptions.NoCardsLeft()
 
         try:
             if not criterion or criterion == 1:
@@ -105,4 +105,4 @@ class _CardCollection:
 
             return self.cards.pop(self.cards.index(criterion))
         except (IndexError, ValueError):
-            raise exc.CardNotFound()
+            raise exceptions.CardNotFound()

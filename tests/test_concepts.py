@@ -1,6 +1,6 @@
 import pytest
 
-from mau_mau import exc
+from mau_mau import exceptions
 from mau_mau.concepts import _CardCollection
 
 
@@ -32,10 +32,10 @@ def test_iter(data):
         (['e', 'f'], 'f', 'f'),
         (['g', 'h', 'i'], 'g', 'g'),
         (['m', 'n'], None, 'm'),
-        (['j', 'k', 'l'], 'x', exc.CardNotFound),
-        (None, 1, exc.NoCardsLeft),
-        ([], 1, exc.NoCardsLeft),
-        ([], 'a', exc.NoCardsLeft),
+        (['j', 'k', 'l'], 'x', exceptions.CardNotFound),
+        (None, 1, exceptions.NoCardsLeft),
+        ([], 1, exceptions.NoCardsLeft),
+        ([], 'a', exceptions.NoCardsLeft),
     ]
 )
 def test_fetch(data, wantedItem, expectation):

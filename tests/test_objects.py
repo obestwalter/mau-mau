@@ -1,11 +1,11 @@
 import pytest
 
-from mau_mau import exc
+from mau_mau import exceptions
 from mau_mau.objects import Stock, Waste, Card
 
 
 def test_fetch_card_from_empty_stock_raises():
-    with pytest.raises(exc.NoCardsLeft):
+    with pytest.raises(exceptions.NoCardsLeft):
         Stock().fetch()
 
 
