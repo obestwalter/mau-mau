@@ -26,7 +26,7 @@ let the computer simulate a game:
     
     $ mau-mau sim
     
-list the different functios to run statistics:
+list the different functions to run statistics:
     
     $ mau-mau-statistics
 
