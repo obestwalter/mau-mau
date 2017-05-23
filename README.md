@@ -12,13 +12,24 @@ This project is also part of the **[Python Exploration Toolkit](https://github.c
 
 ## Try it
 
-### Examples for command line use
+installation from this github repo:
 
     $ pip install "git+https://github.com/obestwalter/mau-mau.git#egg=mau-mau"
-    $ mau-mau
-    $ mau-mau winner_distribution
-    $ mau-mau human  # Control+C to stop
+
+### Examples for command line use
+
+play a game against the computer:
     
+    $ mau-mau play  # Control+C to stop
+    
+let the computer simulate a game:
+    
+    $ mau-mau sim
+    
+list the different functions to run statistics:
+    
+    $ mau-mau-statistics
+
 ## Licenses and Acknowledgements
 
 ### Licenses
