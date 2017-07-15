@@ -1,18 +1,18 @@
 # Automatic tests
 
-[py.test](http://pytest.org) is my tool of choice. There is also a [standard library solution](https://docs.python.org/3/library/unittest.html), which has too much API overhead for my taste. py.test does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and you get much better failure reports. This makes for much cleaner test code and less painful testing.
+[pytest](http://pytest.org) is my tool of choice. There is also a [standard library solution](https://docs.python.org/3/library/unittest.html), which has too much API overhead for my taste and is by for not as convenient as pytest is. pytest does some very [clever things](https://pytest.org/latest/assert.html) to let you use the assertion statement directly and you get much better failure reports. It also has fixtures which makes it very easy to make test code very modular. This makes for much cleaner test code.
 
 !!! note
     The sources of the test modules are here: [tests/](https://github.com/obestwalter/mau-mau/tree/master/tests)
 
 The ability to write simple functions to test your code cannot be developed early enough, so why not start this right away as well? The examples are dead simple and not covering much yet, but show that it's not rocket science to write automatic tests for your code. Pytest makes it possible to use the inbuilt `assert` for writing tests.
 
-## py.test (command line)
+## pytest (command line)
 
-py.test looks for modules with the pattern `test_*.py` downwards from your [cwd](https://en.wikipedia.org/wiki/Working_directory). In those modules it looks for `def test_*` and `class Test*`. After collecting everything fitting those patterns it execute all test functions and reports back.
+pytest looks for modules with the pattern `test_*.py` downwards from your [cwd](https://en.wikipedia.org/wiki/Working_directory). In those modules it looks for `def test_*` and `class Test*`. After collecting everything fitting those patterns it execute all test functions and reports back.
 
     $ cd </path/to/your/clone>
-    $ py.test
+    $ pytest
 
 Example for a successful run:
 
@@ -63,12 +63,12 @@ If you want to take this one step further and have the tests being run automatic
 
 `notify-send` is how I can send desktop notifications from the commandline in my os ([Linux](https://wiki.archlinux.org/index.php/Desktop_notifications)). There are lots of ways to do this on every os - even [Windows](https://github.com/nels-o/toaster) and [Mac](https://github.com/julienXX/terminal-notifier).
 
-## py.test (PyCharm)
+## pytest (PyCharm)
 
 ### Preparation
 
-The default testrunner in PyCharm is Unittest. You have to switch to py.test like so:
-* **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to py.test
+The default testrunner in PyCharm is Unittest. You have to switch to pytest like so:
+* **Find Action: [default testrunner](https://www.jetbrains.com/help/pycharm/2016.1/testing-frameworks.html)**: set to pytest
 * accept offer to install it in your project virtualenv or do it yourself with `pip install pytest`
 
 ### Running tests

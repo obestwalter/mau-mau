@@ -24,7 +24,7 @@ Emphasis is put on [pythonic](https://gist.github.com/JeffPaine/6213790) ways to
 * Use of [magic methods](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
 * Logging with stdlib [logging module](https://docs.python.org/3/library/logging.html)
 * Flexible [command line interface](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py) (add new functions without adjusting code)
-* [Automatic tests](https://github.com/obestwalter/mau-mau/blob/master/tests/) with py.test, tox and Travis CI
+* [Automatic tests](https://github.com/obestwalter/mau-mau/blob/master/tests/) with pytest, tox and Travis CI
 * [Static code analysis](https://en.wikipedia.org/wiki/Static_program_analysis): flake8, [QuantifiedCode](https://www.quantifiedcode.com/app/project/663c550f107844aa842b4ce5e02883c4), [pytest](https://docs.pytest.org/en/latest/), Travis CI and Appveyor
 * [Version handling from source control](https://github.com/obestwalter/mau-mau/blob/master/setup.py#L19) with [setuptools scm](https://github.com/pypa/setuptools_scm)
 * Automatic generation and deployment of documentation with [MkDocs](https://github.com/obestwalter/mau-mau/blob/master/mkdocs.yml)
