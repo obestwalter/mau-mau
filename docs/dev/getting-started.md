@@ -36,5 +36,25 @@ The line starting with the `-e` indicates that mau-mau is installed as editable 
 
 # Using vagrant
 
-!!! TODO!
-    Write about use of vagrant
+The project comes with a configured Arch Linux box that can run mau-mau without you having to change anything on your computer (given you have [vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/) already installed.
+
+    $ cd <path/to/your/clone>
+
+You need to be in your project folder to work with vagrant.
+
+    $ vagrant up
+
+then enter the box ...
+
+    $ vagrant ssh
+
+And do whatever you need to do for development and testing
+
+e.g.
+
+    $ pip install -e .
+    $ mau-mau play
+
+or
+
+    $ tox
