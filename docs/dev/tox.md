@@ -6,11 +6,11 @@ The name of the [tox automation project](https://pypi.python.org/pypi/tox) deriv
 
 ## How?
 
-Tox can build the package under test, create virtual environments for different Python interpreters, install dependencies and does whatever else is needed for test preparation. After setting the stage it runs the tests and outputs the results. This way you can also run the same tests for different interpreters if you support different version of Python like 2.7 and 3.4, etc.
+tox can build the package under test, create virtual environments for different Python interpreters, install dependencies and does whatever else is needed for test preparation. After setting the stage it runs the tests and outputs the results. This way you can also run the same tests for different interpreters if you support different version of Python like 2.7 and 3.4, etc.
 
 In this project we use it to run the tests and for building, developing and deploying the documentation.
 
-## Tox generated "developer documentation"
+## tox generated "developer documentation"
 
 Since tox 2.7 you can also add descriptions to the different environments to provide a custom "developer documentation" - to get this you type `tox -av` in the e.g. in mau-mau project and the output would be like:
 
