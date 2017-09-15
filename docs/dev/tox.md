@@ -1,4 +1,4 @@
-# Tox - a developer frontend
+# tox - a developer frontend
 
 ## What?
 
