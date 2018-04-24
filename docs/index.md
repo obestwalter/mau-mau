@@ -6,7 +6,7 @@
 
 This project aims to be a learning tool, but this is a real application - not a toy example. The important difference to a "real" program is that the nasty details that usually screw with the nice and simple design and make the code grow tentacles and other cruft are kept at a minimum to enable you to [explore the code](implementation/explore.md#explore-the-repository) as a nice little completely non-linear story. It came to life in a non-linear fashion and should also be read that way.
 
-Emphasis is put on [pythonic](https://gist.github.com/JeffPaine/6213790) ways to code and on using the power of the Open Source ecosystem.
+Emphasis is put on [pythonic](https://nedbatchelder.com/blog/201011/pythonic.html) ways to code and on using the power of the Open Source ecosystem.
 
 ## Features
 
