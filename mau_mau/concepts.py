@@ -1,7 +1,6 @@
 import collections
 import logging
 import random
-from numbers import Integral
 
 from mau_mau import exceptions
 
@@ -100,7 +99,7 @@ class _CardCollection:
             if not criterion or criterion == 1:
                 return self.cards.pop(0)
 
-            if isinstance(criterion, Integral):
+            if isinstance(criterion, int):
                 return [self.cards.pop(i) for i in range(criterion)]
 
             return self.cards.pop(self.cards.index(criterion))
