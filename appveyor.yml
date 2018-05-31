@@ -10,7 +10,7 @@ environment:
       PIP: "C:\\Python36-x64\\Scripts\\pip"
 
 install:
-  - "%PYTHON%\\python.exe -m pip install tox"
+  - "%PYTHON%\\python.exe -m pip install --pre tox"
 
 build: off
 
