@@ -6,8 +6,6 @@ Command line implementation of a german card game called [Mau Mau](https://goo.g
 
 This project is intended to be a learning tool with comprehensive documentation. It is not only for learning about Python as a programming language it is meant to demonstrate how the language is part of a vast Open Source ecosystem. This simple application uses all my (current) favorite bells and whistles of this ecosystem.
 
-This project is also part of the **[Python Exploration Toolkit](https://github.com/obestwalter/pet)**.
-
 **[Read the documentation.](http://oliver.bestwalter.de/mau-mau/)**
 
 ## Try it
