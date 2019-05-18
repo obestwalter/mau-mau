@@ -2,9 +2,9 @@ import itertools
 import sys
 from setuptools import setup, find_packages
 
+# FIXME this should be set in key to require Python
 if sys.version_info < (3, 6):
-    print("ERROR: At least Python 3.6 needed. You use Python %s" % sys.version)
-    sys.exit(1)
+    sys.exit("ERROR: At least Python 3.6 needed. You use Python %s" % sys.version)
 
 
 def main():
@@ -41,7 +41,7 @@ def main():
 def generate_extras_require():
     extras = {
         ':sys_platform == "win32"': ['win_unicode_console'],
-        'tests': ['tox', 'flake8', 'pytest', 'pytest-watch'],
+        'test': ['tox', 'flake8', 'pytest', 'pytest-watch'],
         'docs': ['mkdocs', 'mkdocs-material']}
     extras.update(dict(all=list(itertools.chain(*extras.values()))))
     return extras
