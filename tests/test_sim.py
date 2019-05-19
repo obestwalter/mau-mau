@@ -24,7 +24,7 @@ def test_game_with_default_amount_of_players_succeeds():
 
 
 def test_invite_players_with_names_invites_right_amount():
-    names = ['a', 'b', 'c', 'd']
+    names = ["a", "b", "c", "d"]
     players = Croupier._create_real_players(names)
     assert len(players) == len(names)
     assert [p.name for p in players] == names

@@ -1,5 +1,5 @@
-import collections
 import logging
+from collections.abc import Iterable
 
 from mau_mau.constants import DECK
 from mau_mau.objects import Stock, Waste, Hand, Card
@@ -34,7 +34,7 @@ class Croupier:
 
         :type seed: int or list of str
         """
-        if not isinstance(seed, collections.Iterable):
+        if not isinstance(seed, Iterable):
             return [Player(f"Player {n}") for n in range(1, seed + 1)]
 
         return [

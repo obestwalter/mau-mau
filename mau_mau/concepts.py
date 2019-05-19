@@ -1,6 +1,6 @@
-import collections
 import logging
 import random
+from collections.abc import Iterable
 
 from mau_mau import exceptions
 
@@ -40,7 +40,7 @@ class _CardCollection:
             self.cards = []
         elif isinstance(seed, _CardCollection):
             self.cards = seed.cards
-        elif isinstance(seed, collections.Iterable):
+        elif isinstance(seed, Iterable):
             self.cards = seed
         else:
             self.cards = [seed]
