@@ -24,7 +24,7 @@ Emphasis is put on [pythonic](https://nedbatchelder.com/blog/201011/pythonic.htm
 * Use of [magic methods](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
 * Logging with stdlib [logging module](https://docs.python.org/3/library/logging.html)
 * Flexible [command line interface](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py) (add new functions without adjusting code)
-* Developer task automation with [tox](https://github.com/obestwalter/mau-mau/blob/master/tox.ini) (run tests, build and deploy documentation) orchestrating:
+* Developer task automation with [tox](https://github.com/obestwalter/mau-mau/blob/master/tox.ini) orchestrating:
     * automatic code formatting with [black](https://black.readthedocs.io/)
     * Static code analysis with [flake8](http://flake8.pycqa.org/en/latest/)
     * running [tests](https://github.com/obestwalter/mau-mau/blob/master/tests/) with [pytest](https://pytest.org)
