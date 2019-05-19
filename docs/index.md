@@ -21,7 +21,7 @@ Emphasis is put on [pythonic](https://nedbatchelder.com/blog/201011/pythonic.htm
 
 * [installable](guide/installation.md#installation) as [command line tool](https://github.com/obestwalter/mau-mau/blob/bf208857b67b36311dc057ed9f988ef6c153d12a/setup.py#L20)
 * [runnable from the command line](https://github.com/obestwalter/mau-mau/blob/13fb4be7e511c41853a736f0dd8171a65a0ca198/setup.py#L29-L30) (created with [fire](https://github.com/google/python-fire))
-* [simulation helpers](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/sim.py) to run multiple games and collect stats
+* [simulation helpers](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/stats.py) to run multiple games and collect stats
 * use of [magic methods](implementation/remarks.md#magic-methods-protocols) to create custom classes which behave like inbuilt data types
 * logging with stdlib [logging module](https://docs.python.org/3/library/logging.html)
 * developer task automation with [tox](https://github.com/obestwalter/mau-mau/blob/master/tox.ini) orchestrating:

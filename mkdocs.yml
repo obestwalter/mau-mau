@@ -6,8 +6,8 @@ nav:
     - Rules of Mau Mau: guide/rules.md
   - Implemenation:
     - OOOMMM: implementation/ooommm.md
-    - Remarks: implementation/remarks.md
     - Explore the code: implementation/explore.md
+    - Code level remarks: implementation/remarks.md
   - Developer Guide:
     - Getting started: dev/getting-started.md
     - Static code analysis: dev/static-analysis.md

@@ -1,4 +1,4 @@
-# Explore the repository
+# Explore the code
 
 To explore the code repository it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application as if it were installed normally but you can change the code and experiment.
 
@@ -62,7 +62,7 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-### [sim.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/statistics.py): simulate series of games and create statistics
+### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/statistics.py): simulate series of games and create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
 
