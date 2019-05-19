@@ -34,7 +34,7 @@ You can start a game that you play against two computer players by calling `mau-
  
 The fire library accomplishes this using introspection of the code to generate arguments and documentation. A more standard approach would be [argparse](https://docs.python.org/3/library/argparse.html) which is provided in the standard library already.
 
-### Simulate many games to gather statistics
+### Simulate a game
 
     $ mau-mau sim
 
