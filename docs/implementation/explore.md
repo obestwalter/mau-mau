@@ -62,7 +62,7 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/statistics.py): simulate series of games and create statistics
+### [stats.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/stats.py): simulate series of games and create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
 
