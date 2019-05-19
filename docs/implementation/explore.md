@@ -2,7 +2,7 @@
 
 To explore the code repository it is best if you install the [sources as editable](../dev/getting-started.md). This means you can use the application as if it were installed normally but you can change the code and experiment.
 
-## [play.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/play.py)
+## [play.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/play.py)
 
 !!! note "Start exploring here"
 
@@ -25,19 +25,19 @@ This is the meat of the simulation. Here is where all the magic happens. if you 
 
 These look pretty different from `game.py` and they are. Here is where the object oriented part of the story kicks in. If `game.py` contains the plot, these modules contain the descriptions of the actors and props of the story. They describe the relevant part of the virtual universe that is created to run the simulation. It contains custom data structures (a.k.a. classes) to model the problem of simulating Mau Mau. You should be able to read through the classes and get an idea of what elements are needed to simulate a card game and how they might interact.
 
-### [concepts.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/concepts.py)
+### [concepts.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/concepts.py)
 
 Classes that stand conceptually above the objects and subjects.
 
-### [objects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/objects.py) and [subjects.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/subjects.py)
+### [objects.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/objects.py) and [subjects.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/subjects.py)
 
 I know .. in Python everything is an object, so this would be meaningless. This is also not [subject oriented programming](https://en.wikipedia.org/wiki/Subject-oriented_programming). These are just good terms for what those classes describe in the context of the program: there are objects in the game which are manipulated by the subjects.
 
-### [rules.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/rules.py)
+### [rules.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/rules.py)
 
 This contains the classes that implement the rules of Mau Mau. Start reading with the `MauMau` class and see if you can figure out how it works. There is always one concrete rule active on the table that is valid for the currently played round. Sometimes information gets transferred from one rule to the next (e.g. if a 7 was put on a 7, the number of draws have to accumulate).
 
-### [strategies.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/strategies.py): How to play
+### [strategies.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/strategies.py): How to play
 
 Classes that implement different player behaviours.
 
@@ -62,7 +62,7 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-### [sim.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py): simulate series of games and create statistics
+### [sim.py](https://github.com/obestwalter/mau-mau/blob/master/src/mau_mau/statistics.py): simulate series of games and create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
 
