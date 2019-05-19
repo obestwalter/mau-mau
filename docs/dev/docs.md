@@ -17,7 +17,7 @@ Github offers the option to host the project documentation on [Github Pages](htt
 When you work on the documentation you can start a local server:
 
     $ cd <path/to/your/clone>
-    $ tox -e docs-auto
+    $ tox -e docs-dev
 
 This prepares an environment and runs `mkdocs serve`. You can do it directly already. Using tox here is a bit of overkill, but serves to demonstrate that you can use tox for automating and standardising all kinds of development tasks.
 
