@@ -12,7 +12,7 @@ nav:
     - Getting started: dev/getting-started.md
     - Static code analysis: dev/static-analysis.md
     - Automatic tests: dev/tests.md
-    - Using Tox: dev/tox.md
+    - Using tox: dev/tox.md
     - Continuous intergration: dev/ci.md
     - Working on documentation: dev/docs.md
   - Acknowlegements: acknowledgements.md

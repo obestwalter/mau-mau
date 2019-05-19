@@ -22,7 +22,7 @@ The logo is a [c64-ified](http://c64.superdefault.com/) version of [a playing ca
 * Static code analysis: [Flake8](http://flake8.readthedocs.io/en/latest/)
 * Source control: [git](https://git-scm.com/)
 * Code collaboration: [github](https://github.com/)
-* Developer task automation: [Tox](https://testrun.org/tox/latest/)
+* Developer task automation: [tox](https://testrun.org/tox/latest/)
 * Documentation: [MkDocs](http://www.mkdocs.org/) with [material theme](https://github.com/squidfunk/mkdocs-material)
 * Automatic version handling: [Setuptools SCM](https://github.com/pypa/setuptools_scm)
 * Continuous Integration on Linux [Travis CI](https://travis-ci.org/)
