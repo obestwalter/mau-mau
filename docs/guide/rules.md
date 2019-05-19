@@ -15,4 +15,3 @@ In addition, the three most common rules are implemented:
 * If an eight is played, the next player is skipped
 * If a seven is played, the next player has to draw two cards. The next player can put another seven down and instead the following player will have to draw four cards (and so on).
 * A Jack can can be put on anything and the player who played it can ask for a different suite to be played
-
