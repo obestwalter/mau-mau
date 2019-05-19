@@ -33,6 +33,7 @@ class Game:
 
 class _CardCollection:
     """A sequence of cards, used for all groups of cards used in the game."""
+
     def __init__(self, seed=None):
         """Can be initialized with different seed kinds"""
         if not seed:

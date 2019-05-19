@@ -13,6 +13,7 @@ class Croupier:
 
     * can summon, manipulate and coordinate all needed subjects and objects
     """
+
     def __init__(self):
         self._deck = None
         self._deckSize = 0
@@ -36,8 +37,9 @@ class Croupier:
         if not isinstance(seed, collections.Iterable):
             return [Player(f"Player {n}") for n in range(1, seed + 1)]
 
-        return [Player(p, HumanStrategy if p == 'human' else BasicStrategy)
-                for p in seed]
+        return [
+            Player(p, HumanStrategy if p == "human" else BasicStrategy) for p in seed
+        ]
 
     def check_setup(self, players, cardsPerPlayer):
         assert len(players) > 1, "not enough players"
@@ -48,8 +50,11 @@ class Croupier:
         assert table.upcard
         tableCardsLen = len(table.stock) + len(table.waste) + 1
         handsLen = sum(len(p.hand) for p in table.players if p.hand)
-        assert tableCardsLen + handsLen == self._deckSize, \
-            (tableCardsLen, handsLen, self._deckSize)
+        assert tableCardsLen + handsLen == self._deckSize, (
+            tableCardsLen,
+            handsLen,
+            self._deckSize,
+        )
 
     def set_table(self, table, rules):
         table.rules = rules

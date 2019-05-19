@@ -61,15 +61,15 @@ class DemandWantedSuit(BasicRule):
         except AttributeError:
             # No strategy attached -> First card in game
             wantedSuit = self.card.suit
-        return [c for c in cards if
-                c.suit == wantedSuit and not c.value == DECK.JACK]
+        return [c for c in cards if c.suit == wantedSuit and not c.value == DECK.JACK]
 
 
 class MauMau:
     RULES = {
         DECK.SEVEN: MakePlayerDrawTwoCards,
         DECK.EIGHT: SkipNextPlayer,
-        DECK.JACK: DemandWantedSuit}
+        DECK.JACK: DemandWantedSuit,
+    }
 
     def __init__(self, cardsPerPlayer=5):
         self.cardsPerPlayer = cardsPerPlayer
@@ -86,9 +86,11 @@ class MauMau:
     @staticmethod
     def find_playable_cards(upcard, cards):
         """Determines when a card is playable on the upcard"""
-        return [c for c in cards if
-                upcard.value == c.value or upcard.suit == c.suit or
-                c.value == DECK.JACK]
+        return [
+            c
+            for c in cards
+            if upcard.value == c.value or upcard.suit == c.suit or c.value == DECK.JACK
+        ]
 
     @staticmethod
     def no_play_action(player, table):

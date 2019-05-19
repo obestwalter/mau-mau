@@ -17,7 +17,7 @@ class Statistics:
         games = self._simulate_games(players, reps)
         log.info("mean turns played: %s", mean([g.turns for g in games]))
 
-    def winners(self, players=('Eric', 'Terry', 'John'), reps=1000):
+    def winners(self, players=("Eric", "Terry", "John"), reps=1000):
         """calculate winner distribution for <reps> <players>"""
         games = self._simulate_games(players, reps)
         wc = {}
@@ -29,11 +29,14 @@ class Statistics:
     def durations(self, reps=1000):
         """calculate durations for <reps> games"""
         timing = timeit(
-            setup="from mau_mau.play import play_game;"
-                  "from mau_mau.rules import MauMau;"
-                  "mmRules = MauMau()",
+            setup=(
+                "from mau_mau.play import play_game;"
+                "from mau_mau.rules import MauMau;"
+                "mmRules = MauMau()"
+            ),
             stmt="play_game(mmRules, 3)",
-            number=reps)
+            number=reps,
+        )
         log.info("it takes %0.3f seconds to play %s games", timing, reps)
 
     def _simulate_games(self, players, reps):

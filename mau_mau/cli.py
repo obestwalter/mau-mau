@@ -8,6 +8,7 @@ from mau_mau.constants import LOG
 
 try:
     import win_unicode_console
+
     win_unicode_console.enable()
 except ImportError:
     win_unicode_console = None
@@ -28,7 +29,7 @@ class Cli:
     def play(self):
         """play a game"""
         log.setLevel(level=logging.DEBUG)
-        playedGame = play.play_game(self.rules, ['Eric', 'John', 'human'])
+        playedGame = play.play_game(self.rules, ["Eric", "John", "human"])
         log.info("And the winner is %s", playedGame.table.winner.name)
 
 

@@ -26,8 +26,8 @@ class BasicStrategy:
 
     def before_play(self, table):
         antidote = self.choose_antidote(
-            table.rule.find_antidotes, self.antidote_strategy,
-            self.player.hand)
+            table.rule.find_antidotes, self.antidote_strategy, self.player.hand
+        )
 
         if not antidote:
             while table.rule.punishments:
