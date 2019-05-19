@@ -8,7 +8,7 @@
 <h2 id="working-on-the-documentation">Working on the documentation<a class="headerlink" href="#working-on-the-documentation" title="Permanent link">&para;</a></h2>
 <p>When you work on the documentation you can start a local server:</p>
 <pre><code>$ cd &lt;path/to/your/clone&gt;
-$ tox -e docs-auto
+$ tox -e docs-dev
 </code></pre>
 <p>This prepares an environment and runs <code>mkdocs serve</code>. You can do it directly already. Using tox here is a bit of overkill, but serves to demonstrate that you can use tox for automating and standardising all kinds of development tasks.</p>
 <p>The documentation is now served on <a href="http://localhost:8000/">localhost:8000</a> and changes are automatically detected and the website is reloaded.</p>
