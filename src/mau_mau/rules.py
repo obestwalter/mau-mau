@@ -61,11 +61,15 @@ class DemandWantedSuit(BasicRule):
         except AttributeError:
             # No strategy attached -> First card in game
             wantedSuit = self.card.suit
-        return [c for c in cards if c.suit == wantedSuit and not c.value == DECK.JACK]
+        return [
+            c
+            for c in cards
+            if c.suit == wantedSuit and not c.value == DECK.JACK
+        ]
 
 
 class MauMau:
-    RULES = {
+    SPECIAL_RULES = {
         DECK.SEVEN: MakePlayerDrawTwoCards,
         DECK.EIGHT: SkipNextPlayer,
         DECK.JACK: DemandWantedSuit,
@@ -80,7 +84,7 @@ class MauMau:
 
     @classmethod
     def get_rule(cls, card):
-        RuleClass = cls.RULES.get(card.value, BasicRule)
+        RuleClass = cls.SPECIAL_RULES.get(card.value, BasicRule)
         return RuleClass(card, cls)
 
     @staticmethod
@@ -89,7 +93,9 @@ class MauMau:
         return [
             c
             for c in cards
-            if upcard.value == c.value or upcard.suit == c.suit or c.value == DECK.JACK
+            if upcard.value == c.value
+            or upcard.suit == c.suit
+            or c.value == DECK.JACK
         ]
 
     @staticmethod

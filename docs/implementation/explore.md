@@ -62,13 +62,9 @@ The impact of this is very likely to be zero on a planetary basis, as this is ju
 
 ... you have been warned.
 
-### [statistics.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py): Create statistics
+### [sim.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py): simulate series of games and create statistics
 
 Contains functions to run the game simulations and collect statistics. See [usage examples](../guide/usage.md#collect-statistics)
-
-### [cli.py](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/cli.py): Command line access
-
-This contains the code for the command line interface. Its function `main` is configured in `setup.py` `entry_points` to act like a program called `mau-mau` that is accessible where the package is installed.
 
 ## Peripherals
 

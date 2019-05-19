@@ -38,13 +38,17 @@ class Croupier:
             return [Player(f"Player {n}") for n in range(1, seed + 1)]
 
         return [
-            Player(p, HumanStrategy if p == "human" else BasicStrategy) for p in seed
+            Player(p, HumanStrategy if p == "human" else BasicStrategy)
+            for p in seed
         ]
 
     def check_setup(self, players, cardsPerPlayer):
-        assert len(players) > 1, "not enough players"
-        neededCards = len(players) * cardsPerPlayer
-        assert neededCards <= self._deckSize, "too many players"
+        numPlayers = len(players)
+        assert numPlayers > 1, "not enough players (need at least two)"
+        neededCards = numPlayers * cardsPerPlayer
+        assert (
+            neededCards <= self._deckSize
+        ), f"too many players ({numPlayers})"
 
     def check_table(self, table):
         assert table.upcard
@@ -68,15 +72,14 @@ class Croupier:
 class Player:
     def __init__(self, name, strategyClass=BasicStrategy):
         self.name = name
-        self.hand = Hand()
-        """:type: Hand"""
+        self.hand: Hand = Hand()
         self.strategy = strategyClass(self)
         self.nextPlayer = None
         """Will point to next player when players have joined a table"""
 
     def __repr__(self):
         name = self.__class__.__name__
-        return f"{name}('self.name', {self.hand})"
+        return f"{name}('{self.name}', {self.hand})"
 
     def __eq__(self, other):
         return self.name == other.name
@@ -93,7 +96,7 @@ class Player:
             log.debug(f"{self.name} <- {card}")
 
     def put(self, table, card, strategy):
-        log.debug("play %s", card)
+        log.debug(f"play {card}")
         card = self.hand.fetch(card)
         table.waste.put(table.upcard)
         table.upcard = card

@@ -5,17 +5,16 @@ from timeit import timeit
 
 import fire
 
-from mau_mau import rules, play
-from mau_mau.constants import LOG
+from mau_mau import constants, rules, play
 
 log = logging.getLogger()
 
 
-class Statistics:
+class Stats:
     def turns(self, players=3, reps=1000):
         """calculate mean turns for <reps> games of <players>"""
         games = self._simulate_games(players, reps)
-        log.info("mean turns played: %s", mean([g.turns for g in games]))
+        log.info(f"mean turns played: {mean([g.turns for g in games])}")
 
     def winners(self, players=("Eric", "Terry", "John"), reps=1000):
         """calculate winner distribution for <reps> <players>"""
@@ -24,7 +23,7 @@ class Statistics:
         # not optimal but premature optimization is the root of all evil ...
         for name in players:
             wc[name] = len([g for g in games if g.table.winner.name == name])
-        log.info("winner distribution: %s", wc)
+        log.info(f"winner distribution: {wc}")
 
     def durations(self, reps=1000):
         """calculate durations for <reps> games"""
@@ -49,10 +48,10 @@ class Statistics:
         return games
 
 
-def main():
-    logging.basicConfig(format=LOG.FMT, level=logging.INFO)
+def cli():
+    """Command line interface."""
+    logging.basicConfig(format=constants.LOG.FMT, level=logging.INFO)
     try:
-        fire.Fire(Statistics)
+        fire.Fire(Stats)
     except KeyboardInterrupt:
-        log.error("\nfatal: lost game by chickening out!")
-        sys.exit(1)
+        sys.exit("\nsimulation was interrupted by user!")

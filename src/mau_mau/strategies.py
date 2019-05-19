@@ -106,7 +106,9 @@ class HumanStrategy(BasicStrategy):
             return " | ".join(c)
 
         while True:
-            idx = input(f"{msg}.\n{visualize(choices)} | ")
+            idx = input(
+                f"{msg}.\n{visualize(choices)}\n(choose 1 - {len(choices)}): "
+            )
             try:
                 return choices[int(idx) - 1]
 

@@ -1,6 +1,9 @@
 import logging
+import sys
 
-from mau_mau import concepts, subjects, objects
+import fire
+
+from mau_mau import constants, concepts, subjects, rules, objects
 
 log = logging.getLogger(__name__)
 
@@ -26,3 +29,32 @@ def setup_game(rules, playerSeed):
     game = concepts.Game(table)
     log.debug("Start new game: %s", game)
     return game
+
+
+def cli():
+    """Command line interface."""
+
+    class Cli:
+        def sim(self, players=3):
+            """Simulate a game."""
+            self._play(players)
+
+        def play(self, players=["Eric", "John", "human"]):
+            """Play a game against two computer players.
+
+            If one of the players' names is 'human' it will be interactive.
+            """
+            self._play(players)
+
+        @staticmethod
+        def _play(players):
+            game = play_game(rules.MauMau(), players)
+            assert game.over, game
+            log.info(f"And the winner is {game.table.winner.name}")
+
+    logging.basicConfig(format=constants.LOG.FMT, level=logging.DEBUG)
+    try:
+        fire.Fire(Cli)
+    except KeyboardInterrupt:
+        log.error("\nfatal: lost game by chickening out!")
+        sys.exit(1)

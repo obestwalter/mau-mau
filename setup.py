@@ -5,7 +5,8 @@ from setuptools import setup, find_packages
 def generate_extras_require():
     extras = {
         ':sys_platform == "win32"': ["win_unicode_console"],
-        "test": ["flake8", "pytest", "pytest-watch"],
+        "lint": ["flake8", "black"],
+        "test": ["pytest"],
         "docs": ["mkdocs", "mkdocs-material"],
     }
     extras.update(dict(all=list(itertools.chain(*extras.values()))))
@@ -19,15 +20,15 @@ setup(
     license="MIT",
     use_scm_version=True,
     python_requires=">=3.6",
-    setup_requires=["setuptools_scm", "pytest-runner"],
+    setup_requires=["setuptools_scm"],
     install_requires=["fire"],
     extras_require=generate_extras_require(),
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=find_packages("src"),
+    package_dir={"": "src"},
     entry_points={
         "console_scripts": [
-            "mau-mau = mau_mau.cli:main",
-            "mau-mau-statistics = mau_mau.statistics:main",
+            "mau-mau = mau_mau.play:cli",
+            "mau-mau-stats = mau_mau.stats:cli",
         ]
     },
     classifiers=[

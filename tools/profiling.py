@@ -2,7 +2,7 @@ import sys
 
 import os
 
-from mau_mau.statistics import Statistics
+from mau_mau.stats import Stats
 
 userPath = os.path.expanduser("~")
 pmPath = os.path.join(userPath, ".opt/pyvmmonitor/public_api")
@@ -15,4 +15,4 @@ import pyvmmonitor
 
 @pyvmmonitor.profile_method
 def profile_stuff():
-    Statistics().winners()
+    Stats().winners()

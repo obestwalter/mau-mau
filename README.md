@@ -26,7 +26,11 @@ let the computer simulate a game:
     
 list the different functions to run statistics:
     
-    $ mau-mau-statistics
+    $ mau-mau-stats
+
+play many games and calculate the average turns needed to finish the game:
+    
+    $ mau-mau-stats turns
 
 ## Licenses and Acknowledgements
 

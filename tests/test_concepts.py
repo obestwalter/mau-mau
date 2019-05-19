@@ -6,7 +6,13 @@ from mau_mau.concepts import _CardCollection
 
 @pytest.mark.parametrize(
     "data, expectation",
-    [([], False), ([None], True), ([1], True), (["hello", 3], True), ([1, 2, 3], True)],
+    [
+        ([], False),
+        ([None], True),
+        ([1], True),
+        (["hello", 3], True),
+        ([1, 2, 3], True),
+    ],
 )
 def test_len_and_bool_depending_on_len(data, expectation):
     assert len(_CardCollection(data)) == len(data)

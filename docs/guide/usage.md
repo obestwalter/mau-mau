@@ -2,18 +2,41 @@
 
 ## Command line access
 
-After installation you have an additional command in your virtualenv: `mau-mau`. The default behaviour if you call it without parameters is to simulate a simple game of Mau Mau between three computer players (and you can see the hands of all the players and every step of the game).
+After installation you have two additional commands in your virtualenv: `mau-mau` and `mau-mau-stats`. The cli (command line interface) is automatically generated with a fun little library called [python-fire](https://github.com/google/python-fire). The default behaviour for our `mau-mau` is to show the usage info with the available commands:
+ 
+### Play or simulate a single game
+ 
+$ mau-mau
 
+    Type:        Cli
+    String form: <mau_mau.play.cli.<locals>.Cli object at 0x7f7fa3b3e5c0>
+    
+    Usage:       mau-mau 
+                 mau-mau play
+                 mau-mau sim
+ 
+ You can then ask for specific help for commands (note the `--` to separate the command from the fire arg `--help`), e.g:
+ 
+    $ mau-mau play -- --help
+    
+    Type:        method
+    String form: <bound method cli.<locals>.Cli.play of <mau_mau.play.cli.<locals>.Cli object at 0x7f92d2c46e80>>
+    File:        /home/ob/do/mau-mau/src/mau_mau/play.py
+    Line:        42
+    Docstring:   Play a game against two computer players.
+    
+    If one of the players' names is 'human' it will be interactive.
+    
+    Usage:       mau-mau play [PLAYERS]
+                 mau-mau play [--players PLAYERS]
 
-**FIXME** I use fire now ... adapt
-* `mau-mau`: Play single game with high verbosity settings in the logger
-* `mau-mau <stats.function>`: e.g. `mau-mau turns` - the argument will be passed to `get_function_from_name` that fetches a function object of the same name from [`stats.py`](https://github.com/obestwalter/mau-mau/blob/master/mau_mau/statistics.py) and executes it. This is a very simple way to create a flexible command line interface that does not need to be changed if you create more statistics functions in `statistics.py`. Adding a new function to `statistics.py` will automatically make it accessible through the command line interface.
-* `mau-mau human` ... or any other argument that does not map to a function in stats: play a game against the computer.
+You can start a game that you play against two computer players by calling `mau-mau play --players John,Terry,human`
+ 
+The fire library accomplishes this using introspection of the code to generate arguments and documentation. A more standard approach would be [argparse](https://docs.python.org/3/library/argparse.html) which is provided in the standard library already.
 
-## Run a simple simulation
+### Simulate many games to gather statistics
 
-        $ cd </path/to/your/clone>
-        $ mau-mau sim
+    $ mau-mau sim
 
 The output could be:
 
@@ -125,7 +148,7 @@ The output could be:
 
 ## Collect statistics
 
-    $ mau-mau turns
+    $ mau-mau-stats turns
 
 The output could be:
 
@@ -134,7 +157,7 @@ The output could be:
 
 Input:
 
-    $ mau-mau winners
+    $ mau-mau-stats winners
 
 The output could be:
 
@@ -143,7 +166,7 @@ The output could be:
 
 Input:
 
-    $ mau-mau durations
+    $ mau-mau-stats durations
 
 The output could be:
 
