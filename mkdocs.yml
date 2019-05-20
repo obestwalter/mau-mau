@@ -1,3 +1,8 @@
+site_name: Mau Mau
+site_description: A small game simulation to learn more about Python
+repo_name: github
+repo_url: https://github.com/obestwalter/mau-mau
+
 nav:
   - Home: index.md
   - User Guide:
@@ -17,19 +22,27 @@ nav:
     - Working on documentation: dev/docs.md
   - Acknowlegements: acknowledgements.md
 
-extra:
+theme:
+  name: material
   logo: _static/logo.png
-  author:
-    github: obestwalter
-    twitter: obestwalter
+  palette:
+    primary: deep orange
+    accent: brown
+
 extra_css:
   - _static/extra.css
-#include_404: True
+
 markdown_extensions:
     - admonition
     - toc:
         permalink: True #¶
-repo_url: https://github.com/obestwalter/mau-mau
-site_name: Mau Mau
+
 strict: True
-theme: material
+
+extra:
+  social:
+    -   type: 'github'
+        link: 'https://github.com/obestwalter'
+    -   type: 'twitter'
+        link: 'https://twitter.com/obestwalter'
+
