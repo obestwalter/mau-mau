@@ -78,7 +78,7 @@ class _CardCollection:
         for card in self.cards:
             yield card
 
-    def shuffle(self):
+    def shuffle(self) -> None:
         """Does not return anything: `random.shuffle` changes list in place"""
         random.shuffle(self.cards)
 
