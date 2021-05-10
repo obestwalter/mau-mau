@@ -1,72 +1,9 @@
 import logging
-from collections.abc import Iterable
 
-from mau_mau.constants import DECK
-from mau_mau.objects import Stock, Waste, Hand, Card
-from mau_mau.strategies import HumanStrategy, BasicStrategy
+from mau_mau.objects import Hand
+from mau_mau.strategies import BasicStrategy
 
 log = logging.getLogger(__name__)
-
-
-class Croupier:
-    """Prepares everything to get the game going
-
-    * can summon, manipulate and coordinate all needed subjects and objects
-    """
-
-    def __init__(self):
-        self._deck = None
-        self._deckSize = 0
-
-    def fetch_fresh_deck_of_cards(self):
-        self._deck = [Card(v, s) for v in DECK.VALUES for s in DECK.SUITS]
-        self._deckSize = len(self._deck)
-
-    @classmethod
-    def invite(cls, seed, table):
-        realPlayers = cls._create_real_players(seed)
-        log.debug("invite %s to: %s", realPlayers, table)
-        table.join(realPlayers)
-
-    @classmethod
-    def _create_real_players(cls, seed):
-        """given an amount or some names magic some players out of thin air.
-
-        :type seed: int or list of str
-        """
-        if not isinstance(seed, Iterable):
-            return [Player(f"Player {n}") for n in range(1, seed + 1)]
-
-        return [
-            Player(p, HumanStrategy if p == "human" else BasicStrategy)
-            for p in seed
-        ]
-
-    def check_setup(self, players, cardsPerPlayer):
-        numPlayers = len(players)
-        assert numPlayers > 1, "not enough players (need at least two)"
-        neededCards = numPlayers * cardsPerPlayer
-        assert (
-            neededCards <= self._deckSize
-        ), f"too many players ({numPlayers})"
-
-    def check_table(self, table):
-        assert table.upcard
-        tableCardsLen = len(table.stock) + len(table.waste) + 1
-        handsLen = sum(len(p.hand) for p in table.players if p.hand)
-        assert tableCardsLen + handsLen == self._deckSize, (
-            tableCardsLen,
-            handsLen,
-            self._deckSize,
-        )
-
-    def set_table(self, table, rules):
-        table.rules = rules
-        table.stock = Stock(self._deck)
-        table.stock.shuffle()
-        table.waste = Waste()
-        table.upcard = table.stock.fetch()
-        table.rule = rules.get_rule(table.upcard)
 
 
 class Player:
