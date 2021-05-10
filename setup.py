@@ -23,8 +23,7 @@ setup(
     setup_requires=["setuptools_scm"],
     install_requires=["fire"],
     extras_require=generate_extras_require(),
-    packages=find_packages("src"),
-    package_dir={"": "src"},
+    packages=find_packages(),
     entry_points={
         "console_scripts": [
             "mau-mau = mau_mau.play:cli",
