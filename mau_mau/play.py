@@ -3,6 +3,7 @@ from collections import Iterable
 
 from mau_mau import constants, concepts, rules, objects
 from mau_mau.constants import DECK
+from mau_mau.functions import draw
 from mau_mau.objects import Card, Stock, Waste
 from mau_mau.strategies import HumanStrategy, BasicStrategy
 from mau_mau.subjects import Player
@@ -37,8 +38,8 @@ def play_game(gameRules, playerSeed):
     table.upcard = table.stock.fetch()
     table.rule = gameRules.get_rule(table.upcard)
 
-    for player1 in table.players:
-        player1.draw(table, gameRules.cardsPerPlayer)
+    for this_player in table.players:
+        draw(this_player, table, gameRules.cardsPerPlayer)
 
     assert table.upcard
     tableCardsLen = len(table.stock) + len(table.waste) + 1
@@ -49,13 +50,25 @@ def play_game(gameRules, playerSeed):
         deckLen,
     )
 
-    game1 = concepts.Game(table)
-    log.debug("Start new game: %s", game1)
-    game = game1
-    while not game.over:
-        player = game.next_turn()
-        player.play(game.table)
-    return game
+    log.debug("Start new game")
+    current_player_index = 0
+    while True:
+        try:
+            return [p for p in players if len(p.hand) == 0][0]
+        except IndexError:
+            pass
+
+        try:
+            player = players[current_player_index]
+        except IndexError:
+            current_player_index = 0
+            player = players[0]
+
+        log.debug(f"upcard: {table.upcard}")
+        log.debug(f"{player} is up")
+        player.play(table)
+
+
 
 
 if __name__ == "__main__":
@@ -64,6 +77,5 @@ if __name__ == "__main__":
     logging.basicConfig(format=constants.LOG.FMT, level=logging.DEBUG)
     # playerNames = ["Eric", "John", "human"]
     numPlayers = 3
-    the_game = play_game(rules.MauMau(), numPlayers)
-    assert the_game.over, the_game
-    log.info(f"And the winner is {the_game.table.winner.name}")
+    the_winner = play_game(rules.MauMau(), numPlayers)
+    log.info(f"And the winner is {the_winner.name}")

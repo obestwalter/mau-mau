@@ -7,30 +7,6 @@ from mau_mau import exceptions
 log = logging.getLogger(__name__)
 
 
-class Game:
-    def __init__(self, table):
-        self.table = table
-        self.player = self.table.players[-1]
-        self.turns = 0
-
-    def __repr__(self):
-        name = self.__class__.__name__
-        return f"{name}({self.table})"
-
-    def next_turn(self):
-        self.turns += 1
-        self.player = self.player.nextPlayer
-        log.debug(f"{'-' * 20 } turn {self.turns} {'-' * 20 }")
-        log.debug("upcard: %s", self.table.upcard)
-        log.debug(f"{self.player} is up")
-        return self.player
-
-    @property
-    def over(self):
-        """should be named `isOver`. But then it wouldn't be game.over :)"""
-        return self.table.winner is not None
-
-
 class _CardCollection:
     """A sequence of cards, used for all groups of cards used in the game."""
 

@@ -2,6 +2,7 @@ import collections
 import logging
 import random
 
+from mau_mau import functions
 from mau_mau.constants import DECK
 
 log = logging.getLogger(__name__)
@@ -58,7 +59,7 @@ class BasicStrategy:
 
         if card:
             assert card in candidates, (card, candidates)
-            self.player.put(table, card, self)
+            functions.put(self.player, table, card, self)
             return
 
         log.debug("nothing to play")

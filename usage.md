@@ -145,29 +145,3 @@ The output could be:
     1 -> Card('King', '♥') | 1
     mau_mau.subjects    103 put              : play Card('King', '♥')
     root                27  play_interactive_game: And the winner is human
-
-## Collect statistics
-
-    $ mau-mau-stats turns
-
-The output could be:
-
-    mau_mau.stats       35  _simulate_games  : players: 3; 1000 reps
-    mau_mau.stats       12  turns            : mean turns played: 34.097
-
-Input:
-
-    $ mau-mau-stats winners
-
-The output could be:
-
-    mau_mau.stats       35  _simulate_games  : players: ('Eric', 'Terry', 'John'); 1000 reps
-    mau_mau.stats       21  distribution     : winner distribution: {'Eric': 345, 'Terry': 327, 'John': 328}
-
-Input:
-
-    $ mau-mau-stats durations
-
-The output could be:
-
-    mau_mau.stats       31  time_durations   : it takes 0.643 seconds to play 1000 games

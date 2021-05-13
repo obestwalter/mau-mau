@@ -40,14 +40,6 @@ class Table:
         self.waste = Waste()
         self.stock.shuffle()
 
-    @property
-    def winner(self):
-        try:
-            return [p for p in self.players if self.rules.wins(p.hand)][0]
-
-        except IndexError:
-            return None
-
 
 class Stock(_CardCollection):
     """technically not necessary but then it's clear what this represents"""

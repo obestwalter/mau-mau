@@ -23,21 +23,3 @@ class Player:
 
     def play(self, table):
         self.strategy.play(table)
-
-    def draw(self, table, amount=1):
-        for _ in range(amount):
-            if not table.stock:
-                table.replenish_stock()
-            card = table.stock.fetch()
-            self.hand.put(card)
-            log.debug(f"{self.name} <- {card}")
-
-    def put(self, table, card, strategy):
-        log.debug(f"play {card}")
-        card = self.hand.fetch(card)
-        table.waste.put(table.upcard)
-        table.upcard = card
-        oldRule = table.rule
-        table.rule = table.rules.get_rule(card)
-        table.rule.strategy = strategy
-        table.transfer_punishments(oldRule, table.rule)

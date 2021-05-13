@@ -1,5 +1,6 @@
 import logging
 
+from mau_mau import functions
 from mau_mau.constants import DECK
 
 log = logging.getLogger(__name__)
@@ -45,7 +46,7 @@ class MakePlayerDrawTwoCards(BasicRule):
 
     @staticmethod
     def _punishment(player, table):
-        player.draw(table, amount=2)
+        functions.draw(player, table, amount=2)
 
 
 class SkipNextPlayer(BasicRule):
@@ -105,7 +106,7 @@ class MauMau:
         :player Player: player that can't play
         :table Table: The game table
         """
-        player.draw(table)
+        functions.draw(player, table)
 
     @staticmethod
     def wins(cards):
