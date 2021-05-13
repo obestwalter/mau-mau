@@ -1,10 +1,10 @@
 import logging
 from collections import Iterable
 
-from mau_mau import constants, concepts, rules, objects
+from mau_mau import constants, rules, objects
 from mau_mau.constants import DECK
 from mau_mau.functions import draw
-from mau_mau.objects import Card, Stock, Waste
+from mau_mau.objects import Stock, Waste
 from mau_mau.strategies import HumanStrategy, BasicStrategy
 from mau_mau.subjects import Player
 
@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 
 
 def play_game(gameRules, playerSeed):
-    deck = [Card(v, s) for v in DECK.VALUES for s in DECK.SUITS]
+    deck = [(v, s) for v in DECK.VALUES for s in DECK.SUITS]
     deckLen = len(deck)
 
     if not isinstance(playerSeed, Iterable):
@@ -67,8 +67,6 @@ def play_game(gameRules, playerSeed):
         log.debug(f"upcard: {table.upcard}")
         log.debug(f"{player} is up")
         player.play(table)
-
-
 
 
 if __name__ == "__main__":

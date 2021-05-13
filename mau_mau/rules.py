@@ -42,7 +42,7 @@ class MakePlayerDrawTwoCards(BasicRule):
 
     @staticmethod
     def _find_antidotes(cards):
-        return [c for c in cards if c.value == DECK.SEVEN]
+        return [c for c in cards if c[0] == DECK.SEVEN]
 
     @staticmethod
     def _punishment(player, table):
@@ -61,11 +61,11 @@ class DemandWantedSuit(BasicRule):
             wantedSuit = self.strategy.wantedSuit
         except AttributeError:
             # No strategy attached -> First card in game
-            wantedSuit = self.card.suit
+            wantedSuit = self.card[1]
         return [
             c
             for c in cards
-            if c.suit == wantedSuit and not c.value == DECK.JACK
+            if c[1] == wantedSuit and not c[0] == DECK.JACK
         ]
 
 
@@ -85,7 +85,7 @@ class MauMau:
 
     @classmethod
     def get_rule(cls, card):
-        RuleClass = cls.SPECIAL_RULES.get(card.value, BasicRule)
+        RuleClass = cls.SPECIAL_RULES.get(card[0], BasicRule)
         return RuleClass(card, cls)
 
     @staticmethod
@@ -94,9 +94,9 @@ class MauMau:
         return [
             c
             for c in cards
-            if upcard.value == c.value
-            or upcard.suit == c.suit
-            or c.value == DECK.JACK
+            if upcard[0] == c[0]
+            or upcard[1] == c[1]
+            or c[0] == DECK.JACK
         ]
 
     @staticmethod

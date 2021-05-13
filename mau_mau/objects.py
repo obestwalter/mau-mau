@@ -51,13 +51,3 @@ class Waste(_CardCollection):
 
 class Hand(_CardCollection):
     """technically not necessary but then it's clear what this represents"""
-
-
-class Card:
-    def __init__(self, value, suit):
-        self.value = value
-        self.suit = suit
-
-    def __repr__(self):
-        name = self.__class__.__name__
-        return f"{name}('{self.value}', '{self.suit}')"

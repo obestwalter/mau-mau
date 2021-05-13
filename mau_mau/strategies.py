@@ -74,7 +74,7 @@ class BasicStrategy:
     @property
     def wantedSuit(self):
         """The suit the Player wants as upcard, if he could choose"""
-        counter = collections.Counter([c.suit for c in self.player.hand])
+        counter = collections.Counter([c[1] for c in self.player.hand])
         # returns list of tuples [(value, count), (value, count), ...]
         # this slice simply picks the most common value
         return counter.most_common(1)[0][0]
