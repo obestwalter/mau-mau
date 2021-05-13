@@ -1,7 +1,7 @@
 import logging
 from collections import Iterable
 
-from mau_mau import constants, concepts, subjects, rules, objects
+from mau_mau import constants, concepts, rules, objects
 from mau_mau.constants import DECK
 from mau_mau.objects import Card, Stock, Waste
 from mau_mau.strategies import HumanStrategy, BasicStrategy
