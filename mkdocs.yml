@@ -41,8 +41,7 @@ strict: True
 
 extra:
   social:
-    -   type: 'github'
-        link: 'https://github.com/obestwalter'
-    -   type: 'twitter'
-        link: 'https://twitter.com/obestwalter'
-
+    -   icon: fontawesome/brands/github
+        link: https://github.com/obestwalter
+    -   icon: fontawesome/brands/twitter
+        link: https://twitter.com/obestwalter

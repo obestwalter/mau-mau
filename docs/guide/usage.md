@@ -21,7 +21,7 @@ $ mau-mau
     
     Type:        method
     String form: <bound method cli.<locals>.Cli.play of <mau_mau.play.cli.<locals>.Cli object at 0x7f92d2c46e80>>
-    File:        /home/ob/do/mau-mau/src/mau_mau/play.py
+    File:        /home/ob/do/mau-mau/mau_mau/play.py
     Line:        42
     Docstring:   Play a game against two computer players.
     
