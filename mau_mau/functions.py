@@ -1,15 +1,20 @@
 import logging
 
+from mau_mau.objects import Waste
+
 log = logging.getLogger(__name__)
 
 
-def draw(player, table, amount=1):
+def draw(player, stock, waste, amount=1):
     for _ in range(amount):
-        if not table.stock:
-            table.replenish_stock()
-        card = table.stock.fetch()
+        if not stock:
+            stock = waste
+            stock.shuffle()
+            waste = Waste()
+        card = stock.fetch()
         player.hand.put(card)
         log.debug(f"{player.name} <- {card}")
+    return stock, waste
 
 
 def put(player, table, card, strategy):

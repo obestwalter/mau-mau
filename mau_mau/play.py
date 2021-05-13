@@ -24,7 +24,6 @@ def play_game(gameRules, playerSeed):
         ]
 
     table = objects.Table()
-    table.join(players)
 
     numPlayers = len(players)
     assert numPlayers > 1, "not enough players (need at least two)"
@@ -38,12 +37,12 @@ def play_game(gameRules, playerSeed):
     table.upcard = table.stock.fetch()
     table.rule = gameRules.get_rule(table.upcard)
 
-    for this_player in table.players:
-        draw(this_player, table, gameRules.cardsPerPlayer)
+    for this_player in players:
+        table.stock, table.waste = draw(this_player, table.stock, table.waste, gameRules.cardsPerPlayer)
 
     assert table.upcard
     tableCardsLen = len(table.stock) + len(table.waste) + 1
-    handsLen = sum(len(p.hand) for p in table.players if p.hand)
+    handsLen = sum(len(p.hand) for p in players if p.hand)
     assert tableCardsLen + handsLen == deckLen, (
         tableCardsLen,
         handsLen,

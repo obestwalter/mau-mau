@@ -46,7 +46,9 @@ class MakePlayerDrawTwoCards(BasicRule):
 
     @staticmethod
     def _punishment(player, table):
-        functions.draw(player, table, amount=2)
+        table.stock, table.waste = functions.draw(
+            player, table.stock, table.waste, amount=2
+        )
 
 
 class SkipNextPlayer(BasicRule):
@@ -106,7 +108,7 @@ class MauMau:
         :player Player: player that can't play
         :table Table: The game table
         """
-        functions.draw(player, table)
+        table.stock, table.waste = functions.draw(player, table.stock, table.waste)
 
     @staticmethod
     def wins(cards):

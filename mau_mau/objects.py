@@ -10,26 +10,13 @@ class Table:
         self.stock = None
         self.waste = None
         self.upcard = None
-        self.players = None
         self.rules = None
         self.rule = None
         """active rule"""
 
     def __repr__(self):
         name = self.__class__.__name__
-        return f"{name}({self.rules}, {self.players})"
-
-    def join(self, players):
-        """Players join the table and therefore learn who comes next
-
-        ... not to be confused with joining tables in a database :)
-        """
-        self.players = players
-        for idx, player in enumerate(self.players):
-            try:
-                player.nextPlayer = players[idx + 1]
-            except IndexError:
-                player.nextPlayer = players[0]
+        return f"{name}({self.rules})"
 
     @staticmethod
     def transfer_punishments(sourceRule, destinationRule):
