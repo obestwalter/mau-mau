@@ -23,13 +23,12 @@ def play_game(gameRules, playerSeed):
             for p in playerSeed
         ]
 
-    table = objects.Table()
-
     numPlayers = len(players)
     assert numPlayers > 1, "not enough players (need at least two)"
     neededCards = numPlayers * gameRules.cardsPerPlayer
     assert neededCards <= deckLen, f"too many players ({numPlayers})"
 
+    table = objects.Table()
     table.rules = gameRules
     table.stock = Stock(deck)
     table.stock.shuffle()
@@ -38,7 +37,9 @@ def play_game(gameRules, playerSeed):
     table.rule = gameRules.get_rule(table.upcard)
 
     for this_player in players:
-        table.stock, table.waste = draw(this_player, table.stock, table.waste, gameRules.cardsPerPlayer)
+        table.stock, table.waste = draw(
+            this_player, table.stock, table.waste, gameRules.cardsPerPlayer
+        )
 
     assert table.upcard
     tableCardsLen = len(table.stock) + len(table.waste) + 1

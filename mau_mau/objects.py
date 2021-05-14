@@ -22,11 +22,6 @@ class Table:
     def transfer_punishments(sourceRule, destinationRule):
         destinationRule.punishments.extend(sourceRule.punishments)
 
-    def replenish_stock(self):
-        self.stock = Stock(self.waste)
-        self.waste = Waste()
-        self.stock.shuffle()
-
 
 class Stock(_CardCollection):
     """technically not necessary but then it's clear what this represents"""
