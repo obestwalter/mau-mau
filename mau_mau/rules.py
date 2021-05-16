@@ -30,9 +30,6 @@ class BasicRule:
     def find_playable_cards(self, cards):
         return self.rules.find_playable_cards(self.card, cards)
 
-    def no_play_action(self, player, table):
-        return self.rules.no_play_action(player, table)
-
 
 class MakePlayerDrawTwoCards(BasicRule):
     def __init__(self, *args, **kwargs):
@@ -101,15 +98,3 @@ class MauMau:
             or c[0] == DECK.JACK
         ]
 
-    @staticmethod
-    def no_play_action(player, table):
-        """Determines what a player has to do, if they don't play a card.
-
-        :player Player: player that can't play
-        :table Table: The game table
-        """
-        table.stock, table.waste = functions.draw(player, table.stock, table.waste)
-
-    @staticmethod
-    def wins(cards):
-        return cards is not None and len(cards) == 0

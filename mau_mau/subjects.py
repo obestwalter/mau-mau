@@ -7,12 +7,10 @@ log = logging.getLogger(__name__)
 
 
 class Player:
-    def __init__(self, name, strategyClass=BasicStrategy):
+    def __init__(self, name):
         self.name = name
         self.hand: Hand = Hand()
-        self.strategy = strategyClass(self)
-        self.nextPlayer = None
-        """Will point to next player when players have joined a table"""
+        self.strategy = BasicStrategy(self)
 
     def __repr__(self):
         name = self.__class__.__name__

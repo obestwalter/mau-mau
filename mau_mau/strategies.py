@@ -3,7 +3,6 @@ import logging
 import random
 
 from mau_mau import functions
-from mau_mau.constants import DECK
 
 log = logging.getLogger(__name__)
 
@@ -59,11 +58,19 @@ class BasicStrategy:
 
         if card:
             assert card in candidates, (card, candidates)
-            functions.put(self.player, table, card, self)
+
+            log.debug(f"play {card}")
+            card = self.player.hand.fetch(card)
+            table.waste.put(table.upcard)
+            table.upcard = card
+            oldRule = table.rule
+            table.rule = table.rules.get_rule(card)
+            table.rule.strategy = self
+            table.transfer_punishments(oldRule, table.rule)
             return
 
         log.debug("nothing to play")
-        rule.no_play_action(self.player, table)
+        table.stock, table.waste = functions.draw(self.player, table.stock, table.waste)
 
     # noinspection PyUnusedLocal
     @classmethod
@@ -80,38 +87,4 @@ class BasicStrategy:
         return counter.most_common(1)[0][0]
 
 
-class HumanStrategy(BasicStrategy):
-    @classmethod
-    def choose_antidote(cls, find_antidotes, _, cards):
-        allowedAntidotes = find_antidotes(cards)
-        if not allowedAntidotes:
-            log.info("no antidotes. Just take the punishment ...")
-            return
-
-        return cls.get_valid_choice(allowedAntidotes, "choose antidote")
-
-    @classmethod
-    def choose_best_candidate(cls, cards, *args, **kwargs):
-        return cls.get_valid_choice(cards, "choose card to play")
-
-    # fixme player is asked repeatedly if others can't play
-    # add a buffer that saves the choice until the card is played
-    @property
-    def wantedSuit(self):
-        return self.get_valid_choice(DECK.SUITS, "choose wanted suit")
-
-    @classmethod
-    def get_valid_choice(cls, choices, msg):
-        def visualize(elems):
-            c = [f"{i} -> {c}" for i, c in enumerate(elems, 1)]
-            return " | ".join(c)
-
-        while True:
-            idx = input(
-                f"{msg}.\n{visualize(choices)}\n(choose 1 - {len(choices)}): "
-            )
-            try:
-                return choices[int(idx) - 1]
-
-            except (IndexError, ValueError):
-                log.warning(f"'{idx}' is not a valid choice")
+# HumanStrategy had to go due to decomposition

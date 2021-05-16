@@ -1,11 +1,11 @@
 import logging
 from collections import Iterable
 
-from mau_mau import constants, rules, objects
+from mau_mau import rules, objects
 from mau_mau.constants import DECK
 from mau_mau.functions import draw
 from mau_mau.objects import Stock, Waste
-from mau_mau.strategies import HumanStrategy, BasicStrategy
+from mau_mau.strategies import BasicStrategy
 from mau_mau.subjects import Player
 
 log = logging.getLogger(__name__)
@@ -19,7 +19,7 @@ def play_game(gameRules, playerSeed):
         players = [Player(f"Player {n}") for n in range(1, playerSeed + 1)]
     else:
         players = [
-            Player(p, HumanStrategy if p == "human" else BasicStrategy)
+            Player(p, BasicStrategy)
             for p in playerSeed
         ]
 
@@ -53,27 +53,27 @@ def play_game(gameRules, playerSeed):
     log.debug("Start new game")
     current_player_index = 0
     while True:
+        log.debug(f"upcard: {table.upcard}")
+        if current_player_index >= len(players):
+            current_player_index = 0
+        player = players[current_player_index]
+        log.debug(f"{player} is up")
+
+        player.play(table)
         try:
             return [p for p in players if len(p.hand) == 0][0]
         except IndexError:
             pass
-
-        try:
-            player = players[current_player_index]
-        except IndexError:
-            current_player_index = 0
-            player = players[0]
-
-        log.debug(f"upcard: {table.upcard}")
-        log.debug(f"{player} is up")
-        player.play(table)
+        current_player_index += 1
 
 
 if __name__ == "__main__":
     # TODO cannot pass what to play from command line
     # TODO make possible to pass normal play and sim stuff
-    logging.basicConfig(format=constants.LOG.FMT, level=logging.DEBUG)
+    logging.basicConfig(
+        format="%(name)-20s%(lineno)-3s %(funcName)-17s: %(message)s".format(),
+        level=logging.DEBUG
+    )
     # playerNames = ["Eric", "John", "human"]
-    numPlayers = 3
-    the_winner = play_game(rules.MauMau(), numPlayers)
+    the_winner = play_game(rules.MauMau(), 3)
     log.info(f"And the winner is {the_winner.name}")
