@@ -27,8 +27,8 @@ class BasicRule:
         name = self.__class__.__name__
         return f"{name} on {self.card}"
 
-    def find_playable_cards(self, cards):
-        return self.rules.find_playable_cards(self.card, cards)
+    def find_playable_cards(self, player):
+        return self.rules.find_playable_cards(self.card, player)
 
 
 class MakePlayerDrawTwoCards(BasicRule):
@@ -55,15 +55,15 @@ class SkipNextPlayer(BasicRule):
 
 
 class DemandWantedSuit(BasicRule):
-    def find_playable_cards(self, cards):
+    def find_playable_cards(self, player):
         try:
-            wantedSuit = self.strategy.wantedSuit
+            wantedSuit = self.strategy.wanted_suit(player)
         except AttributeError:
             # No strategy attached -> First card in game
             wantedSuit = self.card[1]
         return [
             c
-            for c in cards
+            for c in player.hand
             if c[1] == wantedSuit and not c[0] == DECK.JACK
         ]
 
@@ -88,11 +88,11 @@ class MauMau:
         return RuleClass(card, cls)
 
     @staticmethod
-    def find_playable_cards(upcard, cards):
+    def find_playable_cards(upcard, player):
         """Determines when a card is playable on the upcard"""
         return [
             c
-            for c in cards
+            for c in player.hand
             if upcard[0] == c[0]
             or upcard[1] == c[1]
             or c[0] == DECK.JACK

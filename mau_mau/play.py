@@ -18,10 +18,7 @@ def play_game(gameRules, playerSeed):
     if not isinstance(playerSeed, Iterable):
         players = [Player(f"Player {n}") for n in range(1, playerSeed + 1)]
     else:
-        players = [
-            Player(p, BasicStrategy)
-            for p in playerSeed
-        ]
+        players = [Player(p) for p in playerSeed]
 
     numPlayers = len(players)
     assert numPlayers > 1, "not enough players (need at least two)"
@@ -52,6 +49,7 @@ def play_game(gameRules, playerSeed):
 
     log.debug("Start new game")
     current_player_index = 0
+    strategy = BasicStrategy()
     while True:
         log.debug(f"upcard: {table.upcard}")
         if current_player_index >= len(players):
@@ -59,7 +57,7 @@ def play_game(gameRules, playerSeed):
         player = players[current_player_index]
         log.debug(f"{player} is up")
 
-        player.play(table)
+        strategy.play(table, player)
         try:
             return [p for p in players if len(p.hand) == 0][0]
         except IndexError:

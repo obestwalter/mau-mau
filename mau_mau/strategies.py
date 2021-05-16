@@ -8,10 +8,7 @@ log = logging.getLogger(__name__)
 
 
 class BasicStrategy:
-    def __init__(self, player):
-        self.player = player
-
-    def play(self, table):
+    def play(self, table, player):
         rule = table.rule
         log.debug("encountered rule %s", rule)
         if rule.skipPlayer:
@@ -21,17 +18,17 @@ class BasicStrategy:
 
         card = None
         if rule.find_antidotes:
-            card = self.before_play(table)
-        self._play(table, card)
+            card = self.before_play(table, player)
+        self._play(table, player, card)
 
-    def before_play(self, table):
+    def before_play(self, table, player):
         antidote = self.choose_antidote(
-            table.rule.find_antidotes, self.antidote_strategy, self.player.hand
+            table.rule.find_antidotes, self.antidote_strategy, player.hand
         )
 
         if not antidote:
             while table.rule.punishments:
-                table.rule.punishments.pop()(self.player, table)
+                table.rule.punishments.pop()(player, table)
         return antidote
 
     @classmethod
@@ -48,9 +45,9 @@ class BasicStrategy:
     def antidote_strategy(antidotes, *args, **kwargs):
         return random.choice(antidotes)
 
-    def _play(self, table, card=None):
+    def _play(self, table, player, card):
         rule = table.rule
-        candidates = rule.find_playable_cards(self.player.hand)
+        candidates = rule.find_playable_cards(player)
         if not card:
             log.debug("find card to play")
             if candidates:
@@ -60,7 +57,7 @@ class BasicStrategy:
             assert card in candidates, (card, candidates)
 
             log.debug(f"play {card}")
-            card = self.player.hand.fetch(card)
+            card = player.hand.fetch(card)
             table.waste.put(table.upcard)
             table.upcard = card
             oldRule = table.rule
@@ -70,7 +67,7 @@ class BasicStrategy:
             return
 
         log.debug("nothing to play")
-        table.stock, table.waste = functions.draw(self.player, table.stock, table.waste)
+        table.stock, table.waste = functions.draw(player, table.stock, table.waste)
 
     # noinspection PyUnusedLocal
     @classmethod
@@ -78,10 +75,10 @@ class BasicStrategy:
         """Not much of a strategy here :)"""
         return cards[0]
 
-    @property
-    def wantedSuit(self):
+    @staticmethod
+    def wanted_suit(player):
         """The suit the Player wants as upcard, if he could choose"""
-        counter = collections.Counter([c[1] for c in self.player.hand])
+        counter = collections.Counter([c[1] for c in player.hand])
         # returns list of tuples [(value, count), (value, count), ...]
         # this slice simply picks the most common value
         return counter.most_common(1)[0][0]
